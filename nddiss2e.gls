@@ -1,0 +1,23 @@
+
+ \begin{theglossary} 
+
+    \makeatletter\scan@allowedfalse
+
+  \item v0.98\efill 
+ \subitem General:\ Initial {\em  beta} version\pfill 1
+  \item v1.0\efill 
+ \subitem Release:\ First release\pfill 1
+  \item v1.1\efill 
+ \subitem General:\ Minor changes and clean-up\pfill 1
+  \item v2.0\efill 
+ \subitem General:\ Some bugfixes, cleaned some of documentation\pfill 1
+  \item v2.1\efill 
+ \subitem General:\ More bugfixes, changes in documentation\pfill 1
+  \item v3.0\efill 
+ \subitem Release:\ Major revamp and clean-up of the code, added \texttt  {numrefs} and \texttt  {textrefs} to allow different kinds of citation styles, added some more macros and modified others, changed the titlepage a bit, completed source documentation\pfill 1
+  \item v3.2013\efill 
+ \subitem Release:\ Some bug fixes, minor changes in documentation, and addition of support for parts. - MP\pfill 1
+  \item v3.2013$\beta $\efill 
+ \subitem Release:\ Initial release of updates in order to comply with the Graduate School's current formatting regulations and to take advantage of some LaTeX package updates. Should be functional, and has been approved by the Dissertation/Thesis editors, but has not undergone wide-scale testing. - Megan Patnott\pfill 1
+
+ \end{theglossary}

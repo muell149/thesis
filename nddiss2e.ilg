@@ -1,0 +1,14 @@
+This is makeindex, version 2.14 [02-Oct-2002] (kpathsea + Thai support).
+Scanning style file /usr/share/texmf/makeindex/latex/gglo.ist........
+** Input style error (file = /usr/share/texmf/makeindex/latex/gglo.ist, line = 76):
+   -- Unknown specifier lethead_prefix.
+** Input style error (file = /usr/share/texmf/makeindex/latex/gglo.ist, line = 77):
+   -- Unknown specifier lethead_suffix.
+** Input style error (file = /usr/share/texmf/makeindex/latex/gglo.ist, line = 78):
+   -- Unknown specifier lethead_flag.
+......done (14 attributes redefined, 3 ignored).
+Scanning input file nddiss2e.glo....done (8 entries accepted, 0 rejected).
+Sorting entries....done (23 comparisons).
+Generating output file nddiss2e.gls....done (23 lines written, 0 warnings).
+Output written in nddiss2e.gls.
+Transcript written in nddiss2e.ilg.
