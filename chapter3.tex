@@ -113,20 +113,73 @@ over 21 m long. The name muon is because muons are the particles it detects with
 around which the detector is built. CMS is cylindrical in shape, as pictured in Figure~\ref{fig:cms_overview}. The various subdetectors and components are described in more
 below. 
 
+
+describe COORDINATE SYSTEM!!!!
+
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{cms_overview.pdf}
    \caption[text in square brackets]{text in curly brackets}
    \label{fig:cms_overview}
  \end{center}
-
+\end{figure}
 
 \subsection{Tracker}
+The innermost piece of CMS is the tracking system, specifically the pixel detector. The pixel detector is comprised of 65 million silicon pixels, allowing it to record
+precise trajectories of the charged particles resulting from collisions. As the particles travel through successive layers of silicon pixels, they leave a hits, or points
+of impact on each pixel. The particles trajectory or track is reconstructed from collections of hits. Each pixel measurses 100 $\mu$m by 150 $\mu$m and
+the hits are measured with precision of 10 $\mu$m. As a particle travels through a pixel, it releases electrons from the silicon atoms, creating electron-hole pairs.
+A voltage is applied to the pixel, attracting the free electrons and creating a small current, which is measured and translated to a hit. Small readout electronics
+are attached to the back of each pixel to send the hit information to the data acquisition system, so the hit patterns can be reconstructed into particle tracks later.   
+The silicon material in the tracker is choosen specifically to disturb the particles as little as possible, while still providing accurate particle track reconstruction.
+Additionally, the material is resistant to radiation, as it is only a few centimeters from the interaction point. The pixel detector, about the size of a shoe box, contains
+3 layers at 4 cm, 7 cm, and 11 cm from the beam. The pixel detector sits inside of the next outer layer of tracking, the silicon strip detector.  
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.6\textwidth]{tracker_yz.pdf}
+   \includegraphics[width=0.2\textwidth]{tracker_transverse_layers.pdf}
+   \caption[text in square brackets]{text in curly brackets}
+   \label{fig:cms_tracker}
+ \end{center}
+\end{figure}
+
+The silicon strip detector consists of about 10 million strips in 10 layers, extending to 130 cm from the beam. The strips detect particle tracks the same way as the pixels.
+The strip detector is comprised of 4 distinct sections of silicon strips, depicted in
+Figure~\ref{fig:cms_tracker}. The outer most sections are the tracker outer barrel (TOB) and tracker end cap (TEC+,-) sections. Between the TOB and the pixels, sits the tracker
+inner barrel (TIB) section, and the tracker inner endcaps (TID+,-). The silicon strips in each section are different, specifically suited to that section.
+Each silicon strip measures between 10-25 $\mu$m by 180 $\mu$m, depending on the section. The total detector area of the tracking system (pixels+strips) sums to more than
+a tennis court of silicon. Precise tracking information is essential to measuring particle momenta and identifying particles in a strong magnetic field.
+
 \subsection{ECAL}
+
+After particles pass through the tracking detector, they enter the Electromagnetic Calorimeter (ECAL). The ECAL measures the energy of the particles that interact via the
+electromagnetic force, specifically electrons and photons.
+
+The ECAL is comprised of over 75,000 scintillating lead tungstate ($PbWO_{4}$) crystals. The ECAL is made up of
+three sections; the barrel, endcaps, and preshower, depicted in Figure~\ref{fig:cms_ecal}.
+
+The choice of lead tungstate is motivated by needing to stop the particles, and
+also scintillate effectively to allow an accurate energy readout and measurement. The stopping action is accomplished with the lead, while the scintillating is accomplished with
+crystalline oxygen. These combined properties allow the crystals to produce photons (light) in proportion to the amount of energy deposited by the stopped particles.
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.9\textwidth]{cms_ecal.pdf}
+   \caption[text in square brackets]{text in curly brackets}
+   \label{fig:cms_ecal}
+ \end{center}
+\end{figure}
+
+
 \subsection{HCAL}
+
 \subsection{Solenoid}
+
 \subsection{Muon Chambers}
+
 \subsection{Trigger & Data Acquisition}
+
 
 % % uncomment the following lines,
 % if using chapter-wise bibliography
