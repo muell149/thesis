@@ -148,15 +148,15 @@ below.
 \subsection{Tracker}
 \subsubsection{Pixel Detector}
 The innermost piece of CMS is the tracking system, specifically the pixel detector. The pixel detector is comprised of 65 million silicon pixels, allowing it to record
-precise trajectories of the charged particles resulting from collisions.
+precise trajectories of the charged particles resulting from collisions. Precise tracking information is critical to differentiating nearby particles, and identifying
+exactly where an interesting collision took place. 
 
 The pixel detector, about the size of a shoe box, contains 3 layers at 4 cm, 7 cm, and 11 cm from the beam.
 The silicon material in the tracker is choosen specifically to disturb the particles as little as possible, while still providing accurate particle track reconstruction.
 Additionally, the material is resistant to radiation, as it is only a few centimeters from the interaction point. Each pixel measurses 100 $\mu$m by 150 $\mu$m. 
 
-As the particles travel through successive layers of silicon pixels, they leave a hits, or points of impact on each pixel.
-The hits are measured with precision of 10 $\mu$m.
-The particles trajectory or track is reconstructed from collections of hits. 
+As the particles travel through successive layers of silicon pixels, they leave points of impact on each pixel, known as hits.
+The hits are measured with a precision of 10 $\mu$m, and the particle trajectory or track is reconstructed from collections of hits. 
 As a particle travels through a pixel, it releases electrons from the silicon atoms, creating electron-hole pairs.
 A voltage is applied to the pixel, attracting the free electrons and creating a small current, which is measured and translated to a hit. Small readout electronics
 are attached to the back of each pixel to send the hit information to the data acquisition system, so the hit patterns can be reconstructed into particle tracks later.   
@@ -171,12 +171,17 @@ are attached to the back of each pixel to send the hit information to the data a
 \end{figure}
 
 \subsubsection{Strip Detector}
-The silicon strip detector consists of about 10 million strips in 10 layers, extending to 130 cm from the beam. The strips detect particle tracks the same way as the pixels.
+Outside the pixel detector is the silicon strip detector. Here, silicon strips are favored over pixels as they are less costly, and the resolution provided by the pixels
+is not necessary at greater distances from the interaction point, allowing for larger and fewer silicon modules. 
+
+The silicon strip detector consists of about 10 million strips in 10 layers, extending to 130 cm from the beam. 
 The strip detector is comprised of 4 distinct sections of silicon strips, depicted in
 Figure~\ref{fig:cms_tracker}. The outer most sections are the tracker outer barrel (TOB) and tracker end cap (TEC+,-) sections. Between the TOB and the pixels, sits the tracker
 inner barrel (TIB) section, and the tracker inner endcaps (TID+,-). The silicon strips in each section are different, specifically suited to that section.
 Each silicon strip measures between 10-25 $\mu$m by 180 $\mu$m, depending on the section. The total detector area of the tracking system (pixels+strips) sums to more than
 a tennis court of silicon. Precise tracking information is essential to measuring particle momenta and identifying particles in a strong magnetic field.
+
+The strips detect particle tracks the same way as the pixels.
 
 \subsection{ECAL}
 
