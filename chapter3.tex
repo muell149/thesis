@@ -77,7 +77,7 @@ within reach of the LHC. Because many interesting physics processes are exceedin
 are needed to produce such a process. There are over 2800 bunches in each beam, with each bunch spaced 25 ns apart. This spacing is choosen to
 produce as many bunch crossings as possible, without overloading
 the detector instrumentation and data acquisition. There are approximately $10^{11}$ protons in each bunch, but due to the small cross section of the protons,
-only approximately 20 collisions occur in each bunch crossing. The beams travel around the LHC over 11,246 times per second, over 99.99$%$ the speed of light. 
+only approximately 20 collisions occur in each bunch crossing. The beams travel around the LHC over 11,246 times per second, over 99.99$\%$ the speed of light. 
 This translates to around 600 million collisions per second. Thanks to these properties, the LHC
 lends itself to producing rare and heavy processes.
 
@@ -85,7 +85,7 @@ lends itself to producing rare and heavy processes.
 The quantity used to describe the number of collisions occuring is called Luminosity.
 Described in equation~\ref{eqn:lumi_inst} below, instantaneous luminosity represents the number of collisions (events) occuring per unit time.
 
-\begin{equation}[htbp]
+\begin{equation}
 \label{eqn:lumi_inst}
  \mathcal{L}_{inst} = \frac{N_{b}^{2}n_{b}f_{\textnormal{rev}}\gamma}{4\pi \epsilon_{n} \beta^{*}}F
 \end{equation}
@@ -96,7 +96,7 @@ $F$ describes the factor related to the crossing angle of the beams. Because not
 to every analysis at an LHC collider experiment. From the instantaneous luminosity, the total number of collisions in time interval $t$ can be calculated by integrating over time
 in equation~\ref{eqn:num_coll} below. 
 
-\begin{equation}[htbp]
+\begin{equation}
 \label{eqn:num_coll}
 N_{pp} = \int \sigma_{pp}\mathcal{L}_{inst}dt 
 \end{equation}
@@ -105,7 +105,7 @@ N_{pp} = \int \sigma_{pp}\mathcal{L}_{inst}dt
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{lhc_complex.pdf}
-   \caption[text in square brackets]{text in curly brackets}
+   \caption[text in square brackets]{An overview of the LHC accelerator complex.}
    \label{fig:lhc_complex}
  \end{center}
 \end{figure}
@@ -138,12 +138,20 @@ below.
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{cms_overview.pdf}
-   \caption[text in square brackets]{text in curly brackets}
+   \caption[text in square brackets]{A qualitative overview of the CMS detector.}
    \label{fig:cms_overview}
  \end{center}
 \end{figure}
 
 \subsection{Coordinate System}
+Due to the geometry of the collisions produced inside CMS, a special coordinate system is used for simplicity. With the origin at the interaction point,
+the y-axis in the verical direction, the z-axis parallel to/along the beam direction, and the x-axis in the horizontal direction, perpendicular to both the y
+and z axes. In the transverse x-y plane, the angle formed with respect to the x-axis is $\phi$. In the y-z plane, the angle formed with respect to the z-axis
+is $\theta$. The number of particles traveling through a given area, known as flux, increases towards the beam line, due to many more glancing collisons ocurring
+than head-on collisions. The particles from the collisions are moving relativistically. Because of this, a special coordinate $\eta = -\ln\tan(\theta/2)$ 
+is used to describe the angular position with respect to the z-axis, known as $pseudorapidity$. The head-on inelastic pp collisions have only momentum in the 
+z-direction, thus measuring energy and momentum quantities in the transverse plane is important in analyzing and reconstructing collision events due to momentum
+conservation.  
 
 \subsection{Tracker}
 \subsubsection{Pixel Detector}
@@ -165,7 +173,7 @@ are attached to the back of each pixel to send the hit information to the data a
  \begin{center}
    \includegraphics[width=0.6\textwidth]{tracker_yz.pdf}
    \includegraphics[width=0.25\textwidth]{tracker_transverse_layers.pdf}
-   \caption[text in square brackets]{text in curly brackets}
+   \caption[text in square brackets]{The CMS silicon tracking system including both the pixel and strip detectors in y-z plane (left), and tranverse x-y plane (right).}
    \label{fig:cms_tracker}
  \end{center}
 \end{figure}
