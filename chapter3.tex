@@ -117,9 +117,6 @@ N_{pp} = \int \sigma_{pp}\mathcal{L}_{inst}dt
 \end{figure}
 
 
-
-
-
 \section{The Compact Muon Solenoid (CMS) Detector}
 The Compact Muon Solenoid (CMS) detector is a multi purpose particle detector designed to record and identify particles produced in collisions at the LHC, sitting 100 m underneath
 the town of Cessy, France. CMS is comprised of layers of subdetectors which are connected to the trigger system and the data acquisition system.
@@ -183,27 +180,32 @@ inner barrel (TIB) section, and the tracker inner endcaps (TID+,-). The silicon 
 Each silicon strip measures between 10-25 $\mu$m by 180 $\mu$m, depending on the section. The total detector area of the tracking system (pixels+strips) sums to more than
 a tennis court of silicon. Precise tracking information is essential to measuring particle momenta and identifying particles in a strong magnetic field.
 
-The strips detect particle tracks the same way as the pixels.
-
 \subsection{ECAL}
 
+The Electromagnetic Calorimeter (ECAL) measures the energy of particles that interact via the electromagnetic force. The ECAL is situated immediately outside tracker
+and is made of up thousands of lead tungstate ($PbWO_{4}$) crystals in three sections. The ECAL provides good energy resolution and fast readouts,
+which make it ideal for recording the frequent events produced by the LHC. 
 
+The ECAL is made up of three sections; the barrel, endcaps, and preshower, depicted in Figure~\ref{fig:cms_ecal}. The barrel section is cylindrical and covers the full $\phi$
+range, and extends between $|\eta| < 1.479$ in y-z. The barrel consists of 61200 crystals, each measuring approximately 2.2 cm x 2.2cm x 23 cm. The length of each barrel
+crystal translates to approximately 26 radiation lengths. The two endcaps sit on each end of the barrel, extending between $1.479 < |\eta|< 3.0$, 315 cm on either side of
+the interaction point. There 14648 identical crystals in the endcaps, each measuring 3 cm x 3 cm x 22 cm. Like the crystals in the barrel, these crystals have a small taper
+with the smaller face pointing towards the interaction point. The preshower disc sits on the ends of the barrel and in front of the endcaps. The preshower measures 2.5 m in
+circumference and is 20 cm thick. The ECAL preshower consists of two layers
+of lead, followed by silicon sensors measuring 2mm x 2mm. The preshower allows ECAL to resolve nearby photon pairs, and discriminate against those coming from in-flight decays
+of neutral pions. The scintillation light from each crystal is detected by an Avalanche Photo Diode (APD) in the barrel, and an Vaccuum Photo Triode (VPT) in the endcap.
+These readouts convert the scintillation light to a voltage pulse that is passed futher downstream to the trigger and DAQ. 
 
-
-The ECAL measures the energy of the particles that interact via the electromagnetic force, specifically electrons and photons.
-
-The ECAL is comprised of over 75,000 scintillating lead tungstate ($PbWO_{4}$) crystals. The ECAL is made up of
-three sections; the barrel, endcaps, and preshower, depicted in Figure~\ref{fig:cms_ecal}. 
-
-After particles pass through the tracking system, they enter the Electromagnetic Calorimeter (ECAL). The choice of lead tungstate is motivated by needing to stop the particles, and
-also scintillate effectively to allow an accurate energy readout and measurement. The stopping action is accomplished with the lead, while the scintillating is accomplished with
-crystalline oxygen. These combined properties allow the crystals to produce photons (light) in proportion to the amount of energy deposited by the stopped particles.
+After particles pass through the silicon tracking system, they enter ECAL. The ECAL measures the energy of the electrons and photons produced in the LHC collisions.
+The choice of the lead tungstate material is motivated by needing to stop the particles, and also scintillate light effectively to allow an accurate energy readout and measurement
+The stopping action is accomplished with the lead, while the scintillation is accomplished with
+the crystalline oxygen. These combined properties produce photons (light) in proportion to the amount of energy deposited by the stopped particles.
 
 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.9\textwidth]{tracker_yz.pdf}
+   \includegraphics[width=0.9\textwidth]{ecal_rapidity.pdf}
    \caption[text in square brackets]{text in curly brackets}
    \label{fig:cms_ecal}
  \end{center}
