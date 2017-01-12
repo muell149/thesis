@@ -199,8 +199,6 @@ The choice of the lead tungstate material is motivated by needing to stop the pa
 The stopping action is accomplished with the lead, while the scintillation is accomplished with
 the crystalline oxygen. These combined properties produce photons (light) in proportion to the amount of energy deposited by the stopped particles.
 
-
-
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ecal_rapidity.pdf}
@@ -209,26 +207,30 @@ the crystalline oxygen. These combined properties produce photons (light) in pro
  \end{center}
 \end{figure}
 
-
 \subsection{HCAL}
 The CMS Hadronic Calorimeter measures the energy of hadronically-decaying particles and hadron jets which interact via the strong force. The HCAL sits outside and encloses the ECAL.
-The HCAL is made up alternating layers of brass and plastic scintillator material in four separate pieces. The HCAL provides energy resolution that helps reconstruct and tag hadronic
+The HCAL is sampling calorimeter made up alternating layers of brass absorber and plastic scintillator material in four separate pieces. The HCAL provides energy resolution that helps reconstruct and tag hadronic
 jets, as well as reconstructing the $missing transverse energy$ or MET, which can infer the presence of neutrinos or other undiscovered exotic particles. 
 
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{hcal.pdf}
-   \caption[text in square brackets]{text in curly brackets}
+   \caption[text in square brackets]{Longitudinal view of one quarter of the HCAL.}
    \label{fig:cms_hcal}
  \end{center}
 \end{figure}
 
-The four sections of the HCAL are the barrel (HB), the endcaps (HE), the outter barrel (HO) and the forward HCAL (HF). The barrel extends from 1.77 m to 2.95 m from the interaction point and
+The four sections of the HCAL are the barrel (HB), the endcaps (HE), the outter barrel (HO) and the forward HCAL (HF) in Figure~\ref{fig:cms_hcal}. The barrel extends from 1.77 m to 2.95 m from the interaction point and
 sits between the outside of the ECAL barrel and the inside of the magnet coil in the transverse plane. The HB covers a psuedorapidity range of $|\eta| < 1.3$.
 The endcaps cover a psuedorapidity of $1.3 < |\eta| < 3$, which contains approximately 34$\%$ of final state particles. The HO sits outside and around the solenoid coil covering the same psuedorapidity range,
-as the HB, it utilizes the magnet coil as an additional absorbing layer ensuring detection of any particle exiting the HB. The HF sits on the outside of 
+as the HB, it utilizes the magnet coil as an additional absorbing layer ensuring detection of any particle exiting the HB. The HF sits outside of all other subdetectors at $\pm$11 m from the interaction point
+and covers $3.0 < |\eta| < 5.0$ in psuedorapidity. The HF was specially designed to resist the intense radiation deposited in this forward region. Within each plastic scintillator tile are optical wavelength-shifting fibers.
+Measuring less than 1 mm in diameter, these fibers connect to other optical fibers which send the light signals to Hybrid Photodiodes (HPDs). The fast and radiation-resistant HPDs amplify the light and convert it
+into an electronic signal via the photoelectric effect.
 
-
+As strongly-interacting particles travel through the HCAL, they interact with the dense brass absorber material decaying and producing showers of secondary particles which further cascade and travel scintillator and absorber material.
+As the shower particles pass through the scintillator material, they emit a blue-violet light. This blue-violet light is then converted to green light via the wavelength shifting fibers and send to the HPDs for readout. Like the ECAL,
+the amount of light emitted corresponds to the amount of energy deposited. 
 
 \subsection{Solenoid}
 Central to the design and name of CMS, the CMS magnet is the largest superconducting solenoid of its kind in the world.
