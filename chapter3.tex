@@ -270,7 +270,39 @@ The muon chambers are comprised of 3 unique gas detection systems-Drift Tubes (D
  \end{center}
 \end{figure}
 
-The DTs cover the barrel region
+The DTs cover the barrel region of the detector. There are three concentric cylindrical layers each containing 60 drift tube chambers, and one additional outer layer with 70.
+Each drift tube measures 4 cm wide and is filled with gas, a mixture of 85$\%$ Ar and 15$\%$ $CO_{2}$. A 2.4 m positively charged current-carrying wire in the center of the drift tube attracts electrons from the ionization of the gas caused by a passing muon. The drift tubes provide two coordinates for the muon position by measuring where along the wire the
+electrons hit, and the time it takes to register, since the speed of the electrons in the gas is known. The DTs are useful in the barrel only, where there are lower particle fluxes
+and intensities. 
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.9\textwidth]{cms_dt.pdf}
+   \caption[text in square brackets]{A map of the electric field of the drift tubes in absence of magnetic field. In the presence of a magnetic field there is a small distortion that is accounted for.}
+   \label{fig:cms_dt}
+ \end{center}
+
+
+The CSCs are used only in the endcaps, where there is a greater particle intensity and an uneven magnetic field. 468 CSCs make up the CMS endcaps, which each chamber being trapezoidal in shape there are 7 layers of CSCs. Each chamber consists of positvely charged anode wires which cross negatively charged cathode strips which are enclosed in a chamber filled with gas. As muons enter a
+CSC they ionize the gas, causing freed electrons to travel to the positive wires, and positive charges towards the cathode strips. The charge pulses are detected in both the strips
+and the wires, which are perpendicular to each other, providing two coordinates for each muon hit. The CSCs provide good position information quickly making them suitable for use in the endcaps. 
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.9\textwidth]{cms_csc.pdf}
+   \caption[text in square brackets]{CSC module (left) and a depiction of the CSC opteration (right). The strips provide preices position information.}
+   \label{fig:cms_csc}
+ \end{center}
+
+The third type of muon detector used is the RPC. Unlike the DTs and the CSCs, the RPCs are used in both the barrel and the endcaps. The RPCs are characterized by their fast response time, which makes thenm suitable for triggering. Thanks to this very fast response (< 1 ns), the RPCs can easily identify which bunch crossing a muon is associated with. 
+Each RPC consists of two oppositely-charged parallel plates within a gas volume and detecting strips of electrodes. These detecting strips quickly reconstruct muon tracks allowing for fast triggering decisions based on muon momentum.  
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.9\textwidth]{cms_rpc.pdf}
+   \caption[text in square brackets]{A qualitative depiction of an RPC.}
+   \label{fig:cms_rpc}
+ \end{center}
  
 \subsection{Trigger & Data Acquisition}
 
