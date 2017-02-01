@@ -1,8 +1,0 @@
-\contentsline {chapter}{FIGURES}{iv}
-\contentsline {chapter}{TABLES}{v}
-\contentsline {chapter}{ACKNOWLEDGMENTS}{vi}
-\contentsline {chapter}{{CHAPTER\ 1: INTRODUCTION}}{1}
-\contentsline {section}{\numberline {1.1}Overview}{1}
-\contentsline {subsection}{\numberline {1.1.1}Background}{1}
-\contentsline {subsection}{\numberline {1.1.2}Foreground}{1}
-\contentsline {section}{\numberline {1.2}Groovin' Gnus}{3}

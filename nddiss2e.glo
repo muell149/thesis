@@ -1,8 +1,0 @@
-\glossaryentry{v0.98> =General:>Initial {\em  beta} version}{1}
-\glossaryentry{v1.0> =Release:>First release}{1}
-\glossaryentry{v1.1> =General:>Minor changes and clean-up}{1}
-\glossaryentry{v2.0> =General:>Some bugfixes, cleaned some of documentation}{1}
-\glossaryentry{v2.1> =General:>More bugfixes, changes in documentation}{1}
-\glossaryentry{v3.0> =Release:>Major revamp and clean-up of the code, added \texttt  {numrefs} and \texttt  {textrefs} to allow different kinds of citation styles, added some more macros and modified others, changed the titlepage a bit, completed source documentation}{1}
-\glossaryentry{v3.2013$\beta $> =Release:>Initial release of updates in order to comply with the Graduate School's current formatting regulations and to take advantage of some LaTeX package updates. Should be functional, and has been approved by the Dissertation/Thesis editors, but has not undergone wide-scale testing. - Megan Patnott}{1}
-\glossaryentry{v3.2013> =Release:>Some bug fixes, minor changes in documentation, and addition of support for parts. - MP}{1}
