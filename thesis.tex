@@ -57,6 +57,7 @@
 
 \usepackage{multirow}
 \usepackage{subfigure}
+\usepackage{hyperref}
 \begin{document}
 
 \frontmatter         % All the items before Chapter 1 go in ``frontmatter''
@@ -73,7 +74,7 @@
  % You must use either the \makecopyright option or the \makepublicdomain option.
 \copyrightholder{Charles Mueller} % If you're not the copyright holder
 \copyrightyear{2017}   % If the copyright is not for the current year
-\makecopyright      % If not making your work public domain
+\makecopyright
 
 % uncomment out \makecopyright
 % \makepublicdomain   % Uncomment this to make your work public domain
@@ -81,10 +82,10 @@
 % Including an abstract is optional for a master's thesis, and required for a
 % doctoral dissertation.
 
-\begin{abstract}
-  An analysis of standard model Higgs boson production in association with 
-  a top-quark pair is presented.
-\end{abstract}
+%% \begin{abstract}
+%% An analysis of standard model Higgs boson production in association with 
+%% a top-quark pair is presented.
+%% \end{abstract}
 
 %                         % Either place the text between begin/end, or
 % \include{abstract}  % put it in a file to be included
@@ -94,11 +95,9 @@
                                            % something else. It must be in
                                            % all caps, and doing so is your
                                            % responsibility.
-\begin{dedication}
-Dedicated to my parents, Charlie and Toni.
-\end{dedication}
- %                       % Use one of the two choices to add dedication text
- % \include{dedication}
+%% \begin{dedication}
+%% Dedicated to my parents, Charlie and Toni.
+%% \end{dedication}
 
 \tableofcontents
 \listoffigures
@@ -164,6 +163,6 @@ I would like to thank Geoff Smith.
 \end{document}
 
 %%
-\endinput
+%%\endinput
 %%
 %% End of file `template.tex'.
