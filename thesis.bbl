@@ -1,0 +1,347 @@
+\begin{thebibliography}{53}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Chatrchyan et~al.(2012{\natexlab{a}})]{cms_higgs}
+S.~Chatrchyan et~al.
+\newblock Observation of a new boson at a mass of 125 {G}ev with the {CMS}
+  experiment at the {LHC}.
+\newblock \emph{Phys. Lett. B}, 716:\penalty0 30, 2012{\natexlab{a}}.
+\newblock ISSN 0370-2693.
+\newblock \doi{10.1016/j.physletb.2012.08.021}.
+
+\bibitem[Aad et~al.(2012)]{atlas_higgs}
+G.~Aad et~al.
+\newblock Observation of a new particle in the search for the {S}tandard
+  {M}odel {H}iggs boson with the {ATLAS} detector at the {LHC}.
+\newblock \emph{Phys. Lett. B}, 716:\penalty0 1, 2012.
+\newblock ISSN 0370-2693.
+\newblock \doi{10.1016/j.physletb.2012.08.020}.
+
+\bibitem[NP1(Accessed: April 3rd 2014)]{NP13}
+The nobel prize in physics 2013.
+\newblock Website, Accessed: April 3rd 2014.
+\newblock \url{http://www.nobelprize.org/nobel_prizes/physics/laureates/2013/}.
+
+\bibitem[{ALEPH, DELPHI, L3, OPAL Collaborations, and the LEP Working Group for
+  {H}iggs Boson Searches}(2003)]{LEPHIGGS}
+{ALEPH, DELPHI, L3, OPAL Collaborations, and the LEP Working Group for {H}iggs
+  Boson Searches}.
+\newblock Search for the standard model {H}iggs boson at {LEP}.
+\newblock \emph{Phys. Lett. B}, 565:\penalty0 61, 2003.
+\newblock \doi{10.1016/S0370-2693(03)00614-2}.
+
+\bibitem[{CDF and D0 Collaborations}(2010)]{TEVHIGGS_2010}
+{CDF and D0 Collaborations}.
+\newblock Combination of {T}evatron searches for the standard model {H}iggs
+  boson in the {$WW$} decay mode.
+\newblock \emph{Phys. Rev. Lett.}, 104:\penalty0 061802, 2010.
+\newblock \doi{10.1103/PhysRevLett.104.061802}.
+\newblock {A more recent, unpublished, limit is given in preprint
+  arXiv:1103.3233.}
+
+\bibitem[Aaltonen et~al.(2009)]{Aaltonen:2008ec}
+T.~Aaltonen et~al.
+\newblock Search for a {H}iggs boson decaying to two {W} bosons at {CDF}.
+\newblock \emph{Phys. Rev. Lett.}, 102:\penalty0 021802, 2009.
+\newblock \doi{10.1103/PhysRevLett.102.021802}.
+
+\bibitem[{T. Aaltonen and others}(2010)]{CDFHWW}
+{T. Aaltonen and others}.
+\newblock Measurement of the {$W^+W^-$} production cross section and search for
+  anomalous {$WW\gamma$} and {$WWZ$} couplings in $p\bar{p}$ collisions at
+  $\sqrt{s}$=1.96 {TeV}.
+\newblock \emph{Phys. Rev. Lett.}, 104:\penalty0 201801, 2010.
+\newblock \doi{10.1103/PhysRevLett.104.201801}.
+
+\bibitem[Lopes~de Sa(2012)]{LopesdeSa:2012ak}
+Rafael~C. Lopes~de Sa.
+\newblock {Precise measurements of the $W$ mass at the Tevatron and indirect
+  constraints on the Higgs mass}.
+\newblock 2012.
+
+\bibitem[Heinemeyer et~al.(2013)]{Heinemeyer:2013tqa}
+S~Heinemeyer et~al.
+\newblock {Handbook of LHC Higgs Cross Sections: 3. Higgs Properties}.
+\newblock 2013.
+\newblock \doi{10.5170/CERN-2013-004}.
+
+\bibitem[{CMS Collaboration}(2012{\natexlab{a}})]{CMS-PAS-HIG-12-015}
+{CMS Collaboration}.
+\newblock Evidence for a new state decaying into two photons in the search for
+  the standard model higgs boson in pp collisions.
+\newblock Technical Report CMS-PAS-HIG-12-015, CERN, Geneva,
+  2012{\natexlab{a}}.
+
+\bibitem[{CMS Collaboration}(2012{\natexlab{b}})]{CMS-PAS-HIG-12-016}
+{CMS Collaboration}.
+\newblock Evidence for a new state in the search for the standard model higgs
+  boson in the {H} to {ZZ} to 4 leptons channel in pp collisions at sqrt(s) = 7
+  and 8 tev.
+\newblock Technical Report CMS-PAS-HIG-12-016, CERN, Geneva,
+  2012{\natexlab{b}}.
+
+\bibitem[Lef\`evre(Accessed: April 3rd 2014)]{lhcfig}
+C.~Lef\`evre.
+\newblock The cern accelerator complex. complexe des acc\'el\'erateurs du cern.
+\newblock Website, Accessed: April 3rd 2014.
+\newblock \url{https://cdsweb.cern.ch/record/1260465?ln=en}.
+
+\bibitem[lum(Accessed: April 3rd 2014)]{lumifig}
+{CMS} {L}uminosity.
+\newblock Website, Accessed: April 3rd 2014.
+\newblock
+  \url{https://twiki.cern.ch/twiki/bin/view/CMSPublic/LumiPublicResults}.
+
+\bibitem[Chatrchyan et~al.(2008)]{2008JINST}
+S.~Chatrchyan et~al.
+\newblock The {CMS} experiment at the {CERN} {LHC}.
+\newblock \emph{JINST}, 3:\penalty0 S08004, 2008.
+\newblock \doi{10.1088/1748-0221/3/08/S08004}.
+
+\bibitem[cms(Accessed: April 3rd 2014)]{cmsXS}
+{CMS} transverse view.
+\newblock Website, Accessed: April 3rd 2014.
+\newblock \url{http://cms.web.cern.ch/news/how-cms-detects-particles}.
+
+\bibitem[Bayatian et~al.(2006)]{cmstdr}
+G.~L. Bayatian et~al.
+\newblock \emph{{CMS Physics: Technical Design Report Volume 1: Detector
+  Performance and Software}}.
+\newblock Technical Design Report CMS. CERN, Geneva, 2006.
+
+\bibitem[Chatrchyan et~al.(2010)]{2009hcal}
+S~Chatrchyan et~al.
+\newblock {Performance of the CMS Hadron Calorimeter with Cosmic Ray Muons and
+  LHC Beam Data}.
+\newblock \emph{JINST}, 5:\penalty0 T03012, 2010.
+\newblock \doi{10.1088/1748-0221/5/03/T03012}.
+
+\bibitem[Kim et~al.(2012)]{Kim:2012ix}
+Min~Suk Kim et~al.
+\newblock {CMS reconstruction improvement for the muon tracking by the RPC
+  chambers}.
+\newblock \emph{PoS}, RPC2012:\penalty0 045, 2012.
+\newblock \doi{10.1088/1748-0221/8/03/T03001}.
+
+\bibitem[Chatrchyan et~al.(2013)]{Chatrchyan:2013yea}
+Serguei Chatrchyan et~al.
+\newblock {Search for the standard model Higgs boson produced in association
+  with a top-quark pair in pp collisions at the LHC}.
+\newblock \emph{JHEP}, 1305:\penalty0 145, 2013.
+\newblock \doi{10.1007/JHEP05(2013)145}.
+
+\bibitem[Sj{\"o}strand et~al.(2006)Sj{\"o}strand, Mrenna, and
+  Skands]{Sjostrand:2006za}
+Torbjorn Sj{\"o}strand, Stephen Mrenna, and Peter~Z. Skands.
+\newblock {PYTHIA} 6.4 physics and manual.
+\newblock \emph{JHEP}, 05:\penalty0 026, 2006.
+\newblock \doi{10.1088/1126-6708/2006/05/026}.
+
+\bibitem[Alwall et~al.(2011)Alwall, Herquet, Maltoni, Mattelaer, and
+  Stelzer]{Alwall:2011uj}
+Johan Alwall, Michel Herquet, Fabio Maltoni, Olivier Mattelaer, and Tim
+  Stelzer.
+\newblock {MadGraph} 5: going beyond.
+\newblock \emph{JHEP}, 06:\penalty0 128, 2011.
+\newblock \doi{10.1007/JHEP06(2011)128}.
+
+\bibitem[Alioli et~al.(2010)Alioli, Nason, Oleari, and Re]{Alioli:2010xd}
+Simone Alioli, Paolo Nason, Carlo Oleari, and Emanuele Re.
+\newblock {A general framework for implementing NLO calculations in shower
+  Monte Carlo programs: the POWHEG BOX}.
+\newblock \emph{JHEP}, 06:\penalty0 043, 2010.
+\newblock \doi{10.1007/JHEP06(2010)043}.
+
+\bibitem[{CMS Collaboration}(2012{\natexlab{c}})]{CMS-PAS-TOP-12-028}
+{CMS Collaboration}.
+\newblock {Measurement of the differential ttbar cross section in the dilepton
+  channel at 8 TeV}.
+\newblock CMS Physics Analysis Summary CMS-PAS-TOP-12-028, 2012{\natexlab{c}}.
+
+\bibitem[{CMS Collaboration}(2012{\natexlab{d}})]{CMS-PAS-TOP-12-027}
+{CMS Collaboration}.
+\newblock {Measurement of differential top-quark pair production cross sections
+  in the lepton+jets channel in pp collisions at 8 TeV}.
+\newblock CMS Physics Analysis Summary CMS-PAS-TOP-12-027, 2012{\natexlab{d}}.
+
+\bibitem[{CMS Collaboration}(2009)]{CMS-PAS-PFT-09-001}
+{CMS Collaboration}.
+\newblock Particle-flow event reconstruction in cms and performance for jets,
+  taus, and met.
+\newblock CMS Physics Analysis Summary CMS-PAS-PFT-09-001, 2009.
+
+\bibitem[MET(Accessed: April 3rd 2014)]{METfilters}
+Met optional filters.
+\newblock Website, Accessed: April 3rd 2014.
+\newblock
+  \url{https://twiki.cern.ch/twiki/bin/view/CMS/MissingETOptionalFilters}.
+
+\bibitem[Adam et~al.(2003)Adam, Fruhwirth, Strandlie, and Todorov]{GSFElectron}
+W.~Adam, R.~Fruhwirth, A.~Strandlie, and T.~Todorov.
+\newblock {Reconstruction of electrons with the Gaussian sum filter in the CMS
+  tracker at LHC}.
+\newblock \emph{eConf}, C0303241:\penalty0 TULT009, 2003.
+\newblock \doi{10.1088/0954-3899/31/9/N01, 10.1088/0954-3899/31/9/N01}.
+
+\bibitem[{CMS Collaboration}(2012{\natexlab{e}})]{CMS-AN-12-389LepSF}
+{CMS Collaboration}.
+\newblock Dilepton trigger and lepton identification efficiencies for the top
+  quark pair production cross section measurement at 8 tev in the dilepton
+  decay channel.
+\newblock CMS AN AN-12-389, 2012{\natexlab{e}}.
+
+\bibitem[M.~Cacciari and Soyez(2008)]{Cacciari:2008aa}
+G.P.~Salam M.~Cacciari and G.~Soyez.
+\newblock {The anti-k$_T$ jet clustering algorithm}.
+\newblock \emph{Journal of High Energy Physics}, pages 1--12, 2008.
+\newblock \doi{10.1088/1126-6708/2008/04/063}.
+
+\bibitem[{CMS Collaboration}(Apr, 2009)]{CMS-PAS-PFT-2009-001}
+{CMS Collaboration}.
+\newblock Particle-flow event reconstruction in cms and performance for jets,
+  taus, and met.
+\newblock CMS PAS PFT-2009-001, Apr, 2009.
+
+\bibitem[{CMS Collaboration}(2010{\natexlab{a}})]{CMS-PAS-JME-10-003}
+{CMS Collaboration}.
+\newblock Jet performance in pp collisions at $\sqrt{s}$=7 {TeV}.
+\newblock CMS PAS JME-10-003, 2010{\natexlab{a}}.
+
+\bibitem[{CMS Collaboration}(2010{\natexlab{b}})]{CMS-PAS-PFT-2010-002}
+{CMS Collaboration}.
+\newblock Commissioning of the particle-flow reconstruction in minimum-bias and
+  jet events from $pp$ collisions at 7 tev.
+\newblock CMS PAS PFT-2010-002, 2010{\natexlab{b}}.
+
+\bibitem[{CMS Collaboration}(2010{\natexlab{c}})]{CMS-PAS-JME-10-010}
+{CMS Collaboration}.
+\newblock Determination of the jet energy scale in cms with pp collisions at
+  $\sqrt{7}$ = 7 tev.
+\newblock CMS PAS JME-10-010, 2010{\natexlab{c}}.
+
+\bibitem[Chatrchyan et~al.(2012{\natexlab{b}})]{CMS:2012hd}
+S.~Chatrchyan et~al.
+\newblock {Identification of b-quark jets with the CMS experiment}.
+\newblock \emph{JINST}, 8:\penalty0 P04013, 2012{\natexlab{b}}.
+\newblock \doi{10.1088/1748-0221/8/04/P04013}.
+
+\bibitem[{CMS Collaboration}(2012{\natexlab{f}})]{CMS-PAS-BTV-11-004}
+{CMS Collaboration}.
+\newblock b-jet identification in the cms experiment.
+\newblock CMS Physics Analysis Summary CMS-PAS-BTV-11-004, 2012{\natexlab{f}}.
+
+\bibitem[{CMS Collaboration}(2013{\natexlab{a}})]{CMS-AN-2013-130}
+{CMS Collaboration}.
+\newblock Calibration of the combined secondary vertex b-tagging discriminant
+  using dileptonic ttbar and drell-yan events.
+\newblock CMS Note 2013/130, 2013{\natexlab{a}}.
+
+\bibitem[{CMS Collaboration}(2013{\natexlab{b}})]{CMS-PAS-SMP-13-004}
+{CMS Collaboration}.
+\newblock Measurement of the z/gamma* + bb-jets cross section in pp collisions
+  at sqrt(s) = 7 tev.
+\newblock Technical Report CMS-PAS-SMP-13-004, CERN, Geneva,
+  2013{\natexlab{b}}.
+
+\bibitem[{CMS Collaboration}(2012{\natexlab{g}})]{CMS-PAS-EWK-11-015}
+{CMS Collaboration}.
+\newblock Measurement of b hadron angular correlations in association to a z
+  boson.
+\newblock Technical Report CMS-PAS-EWK-11-015, CERN, Geneva,
+  2012{\natexlab{g}}.
+
+\bibitem[{CMS Collaboration}(2013{\natexlab{c}})]{CMS-PAS-HIG-13-019}
+{CMS Collaboration}.
+\newblock {Search for Higgs Boson Production in Association with a Top-Quark
+  Pair and Decaying to Bottom Quarks or Tau Leptons}.
+\newblock CMS Physics Analysis Summary CMS-PAS-HIG-13-019, 2013{\natexlab{c}}.
+
+\bibitem[{CMS collaboration}(2010)]{PFMET}
+{CMS collaboration}.
+\newblock {CMS MET Performance in Events Containing Electroweak Bosons from pp
+  Collisions at $\sqrt{s}=7$ TeV}.
+\newblock \emph{CMS PAS JME-2010-005}, 2010.
+
+\bibitem[{Hoecker} et~al.(2007)]{tmva}
+A.~{Hoecker} et~al.
+\newblock {TMVA - Toolkit for Multivariate Data Analysis}.
+\newblock \emph{ArXiv Physics e-prints}, March 2007.
+
+\bibitem[Peiffer.(Accessed: April 3rd 2014)]{Q2-REWEIGHT-PRESENTATION}
+T.~Peiffer.
+\newblock {Q$^2$ Systematic MC Samples re-weighting}.
+\newblock Website, Accessed: April 3rd 2014.
+\newblock
+  \url{https://indico.cern.ch/getFile.py/access?contribId=5&resId=0&materialId=slides&confId=177717}.
+
+\bibitem[Bredenstein et~al.(2010)Bredenstein, Denner, Dittmaier, and
+  Pozzorini]{kfactor}
+Axel Bredenstein, Ansgar Denner, Stefan Dittmaier, and Stefano Pozzorini.
+\newblock {NLO QCD corrections to top anti-top bottom anti-bottom production at
+  the LHC: 2. full hadronic results}.
+\newblock 2010.
+
+\bibitem[JES(Accessed: April 3rd 2014)]{JESJetMET}
+Jet energy scale uncertainties.
+\newblock Website, Accessed: April 3rd 2014.
+\newblock
+  \url{https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookJetEnergyCorrections}.
+
+\bibitem[JER(Accessed: April 3rd 2014)]{JERJetMET}
+Jet energy resolution uncertainties.
+\newblock Website, Accessed: April 3rd 2014.
+\newblock \url{https://twiki.cern.ch/twiki/bin/view/CMS/JetResolution}.
+
+\bibitem[{CMS Collaboration}(2012{\natexlab{h}})]{CMS-PAS-LUM-12-001}
+{CMS Collaboration}.
+\newblock {CMS} luminosity based on pixel cluster counting - summer 2012
+  update.
+\newblock CMS Physics Analysis Summary CMS-PAS-LUM-12-001, 2012{\natexlab{h}}.
+
+\bibitem[{CMS Collaboration}(2011{\natexlab{a}})]{lumiPAS}
+{CMS Collaboration}.
+\newblock Absolute calibration of the {CMS} luminosity measurement: {S}ummer
+  2011 update.
+\newblock CMS Physics Analysis Summary CMS-PAS-EWK-11-001, 2011{\natexlab{a}}.
+
+\bibitem[{CMS Collaboration}(2012{\natexlab{i}})]{lumiPAS2}
+{CMS Collaboration}.
+\newblock Absolute calibration of the luminosity measurement at cms: Winter
+  2012 update.
+\newblock \penalty0 (CMS-PAS-SMP-12-008), 2012{\natexlab{i}}.
+
+\bibitem[Barlow and Beeston(1993)]{BarlowBeeston}
+Roger Barlow and Christine Beeston.
+\newblock {Fitting using finite Monte Carlo samples}.
+\newblock \emph{Computer Physics Communications}, 77:\penalty0 219--228, 1993.
+
+\bibitem[Conway(2011)]{BarlowBeeston2}
+J.~S. Conway.
+\newblock {Incorporating Nuisance Parameters in Likelihoods for Multisource
+  Spectra}.
+\newblock 2011.
+
+\bibitem[{CMS Collaboration}(2011{\natexlab{b}})]{CMS-AN-11-298}
+{CMS Collaboration}.
+\newblock Procedure for the {LHC} {H}iggs boson search combination in summer
+  2011.
+\newblock CMS Note AN-11-289, 2011{\natexlab{b}}.
+
+\bibitem[{Cowan} et~al.(2011){Cowan}, {Cranmer}, {Gross}, and
+  {Vitells}]{AsymptoticLimits}
+G.~{Cowan}, K.~{Cranmer}, E.~{Gross}, and O.~{Vitells}.
+\newblock {Asymptotic formulae for likelihood-based tests of new physics}.
+\newblock \emph{European Physical Journal C}, 71:\penalty0 1554, February 2011.
+\newblock \doi{10.1140/epjc/s10052-011-1554-0}.
+
+\bibitem[{CMS Collaboration}(2013{\natexlab{d}})]{CMS-PAS-HIG-13-015}
+{CMS Collaboration}.
+\newblock {Search for $t\bar{t}$H production in events with $H \to
+  \gamma\gamma$ at $\sqrt{s}$= 8 TeV collisions}.
+\newblock CMS Physics Analysis Summary CMS-PAS-HIG-13-015, 2013{\natexlab{d}}.
+
+\end{thebibliography}
