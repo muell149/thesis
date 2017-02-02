@@ -5,6 +5,20 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+
+\bibitem[cmsss(Accessed: February 2nd 2017)]{sm_table}
+The Standard Model of Elementary Particles.
+\newblock Website, Accessed: February 2nd 2017.
+\newblock \url{https://commons.wikimedia.org/wiki/File:Standard_Model_of_Elementary_Particles.svg}.
+
+\bibitem[Particle Data Group K.~A.~Olive {\it et al.}]{Agashe:2014kda} 
+ %``Review of Particle Physics,''
+ \newblock Chin.\ Phys.\ C {\bf 38}, 090001 (2014).
+ \newblock \doi{:10.1088/1674-1137/38/9/090001}.
+
+
+%%%%%%%%%%%%%%
+
 \bibitem[Chatrchyan et~al.(2012{\natexlab{a}})]{cms_higgs}
 S.~Chatrchyan et~al.
 \newblock Observation of a new boson at a mass of 125 {G}ev with the {CMS}
@@ -56,12 +70,6 @@ T.~Aaltonen et~al.
   $\sqrt{s}$=1.96 {TeV}.
 \newblock \emph{Phys. Rev. Lett.}, 104:\penalty0 201801, 2010.
 \newblock \doi{10.1103/PhysRevLett.104.201801}.
-
-\bibitem[Lopes~de Sa(2012)]{LopesdeSa:2012ak}
-Rafael~C. Lopes~de Sa.
-\newblock {Precise measurements of the $W$ mass at the Tevatron and indirect
-  constraints on the Higgs mass}.
-\newblock 2012.
 
 \bibitem[Heinemeyer et~al.(2013)]{Heinemeyer:2013tqa}
 S~Heinemeyer et~al.
