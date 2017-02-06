@@ -11,11 +11,33 @@ The Standard Model of Elementary Particles.
 \newblock Website, Accessed: February 2nd 2017.
 \newblock \url{https://commons.wikimedia.org/wiki/File:Standard_Model_of_Elementary_Particles.svg}.
 
-\bibitem[Particle Data Group K.~A.~Olive {\it et al.}]{Agashe:2014kda} 
+\bibitem[Particle Data Group K.~A.~Olive {\it et al.}]{pdg} 
  %``Review of Particle Physics,''
  \newblock Chin.\ Phys.\ C {\bf 38}, 090001 (2014).
  \newblock \doi{:10.1088/1674-1137/38/9/090001}.
 
+\bibitem[Lef\`evre(Accessed: February 4th 2017)]{lhcfig}
+C.~Lef\`evre.
+\newblock The cern accelerator complex. complexe des acc\'el\'erateurs du cern.
+\newblock Website, Accessed: February 4th 2017.
+\newblock \url{https://cdsweb.cern.ch/record/1260465?ln=en}.
+
+\bibitem[Chatrchyan et~al.(2008)]{cms_bluebook}
+S.~Chatrchyan et~al.
+\newblock The {CMS} experiment at the {CERN} {LHC}.
+\newblock \emph{JINST}, 3:\penalty0 S08004, 2008.
+\newblock \doi{10.1088/1748-0221/3/08/S08004}.
+
+\bibitem[Lyndon Evans and Philip Bryant(2008)]{lhc_bluebook}
+L. Evans and P. Bryant.
+\newblock {LHC} Machine.
+\newblock \emph{JINST}, 3:\penalty0 S08001, 2008.
+\newblock \doi{10.1088/1748-0221/3/08/S08001}.
+
+\bibitem[1965 NOBEL PRIZE]{QED}
+\bibitem[1961 glashow electroweak theory]{electroweak}
+\bibitem[general description of qcd (maybe symmetry and the 
+SM by Matthew Robins)]{QCD}
 
 %%%%%%%%%%%%%%
 
@@ -92,11 +114,6 @@ S~Heinemeyer et~al.
 \newblock Technical Report CMS-PAS-HIG-12-016, CERN, Geneva,
   2012{\natexlab{b}}.
 
-\bibitem[Lef\`evre(Accessed: April 3rd 2014)]{lhcfig}
-C.~Lef\`evre.
-\newblock The cern accelerator complex. complexe des acc\'el\'erateurs du cern.
-\newblock Website, Accessed: April 3rd 2014.
-\newblock \url{https://cdsweb.cern.ch/record/1260465?ln=en}.
 
 \bibitem[lum(Accessed: April 3rd 2014)]{lumifig}
 {CMS} {L}uminosity.
@@ -104,11 +121,6 @@ C.~Lef\`evre.
 \newblock
   \url{https://twiki.cern.ch/twiki/bin/view/CMSPublic/LumiPublicResults}.
 
-\bibitem[Chatrchyan et~al.(2008)]{2008JINST}
-S.~Chatrchyan et~al.
-\newblock The {CMS} experiment at the {CERN} {LHC}.
-\newblock \emph{JINST}, 3:\penalty0 S08004, 2008.
-\newblock \doi{10.1088/1748-0221/3/08/S08004}.
 
 \bibitem[cms(Accessed: April 3rd 2014)]{cmsXS}
 {CMS} transverse view.
