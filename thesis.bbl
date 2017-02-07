@@ -38,6 +38,15 @@ L. Evans and P. Bryant.
 \bibitem[1961 glashow electroweak theory]{electroweak}
 \bibitem[general description of qcd (maybe symmetry and the SM by Matthew Robins)]{QCD}
 \bibitem[higgs]{higgs}
+\bibitem[robinson(rob)]{robinson}
+
+\bibitem[NP1(Accessed: February 7th 2017)]{NP13}
+The nobel prize in physics 2013.
+\newblock Website, Accessed: February 7th 2017.
+\newblock \url{http://www.nobelprize.org/nobel_prizes/physics/laureates/2013/}.
+
+
+
 
 %%%%%%%%%%%%%%
 
@@ -56,11 +65,6 @@ G.~Aad et~al.
 \newblock \emph{Phys. Lett. B}, 716:\penalty0 1, 2012.
 \newblock ISSN 0370-2693.
 \newblock \doi{10.1016/j.physletb.2012.08.020}.
-
-\bibitem[NP1(Accessed: April 3rd 2014)]{NP13}
-The nobel prize in physics 2013.
-\newblock Website, Accessed: April 3rd 2014.
-\newblock \url{http://www.nobelprize.org/nobel_prizes/physics/laureates/2013/}.
 
 \bibitem[{ALEPH, DELPHI, L3, OPAL Collaborations, and the LEP Working Group for
   {H}iggs Boson Searches}(2003)]{LEPHIGGS}
