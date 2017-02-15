@@ -12,20 +12,24 @@ more accurate and widely used. The reconstruction technique varies greatly with 
 deposits. 
 
 \section{Particle Flow}
-Particle flow is the algorithm used by the CMS collaboration to reconstruct physics objects from hits and energy deposits. Particle flow and CMS are unique in the sense
+The particle flow algorithm is used by CMS to reconstruct physics objects from hits and energy deposits. Particle Flow and CMS are unique in the sense
 that nearly all physics analyses performed on data collected by CMS use objects reconstructed with this single algorithm. The primary advantage of this strategy is
 uniform and consistent object definitions across nearly all papers published on behalf of CMS. Other collaborations such as ATLAS do not use
-the same algorithm collaboration-wide. 
+the same algorithm collaboration-wide. The purpose of particle flow is to identify all final-state stable particles in an event recorded by CMS, specifically electrons,
+mouons, taus, jets and photons. Particle flow optimally combines information from all subdetectors to determine particle type, position, and momentum. 
+
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{ch4_figs/cms_particleflow.pdf}
+   \caption{An overview of how CMS detects different types of particles. The slice of CMS in in the x-y plane.~\cite{NEED CITATION}.}
+   \label{fig:cms_pflow}
+ \end{center}
+\end{figure}
+
 
 \section{Jets}
 \section{Leptons}
 \section{Taus}
 \section{MET}
-%% \begin{figure}[hbtp]
-%%  \begin{center}
-%%    \includegraphics[width=0.8\textwidth]{ch2_figs/sm_particles_periodic_table.pdf}
-%%    \caption{A sumamry of all elementary particles and their interactions in the Standard Model~\cite{sm_table}.}
-%%    \label{fig:sm_periodic_table}
-%%  \end{center}
-%% \end{figure}
 
