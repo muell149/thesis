@@ -16,7 +16,8 @@ The particle flow algorithm is used by CMS to reconstruct physics objects from h
 that nearly all physics analyses performed on data collected by CMS use objects reconstructed with this single algorithm. The primary advantage of this strategy is
 uniform and consistent object definitions across nearly all papers published on behalf of CMS. Other collaborations such as ATLAS do not use
 the same algorithm collaboration-wide. The purpose of particle flow is to identify all final-state stable particles in an event recorded by CMS, specifically electrons,
-mouons, taus, jets and photons. Particle flow optimally combines information from all subdetectors to determine particle type, position, and momentum. 
+mouons, taus, jets and photons. Particle flow optimally combines building-block information (hits and energy clusters) from all subdetectors to reconstruct objects and
+determine particle type, position, and momentum. 
 
 
 \begin{figure}[hbtp]
@@ -26,6 +27,12 @@ mouons, taus, jets and photons. Particle flow optimally combines information fro
    \label{fig:cms_pflow}
  \end{center}
 \end{figure}
+
+Object reconstruction begins with grouping collections of hits into tracks, in an iterative process~\cite{CMS-TRK-09-001}. In the first iteration, tracks are
+seeded with initial hits and subject to very tight criteria, sacrificing efficiency for a low fake rate. In the following iterations, hits assigned to
+tracks in the previous iteration are removed from further consideration, and the criteria for candidate tracks is gradually relaxed with each iteration. In the final iterations,
+the constraints on the track seed are relaxed to account for secondary decays from photon conversions and nuclear interactions with the silicon tracker material. This technique
+reconstructs tracks with as few as three hits and \pts as small as 150 MeV with a fake rate in the single digits~\cite{CMS-PFT-09-001}. 
 
 
 \section{Jets}

@@ -69,6 +69,18 @@ S~Heinemeyer et~al.
 \newblock 2013.
 \newblock \doi{10.5170/CERN-2013-004}.
 
+\bibitem[{CMS Collaboration}(2009{\natexlab{a}})]{CMS-TRK-09-001}
+{CMS Collaboration}.
+\newblock Track Reconstruction in the {CMS} tracker
+\newblock Technical Report CMS-PAS-TRK-09-001, CERN, Geneva,
+  2009{\natexlab{a}}.
+
+\bibitem[{CMS Collaboration}(2009{\natexlab{a}})]{CMS-PFT-09-001}
+{CMS Collaboration}.
+\newblock Particle-Flow Event Reconstruction in {CMS} and Performance for Jets, Taus,
+and $E^{miss}_{T}$
+\newblock Technical Report CMS-PAS-PFT-09-001, CERN, Geneva,
+  2009{\natexlab{a}}.
 
 
 %%%%%%%%%%%%%%
