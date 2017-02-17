@@ -17,7 +17,8 @@ that nearly all physics analyses performed on data collected by CMS use objects 
 uniform and consistent object definitions across nearly all papers published on behalf of CMS. Other collaborations such as ATLAS do not use
 the same algorithm collaboration-wide. The purpose of particle flow is to identify all final-state stable particles in an event recorded by CMS, specifically electrons,
 mouons, taus, jets and photons. Particle flow optimally combines building-block information (hits and energy clusters) from all subdetectors to reconstruct objects and
-determine particle type, position, and momentum. 
+determine particle type, position, and momentum. It does this using 2 different primary reconstruction techniques for reconstructing tracks from tracker hits, and clusters
+of energy deposits from individual calorimeter cells. 
 
 
 \begin{figure}[hbtp]
@@ -28,11 +29,31 @@ determine particle type, position, and momentum.
  \end{center}
 \end{figure}
 
-Object reconstruction begins with grouping collections of hits into tracks, in an iterative process~\cite{CMS-TRK-09-001}. In the first iteration, tracks are
+Object reconstruction begins with grouping collections of hits into tracks in an iterative process~\cite{CMS-TRK-09-001}. In the first iteration, tracks are
 seeded with initial hits and subject to very tight criteria, sacrificing efficiency for a low fake rate. In the following iterations, hits assigned to
 tracks in the previous iteration are removed from further consideration, and the criteria for candidate tracks is gradually relaxed with each iteration. In the final iterations,
 the constraints on the track seed are relaxed to account for secondary decays from photon conversions and nuclear interactions with the silicon tracker material. This technique
-reconstructs tracks with as few as three hits and \pts as small as 150 MeV with a fake rate in the single digits~\cite{CMS-PFT-09-001}. 
+reconstructs tracks with as few as three hits and \pts as small as 150 MeV with a fake rate in the single digits~\cite{CMS-PFT-09-001}. A similar but separate track
+reconstruction is performed in the muon chambers to reconstruct muon tracks. 
+
+Object reconstruction continues in the calorimeters, where it relies on a clustering algorithm to identify individual energy deposits and associate them to an object. This
+algorithm is designed to yield a high efficiency even for low energy, and nearby objects. The clustering process is performed separately in the ECAL and HCAL, and furthermore in
+the barrel, and endcaps. The ECAL preshower also uses separate clusterings in each of its two layers. In the HF, no clustering is performed, where each module is considered an
+independent cluster. The clustering algorithm begins by identifying cells (cluster seeds) with an energy above a given ``seed'' energy threshold. Clusters are then increased by
+adding adjacent\footnote{sharing at least one edge with the seed} cells that have an energy above a given threshold. The calorimeter granularity is used to optimize the
+determination of cluster energies and positions~\cite{CMS-PFT-09-001}.  
+
+After the tracking and clustering is complete, Particle Flow then matches tracks in the tracker to energy clusters in the calorimeters, and to tracks in the muon chambers.
+In a given event, there can be many different objects and Particle Flow utilizes
+a process-of-elimination strategy. Because they are the easiest to identify unambiguously, muons are identified first by matching tracks in the inner tracker to the tracks in
+the muon chambers. The matching criteria is based on a $\chi^{2}$ fit threshold. When multiple sets of tracks are matched, the set with the lowest $\chi^{2}$ is selected as the
+muon object. Muons are first reconstructed this way and called global muons. Particle flow muons are identifed from global muons when the \pt~s measured in the tracker and the
+muon chambers agree to within three standard deviations. The tracks corresponding to the muon object are then removed from consideration for the remaining object reconstruction. 
+
+Following muons, electrons are reconstructed next. Because electrons curve strongly in the magnetic field, they leave characteristically short tracks, and lose energy via
+Bremsstrahlung radiation. The tracks are flagged based on these characteristics as potential electron candidates and refitted with a Gaussian-Sum Filter (GSF)~\cite{gsf} and the
+resulting tracks are matched to ECAL energy clusters. 
+
 
 
 \section{Jets}
