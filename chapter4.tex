@@ -20,7 +20,6 @@ mouons, taus, jets and photons. Particle flow optimally combines building-block 
 determine particle type, position, and momentum. It does this using 2 different primary reconstruction techniques for reconstructing tracks from tracker hits, and clusters
 of energy deposits from individual calorimeter cells. 
 
-
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.8\textwidth]{ch4_figs/cms_particleflow.pdf}
@@ -50,9 +49,21 @@ the muon chambers. The matching criteria is based on a $\chi^{2}$ fit threshold.
 muon object. Muons are first reconstructed this way and called global muons. Particle flow muons are identifed from global muons when the \pt~s measured in the tracker and the
 muon chambers agree to within three standard deviations. The tracks corresponding to the muon object are then removed from consideration for the remaining object reconstruction. 
 
-Following muons, electrons are reconstructed next. Because electrons curve strongly in the magnetic field, they leave characteristically short tracks, and lose energy via
+Following muons, electrons are reconstructed next. Because electrons deflect strongly in the magnetic field, they leave characteristically short tracks, and lose energy via
 Bremsstrahlung radiation. The tracks are flagged based on these characteristics as potential electron candidates and refitted with a Gaussian-Sum Filter (GSF)~\cite{gsf} and the
-resulting tracks are matched to ECAL energy clusters. 
+resulting tracks are then matched to ECAL energy clusters. The Bremsstrahlung photons are emitted tangentially to electron track and this is accounted for in the ECAL clustering
+and track matching specifically for electrons. These matches are then subject to additional quality criteria before they are considered particle flow electrons, and their
+corresponding tracks and energy deposits removed from further consideration for the remaining object reconstruction. 
+
+At this point in the event/object reconstruction, the so-called low lying fruit has been picked, and the more difficult objects are all that remain. These objects are charged
+and neutral hadrons (jets), and photons. The neutral particles are difficult to reconstruct because they don't leave hits in the tracker, so only calorimeter information is
+available. Photons are distinguished from neutral hadrons by separate ECAL and HCAL clusters. Photons interact with and are stopped by the ECAL, while the same is true for
+neutral hadrons and the HCAL. Additional in-event calibration techniques are also used to further distinguish these objects. The remainig tracks are subject to tighter
+quality cuts aimed at reducing the fake-rate. The high-quality tracks passing these thresholds are matched to ECAL and HCAL deposits, and give rise to particle flow 
+charge hadrons. The momentum of these objects is measured from the track radius and compared to the corresponding energy deposit in the calorimeters assuming the object is
+a charged pion. If the two measurements are compatible, the momenta is refined with additonal fits to the tracks and energy deposit(s)~\cite{CMS-PFT-09-001}. 
+
+
 
 
 
