@@ -2,7 +2,7 @@
 % Chapter 2
 %
 
-\chapter{THEORETICAL BACKGROUND}
+\chapter{THEORY}
 \section{The Standard Model}
 The Standard Model (SM) of particle physics is one of the most elegant descriptions of nature available. It explains three of four fundamental forces via gauge symmetries, while characterizing unknown matter into
 separate generations of particles called quarks and leptons. Since its inception in the early 1960s, the SM has predicted the existence of every fundamental particle that has been discovered to-date.
@@ -195,7 +195,7 @@ of the Higgs exactly match the SM expectations? Do particle masses, specifically
 explanation? A thorough study and understanding of \tth processes can address these questions.  
 
 \section{ttH}
-
+\subsection{Description}
 In a broader theoretical context, \tth searches are in essence a probe of the SM, \emph{directly} testing the Yukawa coupling strength of the Higgs boson to top quarks. The fact that a
 measurement of \tth is a direct probe is an important distinction between an indirect probe. As mentioned previously, the Higgs was discovered and proven
 consistent with the SM via the gluon fusion production mode in Figure~\ref{fig:higgs_production}. The gluon fusion diagram includes a fermion loop (triangle)
@@ -209,13 +209,13 @@ its relative mass difference with respect to the next heaviest quark is more tha
 being so much greater than any other quark inspires questions about the pattern of the quark masses. Does the top quark's mass come only from the Higgs? Or could
 it also come from something beyond the SM? Direct \tth searches will help answer these questions. 
 
-\begin{figure}[hbtp]
- \begin{center}
-   \includegraphics[width=0.4\textwidth]{ch2_figs/feynman_diagram_ttH_HWW_2lss.pdf}
-   \caption{A \tth process at the LHC. The final state here is one of the targets of the analysis presented later in this dissertation.}
-   \label{fig:tth_example_diagram}
- \end{center}
-\end{figure}
+%% \begin{figure}[hbtp]
+%%  \begin{center}
+%%    \includegraphics[width=0.4\textwidth]{ch2_figs/feynman_diagram_ttH_HWW_2lss.pdf}
+%%    \caption{A \tth process at the LHC. The final state here is one of the targets of the analysis presented later in this dissertation.}
+%%    \label{fig:tth_example_diagram}
+%%  \end{center}
+%% \end{figure}
 
 In an experimental context, the \tth process, or more commonly referred to as simply \tth, is produced by two gluons, each decaying to a top-antitop quark pair, where a top and an
 antitop from each gluon combine to form a Higgs boson, represented by the feynman diagram in Figure~\ref{fig:tth_example_diagram}.
@@ -224,10 +224,36 @@ The remaining top and antitop quark decay to a W boson and b quark with nearly 1
 neglected.}. The W boson produced in the top decays instantly to pairs of SM particles. These pairs include a charged lepton and a neutrino of the same
 flavor approximately 1/3 of the time, while the rest of the time~\cite{pdg} the W decays to a quark-antiquark where the quark and antiquark have different flavors. 
 Like the W, the Higgs is free to decay to numerous states according to Figure~\ref{fig:higgs_decay}. Because of the various decay modes of the Higgs and
-the Ws there are many final states possible in \tth. These numerous possible final states heavily dictate the experimental techniques employed in searches,
-with completely separate analysis efforts dedicated to a single \tth higgs final state, or a closely related collection of Higgs final states. The specific
-decay modes targeted by the analysis presented in this dissertation will be addressed in the coming chapters. 
+the Ws there are many final states possible in \tth. These numerous possible final states dictate the experimental techniques employed in searches,
+with completely separate analysis efforts dedicated to a single \tth higgs final state, or a closely related collection of Higgs final states.
 
+
+\subsection{Multilepton Final States}
+The specific signal targeted by this analysis is \tth decaying to final states with two or more charged leptons. Examples of this signal are in
+Figure~\ref{fig:tth_example_diagram}. There are multiple Higgs decays included this definition, specificaly WW, ZZ and $\tau\tau$. The fractions of these Higgs decays
+is in Figure~\ref{fig:pie}. 
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.25\linewidth]{ch2_figs/gg-ttH-tt-2lss.pdf}
+\hspace{0.5cm}
+\includegraphics[width=0.25\linewidth]{ch2_figs/gg-ttH-ZZ-3l.pdf}
+\hspace{0.5cm}
+\includegraphics[width=0.25\linewidth]{ch2_figs/gg-ttH-WW-4l.pdf}
+\caption{Examples of leading order Feynman diagrams for $t\bar{t}H$ production at pp colliders, with the Higgs boson decaying to
+$\tau\tau$, $\mathrm{ZZ}^{*}$, and
+$\mathrm{WW}^{*}$ (from left to right). The first, second, and third diagrams are examples of the two same-sign lepton signature,
+the three lepton signature, and the four lepton signature, respectively.}
+\label{fig:tth_example_diagram}
+\end{figure}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.4\textwidth]{ch2_figs/pie.pdf}
+   \caption{The Higgs branching fractions assuming a mass of 125 GeV. The slices removed are the decays targeted in this analysis.}
+   \label{fig:pie}
+ \end{center}
+\end{figure}
 
 % % uncomment the following lines,
 % if using chapter-wise bibliography
