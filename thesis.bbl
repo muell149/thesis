@@ -34,13 +34,17 @@ L. Evans and P. Bryant.
 \newblock \emph{JINST}, 3:\penalty0 S08001, 2008.
 \newblock \doi{10.1088/1748-0221/3/08/S08001}.
 
-\bibitem[1965 NOBEL PRIZE]{QED}
-\bibitem[1961 glashow electroweak theory]{electroweak}
-\bibitem[general description of qcd (maybe symmetry and the SM by Matthew Robins)]{QCD}
-\bibitem[higgs]{higgs}
-\bibitem[robinson(rob)]{robinson}
+\bibitem[NP65(Accessed: February 20th 2017)]{NP65}
+The Nobel Prize in Physics 1965.
+\newblock Website, Accessed: February 20th 2017.
+\newblock \url{http://www.nobelprize.org/nobel_prizes/physics/laureates/1965/}.
 
-\bibitem[NP1(Accessed: February 7th 2017)]{NP13}
+\bibitem[NP79(Accessed: February 20th 2017)]{NP79}
+The Nobel Prize in Physics 1979.
+\newblock Website, Accessed: February 20th 2017.
+\newblock \url{http://www.nobelprize.org/nobel_prizes/physics/laureates/1979/}.
+
+\bibitem[NP13(Accessed: February 7th 2017)]{NP13}
 The nobel prize in physics 2013.
 \newblock Website, Accessed: February 7th 2017.
 \newblock \url{http://www.nobelprize.org/nobel_prizes/physics/laureates/2013/}.
