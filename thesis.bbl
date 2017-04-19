@@ -6,6 +6,13 @@
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
 
+\bibitem[Chatrchyan et~al.(2013)]{jhep_tth}
+Serguei Chatrchyan et~al.
+\newblock {Search for the standard model Higgs boson produced in association
+  with a top-quark pair in pp collisions at the LHC}.
+\newblock \emph{JHEP}, 1305:\penalty0 145, 2013.
+\newblock \doi{10.1007/JHEP05(2013)145}.
+
 \bibitem[cmsss(Accessed: February 2nd 2017)]{sm_table}
 The Standard Model of Elementary Particles.
 \newblock Website, Accessed: February 2nd 2017.
@@ -238,13 +245,6 @@ How much electricity does an American Home use?
 %%   chambers}.
 %% \newblock \emph{PoS}, RPC2012:\penalty0 045, 2012.
 %% \newblock \doi{10.1088/1748-0221/8/03/T03001}.
-
-%% \bibitem[Chatrchyan et~al.(2013)]{Chatrchyan:2013yea}
-%% Serguei Chatrchyan et~al.
-%% \newblock {Search for the standard model Higgs boson produced in association
-%%   with a top-quark pair in pp collisions at the LHC}.
-%% \newblock \emph{JHEP}, 1305:\penalty0 145, 2013.
-%% \newblock \doi{10.1007/JHEP05(2013)145}.
 
 %% \bibitem[Sj{\"o}strand et~al.(2006)Sj{\"o}strand, Mrenna, and
 %%   Skands]{Sjostrand:2006za}
