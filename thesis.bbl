@@ -142,6 +142,11 @@ View of the CMS tracker during high pileup run
 \newblock Website, Accessed: February 19th 2017.
 \newblock \url{http://cms.web.cern.ch/news/reconstructing-multitude-particle-tracks-within-cms}.
 
+\bibitem[cms_pflow(Accessed: April 20th 2017)]{cms_pflow_img}
+An interactive view of the a slice of the CMS detector.
+\newblock Website, Accessed: April 20th 2017.
+\newblock \url{https://cms-docdb.cern.ch/cgi-bin/PublicDocDB/ShowDocument?docid=4172}.
+
 \bibitem[Chatrchyan et~al.(2012{\natexlab{a}})]{cms_higgs}
 S.~Chatrchyan et~al.
 \newblock Observation of a new boson at a mass of 125 {G}ev with the {CMS}
