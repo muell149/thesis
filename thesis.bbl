@@ -185,6 +185,30 @@ How much electricity does an American Home use?
 \newblock Website, Accessed: February 20th 2017.
 \newblock \url{https://www.eia.gov/tools/faqs/faq.cfm?id=97&t=3}.
 
+\bibitem[M.~Cacciari and Soyez(2008)]{antikt}
+G.P.~Salam M.~Cacciari and G.~Soyez.
+\newblock {The anti-k$_T$ jet clustering algorithm}.
+\newblock \emph{Journal of High Energy Physics}, pages 1--12, 2008.
+\newblock \doi{10.1088/1126-6708/2008/04/063}.
+
+\bibitem[{M. Cacciari} et~al.(2008)]{fastjet}
+M.~{Cacciari} et~al.
+\newblock {FastJet user manual}.
+\newblock \emph{ArXiv Physics e-prints}, November 2011.
+\newblock \doi{10.1140/epjc/s10052-012-1896-2}.
+
+\bibitem[Chatrchyan et~al.(2011)]{jec}
+S.~Chatrchyan et~al.
+\newblock {Determination of Jet Energy Calibration and Transverse Momentum Resolution in CMS}.
+\newblock \emph{JINST}, 6\penalty 2011{\natexlab{b} 11002}.
+\newblock \doi{10.1088/1748-0221/6/11/P11002}.
+
+\bibitem[Chatrchyan et~al.(2013{\natexlab{b}})]{csvv2}
+S.~Chatrchyan et~al.
+\newblock {Identification of b-quark jets with the CMS experiment}.
+\newblock \emph{JINST}, 8:\penalty0 P04013, 2013{\natexlab{b}}.
+\newblock \doi{10.1088/1748-0221/8/04/P04013}.
+
 
 %%%%%%%%%%%%%% Haven't needed these yet...
 
@@ -311,12 +335,6 @@ How much electricity does an American Home use?
 %%   decay channel.
 %% \newblock CMS AN AN-12-389, 2012{\natexlab{e}}.
 
-%% \bibitem[M.~Cacciari and Soyez(2008)]{Cacciari:2008aa}
-%% G.P.~Salam M.~Cacciari and G.~Soyez.
-%% \newblock {The anti-k$_T$ jet clustering algorithm}.
-%% \newblock \emph{Journal of High Energy Physics}, pages 1--12, 2008.
-%% \newblock \doi{10.1088/1126-6708/2008/04/063}.
-
 %% \bibitem[{CMS Collaboration}(Apr, 2009)]{CMS-PAS-PFT-2009-001}
 %% {CMS Collaboration}.
 %% \newblock Particle-flow event reconstruction in cms and performance for jets,
@@ -336,18 +354,6 @@ How much electricity does an American Home use?
 %% \newblock Commissioning of the particle-flow reconstruction in minimum-bias and
 %%   jet events from $pp$ collisions at 7 tev.
 %% \newblock CMS PAS PFT-2010-002, 2010{\natexlab{b}}.
-
-%% \bibitem[{CMS Collaboration}(2010{\natexlab{c}})]{CMS-PAS-JME-10-010}
-%% {CMS Collaboration}.
-%% \newblock Determination of the jet energy scale in cms with pp collisions at
-%%   $\sqrt{7}$ = 7 tev.
-%% \newblock CMS PAS JME-10-010, 2010{\natexlab{c}}.
-
-%% \bibitem[Chatrchyan et~al.(2012{\natexlab{b}})]{CMS:2012hd}
-%% S.~Chatrchyan et~al.
-%% \newblock {Identification of b-quark jets with the CMS experiment}.
-%% \newblock \emph{JINST}, 8:\penalty0 P04013, 2012{\natexlab{b}}.
-%% \newblock \doi{10.1088/1748-0221/8/04/P04013}.
 
 %% \bibitem[{CMS Collaboration}(2012{\natexlab{f}})]{CMS-PAS-BTV-11-004}
 %% {CMS Collaboration}.

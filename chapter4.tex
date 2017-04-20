@@ -4,12 +4,15 @@
 
 \chapter{PHYSICS OBJECTS}
 Each of the CMS subdetectors (neglecting the trigger system) technically only record and detect hits and energy deposits. While these hits and energy deposits are almost
-always due to passing particles, the detectors themselves and more precisely the readouts, only produce information about the position, value, and multiplicity of
-these hits and energy deposits. It is thanks to clever and accurate experimental techniques that we can reconstruct various particles from these hits and energy deposits.
-In part because CMS does not detect particles directly, reconstructed particles are referred to as physics \emp{objects} in this context. Using
-the term particles implies certainty about the identify of the object, and because there is some uncertainty, however small, inherent in the reconstruction, objects is
-more accurate and widely used. The reconstruction technique varies greatly with different objects and the subdetectors used to detect and record their hits and energy
-deposits. 
+always due to passing particles, the detectors and readouts themselves only produce information about the position, value, and multiplicity of
+these hits and energy deposits. Thanks to clever and accurate experimental techniques, we reconstruct various particles from these hits and energy deposits.
+
+In part because CMS detects only the hits and energy deposits directly, and the particles are inferred from this information,
+reconstructed particles are referred to as physics \emp{objects} in this context.
+The reconstruction technique varies greatly with different objects and the subdetectors used to detect and record their hits and energy deposits. 
+% Using
+%the term particles implies certainty about the identify of the object, and because there is some uncertainty, however small, inherent in the reconstruction, objects is
+%more accurate and widely used.
 
 \section{Object Reconstruction and Particle Flow}
 The particle flow algorithm is used by CMS to reconstruct physics objects from hits and energy deposits. Particle Flow and CMS are unique in the sense
@@ -152,8 +155,30 @@ used in the \tth,$H\rightarrow\gamma\gamma$ search} all objects available from t
 reconstruction are needed to identify events that are consistent with the signal, namely jets, missing energy, charged leptons, and hadronic taus.
 
 \subsection{Jets}
-Jets are reconstructed from PF clusters 
+Jets are clustered with anti-kt and reconstructed from PF candidates as described previously using the FASTJET algorithm~\cite{antikt}\cite{fastjet}.
+Charged hadrons not originating from the primary vertex are subtracted from the jet clustering. Because the detector performance varies with time the measured jet energies
+must be updated to correct for performance degradation in the calorimeters. The jets are corrected in bins of jet $E_{T}$ (transverse energy) and $\eta$~\cite{jec}.
+
+The jet selection for this analysis requires jets to have a \pt > 25 GeV and $|\eta|$ < 2.4. Jets are removed when they overlap with a fakeable lepton (described later) within
+a $\Delta$R cone of < 0.4. Finally, the jets must pass the working point of the an MVA used to discriminate against jets from pileup vertices. This discriminator uses inputs
+characterizing the shape of the jet, the relative amounts of charged and neutral candidates within the jet, and the \pt ratio between the candidates. 
+
 \subsubsection{b-jet Identification}
+The properties of heavy flavor quarks, specifically the bottom quark, have unique characteristics that make their hadronizations easy to identify or tag. This identification is called
+b-tagging and used throughout this and many other analyses. These heavy flavor quarks are characterized by large\footnote{large relative to light quarks and gluons} masses,
+long lifetimes, high \pt decay products among which there is an occasional charged lepton. All of these properties are measured by CMS and used to discriminate b-quark jets
+from light flavor QCD jets. 
+
+Jets originating from b-quark hadronization (b-jets). Identifying b-jets is crucial to selecting \tth events since the tops
+almost always produce b-quarks. The algorithm used in this analysis is the Combined Secondary Vertex (CSVv2) tagger~\cite{csvv2}. The CSVv2 tagger is an MVA discriminator that
+combines secondary vertex information with impact parameter variables that discriminate heavy flavor quarks from light flavor quarks and gluons. The tagging variable is assigned
+for each jet, and can range from -1 to +1, where the higher values correspond to higher likelihood that the jet originated from a b-quark. The jets described in the previous
+subsection are \emph{tagged} when they pass a specific working point of the tagger. The specific working point is choosen to balance keeping the fake rate low, and the efficiency
+high. The working points used in this analysis were selected after studying the tagger performance, as a function of jet \pt and $\eta$ in data samples with b-jets. Two working points
+are used for b-tagging in this analysis. The medium working point (CSVv2 > 0.8484) corresponds to 70\% efficiency for tagging
+b-jets with a 1.5\% mistag rate, while the loose working point (CSVv2 > 0.5426) corresponds to an 85\% efficiency and a 10\% mistag rate. The mistag rate is the rate is the efficiency
+to tag jets with only light flavor quarks or gluons. The motivation for two working points is explained in the event selection. 
+
 \subsection{Missing Energy}
 \subsection{Leptons}
 \subsection{Taus}
