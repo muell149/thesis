@@ -49,7 +49,7 @@ After the tracking and clustering is complete, Particle Flow then matches tracks
 In a given event, there can be many different objects and Particle Flow utilizes
 a process-of-elimination strategy. Because they are the easiest to identify unambiguously, muons are identified first by matching tracks in the inner tracker to the tracks in
 the muon chambers. The matching criteria is based on a $\chi^{2}$ fit threshold. When multiple sets of tracks are matched, the set with the lowest $\chi^{2}$ is selected as the
-muon object. Muons are first reconstructed this way and called global muons. Particle flow muons are identifed from global muons when the \pt~s measured in the tracker and the
+muon object. Muons are first reconstructed this way and called global muons~\cite{globalmuon}. Particle flow muons are identifed from global muons when the \pt s measured in the tracker and the
 muon chambers agree to within three standard deviations. The tracks corresponding to the muon object are then removed from consideration for the remaining object reconstruction. 
 
 Following muons, electrons are reconstructed next. Because electrons deflect strongly in the magnetic field, they leave characteristically short tracks, and lose energy via
@@ -81,7 +81,7 @@ These jets are then intrepreted experimentally to be the free quark. An depictio
  \end{center}
 \end{figure}
  
-Unfortunately, there are too many PF candidates detected and reconstructed in the calorimeters in a given event at one time to make the jet clustering process straight-forward
+There are too many PF candidates detected and reconstructed in the calorimeters in a given event at one time to make the jet clustering process straight-forward
 and unambiguous. To address this, jet clustering algorithms are used for clustering. These algorithms exploit information from the detector with theoretical knowledge of the
 hadronization process to cluster the jets sensible and reproducible manner.
 While many clustering algorithms exist, the one used by this analysis is the anti-$k_{T}$ algorithm~\cite{antikt}. Anti-$k_{T}$ begins like other sequential clustering algorithms,
@@ -146,7 +146,6 @@ LHC bunch crossing is below in Figure~\ref{fig:pileup_vertices}.
 \noindent The pileup values in the data in this analysis varies from 30 to 45, meaning there are, on average, between 30 and 45 collisions (including the primary vertex) in each
 bunch crossing recorded by CMS. 
 
-
 \section{Object Selection}
 After the basic object reconstruction is performed, each event is ready for the fist steps of analysis. The analysis begins with object selection where the objects in each
 event are subjected to tighter criteria to ensure quality objects in the analysis that are consistent with signal and background predictions. This selection depends on and 
@@ -159,11 +158,11 @@ Jets are clustered with anti-kt and reconstructed from PF candidates as describe
 Charged hadrons not originating from the primary vertex are subtracted from the jet clustering. Because the detector performance varies with time the measured jet energies
 must be updated to correct for performance degradation in the calorimeters. The jets are corrected in bins of jet $E_{T}$ (transverse energy) and $\eta$~\cite{jec}.
 
-The jet selection for this analysis requires jets to have a \pt > 25 GeV and $|\eta|$ < 2.4. Jets are removed when they overlap with a fakeable lepton (described later) within
-a $\Delta$R cone of < 0.4. Finally, the jets must pass the working point of the an MVA used to discriminate against jets from pileup vertices. This discriminator uses inputs
+The jet selection for this analysis requires jets to have a \pt $>$ 25 GeV and $|\eta|$ $<$ 2.4. Jets are removed when they overlap with a fakeable lepton (described later) within
+a $\Delta$R cone of $<$ 0.4. Finally, the jets must pass the working point of the an MVA used to discriminate against jets from pileup vertices. This discriminator uses inputs
 characterizing the shape of the jet, the relative amounts of charged and neutral candidates within the jet, and the \pt ratio between the candidates. 
 
-\subsubsection{b-jet Identification}
+\subsection{b-jet Identification}
 The properties of heavy flavor quarks, specifically the bottom quark, have unique characteristics that make their hadronizations easy to identify or tag. This identification is called
 b-tagging and used throughout this and many other analyses. These heavy flavor quarks are characterized by large\footnote{large relative to light quarks and gluons} masses,
 long lifetimes, high \pt decay products among which there is an occasional charged lepton. All of these properties are measured by CMS and used to discriminate b-quark jets
@@ -175,9 +174,12 @@ combines secondary vertex information with impact parameter variables that discr
 for each jet, and can range from -1 to +1, where the higher values correspond to higher likelihood that the jet originated from a b-quark. The jets described in the previous
 subsection are \emph{tagged} when they pass a specific working point of the tagger. The specific working point is choosen to balance keeping the fake rate low, and the efficiency
 high. The working points used in this analysis were selected after studying the tagger performance, as a function of jet \pt and $\eta$ in data samples with b-jets. Two working points
-are used for b-tagging in this analysis. The medium working point (CSVv2 > 0.8484) corresponds to 70\% efficiency for tagging
-b-jets with a 1.5\% mistag rate, while the loose working point (CSVv2 > 0.5426) corresponds to an 85\% efficiency and a 10\% mistag rate. The mistag rate is the rate is the efficiency
+are used for b-tagging in this analysis. The medium working point (CSVv2 $>$ 0.8484) corresponds to 70\% efficiency for tagging
+b-jets with a 1.5\% mistag rate, while the loose working point (CSVv2 $>$ 0.5426) corresponds to an 85\% efficiency and a 10\% mistag rate. The mistag rate is the rate is the efficiency
 to tag jets with only light flavor quarks or gluons. The motivation for two working points is explained in the event selection. 
+
+\subsubsection{b-jet Scale Factors}
+Need to fill this in. 
 
 \subsection{Missing Energy}
 Missing energy, or more accuarately missing \emph{transverse} energy is calculated as the negative vector sum of \pt of all PF candidates in the event, denoted as \met. It is called missing because
@@ -185,21 +187,137 @@ the gluons (or quarks) colliding in the hard scatter that produce events such as
 produced in the collision should match the sum before the collison. Any time the \met is non-zero, it is assumed to be carried off by missing particles. In the context of this and many other analyses,
 the \met is interpreted as the presence of neutrinos. The two same-sign lepton requirement on the signal ensures that there will always be two neutrinos in the event, making it impossible to fully
 reconstruct the individual neutrino momenta. The presence of \met can also arise due to mis measurements, incorrect reconstructions or jet clusterings, or the contribution of pile up events. To discriminate
-between the different sources of \met we use another variable called \ht, which is the negative vector sum of all selected jets and leptons in the event. While \ht has lower resolution than the \met,
-it relies only on the higher \pt selected objects and not the softer objects failing the seleciton. To exploit the fact that \ht and \met are less correlated in events with incidental missing energy,
-and more correlatd in events with real missing energy, a linear discriminat of both varibles is used and defined as: 
+between the different sources of \met we use another variable called \HT, which is the negative vector sum of all selected jets and leptons in the event. While \HT has lower resolution than the \met,
+it relies only on the higher \pt selected objects and not the softer objects failing the seleciton. To exploit the fact that \HT and \met are less correlated in events with incidental missing energy,
+and more correlatd in events with real missing energy, a linear discriminat of both varibles is used and defined as
 
 \begin{equation}
-%%\begin{aligned}
 \label{eqn:metld}
-%%\begin{split}
-\met LD = \met * 0.00397 + \ht * 0.00265
-%%\end{split}  
-%%\end{aligned} 
+ \met LD = \met\times0.00397 + \HT\times0.00265
 \end{equation}
 
-where the \met LD value is cut on which will be described in the event selection. 
+\noindent where the \met LD value is cut on which will be described in the event selection. 
 
 \subsection{Leptons}
+The flagship objects that characterize this analysis are the leptons. The lepton selection is the foundation of this \tth search and many of the analysis treatment that follows later is due to the
+choice of lepton selection. The ultimate goal of the lepton selection is to identify and select prompt leptons and reject non-prompt, also known as fake, leptons. In this context, a prompt lepton
+is a lepton that originates directly (promptly) from a W, Z or $\tau$\footnote{prompt leptons produced in $\tau$ decays are actually coming from an offshell W produced by the decaying $\tau$} decay, while non-prompt leptons
+predominantly originate from b-hadron decays, but also in-flight decays of pions, and photon conversions. The term \emph{fake} is used to describe non-prompt leptons because non-prompt leptons
+that pass the criteria designed to select prompt leptons are faking prompt leptons. These fakes are one of the largest backgrounds in this analysis and the lepton selection is designed to reduce both
+the quantity of fakes entering the signal regions, and the systematic uncertainties on that quantity. 
+
+\subsubsection{Electron Identification}
+Electrons are reconstructed from tracker hits (GSF tracks) and ECAL clusters via particle flow as described previously. While many other criteria is placed on electrons later, they first must
+have $|\eta|<$2.5 to be guarantee they passed through the tracker, and minimum \pt $>$ 7 GeV. Electrons must pass the working point of an MVA designed to identify electrons using shower-shape variables,
+track-cluster consistency variables, and track quality variables~\cite{elemvaid}. We apply loose cuts as a function of $|\eta|$ on this MVA value. The full shape of this MVA is used as an input to
+the Lepton MVA, which will be described in the following sections. 
+
+\subsubsection{Muon Identification}
+Muons are reconstructed by combining tracks from the silicon tracker with tracks in the muon chambers and are required to be global muons. Muons are first required to have \pt $>$ 5 GeV and
+$|\eta|<$2.4. We use centralized selectrion criteria developed by the CMS
+Muon Physics Object Group (POG) and require all muons to pass the Loose ID~\cite{loosemuon} and in some cases the Medium ID~\cite{mediummuon} depending on the selection. 
+
+\subsubsection{Isolation}
+Lepton isolation is a measure of how spatially isolated the lepton is from other physics objects in the detector in an event. Prompts leptons are typically isolated from hadronic activity
+(jets) in the event, while non-prompt leptons, which are often produced in hadronic decays, are significanly less isolated and close to/overlapping with jets. The standard isolation considers
+all charged and neutral hadrons as well as photons within a fixed cone size in R around the lepton, then if there is too much energy relative to the lepton energy from the
+other objects inside the fixed cone radius, the lepton fails the isolation criteria. This analysis uses a variation of this technique that varies the cone size with the \pt of the lepton, since
+boosted (very high momentum) objects tend to be more collimated and thus should have a more collimated cone definition. This isolation technique is called mini isolation (\miniIso) and the cone
+size is varied with lepton \pt according to equation~\ref{eqn:miniIsoConeSize} below. 
+
+\begin{equation}
+\label{eqn:miniIsoConeSize}
+ R = \frac{10}{min(max(p_{T}(l),50),200)}
+\end{equation}
+
+\noindent The amount of activity inside this cone is adjusted to correct for pileup using the $\rho$-correction, which assumes a fixed pileup-density in different $|\eta|$ ranges in the detector. The
+pileup density $\rho$, is multiplied by effective areas as a function of $|\eta|$. The \miniIso quantity is defined in equation~\ref{eqn:miniIso} below
+
+\begin{equation}
+\label{eqn:miniIso}
+ I_{mini} = \frac{\sum_{R}p_{T}(h^{\pm}) - max(0,\sum_{R}p_{T}(h^{0}) + p_{T}(\gamma) - \rho A (\frac{R}{0.3})^{2}) }{p_{T}(l)}
+\end{equation}
+
+\noindent where $\sum_{R}p_{T}(h^{\pm})$ is the energy of the charged hadrons inside the cone of radius R, $\sum_{R}p_{T}(h^{0})$ is the energy of the neutral hadrons inside the cone, $p_{T}(\gamma)$ is
+the energy from photons inside the cone, and $-\rho A (\frac{R}{0.3})^{2}$ is the correction for pileup. The effective areas, A, are defined separately for muons and electrons and are based off a fixed
+cone size of R = 0.3, which explains the denominator in the pileup correction term. Both muons and electrons are subject to the same isolation criteria, which requires \miniIso $<$ 0.4.
+
+\subsubsection{Vertex}
+\subsubsection{Jet-related Variables}
+\subsubsection{Lepton MVA}
+\subsubsection{Lepton Selection}
+--describe additional lepton requirements--
+
+%%\begin{table}[h!]
+\begin{table}[htbp]
+\centering
+\small
+\topcaption{
+\label{tab:muonIDs}
+Requirements on each of the three muon selections. A few extra requirements are applied for fakeable objects that fail the lepton MVA requirement,
+to better control the extrapolation in fragmentation and flavor composition and are marked with a $\dagger$.}
+\begin{tabular}{c|c|c|c}
+\hline
+\bf{Cut} & \bf{Loose} & \bf{Fakeable} & \bf{Tight} \\
+\hline
+$|\eta| < 2.4$ & \checkmark & \checkmark & \checkmark \\
+$\pt$ & $>5$ & $>15$ & $>15$\\
+$|d_{xy}| < 0.05$ (cm) & \checkmark & \checkmark & \checkmark \\
+$|d_z| < 0.1$ (cm) & \checkmark & \checkmark & \checkmark \\
+$\text{SIP}_{3D} < 8$ & \checkmark & \checkmark & \checkmark \\
+\miniIso $< 0.4$ & \checkmark & \checkmark & \checkmark \\
+is Loose Muon & \checkmark & \checkmark & \checkmark \\
+\ptRatio & -- & $>0.5\dagger$ / -- &  -- \\
+segmentCompatibility & -- & $>0.3\dagger$ / -- &  -- \\
+%%jet CSV  & -- & $< 0.8484$ & $ < 0.8484$ \\
+jet CSV  & -- & $< 0.3 \dagger$ / $< 0.8484$ & $ < 0.8484$ \\
+is Medium Muon & -- & -- & \checkmark \\
+tight-charge & -- & -- & \checkmark \\
+lepMVA $> 0.90$ & -- & -- & \checkmark \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\small
+\topcaption{
+\label{tab:eleIDs}
+Requirements on each of the three electron selections. In some cases, the cut values change for different $\eta$ ranges.
+These ranges are $0 < |\eta| < 0.8$, $0.8 < |\eta| < 1.479$, and $1.479 < |\eta| < 2.5$ and the respective cut values are given in the form
+(value$_1$, value$_2$, value$_3$). Cuts marked with $\dagger$ are applied only to objects failing the tight selection.
+}
+\resizebox{1.0\linewidth}{!}{
+\begin{tabular}{c|c|c|c}
+\hline
+\bf{Cut} & \bf{Loose} & \bf{Fakeable} & \bf{Tight} \\
+\hline
+$|\eta| < 2.5$ & \checkmark & \checkmark & \checkmark \\
+$\pt$ & $>7$ & $>15$ & $>15$ \\
+$|d_{xy}| < 0.05$ (cm) & \checkmark & \checkmark & \checkmark \\
+$|d_z| < 0.1$ (cm) & \checkmark & \checkmark & \checkmark \\
+$\text{SIP}_{3D} < 8$ & \checkmark & \checkmark & \checkmark \\
+\miniIso $< 0.4$ & \checkmark & \checkmark & \checkmark \\
+MVA ID $> (0.0, 0.0, 0.7)$ & \checkmark & \checkmark & \checkmark \\
+$\sigma_{i\eta i\eta} <(0.011,0.011,0.030)$ & -- & \checkmark & \checkmark \\ %& for corr. $\pt>30$ & for corr. $\pt>30$ \\
+H/E $< (0.10,0.10,0.07)$ & -- & \checkmark & \checkmark \\ %& for corr. $\pt>30$ & for corr. $\pt>30$ \\
+$\Delta\eta_{\textrm in} < (0.01, 0.01, 0.008)$ & -- & \checkmark & \checkmark \\ %& for corr. $\pt>30$ & for corr. $\pt>30$ \\
+$\Delta\phi_{\textrm in} < (0.04, 0.04, 0.07)$ & -- & \checkmark & \checkmark \\ %& for corr. $\pt>30$ & for corr. $\pt>30$ \\
+$-0.05 < 1/E-1/p < (0.010,0.010,0.005)$ & -- & \checkmark & \checkmark \\ %& for corr. $\pt>30$ & for corr. $\pt>30$ \\
+\ptRatio & -- & $>0.5\dagger$ / -- & -- \\
+jet CSV  & -- & $< 0.3 \dagger$ / $< 0.8484$ & $ < 0.8484$ \\
+tight-charge & -- & -- & \checkmark \\
+conversion rejection & -- & -- & \checkmark \\
+Number of missing hits & $<2$ & $== 0$ & $== 0$ \\
+lepMVA $> 0.90$ & -- & -- & \checkmark \\
+\hline
+\end{tabular}}
+\end{table}
+
+
+\subsubsection{Lepton Variable Validation}
+\subsubsection{Lepton Effiency Scale Factors}
+
 \subsection{Taus}
 

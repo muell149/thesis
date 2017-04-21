@@ -125,7 +125,6 @@ and $E^{miss}_{T}$
 \newblock Technical Report CMS-PAS-PFT-09-001, CERN, Geneva,
   2009{\natexlab{a}}.
 
-
 \bibitem[{CMS Collaboration}(2003{\natexlab{a}})]{gsf}
 {CMS Collaboration}.
 \newblock Reconstruction of Electron Tracks With the Gaussian-Sum Filter in the CMS Tracker at the LHC.
@@ -185,6 +184,12 @@ How much electricity does an American Home use?
 \newblock Website, Accessed: February 20th 2017.
 \newblock \url{https://www.eia.gov/tools/faqs/faq.cfm?id=97&t=3}.
 
+\bibitem[Chatrchyan et~al.(2011)]{globalmuon}
+S.~Chatrchyan et~al.
+\newblock {Performance of CMS muon reconstruction in pp collision events at sqrt(s) = 7 TeV}.
+\newblock \emph{JINST}, 7\penalty 2012{\natexlab{p}10002}.
+\newblock \doi{10.1088/1748-0221/7/10/P10002}.
+
 \bibitem[M.~Cacciari and Soyez(2008)]{antikt}
 G.P.~Salam M.~Cacciari and G.~Soyez.
 \newblock {The anti-k$_T$ jet clustering algorithm}.
@@ -208,6 +213,29 @@ S.~Chatrchyan et~al.
 \newblock {Identification of b-quark jets with the CMS experiment}.
 \newblock \emph{JINST}, 8:\penalty0 P04013, 2013{\natexlab{b}}.
 \newblock \doi{10.1088/1748-0221/8/04/P04013}.
+
+\bibitem[H.~Brun.(Accessed: April 21st 2017)]{elemvaid}
+H.~Brun and C.~Ochando.
+\newblock {Updated Results on MVA eID with 13 TeV samples}.
+\newblock Website, Accessed: April 21st 2017.
+\newblock
+  \url{https://indico.cern.ch/event/367861/contribution/1/material/slides/0.pdf}.
+
+\bibitem[loosemu(Accessed: April 21st 2017)]{loosemuon}
+G.~Abbiendi et~al. 
+\newblock {Baseline muon selections}.
+\newblock Website, Accessed: April 21st 2017.
+\newblock
+  \url{https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId#Tight_Muon}.
+
+\bibitem[mediummu(Accessed: April 21st 2017)]{mediummuon}
+G.~Petrucciani and C.~Botta. 
+\newblock {Two step prompt muon identification}.
+\newblock Website, Accessed: April 21st 2017.
+\newblock
+  \url{https://indico.cern.ch/event/368007/contribution/2/material/slides/0.pdf}.
+
+
 
 
 %%%%%%%%%%%%%% Haven't needed these yet...
