@@ -165,7 +165,8 @@ characterizing the shape of the jet, the relative amounts of charged and neutral
 \subsection{b-jet Identification}
 The properties of heavy flavor quarks, specifically the bottom quark, have unique characteristics that make their hadronizations easy to identify or tag. This identification is called
 b-tagging and used throughout this and many other analyses. These heavy flavor quarks are characterized by large\footnote{large relative to light quarks and gluons} masses,
-long lifetimes, high \pt decay products among which there is an occasional charged lepton. All of these properties are measured by CMS and used to discriminate b-quark jets
+long lifetimes, high \pt decay products among which there is an occasional charged lepton. The long lifetime provides a key handle to identify b-decays, since the b travels farther before
+decay and producing a secondary vertex. Identifying this secondary vertex plays a central role in tagging jets from b-decays. All of properties are measured by CMS and used to discriminate b-quark jets
 from light flavor QCD jets. 
 
 Jets originating from b-quark hadronization (b-jets). Identifying b-jets is crucial to selecting \tth events since the tops
@@ -179,7 +180,23 @@ b-jets with a 1.5\% mistag rate, while the loose working point (CSVv2 $>$ 0.5426
 to tag jets with only light flavor quarks or gluons. The motivation for two working points is explained in the event selection. 
 
 \subsubsection{b-jet Scale Factors}
-Need to fill this in. 
+The shape of the CSVv2 distribution of b-jets in data differs somewhat between that of MC. Because MC is being used to predict both the signal and many of the backgrounds, we apply scale factors (SFs)
+to correct the shape in the MC to match that of data. These scale factors are derived separately for heavy (b,c quark) flavor and light flavor as a function of the jet CSVv2, \pt, $|\eta|$. The SF is 
+calculated according to equation~\ref{eqn:csvsf} below. 
+
+\begin{equation}
+\label{eqn:csvsf}
+  SF(CSVv2,p_{T},\eta) = \frac{DATA-MC_{A}}{MC_{B}}
+\end{equation}
+
+\noindent where A/B = light/heavy flavor for the heavy flavor correction and A/B = heavy/light for the light flavor correction. The scale factors are derived from a tag-and-probe technique. First,
+a control region is defined by selecting opposite sign $e-\mu$ events with exactly two jets. When this selection is applied to data, it yields events enriched with di-leptonic \ttbar decays where the
+two jets are most likely b-jets. Then one of the jets (the \emph{tag}) is required to pass the medium CSVv2 working point (CSVv2 $>$ 0.8484) to increase the \ttbar purity. In real \ttbar events, the
+remaining jet (the \emph{probe}) is very likely a b-jet. Because control region applied to data is only \emph{enriched} in \ttbar events and not pure \ttbar events, we subtract off the contribution of
+light flavor jets as estimated in MC, which explains the second term in the numerator of equation~\ref{eqn:csvsf}. Now we can directly apply this same control region to pure \ttbar MC, and the ratio
+of the corrected yields in data to the pure \ttbar MC gives the scale factor described in equation~\ref{eqn:csvsf}. The same process is used for the light flavor correction, but the control region
+definition is modified to instead select dileptonic events with two leptons that have the same flavor and opposite sign, with exactly two jets where one of the jets \emph{fails} the medium CSVv2 WP.
+This control region applied on data yields events enriched in Z+jets and the tag-and-probe process is repeated. The full details of this technique are described in~\cite{CMS-AN-2013-130}~and~\cite{csvsf_twiki}.
 
 \subsection{Missing Energy}
 Missing energy, or more accuarately missing \emph{transverse} energy is calculated as the negative vector sum of \pt of all PF candidates in the event, denoted as \met. It is called missing because
@@ -405,7 +422,11 @@ requirement is placed on electrons, which requires the electron charge measureme
 to have no missing hits in the inner tracker to suppress contributions from photon conversions. 
 
 \subsubsection{Lepton Variable Validation}
+Not sure if these plot should be reproduced or if I can yank them from AN. 
+
 \subsubsection{Lepton Effiency Scale Factors}
+
+
 
 \subsection{Taus}
 

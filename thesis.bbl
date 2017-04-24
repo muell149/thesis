@@ -240,6 +240,19 @@ G.~Petrucciani and C.~Botta.
 \newblock Search for ttH production in multilepton final states at $\sqrt{s}$ = 13 TeV 
 \newblock CMS Physics Analysis Summary CMS-PAS-HIG-15-008, 2015{\natexlab{f}}.
 
+\bibitem[{CMS Collaboration}(2013{\natexlab{a}})]{CMS-AN-2013-130}
+{CMS Collaboration}.
+\newblock Calibration of the combined secondary vertex b-tagging discriminant
+  using dileptonic ttbar and drell-yan events.
+\newblock CMS Note 2013/130, 2013{\natexlab{a}}.
+
+\bibitem[csvsf(Accessed: April 21st 2017)]{csvsf_twiki}
+D.~Puigh et~al. 
+\newblock {Event reweighting using scale factors calculated with a tag and probe method}.
+\newblock Website, Accessed: April 21st 2017.
+\newblock
+  \url{https://twiki.cern.ch/twiki/bin/view/CMS/BTagShapeCalibration}.
+
 
 
 %%%%%%%%%%%%%% Haven't needed these yet...
@@ -386,17 +399,6 @@ G.~Petrucciani and C.~Botta.
 %% \newblock Commissioning of the particle-flow reconstruction in minimum-bias and
 %%   jet events from $pp$ collisions at 7 tev.
 %% \newblock CMS PAS PFT-2010-002, 2010{\natexlab{b}}.
-
-%% \bibitem[{CMS Collaboration}(2012{\natexlab{f}})]{CMS-PAS-BTV-11-004}
-%% {CMS Collaboration}.
-%% \newblock b-jet identification in the cms experiment.
-%% \newblock CMS Physics Analysis Summary CMS-PAS-BTV-11-004, 2012{\natexlab{f}}.
-
-%% \bibitem[{CMS Collaboration}(2013{\natexlab{a}})]{CMS-AN-2013-130}
-%% {CMS Collaboration}.
-%% \newblock Calibration of the combined secondary vertex b-tagging discriminant
-%%   using dileptonic ttbar and drell-yan events.
-%% \newblock CMS Note 2013/130, 2013{\natexlab{a}}.
 
 %% \bibitem[{CMS Collaboration}(2013{\natexlab{b}})]{CMS-PAS-SMP-13-004}
 %% {CMS Collaboration}.
