@@ -278,12 +278,60 @@ $2.2 < |\eta|$ & 0.0577 \\
 \label{tab:mu_effArea}
 \end{table}
 
+\subsubsection{Vertexing}
+Vertexing requirements are placed on the leptons to help to ensure they are coming from (associated with) the primary vertex and to
+remove leptons from misreconstructed tracks and hadron decays from further consideration. The requirements
+placed on the leptons include the impact parameter in both the transverse plane ($d_{xy}$), the z-direction ($d_{z}$) and the significance
+on the three-dimensional impact parameter. The impact parameter is the distance of closest approach of the lepton track to the primary vertex
+(SIP$_{3D}$). The values of thes cuts are detailed in tables~\ref{tab:muonIDs}~and~\ref{tab:eleIDs}.
+These cuts are designed to reduce the contribution of pileup and misreconstructed tracks. The full shape of these variables are
+used as inputs to the lepton MVA.
 
-\subsubsection{Vertex}
 \subsubsection{Jet-related Variables}
+In order to reduce the contribution of fake leptons from hadron decays, specifically b-decays, we construct several variables that incorporate
+the characteristics of the nearest jet to the selected lepton. Using the jet selection described previously, but lowering the \pt threshold to
+15 GeV, we consider the closest jet to each lepton within an R $<$ 0.5 of the lepton. The variables include the ratio of the jet to the ratio
+of the lepton, the jet \pt, the jet CSVv2 value, the number of charged tracks inside the jet, and pt of the lepton relative to the pt of the jet
+($p_{T}^{rel}$), which is defined in equation~\ref{eqn:ptrel} below. 
+
+\begin{equation}
+\label{eqn:ptrel}
+ p_{T}^{rel} = \frac{(\vec{p}(jet)-\vec{p}(l))\cdot\vec{p}(l)}{||\vec{p}(jet)-\vec{p}(l)||}
+\end{equation}
+
+We apply a modified version of the jet energy corrections described previously to avoid over correcting the jets near the lepton and bias the 
+prompt lepton selection. We therefore only correct the hadronic part of the jet according to $jet = l + (jet-PU-l)\times~JEC - PU$.  
+
 \subsubsection{Lepton MVA}
+In addition to the selection cuts, we combine them into a multivariate discriminator designed to select prompt leptons and reject fakes.
+This MVA is called the lepton MVA and is based on a boosted decision tree classifier. We use two versions of this MVA, one specifically for
+muons and one for electrons. The lepton MVA is trained on prompt leptons in \tth
+MC as signal, and the background sample consists of fake leptons from \ttbar MC sample. The input variables are: 
+
+\begin{itemize}
+  \item lepton \pt
+  \item lepton $|\eta|$
+  \item number of charged tracks
+  \item charged component of mini isolation
+  \item neutral component of mini isolation ($\rho$ corrected)
+  \item jet $p_{T}^{rel}$
+  \item min(jet \pt ratio, 1.5)
+  \item jet CSVv2
+  \item SIP$_{3D}$
+  \item log$|d_{xy}|$
+  \item log$|d_{z}|$
+  \item segment compatibility (muons only)
+  \item electron MVA ID (electrons only)
+\end{itemize}
+
+The lepton MVA used here is the same as the one used in the 2015 \tth analysis~\cite{CMS-PAS-HIG-15-008}. Leptons passing the tight working point
+of the lepton MVA (MVA $>$ 0.9) is defining characteristic of the tight leptons used in the signal regions. 
+
 \subsubsection{Lepton Selection}
---describe additional lepton requirements--
+The lepton selection is a comprised three increasingly selective classes: loose, fakeable, and tight. The loose is a preselection, while the
+fakeable object selection, which is a tighter subset of the loose, is used to define control regions for estimating the background due to fake leptons.
+The tight leptons, which are a subset of the fakeable, define the leptons used in the signal regions of this analysis. The details of these selections are
+described in tables~\ref{tab:muonIDs}~and~\ref{tab:eleIDs}. 
 
 %%\begin{table}[h!]
 \begin{table}[htbp]
@@ -352,6 +400,9 @@ lepMVA $> 0.90$ & -- & -- & \checkmark \\
 \end{tabular}}
 \end{table}
 
+\noindent The tight charge for muons is defined as $\Delta~p_{T}/p_{T} < 0.2$ which requires the muon \pt to be well measured with small uncertainty. A similar
+requirement is placed on electrons, which requires the electron charge measurements in the ECAL and tracker to agree. Additionally, electrons are required
+to have no missing hits in the inner tracker to suppress contributions from photon conversions. 
 
 \subsubsection{Lepton Variable Validation}
 \subsubsection{Lepton Effiency Scale Factors}
