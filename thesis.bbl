@@ -271,6 +271,12 @@ and $\nu_{\tau}$ at CMS}.
 \newblock Multivariate $\tau$-identification algorithms for 13 TeV data.
 \newblock CMS AN-15-310, 2015{\natexlab{e}}.
 
+\bibitem[json(Accessed: April 21st 2017)]{json}
+{CMS Collaboration}. 
+\newblock {JSON Files for 25ns data}.
+\newblock Website, Accessed: April 21st 2017.
+\newblock
+  \url{https://hypernews.cern.ch/HyperNews/CMS/get/physics-validation/2669.html}.
 
 
 %%%%%%%%%%%%%% Haven't needed these yet...
