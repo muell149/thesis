@@ -3,8 +3,34 @@
 %
 
 \chapter{EVENT SELECTION}
+The event selection process defines the signal regions of this analysis. The signal regions are categories that contain events passing a series of cuts desinged to 
+select as much signal (\tth) as possible, and simultaneously reject as much background as possible, therefore every cut defining each signal region chosen with this
+in mind. In the multilepton analysis, there are three signal regions predominantly defined by the lepton multiplicity in the event: the two-lepton same-sign ($2lss$) region,
+the three-lepton ($3l$) region, and the four-lepton ($4l$) region. This dissertation focuses $2lss$ category. Defining the signal regions by lepton multiplicity is motivated
+by the fact that the number of leptons passing the object selection yields the most information about the underlying event.
+
+There are several cuts which don't depend on lepton multiplicity that are applied to all signal regions to ensure the selection of events consistent with \tth. Events with
+a pair of loose leptons with an invariant mass of less than 12 GeV are vetoed, as they are consistent with a J/$\psi$ or $\Upsilon$ decay and are not modeled in the MC
+simulation, but are present in data. At least two jets are required in all signal regions, and of these there must be at least one jet passing the medium CSVv2 working point,
+or two passing the loose working point. This b-jet requirement is consistent with a top-quark pair decaying to jets, which is present in all \tth processes. 
+
 \section{Two-lepton same-sign category}
-\section{Three-lepton category}
+The $2lss$ category is primarily defined by the requirement that there be exactly two tight leptons that have the same sign electric charge. The same-sign requirement is needed to veto 
+one of the largest backgrounds dileptonic \ttbar + jets, which has oppositely charged leptons and a cross section more than three orders of magnitude greater than that of \tth. We require
+the leading lepton have \pt $>$ 25 GeV to stay well above the trigger threshold for reasons that will be explained in the trigger section. At least 4 jets are required, to be consistent with
+a \tth process with two same-sign leptons in the final state. To reject backgrounds with Z bosons where one of the lepton charges is mis-measured, we reject any di-electron pair whose invariant
+mass is within 10 GeV of the Z mass (90.2 GeV) and also require the \met LD be greater than 0.2 (again, for di-electron events only). To summarize, the $2lss$ category is defined by events
+satisfying the collowing requirements:
+
+\begin{itemize}
+ \item Exactly two tight leptons with the same-sign electric charge and \pt $>$ 25,15 GeV
+ \item m($ll$) $<$ 12 GeV for any pair of loose leptons in the event
+ \item $\geq$4 jets, among which there must be $\geq$1 CSVv2 M or $\geq$2 CSVv2 L
+ \item $|m(ee)-m_{Z}| >$ 10 GeV (for ee events only)
+ \item \met LD $>$ 0.2 (for ee events only) 
+\end{itemize}
+
+%\section{Three and four-lepton categories}
 %% \begin{figure}[hbtp]
 %%  \begin{center}
 %%    \includegraphics[width=0.8\textwidth]{ch4_figs/cms_particleflow.pdf}
