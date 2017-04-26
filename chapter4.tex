@@ -227,12 +227,16 @@ the quantity of fakes entering the signal regions, and the systematic uncertaint
 Electrons are reconstructed from tracker hits (GSF tracks) and ECAL clusters via particle flow as described previously. While many other criteria is placed on electrons later, they first must
 have $|\eta|<$2.5 to be guarantee they passed through the tracker, and minimum \pt $>$ 7 GeV. Electrons must pass the working point of an MVA designed to identify electrons using shower-shape variables,
 track-cluster consistency variables, and track quality variables~\cite{elemvaid}. We apply loose cuts as a function of $|\eta|$ on this MVA value. The full shape of this MVA is used as an input to
-the Lepton MVA, which will be described in the following sections. 
+the Lepton MVA, which will be described in the following sections. For the tightest selections, we also require the electron charge measurements in the ECAL and tracker to agree, and electrons must not have
+missing hits in the inner tracker, which suppresses contributions from photon conversions. 
+
 
 \subsubsection{Muon Identification}
 Muons are reconstructed by combining tracks from the silicon tracker with tracks in the muon chambers and are required to be global muons. Muons are first required to have \pt $>$ 5 GeV and
 $|\eta|<$2.4. We use centralized selectrion criteria developed by the CMS
-Muon Physics Object Group (POG) and require all muons to pass the Loose ID~\cite{loosemuon} and in some cases the Medium ID~\cite{mediummuon} depending on the selection. 
+Muon Physics Object Group (POG) and require all muons to pass the Loose ID~\cite{loosemuon} and in some cases the Medium ID~\cite{mediummuon} depending on the selection. Additionally, we require
+the sign of the muon electric charge to be well measured by appling a cut related to the significance of the muon \pt measurement called \emph{tight charge} defined as: $\Delta~p_{T}/p_{T} < 0.2$,
+where $\Delta~p_{T}$ is the uncertainty on the muon pt. This cut ensures a high confidence on the charge sign of the muons. This cut is only required on the tightest selection of muons.  
 
 \subsubsection{Isolation}
 Lepton isolation is a measure of how spatially isolated the lepton is from other physics objects in the detector in an event. Prompts leptons are typically isolated from hadronic activity
@@ -348,7 +352,7 @@ of the lepton MVA (MVA $>$ 0.9) is defining characteristic of the tight leptons 
 The lepton selection is a comprised three increasingly selective classes: loose, fakeable, and tight. The loose is a preselection, while the
 fakeable object selection, which is a tighter subset of the loose, is used to define control regions for estimating the background due to fake leptons.
 The tight leptons, which are a subset of the fakeable, define the leptons used in the signal regions of this analysis. The details of these selections are
-described in tables~\ref{tab:muonIDs}~and~\ref{tab:eleIDs}. 
+described in tables~\ref{tab:muonIDs}~and~\ref{tab:eleIDs}.
 
 %%\begin{table}[h!]
 \begin{table}[htbp]
@@ -417,16 +421,48 @@ lepMVA $> 0.90$ & -- & -- & \checkmark \\
 \end{tabular}}
 \end{table}
 
-\noindent The tight charge for muons is defined as $\Delta~p_{T}/p_{T} < 0.2$ which requires the muon \pt to be well measured with small uncertainty. A similar
-requirement is placed on electrons, which requires the electron charge measurements in the ECAL and tracker to agree. Additionally, electrons are required
-to have no missing hits in the inner tracker to suppress contributions from photon conversions. 
-
 \subsubsection{Lepton Variable Validation}
-Not sure if these plot should be reproduced or if I can yank them from AN. 
+COMING SOON...
 
 \subsubsection{Lepton Effiency Scale Factors}
+The rate at which objects pass the described lepton selections (known as efficiency) differs slightly between data and MC. Because we use MC predictions and compare directly to data,
+the lepton efficiency in MC is corrected to match the lepton efficiency in data. Because we utilize two lepton selections (loose, tight) for the MC predictions, we apply scale
+factors derived uniquely for each selection. Because the tight selection is a subset of the loose, all MC events with tight leptons have both loose and tight scale factors applied. 
 
+These corrections are applied as a function of \pt and $|\eta|$ for electrons and muons
+separately. These scale factors are applied to MC and defined in equation~\ref{eqn:lepEffSf} below:
 
+\begin{equation}
+\label{eqn:lepEffSf}
+ SF(p_{T},\eta) = \frac{\varepsilon_{data}(p_{T},\eta)}{\varepsilon_{MC}(p_{T},\eta)}
+\end{equation}
+
+\noindent where $\varepsilon(p_{T},\eta)$ is the efficiency measured for a single lepton to pass the selection measured in either data or MC. The total scale factor is the
+product of each individual lepton scale factor and is applied on an event-basis.
+
+The loose efficiency scale factors were derived by the SUSY lepton scale factor working group within CMS, while the loose-to-tight scale factors in Figure~\ref{fig:tightLepEff} were derived
+from a control region enriched in Drell-Yan (DY)\footnote{DY events are Z/$\gamma*\rightarrow~l^{\pm}l^{\mp}$, where $l=e,\mu$.} events using the tag-and-probe method. 
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.95\textwidth]{ch4_figs/tight_mu_lepEff_SF.pdf}
+   \includegraphics[width=0.95\textwidth]{ch4_figs/tight_ele_lepEff_SF.pdf}
+   \caption[caption text]{The loose-to-tight efficiency data/MC scale factors in bins of \pt and $|\eta|$ for individual muons (top) and electrons (bottom).}
+   \label{fig:tightLepEff}
+   \end{center}
+\end{figure}
 
 \subsection{Taus}
+The final objects considered in this analysis are tau leptons, specifically hadronically decaying taus. Leptonic tau decays produce a charged lepton that is typically identified as prompt,
+making their presence straightforward to detect, but impossible to distinguish from a lepton produced from a W or Z. To avoid an overlap with the signal regions of the \tth,$H\rightarrow\tau\tau$
+analysis~\cite{CMS-PAS-HIG-17-003}, which considers \emph{only} events with hadronic taus, we use the same object definition and veto any event with a selected hadronic tau. Hadronic taus are
+reconstucted with the hadron-plus-strips algorithm~\cite{hps} in 1-prong or 3-prong decay modes. Taus must have \pt $>$ 20 GeV, $|\eta|<$2.3, $d_{xy}<$1000 cm, $d_{z}<$0.2 cm, and pass the
+``decay mode finding'' MVA. Additonally, taus are required to pass the working point of a tau MVA ``byMediumIsolationMVArun2v1DBdR03oldDMwLT'' which was trained on \tth events as signal and
+\ttbar events as background with an isolation cone of radius 0.3~\cite{CMS-AN-15-310}. 
 
+\section{Object Cleaning}
+Objects that pass the selections described above but are spatially near one another must be addressed since they are typically consistent with pileup effects and do not resemble the signal process.
+We address this by removing one of the overlapping objects, which is decided according to the object type in a process called object cleaning. By choosing the correct objects to remove, and to keep
+we can mitigate the effects due to pileup. The first object cleaning is applied to leptons passing the loose selection. Loose electrons are removed\footnote{Because the lepton selection is applied in
+order, any objects removed after the loose selection are completely removed from the event and not considered for fakeable and tight.} when they overlap within a cone size of R = 0.05 of a loose muon. 
+Jets are removed when they overlap within a cone of radius R = 0.4 with fakeable lepton (muon or electron) or a tau passing the cleaning selection.

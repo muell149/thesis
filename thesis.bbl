@@ -253,6 +253,24 @@ D.~Puigh et~al.
 \newblock
   \url{https://twiki.cern.ch/twiki/bin/view/CMS/BTagShapeCalibration}.
 
+\bibitem[{CMS Collaboration}(2015)]{CMS-PAS-HIG-17-003}
+{CMS Collaboration}.
+\newblock Search for the associated production of a Higgs boson with a top
+quark pair in final states with a $\tau$ lepton at $\sqrt{s}$ = 13 TeV 
+\newblock CMS Physics Analysis Summary CMS-PAS-HIG-17-003, 2017{\natexlab{f}}.
+
+\bibitem[CMS collaboration.(2016{\natexlab{b}})]{hps}
+The CMS collaboration.
+\newblock {Reconstruction and identification of $\tau$ lepton decays to hadrons
+and $\nu_{\tau}$ at CMS}.
+\newblock \emph{JINST}, 11:\penalty01 P01019, 2016{\natexlab{b}}.
+\newblock \doi{10.1088/1748-0221/11/01/P01019}.
+
+\bibitem[{CMS Collaboration}(2015{\natexlab{e}})]{CMS-AN-15-310}
+{CMS Collaboration}.
+\newblock Multivariate $\tau$-identification algorithms for 13 TeV data.
+\newblock CMS AN-15-310, 2015{\natexlab{e}}.
+
 
 
 %%%%%%%%%%%%%% Haven't needed these yet...
@@ -372,13 +390,6 @@ D.~Puigh et~al.
 %%   tracker at LHC}.
 %% \newblock \emph{eConf}, C0303241:\penalty0 TULT009, 2003.
 %% \newblock \doi{10.1088/0954-3899/31/9/N01, 10.1088/0954-3899/31/9/N01}.
-
-%% \bibitem[{CMS Collaboration}(2012{\natexlab{e}})]{CMS-AN-12-389LepSF}
-%% {CMS Collaboration}.
-%% \newblock Dilepton trigger and lepton identification efficiencies for the top
-%%   quark pair production cross section measurement at 8 tev in the dilepton
-%%   decay channel.
-%% \newblock CMS AN AN-12-389, 2012{\natexlab{e}}.
 
 %% \bibitem[{CMS Collaboration}(Apr, 2009)]{CMS-PAS-PFT-2009-001}
 %% {CMS Collaboration}.
