@@ -278,6 +278,53 @@ and $\nu_{\tau}$ at CMS}.
 \newblock
   \url{https://hypernews.cern.ch/HyperNews/CMS/get/physics-validation/2669.html}.
 
+\bibitem[Sj{\"o}strand et~al.(2006)Sj{\"o}strand, Mrenna, and Skands]{pythia}
+Torbjorn Sj{\"o}strand, Stephen Mrenna, and Peter~Z. Skands.
+\newblock An Introduction to {PYTHIA} 8.2.
+\newblock \emph{CPC}, 01:\penalty0 024, 2015.
+\newblock \doi{10.1016/j.cpc.2015.01.024}.
+
+\bibitem[Alioli et~al.(2010)Alioli, Nason, Oleari, and Re]{powheg}
+Simone Alioli, Paolo Nason, Carlo Oleari, and Emanuele Re.
+\newblock {A general framework for implementing NLO calculations in shower
+  Monte Carlo programs: the POWHEG BOX}.
+\newblock \emph{JHEP}, 06:\penalty0 043, 2010.
+\newblock \doi{10.1007/JHEP06(2010)043}.
+
+\bibitem[cuetm(Accessed: April 21st 2017)]{CUETP8M2T4}
+{CMS Collaboration}. 
+\newblock {Powheg+Pythia8 $t\bar{t}$: tuning $\alpha_{S}^{ISR}$ and $h_{damp}$ }.
+\newblock Website, Accessed: April 21st 2017.
+\newblock
+  \url{https://indico.cern.ch/event/567994/contributions/2299854/attachments/1336057/2009649/tt_tuning_mseidel.pdf}.
+
+\bibitem[nnpdf3(2015)]{nnpdf3}
+NNPDF Collaboration.
+\newblock {Parton distributions for the LHC Run II}.
+\newblock \emph{JHEP}, 04:\penalty0 040, 2015.
+\newblock \doi{10.1007/JHEP04(2015)040}.
+
+\bibitem[Alwall et~al.(2011)Alwall, Herquet, Maltoni, Mattelaer, and Stelzer]{madgraph5}
+Johan Alwall, Michel Herquet, Fabio Maltoni, Olivier Mattelaer, and Tim Stelzer.
+\newblock {MadGraph} 5: going beyond.
+\newblock \emph{JHEP}, 06:\penalty0 128, 2011.
+\newblock \doi{10.1007/JHEP06(2011)128}.
+
+\bibitem[Alwall et~al.(2014)Alwall, Herquet, Maltoni, Mattelaer, and Stelzer]{aMCatNLO}
+J.~Alwall et~al.
+\newblock The automated computation of tree-level and next-to-leading order differential cross sections
+and their matching to parton shower simulations.
+\newblock \emph{JHEP}, 07:\penalty0 079, 2014.
+\newblock \doi{10.1007/JHEP07(2014)079}.
+
+\bibitem[P.~Nason et~al.(2004)]{nlo_showerMC}
+P.~Nason.
+\newblock A new method for combining NLO QCD with shower Monte Carlo algorithms. 
+\newblock \emph{JHEP}, 11:\penalty0 040, 2004.
+\newblock \doi{10.1088/1126-6708/2004/11/040}.
+
+
+
 
 %%%%%%%%%%%%%% Haven't needed these yet...
 
@@ -343,28 +390,6 @@ and $\nu_{\tau}$ at CMS}.
 %%   chambers}.
 %% \newblock \emph{PoS}, RPC2012:\penalty0 045, 2012.
 %% \newblock \doi{10.1088/1748-0221/8/03/T03001}.
-
-%% \bibitem[Sj{\"o}strand et~al.(2006)Sj{\"o}strand, Mrenna, and
-%%   Skands]{Sjostrand:2006za}
-%% Torbjorn Sj{\"o}strand, Stephen Mrenna, and Peter~Z. Skands.
-%% \newblock {PYTHIA} 6.4 physics and manual.
-%% \newblock \emph{JHEP}, 05:\penalty0 026, 2006.
-%% \newblock \doi{10.1088/1126-6708/2006/05/026}.
-
-%% \bibitem[Alwall et~al.(2011)Alwall, Herquet, Maltoni, Mattelaer, and
-%%   Stelzer]{Alwall:2011uj}
-%% Johan Alwall, Michel Herquet, Fabio Maltoni, Olivier Mattelaer, and Tim
-%%   Stelzer.
-%% \newblock {MadGraph} 5: going beyond.
-%% \newblock \emph{JHEP}, 06:\penalty0 128, 2011.
-%% \newblock \doi{10.1007/JHEP06(2011)128}.
-
-%% \bibitem[Alioli et~al.(2010)Alioli, Nason, Oleari, and Re]{Alioli:2010xd}
-%% Simone Alioli, Paolo Nason, Carlo Oleari, and Emanuele Re.
-%% \newblock {A general framework for implementing NLO calculations in shower
-%%   Monte Carlo programs: the POWHEG BOX}.
-%% \newblock \emph{JHEP}, 06:\penalty0 043, 2010.
-%% \newblock \doi{10.1007/JHEP06(2010)043}.
 
 %% \bibitem[{CMS Collaboration}(2012{\natexlab{c}})]{CMS-PAS-TOP-12-028}
 %% {CMS Collaboration}.
