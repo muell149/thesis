@@ -18,8 +18,8 @@ at a center-of-mass energy of 13 TeV.
 
 Originally conceived in the early 1980s and approved in 1994, the LHC was designed to replace the then-operating
 Large Electron Positron Collider (LEP), re-using the same underground tunnel. Located just outside Geneva, Switzerland, at the Center for European Nuclear Research (CERN),
-the LHC stretches across the border into France. There are four detector experiments positioned around the LHC: ALICE, ATLAS, CMS, and LHCb. The two general purpose,
-functionally-equivalent detectors are ATLAS and CMS, while ALICE studies heavy ion collisions, and LHCb studies flavor physics. 
+the LHC stretches across the border into France. There are four detectors positioned around the LHC: ALICE, ATLAS, CMS, and LHCb. The two general purpose,
+functionally-equivalent detectors are ATLAS and CMS, while ALICE studies heavy ion collisions, and LHCb focuses on flavor physics. 
 The motivation for having two equivalent detectors is to provide cross checks on results, as each result is produced with separate analysis teams, studying separate collsions
 recorded with a separate detector. Each detector is centered on an interaction point, where the beams are steered into each other to produce collisions. 
 The LHC itself is technically the final element in a series of accelerators
@@ -45,22 +45,44 @@ The beam pipes of the entire accelerator complex are kept at an ultra high vaccu
 to avoid detrimental beam interactions before the collisions. Since the beams are made up of protons which have electric charge,
 they can be focused and steered around the LHC with 392 quadrupole and 1232 dipole superconducting magnets.
 To accomplish this, the magnets produce a field of over 8 Tesla. This is possible thanks to the
-superconducting niobium-titanium (NbTi) coils which are cooled with liquid nitrogren and superfluid helium-4. These
+superconducting niobium-titanium (NbTi) coils which are cooled with superfluid helium-4. These
 magnets operate at 1.9 K allowing them to carry a current of over 11000 amperes. In addition to
-the LHC, superconducting magnets are used throughout the accelerator complex ~\cite{lhc_bluebook}.
+the LHC, similar superconducting magnets are used throughout the accelerator complex~\cite{lhc_bluebook}.
 
 Inside the LHC, the beams travel in opposite directions in separate but adjacent pipes inside of the superconducting magnets.
-As a result of the RF cavity acceleration, the beams are comprised of individual 'bunches' of protons.
+As a result of the RF cavity acceleration, the beams are comprised of individual `bunches' of protons.
 There are over 2800 bunches in each beam, with each bunch spaced 25 ns apart. This spacing is choosen to
 produce as many bunch crossings as possible, without overloading
-the detector instrumentation and data acquisition. There are approximately $10^{11}$ protons in each bunch, but due to the small cross section of the protons,
+the detector instrumentation and data acquisition. Extra space is placed at certain intervals of bunches
+both for injection purposes and to allow for additional time to activate special kicker magnets that dump t/e beams. The extra space, up to 3 $\mu$~s, is 
+called the abort gap. Of the over 2800 bunches in each beam, there are approximately $10^{11}$ protons in each bunch, but due to the small cross section of the protons,
 only approximately 20 collisions occur in each bunch crossing. The beams travel around the LHC over 11,246 times per second, over 99.99$\%$ the speed of light. 
 This translates to around 600 million collisions per second ~\cite{lhc_bluebook}.
 
-The center-of-mass energy and time-spacing between proton bunches in the LHC as well as a thorough understanding of them are critical to studying interesting
-and rare physics processes like \tth. A sufficient center-of-mass collision energy is needed to produce new, heavy particles.
-With the current center-of-mass collision energy of 13 TeV, any particle with mass less than or equal to this, is 
-within reach of the LHC. Because many interesting physics processes are exceedingly rare (small cross section), many collisions
+The LHC's ability to collide protons at the energies and intensities described above make it an excellent tool for producing interesting
+and rare physics processes like \tth.
+A sufficient center-of-mass collision energy is needed to produce new, heavy particles.
+With the current center-of-mass collision energy at 13 TeV, any particle with mass less than or equal to this, is 
+technically within reach of the LHC. While this is technically the upper bound, the practical bound on a new particle mass is substantially smaller,
+since the proton collisions are actually collisions of the individual partons\footnote{Partons refer here to any quark or gluon. The phrase was originally
+coined by Richard Feynman, as an individual parton makes up `part' of a meson or baryon.} inside the protons, and the partons carry fractions of the total proton momentum. 
+The momentum fractions carried by each of the partons, known as Parton Distribution Functions (PDFs) are determined based on inelastic scattering experiments, and theoretical calcualtions, since they
+vary with momentum transer. Examples of the PDFs used in this analysis are in Figure~\ref{fig:nnpdf}. 
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.9\textwidth]{ch3_figs/nnpdf3p1_nlo_q100.pdf}
+   \caption[NLO parton distribution function for the proton at Q = 100 GeV]{NLO parton distribution function for the proton at momentum transer of 100 GeV.
+     The x-axis represents the fraction of the total proton momentum carried by a given parton type while the y-axis corresponds to relative
+     frequency~\footnote{The LHC is, on occasion, referred to as a gluon collider. This is due to gluons being the most likely parton to carry a non-negligible fraction of the proton momentum, thus
+       being the mostly likely parton to participate in a hard-scatter collision. This is why many physics processes studied at the LHC, including \tth, have incoming gluons in the initial state.}~\cite{nnpdf3}.}
+   \label{fig:nnpdf}
+ \end{center}
+\end{figure}
+
+
+
+\noindent Because many interesting physics processes are exceedingly rare (small cross section), many collisions
 are needed. The quantity used to describe the rate of collisions is called Luminosity.
 Described in equation~\ref{eqn:lumi_inst} below, instantaneous luminosity represents the number of collisions (events) occuring per unit time~\cite{lhc_bluebook}.
 
