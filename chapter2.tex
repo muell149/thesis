@@ -3,7 +3,9 @@
 %
 
 \chapter{THEORY}
+\label{chap:theory}
 \section{The Standard Model}
+\label{sec:sm}
 The Standard Model (SM) of particles physics provides the context in which this analysis is performed and the results interpreted. 
 It explains three of four fundamental forces via gauge symmetries, while characterizing unknown matter into
 separate generations of particles called quarks and leptons. Since its inception in the early 1960s, the SM has predicted the existence of nearly every fundamental particle that has been discovered to-date.
@@ -102,15 +104,17 @@ referred to as weak isospin and weak hypercharge}. These conserved quantites are
 Q = T_{3} + \frac{Y_{W}}{2}
 \end{equation}
  
-\noindent where $Q$ is the familiar electric charge, $T_{3}$ is the third component of isospin and $Y_{W}$ is the hypercharge. With these newly introduced quantum numbers,
-the notion of helicity or handedness is now very relevant
-in describing the electroweak force. Helicty is defined as the orientation of a particle's spin vector to its linear momentum vector. Particles are said to be lefthanded  when their spin vector is antialigned with
-their linear momentum vector ($T_{3}=\pm 1/2$), and righthanded ($T_{3}=0$) when the two vectors are aligned.  
+\noindent where $Q$ is the familiar electric charge, $T_{3}$ is the third component of weak isospin and $Y_{W}$ is the hypercharge. With these newly introduced quantum numbers,
+the notion of chirality or handedness is now very relevant
+in describing the electroweak force. Chirality is defined as the orientation of a particle's spin vector with respect to its linear momentum vector.
+Particles are said to be lefthanded when their spin vector is antialigned with
+their linear momentum vector, and have $T_{3}=\pm 1/2$, and righthanded when the two vectors are aligned, and have $T_{3}=0$.  
 This unified electroweak theory is a
 $U_{Y}(1) \otimes SU_{L}(2)$ gauge theory, where Y represents the weak hypercharge, and L means that only left-handed fermions participate in the weak interaction. 
-The corresponding gauge bosons are the massless photon, and the massive weak force-carriers the W and Z. The initial problem with the electroweak theory was that there was no
-mechanism in place to describe massless force carriers other than the photon. The solution to this problem, and its implications for the Higgs boson are described in the
-following section.
+The corresponding gauge bosons are the massless photon, and the massive weak force-carrying W and Z bosons.
+The initial shortcoming of electroweak theory was that it lacked an explanation for the broken symmetry:
+it didn't describe why the W and Z gauge bosons had mass in contrast to the massless gauge boson, the photon, from QED. 
+The explanation for and mechanism behind this electroweak symmetry breaking is described in the following subsection.
 
 The remaining gauge theory necessary for the SM is QCD. The theoretical underpinnings of QCD were developed in 1965 by Moo-Young Han, Yoichiro Nambu, and Oscar Greenberg, after
 significant work from Murray Gell-Mann and others describing the interactions of quarks~\cite{NP69}.  
@@ -121,17 +125,17 @@ cannot exist alone, rather they are confined to color-neutral states. Everyday e
 carries a unique color charge. At very short distances and very high energies however, it is possible to observe an approximately unconfined quark, however the strong confining
 forces increases with increasing distance between color charges until it becomes energetically favorable to generate a new color-neutral quark-antiquark pair from the vacuum.
 This process, known as fragmentation\footnote{Also referred to as hadronization.}, has very important consequences in the context of experimental physics at CMS, as the hard-scatter LHC
-collisions often produce bare quarks which immediately hadronize into detector objects called jets.
-The experimental techniques used to detect and reconstruct these bare quarks and their fragmentation components is described in the following chapters. 
+collisions often produce bare quarks which immediately hadronize into jets, or collimated sprays of energetic particles.
+The experimental techniques used to detect and reconstruct these jets are described in the Section~\ref{sec:cms}. 
 
 Combining electroweak theory with QCD, we have the SM, an $U_{Y}(1) \otimes SU_{L}(2) \otimes SU_{c}(3)$ gauge field theory that describes all interactions and particles in
-Figure~\ref{fig:sm_periodic_table}. The remaining unexplained portions of electroweak theory, and their implications on particle masses and the Higgs boson is explained next.   
+Figure~\ref{fig:sm_periodic_table}. The remaining unexplained portions of electroweak theory, namely the Higgs mechanism and its implications on particle masses are explained next.
 
 \subsection{Electroweak Symmetry Breaking}
 
 In electroweak $U_{Y}(1) \otimes SU_{L}(2)$ gauge theory, gauge invariance requires all of the force-carrying gauge bosons to be massless.
 For everything to make sense, the weak force-carrying W and Z gauge bosons would need to be massless, just like the photon. 
-However the W and Z are massive, as are the fermions in the theory.
+However observations indicate that the W and Z are massive, along with the fermions.
 So why are the W and Z massive and the photon massless? Where do fermions get their mass?
 Enter electroweak spontaneous symmetry breaking (EWSB). Thanks to the identification of EWSB, in 1964 
 three groups almost simultaneously explained the origins of particle masses using EWSB and gauge invariance in what became known as the 1964 PRL symmetry breaking papers
@@ -143,7 +147,8 @@ or give mass to the photon. Giving mass to the W and Z but not the photon sponta
 Adding the Higgs field to the electroweak Lagrangian must be done in such a way as to minimize the new potential. The addition of the Higgs field means that new potential
 is minimized at a non-zero value. This non-zero value is referred to as the vacuum expectation value (V.E.V.) and is the ground state of the SM.
 The fields in the SM are considered fluctuations around the V.E.V. The addition of the Higgs field and minimization of the potential to the resulting ground state
-is said to spontaneously break the symmetry because no external impetus for it exists. A famous and more intuitive example of spontaneous symmetry breaking can be illustrated
+is said to spontaneously break the symmetry because no external impetus for it exists. That is, there are many ways to break the symmetry and one is chosen by nature at random.
+A famous and more intuitive example of spontaneous symmetry breaking can be illustrated
 by imagining a plastic ruler held vertically between your hands with the skinny edge (not the face) facing you and then compressing your hands so that the center of the ruler bows to the right or the left and
 spontaneously breaks the right left symmetry of the ruler-hand system~\cite{robinson}.
 This Higgs field, similar to the gauge fields, is represented by a particle called the Higgs boson.
@@ -157,7 +162,7 @@ The particle manifestation of the Higgs field is the Higgs boson. After the Higg
 the race was on to experimentally confirm the massive gauge bosons predicted by the unified electroweak gauge theory including the Higgs mechanism ~\cite{1964_prl_higgs}.
 The W and Z were discovered and their masses confirmed in 1983 by the UA1 and UA2 experiments at the Super Proton Synchrotron (SPS) at CERN~\cite{UA1}\cite{UA2}\cite{Z}.
 
-The missing piece of the puzzle was the Higgs boson and the search was on. The Large Electron Positron Collider (LEP) at CERN was the next place to look for the Higgs.
+The missing piece of the puzzle was the Higgs boson. The Large Electron Positron Collider (LEP) at CERN was the next place to look for the Higgs.
 Beginning in 1989, experiments at LEP searched for the Higgs at center-of-mass energies ranging from 45 GeV early on, to over 200 GeV in 2000 \cite{LEPHIGGS}. Meanwhile, Higgs
 searches were also being conducted at the Tevatron collider at Fermilab. The Tevatron reached higher collision energies than LEP, with its second run lasting from 2001
 to 2011, colliding protons and anti-protons at a center-of-mass energy 10x greater than that of LEP, reaching nearly 2 TeV \cite{TEVHIGGS_2010}. The next collider, the Large Hadron Collider
@@ -168,11 +173,11 @@ of the Higgs field, and validated the Higgs mechanism as well as the SM. The 201
 Peter Higgs and Francois Englert\footnote{Robert Brout contributed equally to this work, but died in 2011.} for their explanation of the origins of mass\footnote{This is
 technically known and published as the BEH mechanism after the initial authors~\cite{1964_prl_higgs}~\cite{1964_prl_englert}.}~\cite{NP13}.
 
-While this Higgs discovery is important, it is more relevant now to address the production mechanisms that made it possible. The LHC collides beams of protons together,
-however its the quarks and gluons inside the protons that are actually colliding. The most common processes that produce Higgs bosons at the LHC are described in the
-Feynman diagrams in Figure~\ref{fig:higgs_production}. Of these processes, gluon fusion is the most common and also the mode targeted and used by the analysis that
-discovered the Higgs. Associated production is the mechanism that produces the Higgs processes studied in this dissertation, and occurs much less frequently compared to
-the other production modes. These abundances or cross sections of each process are detailed in Figure~\ref{fig:higgs_prod_plot}.
+While this Higgs discovery is important, it is more relevant now to address the production mechanisms that made it possible. The LHC collides beams of protons together;
+however, it is the quarks and gluons inside the protons that are actually colliding. The most common processes that produce Higgs bosons at the LHC are described in the
+Feynman diagrams in Figure~\ref{fig:higgs_production}. Of these processes, gluon fusion is the most common and also the mode targeted and used by the analyses that
+discovered the Higgs. Associated (Higgs) production is the mechanism that produces the Higgs processes studied in this dissertation, and occurs much less frequently compared to
+the other production modes. These cross sections of each process are shown in Figure~\ref{fig:higgs_prod_plot}.
 
 
 \begin{figure}[htbp] 
@@ -200,12 +205,13 @@ the other production modes. These abundances or cross sections of each process a
 
 The decay modes of the Higgs are important in the context of an experimental collider search. The Higgs decay mode and to some extent, the production mode
 determine which decay channels are most relevant for an experimental search. After being produced, the Higgs decays almost instantly\footnote{
-The Higgs has lifetime of $10^{-22}s$~\cite{pdg}} to pairs of identical SM particles. The probability of the Higgs decaying into a pair of SM particles,
-more commony referred to as the branching fraction, depends
-on the type of final state particles. The Higgs couples more strongly to massive particles and less strongly to lighter particles. This means a decay to heavy
+The Higgs has lifetime of $10^{-22}s$~\cite{pdg}} to pairs of identical SM particles. 
+The fraction of total Higgs decays that produce a given pair of SM particles, is referred to as the branching fraction. This branching fraction value is unique
+to each set of final state particles the Higgs decays to.
+The Higgs couples more strongly to massive particles and less strongly to lighter particles. This means a decay to heavy
 particles is more likely than a decay to light particles. This is true with the caveat that this effect is balanced by the fact that the Higgs itself has a
-finite mass of approximately 125 GeV, and decaying to a particle pair with mass greater than the Higgs mass is strongly suppressed. Decays to heavier
-states, such as $H\rightarrow WW$ are allowed, but at least one W is produced with a lighter mass, called an off-shell particle. It is the decay to off-shell
+mass of approximately 125 GeV, and decaying to a particle pair with mass greater than the Higgs mass is strongly suppressed. Decays to heavier
+states, such as $H\rightarrow WW$ are allowed, but at least one W is produced off-shell, that is with a lighter mass. It is the decay to off-shell
 particles that supresses the branching fraction. The greater the off-shell particle's mass differs from the pole mass, the larger the supression.
 This explains some of the decay mode behavior as a function of Higgs mass in
 Figure~\ref{fig:higgs_decay}.
@@ -213,7 +219,8 @@ Figure~\ref{fig:higgs_decay}.
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.8\textwidth]{ch2_figs/higgs_decay.pdf}
-   \caption[Higgs branching fractions vs mass]{Higgs branching fractions as a function of Higgs mass~\cite{lhchxswg}.}
+   \caption[Higgs branching fractions vs mass]{Higgs branching fractions as a function of Higgs mass. While the Higgs mass has now been measured
+     to approximately 125 GeV, this illustrates how the branching fractions are affected by varying the Higgs mass.~\cite{lhchxswg}.}
    \label{fig:higgs_decay}
  \end{center}
 \end{figure}
@@ -222,17 +229,17 @@ While the SM as described here paints a picture of a complete theory, many impor
 A thorough study and understanding of \tth processes can help address these questions.  
 
 \section{ttH}
+\label{sec:tth}
 \subsection{Description}
 In a broader theoretical context, \tth searches are in essence a probe of the SM, \emph{directly} testing the Yukawa coupling strength of the Higgs boson to top quarks. The fact that a
-measurement of \tth is a direct probe is an important distinction between an indirect search. As mentioned previously, the Higgs was discovered and proven
+measurement of \tth is a direct probe is an important distinction between an indirect measurement. As mentioned previously, the Higgs was discovered and proven
 consistent with the SM via the gluon fusion production mode in Figure~\ref{fig:higgs_production}. The gluon fusion diagram includes a fermion loop (triangle)
-that produces the Higgs. Because the Higgs couples more strongly to massive particles, the fermion that runs around this loop is assumed to be, and consistent
-with the massive top quark. And
+that produces the Higgs. Because the Higgs couples more strongly to massive particles, the top quark contribution dominates in this loop. And
 because the Higgs was already confirmed and proven consistent with SM predictions being produced this way, the top-Higgs Yukawa coupling has already been
-measured, albeit \emph{indirectly}. Beacuse we don't have direct evidence that the fermion running around the loop is the top quark, further
-confirmation of the top-Higgs Yukawa coupling is necessary. Enter \tth. While the primary goal of searching for \tth has been motivated,
+measured, albeit \emph{indirectly}. Beacuse we don't directly observe the fermions in this loop, it is possible that other particles beyond the SM contribute.
+Enter \tth. While the primary goal of searching for \tth has been motivated,
 other important questions about the SM can be addressed simultaneously. The top quark is unique with respect to all other quarks. It is the heaviest, but curiously
-its relative mass difference with respect to the next heaviest quark is more than 4x greater than any other relative quark mass difference. The top quark mass
+it is approximately 40x heavier than the next heaviest quark. The top quark mass
 being so much greater than any other quark inspires questions about the pattern of the quark masses. Does the top quark's mass come only from the Higgs? Or could
 it also come from something beyond the SM? Direct \tth searches will help answer these questions. 
 
@@ -244,10 +251,10 @@ it also come from something beyond the SM? Direct \tth searches will help answer
 %%  \end{center}
 %% \end{figure}
 
-In an experimental context, \tth is produced by two gluons, each decaying to a top-antitop quark pair, where a top and an
-antitop from each gluon combine to form a Higgs boson, represented by the feynman diagram in Figure~\ref{fig:tth_example_diagram}.
-The remaining top and antitop quark decay to a W boson and b quark with nearly 100$\%$ probability
-\footnote{While the top can in principle decay to quark flavors other than bottoms, these decays are so heavily CKM suppressed\cite{CKM} that they are
+In an experimental context, \tth is produced by two gluons, each connecting a top-antitop quark pair, where a top and an
+antitop from each gluon connect, and the Higgs can be produced off of any (anti)top quark line, represented by the feynman diagram in Figure~\ref{fig:tth_example_diagram}.
+The remaining top and antitop quark decay to a W boson and b quark with nearly 100$\%$ probability~\footnote{While the top can in principle decay
+to quark flavors other than bottoms, these decays are so heavily CKM suppressed~\cite{pdg} that they are
 neglected.}. The W boson produced in the top decays instantly to pairs of SM particles. These pairs include a charged lepton and a neutrino of the same
 flavor approximately 1/3 of the time, while the rest of the time~\cite{pdg} the W decays to a quark-antiquark where the quark and antiquark have different flavors. 
 Like the W, the Higgs is free to decay to numerous states according to Figure~\ref{fig:higgs_decay}. Because of the various decay modes of the Higgs and

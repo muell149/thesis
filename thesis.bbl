@@ -23,6 +23,12 @@ The Standard Model of Elementary Particles.
  \newblock Chin.\ Phys.\ C {\bf 38}, 090001 (2014).
  \newblock \doi{:10.1088/1674-1137/38/9/090001}.
 
+%% \bibitem[Particle Data Group K.~A.~Olive {\it et al.}(2014)]{pdg} 
+%%  %``Review of Particle Physics,''
+%%  \newblock Chin.\ Phys.\ C {\bf 38}, 090001 (2014).
+%%  \newblock \doi{:10.1088/1674-1137/38/9/090001}.
+%%  \newblock \url{http://pdg.lbl.gov/2017/reviews/rpp2016-rev-ckm-matrix.pdf}
+
 \bibitem[Lef\`evre(Accessed: February 4th 2017)]{lhcfig}
 C.~Lef\`evre.
 \newblock The cern accelerator complex. complexe des acc\'el\'erateurs du cern.
@@ -93,6 +99,11 @@ Englert, F. and Brout, R.
 \newblock Broken Symmetry and the Mass of Gauge Vector Mesons
 \newblock \emph{Phys. Rev. Lett.}, 13:\penalty9, 1964.
 \newblock \doi{10.1103/PhysRevLett.13.321}.
+
+\bibitem[robinson, M.(1981)]{robinson}
+Robinson, M.
+\newblock Symmetry and the standard model: mathematics and particle physics
+\newblock \emph{Springer}, 13:\penalty9, 1981.
 
 \bibitem[Higgs, Peter W. (1964)]{1964_prl_higgs}
 Higgs, Peter W.
