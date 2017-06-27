@@ -65,7 +65,9 @@ A sufficient center-of-mass collision energy is needed to produce new, heavy par
 With the current center-of-mass collision energy at 13 TeV, any particle with mass less than or equal to this, is 
 technically within reach of the LHC. While this is technically the upper bound, the practical bound on a new particle mass is substantially smaller,
 since the proton collisions are actually collisions of the individual partons\footnote{Partons refer here to any quark or gluon. The phrase was originally
-coined by Richard Feynman, as an individual parton makes up `part' of a meson or baryon.} inside the protons, and the partons carry fractions of the total proton momentum. 
+coined by Richard Feynman, as an individual parton makes up `part' of a meson or baryon.} inside the protons, and the partons carry fractions of the total proton
+momentum\footnote{The LHC is, on occasion, referred to as a gluon collider. This is due to gluons being the most likely parton to carry a non-negligible fraction of the proton momentum, thus
+being the mostly likely parton to participate in a hard-scatter collision. This is why many physics processes studied at the LHC, including \tth, have incoming gluons in the initial state.}.
 The momentum fractions carried by each of the partons, known as Parton Distribution Functions (PDFs) are determined based on inelastic scattering experiments, and theoretical calcualtions, since they
 vary with momentum transer. Examples of the PDFs used in this analysis are in Figure~\ref{fig:nnpdf}. 
 
@@ -74,13 +76,10 @@ vary with momentum transer. Examples of the PDFs used in this analysis are in Fi
    \includegraphics[width=0.9\textwidth]{ch3_figs/nnpdf3p1_nlo_q100.pdf}
    \caption[NLO parton distribution function for the proton at Q = 100 GeV]{NLO parton distribution function for the proton at momentum transer of 100 GeV.
      The x-axis represents the fraction of the total proton momentum carried by a given parton type while the y-axis corresponds to relative
-     frequency~\footnote{The LHC is, on occasion, referred to as a gluon collider. This is due to gluons being the most likely parton to carry a non-negligible fraction of the proton momentum, thus
-       being the mostly likely parton to participate in a hard-scatter collision. This is why many physics processes studied at the LHC, including \tth, have incoming gluons in the initial state.}~\cite{nnpdf3}.}
+     frequency\cite{nnpdf3}.}
    \label{fig:nnpdf}
  \end{center}
 \end{figure}
-
-
 
 \noindent Because many interesting physics processes are exceedingly rare (small cross section), many collisions
 are needed. The quantity used to describe the rate of collisions is called Luminosity.
@@ -92,10 +91,11 @@ Described in equation~\ref{eqn:lumi_inst} below, instantaneous luminosity repres
 \end{equation}
 
 Where $N_{b}$ is the number of protons per bunch, $n_{b}$ is the total number of bunches, $f_{\textnormal{rev}}$ is the number of beam revolutions around the LHC per
-second, $\gamma$ is a relativistic factor, $\epsilon_{n}$ is factor related to beam emittance, $\beta^{*}$ is the beta function representing the beam cross section, and
+second, $\gamma$ is a relativistic factor, $\epsilon_{n}$ is factor related to beam emittance, $\beta^{*}$ is the beta function, which is related to the transverse beam size
+at the interaction point, and
 $F$ describes the factor related to the crossing angle of the beams. Because not every collision can be recorded, knowing the total number of collisions is critically important
-to every analysis at an LHC collider experiment. From the instantaneous luminosity, the total number of collisions in time interval $t$, known as integrated luminosity
-can be calculated by integrating over time in equation~\ref{eqn:num_coll} below. 
+to every analysis at an LHC collider experiment. The integrated luminosity is the time integral of the instantaneous luminosity. Combining this with the proton-proton inelastic
+cross section, $\sigma_{pp}$, the number of collisions occurring in time interval $t$ is calculated in equation~\ref{eqn:num_coll} below. 
 
 \begin{equation}
 \label{eqn:num_coll}
@@ -114,12 +114,14 @@ N_{pp} = \int \sigma_{pp}\mathcal{L}_{inst}dt
 
 \section{The Compact Muon Solenoid (CMS) Detector}
 \label{sec:cms}
-The Compact Muon Solenoid (CMS) detector is a multi purpose particle detector designed to record and identify particles produced in collisions at the LHC, sitting 100 m underneath
-the town of Cessy, France. CMS is comprised of layers of subdetectors which are connected to readout electronics and the trigger and data acquisition systems.
+100 m beneath the town of Cessy, France, sits the Compact Muon Solenoid (CMS) detector, a multi purpose particle detector designed
+to record and identify particles from collisions produced by the LHC.
+CMS is comprised of layers of subdetectors which are connected to readout electronics and the trigger and data acquisition systems.
 The various subdetectors record information about the collision, while the trigger and
 data acquisition systems record and save the collisions. The acronym CMS comes from being more compact than its sister detector ATLAS, at 15 m in diameter and
-over 21 m long. The name muon is because muons are the particles it detects with the greatest efficiency. The solenoid part of the name is due to the largest magnet of its kind
-around which the detector is built. CMS is cylindrical in shape, as pictured in Figure~\ref{fig:cms_overview}. The various subdetectors and components are described in more
+over 21 m long. The muon in the acronym comes from the fact that detecting muons is among the most important tasks of the experiment. The solenoid part of the name is due
+the powerful solenoid magnet which is crucial for particle tracking and identification. 
+CMS is cylindrical in shape, as pictured in Figure~\ref{fig:cms_overview}. The various subdetectors and components are described in more
 detail below. 
 
 %% \begin{table}[hbtp]
@@ -156,30 +158,65 @@ detail below.
 \end{figure}
 
 \subsection{Coordinate System}
-Due to the geometry of the collisions produced inside CMS, a special coordinate system is used for simplicity. With the origin at the interaction point,
+Due to the geometry and symmetry of the collisions produced inside CMS, a special coordinate system is used for simplicity. With the origin at the interaction point,
 the y-axis in the vertical direction, the z-axis parallel to/along the beam direction, and the x-axis in the horizontal direction perpendicular to both the y
-and z axes. In the transverse x-y plane, the angle formed with respect to the x-axis is $\phi$. In the y-z plane, the angle formed with respect to the z-axis
+and z axes. In the transverse x-y plane, the azimuthal angle formed with respect to the x-axis is $\phi$. In the y-z plane, the angle formed with respect to the z-axis
 is $\theta$. The number of particles traveling through a given area, known as flux, increases towards the beam line, due to many more glancing collisons ocurring
 than head-on collisions. The particles from the collisions are moving relativistically. Because of this, a special coordinate $\eta = -\ln\tan(\theta/2)$ 
-is used to describe the angular position with respect to the z-axis, known as $pseudorapidity$. The head-on inelastic pp collisions have only momentum in the 
-z-direction, thus measuring energy and momentum quantities in the transverse plane is important in analyzing and reconstructing collision events due to momentum
-conservation.  
+is used to describe the angle with respect to the z-axis, known as $pseudorapidity$. 
+Finally, the transverse plane is of special importance for momentum and energy measurements due to energy/momentum conservation, since the head-on inelastic
+pp collisions have only momentum in the z-direction.
 
 \subsection{Tracker}
+The CMS tracking system sits closest to the interaction point at the core of CMS and provides precise tracking information from its millions of silicon sensors.
+The tracking system is comprised of two concentric cylindrical subdetectors, the pixel and strip detectors, which are named after the geometry of the sensors they use. 
+The pixels provide the highest granularity tracking information, essential for distinguishing between collision vertices, and sit nearest to the interaction point,
+inside of the strip detector.
+The strips proivde slightly less resolution compared with the pixels, since they sit further from the interaction point. 
+The total detector area of the tracking system (pixels+strips) sums to more than a tennis court of silicon.
+
+As a charged particle travels through a silicon sensor (pixel or strip), it ionizes a small fraction of the silicon atoms, releasing electrons from the valence band of n-type or p-type
+semiconductor,
+creating electron-hole pairs. A voltage is applied to the sensor, attracting the now free electrons, creating a small current. This current is measured and interpreted as a hit.
+A small silicon pn junction is attached to the back of each sensor to read the voltage and send the hit information to the data acquisition system,
+so the hit patterns can be reconstructed into particle tracks later.   
+As the particles travel through successive layers of silicon sensors, they leave collections of hits.
+The hits are measured with a precision of 10 $\mu$m, and the particle track is reconstructed from this collections of hits. 
+Because the information from the tracker has such a high granularity, track reconstruction algorithms need more time than is feasable for trigger decisions
+and are mostly performed offline.
+
+
 \subsubsection{Pixel Detector}
-The innermost piece of CMS is the tracking system, specifically the pixel detector. The pixel detector is comprised of 65 million silicon pixels, allowing it to record
+The pixel detector is comprised of 65 million silicon pixels, allowing it to record
 precise trajectories of the charged particles resulting from collisions. Precise tracking information is critical to differentiating nearby particles, and identifying
 exactly where an interesting collision took place. 
 
-The pixel detector is about the size of a shoe box and contains 3 layers at 4 cm, 7 cm, and 11 cm from the beam.
-The silicon material in the tracker is choosen specifically to disturb the particles as little as possible, while still providing accurate hit identification and track reconstruction.
-Additionally, the material is resistant to radiation\footnote{Also known as radiation hard}, which is very important as it is only a few centimeters from the interaction point. Each silicon pixel measurses 100 $\mu$m by 150 $\mu$m. 
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.85\textwidth]{ch3_figs/cms_pixel.pdf}
+   \caption[CMS silicon pixel element]{An overview of a CMS pixel element~\cite{cms_pixel}.}
+   \label{fig:cms_pixel}
+ \end{center}
+\end{figure}
 
-As the particles travel through successive layers of silicon pixels, they leave points of impact on each pixel, known as hits.
-The hits are measured with a precision of 10 $\mu$m, and the particle trajectory or track is reconstructed from collections of hits. 
-As a particle travels through a pixel, it releases electrons from the silicon atoms in the pixel, creating electron-hole pairs.
-A voltage is applied to the pixel, attracting the free electrons and creating a small current, which is measured and interpreted as a hit. Small readout electronics
-are attached to the back of each pixel to send the hit information to the data acquisition system, so the hit patterns can be reconstructed into particle tracks later.   
+\noindent The pixel detector is about the size of a shoe box and contains 3 layers at 4 cm, 7 cm, and 11 cm from the beam.
+Silicon is used in the tracker over other materials, as it strikes the best balance between performance, radiation resistance, and affordability. 
+Radiation resistance, also known as radiation hardness, is very important for the tracker as it sits only a few centimeters from the interaction point
+receiving around 10 million particles per square centimeter per second.
+Each silicon pixel measurses 100 $\mu$m by 150 $\mu$m and is readout by an electronic chip bump-bonded to the back of each pixel. The layout of a pixel sensor is depicted in
+Figure~\ref{fig:cms_pixel}.  
+
+\subsubsection{Strip Detector}
+Outside the pixel detector is the silicon strip detector. Here, silicon strips are favored over pixels as they are less costly, and the resolution provided by the pixels
+is not necessary at greater distances from the interaction point, allowing for larger and fewer silicon modules.
+The silicon strip detector consists of about 10 million strips in 10 layers, extending to 130 cm from the beam. 
+The strip detector is comprised of 4 distinct sections of silicon strips, depicted in
+Figure~\ref{fig:cms_tracker}. The outer most sections are the tracker outer barrel (TOB) and tracker end cap (TEC+,-) sections. 
+Between the TOB and the pixels, sits the tracker
+inner barrel (TIB) section, and the tracker inner endcaps (TID+,-).
+The silicon strips in each section are different, specifically suited to that section.
+Each silicon strip measures between 10-25 cm by 180 $\mu$m, depending on the position.
+Precise tracking information is essential to measuring particle momenta and identifying particles in the strong magnetic field.
 
 \begin{figure}[hbtp]
  \begin{center}
@@ -190,18 +227,6 @@ are attached to the back of each pixel to send the hit information to the data a
  \end{center}
 \end{figure}
 
-\subsubsection{Strip Detector}
-Outside the pixel detector is the silicon strip detector. Here, silicon strips are favored over pixels as they are less costly, and the resolution provided by the pixels
-is not necessary at greater distances from the interaction point, allowing for larger and fewer silicon modules. 
-
-The silicon strip detector consists of about 10 million strips in 10 layers, extending to 130 cm from the beam. 
-The strip detector is comprised of 4 distinct sections of silicon strips, depicted in
-Figure~\ref{fig:cms_tracker}. The outer most sections are the tracker outer barrel (TOB) and tracker end cap (TEC+,-) sections. 
-Between the TOB and the pixels, sits the tracker
-inner barrel (TIB) section, and the tracker inner endcaps (TID+,-).
-The silicon strips in each section are different, specifically suited to that section.
-Each silicon strip measures between 10-25 $\mu$m by 180 $\mu$m, depending on the position. The total detector area of the tracking system (pixels+strips) sums to more than
-a tennis court of silicon. Precise tracking information is essential to measuring particle momenta and identifying particles in the strong magnetic field.
 
 \subsection{ECAL}
 The Electromagnetic Calorimeter (ECAL) measures the energy of particles that interact via the electromagnetic force. The ECAL is situated immediately outside the tracker
