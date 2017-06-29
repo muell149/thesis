@@ -251,7 +251,7 @@ These readouts convert the scintillation light to a voltage pulse that is passed
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ch3_figs/ecal_rapidity.pdf}
-   \caption[Longitudinal view of the CMS ECAL]{Longitudinal view of one quarter of the ECAL.}
+   \caption[Longitudinal view of the CMS ECAL]{Longitudinal view of one quarter of the ECAL~\cite{cms_bluebook}.}
    \label{fig:cms_ecal}
  \end{center}
 \end{figure}
@@ -260,83 +260,87 @@ These readouts convert the scintillation light to a voltage pulse that is passed
 The CMS Hadronic Calorimeter measures the energy of hadrons via their strong force interaction with the detector material. The HCAL is situated outside the ECAL.
 The HCAL is sampling calorimeter made up of alternating layers of brass absorber and plastic scintillator material in four separate sections. The HCAL provides energy resolution that helps reconstruct and tag hadronic
 particle decays, as well as reconstructing the $missing$ $transverse$ $energy$ or \met, which can be interpreted as the presence of neutrinos\footnote{The \met reconstruction actually occurs later, but the HCAL information
-provides some the necessary quantities}. 
+provides some the necessary quantities}. Within each plastic scintillator tile are optical wavelength-shifting fibers.
+Measuring less than 1 mm in diameter, these fibers connect to other optical fibers which send the light signals to Hybrid Photodiodes (HPDs) for readout. The fast and radiation-resistant HPDs amplify the light and convert it
+into an electronic signal via the photoelectric effect.
 
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ch3_figs/hcal.pdf}
-   \caption[Longitudinal view of the CMS HCAL]{Longitudinal view of one quarter of the HCAL.}
+   \caption[Longitudinal view of the CMS HCAL]{Longitudinal view of one quarter of the HCAL~\cite{cms_bluebook}.}
    \label{fig:cms_hcal}
  \end{center}
 \end{figure}
-
-The four sections of the HCAL are the barrel (HB), the endcaps (HE), the outter barrel (HO) and the forward HCAL (HF) in Figure~\ref{fig:cms_hcal}. The barrel extends from 1.77 m to 2.95 m from the interaction point and
-sits between the outside of the ECAL barrel and the inside of the magnet coil in the transverse plane. The HB covers a psuedorapidity range of $|\eta| < 1.3$.
-The endcaps cover a psuedorapidity of $1.3 < |\eta| < 3$. The HO sits outside and around the solenoid coil covering the same psuedorapidity range
-as the HB. The HO utilizes the magnet coil as an additional absorbing layer ensuring detection of any particle exiting the HB. The HF sits outside of all other subdetectors at $\pm$11 m from the interaction point in the z-direction,
-covering a psuedorapidity range of $3.0 < |\eta| < 5.0$. The HF was specially designed to resist the intense radiation deposited in this forward region. Within each plastic scintillator tile are optical wavelength-shifting fibers.
-Measuring less than 1 mm in diameter, these fibers connect to other optical fibers which send the light signals to Hybrid Photodiodes (HPDs) for readout. The fast and radiation-resistant HPDs amplify the light and convert it
-into an electronic signal via the photoelectric effect.
 
 As strongly-interacting particles travel through the HCAL, they interact with the dense brass absorber material decaying and producing showers of secondary particles which further cascade and travel through the scintillator and absorber material.
 As the shower particles pass through the scintillator material, they emit a blue-violet light. This blue-violet light is then converted to green light via the wavelength shifting fibers and send to the HPDs for readout. Like the ECAL,
 the amount of light emitted corresponds to the amount of energy deposited. 
 
+The four sections of the HCAL are the barrel (HB), the endcaps (HE), the outter barrel (HO) and the forward HCAL (HF) in Figure~\ref{fig:cms_hcal}. The barrel extends from 1.77 m to 2.95 m from the interaction point and
+sits between the outside of the ECAL barrel and the inside of the magnet coil in the transverse plane. The HB covers a psuedorapidity range of $|\eta| < 1.3$.
+The endcaps cover a psuedorapidity of $1.3 < |\eta| < 3$. The HO sits outside and around the solenoid coil covering the same psuedorapidity range
+as the HB. The HO utilizes the magnet coil as an additional absorbing layer ensuring detection of any particle exiting the HB. The HF sits outside of all other subdetectors at $\pm$11 m from the interaction point in the z-direction,
+covering a psuedorapidity range of $3.0 < |\eta| < 5.0$. The HF was specially designed to resist the intense radiation deposited in this forward region.
+
 \subsection{Solenoid}
-Central to the design and name of CMS, the CMS magnet is the largest superconducting solenoid of its kind in the world.
+Central to the design and name of CMS, the CMS magnet is one of the largest superconducting solenoids in the world.
 At 12 m in length, it produces a field of nearly 3.8 T inside the 6 m diameter free bore, with the flux returned through a 10000 ton iron yoke.
 The magnetic field outside the free bore in the muon chambers is approximately 2 T.  
 Similar to the LHC magnets, the solenoid uses NbTi coils cooled to 1.8 K but carries a current of over 19000 amps. When fully energized, the magnet
 stores 2.6 GJ of energy, enough to power 24 American homes for 1 day\cite{magnet_energy}. The central barrel of the solenoid sits between the HCAL and the muon chambers, with the return yoke iterwoven with the muon chambers.
 
-A strong magnetic field is essential for measuring the momentum of charged particles. Charged particles moving in a magnetic field are subject to the Lorentz force, described in
+A strong magnetic field is essential for measuring the momentum of charged particles. Charged particles moving relativistically in a magnetic field are subject to the Lorentz force, described in
 equation~\ref{eqn:lorentz_force} 
 
 \begin{equation}
 \label{eqn:lorentz_force}
- \vec{F} = q\vec{v} \times \vec{B}
+ \vec{F} = \gamma q\vec{v} \times \vec{B}
 \end{equation}
 
-The particles from hard inelastic collisions typically have a large momentum component in the transverse plane, since the momentum of the opposing beams before the collision in the z-direction cancel each other.
 The solenoid produces a magnetic field along the z-direction and by the right-hand-rule from the cross product in equation~\ref{eqn:lorentz_force}, this means the particles experience a centripetal force, which
-curves or deflects their trajectories. By setting the Lorentz force equal to the centripetal force in equation~\ref{eqn:lorentz_qvb}, the momentum and charge of the particle can be found by measuring the radius of the track. 
+curves or deflects their trajectories. By setting the Lorentz force equal to the relativistic centripetal force in equation~\ref{eqn:lorentz_qvb}, the momentum and charge of the particle can be found by measuring the radius of the track. 
 Thus the field produced by the CMS solenoid together with accuarate track reconstruction, allows for precise momentum measurements of the particles.
 
 \begin{equation}
 \label{eqn:lorentz_qvb}
- qvB = \frac{mv^{2}}{r}
+ \gamma qvB = \frac{m\gamma^{2}v^{2}}{r}
 \end{equation}
 
 \subsection{Muon Chambers}
-Central to both the name and function of CMS, the muon chambers are solely dedicated to detecting and measuring muons.
-Because muons are so heavy, they are not stopped by any other part of CMS and thus are the only particle to pass through all other CMS subdetectors.
+A central feature of CMS, the muon chambers are solely dedicated to detecting and measuring muons.
+Muons are not stopped by the ECAL due to their large mass, and travel through the HCAL and solenoid yoke mostly unimpeded since they don't interact via the strong force.
 The muon chambers are the outermost subdetector for this reason. The muon chambers are comprised of 3 unique gas detection systems consisting of Drift Tubes (DTs),
 Cathode Strip Chambers (CSCs), and Resistive Plate Chambers (RPCs), which each serve a specific purpose. Each of the gas chambers produce voltage pulses as muons pass through and leave hits.
-Similar to the tracker, the hits are reconstructed into muon tracks, which can then be used to determine the precise momentum of the muon in the magnetic field.  
+Similar to the tracker, the hits are reconstructed into muon tracks, which can then be used to determine the momentum of the muon in the magnetic field.  
 
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ch3_figs/cms_muonchamber.pdf}
-   \caption[Longitudinal view of the CMS muon chambers]{Longitudinal view of one quarter of the CMS muon chambers.}
+   \caption[Longitudinal view of the CMS muon chambers]{Longitudinal view of one quarter of the CMS muon chambers~\cite{cms_bluebook}.}
    \label{fig:cms_muonchamber}
  \end{center}
 \end{figure}
 
 The DTs cover the barrel region of the detector. There are three concentric cylindrical layers each containing 60 drift tube chambers and one additional outer layer with 70.
-Each drift tube measures 4 cm wide and is filled with a mixture of 85$\%$ Ar and 15$\%$ $CO_{2}$ gas. A 2.4 m long positively-charged current-carrying wire in the center of the drift tube attracts electrons
-from the ionization of the gas caused by a passing muon. The drift tubes provide two coordinates for the muon position by measuring where along the wire the
-electrons hit, and the time it takes to register, since the speed of the electrons in the gas is constant. The DTs are used in the barrel only, where there are lower particle fluxes
-and intensities. 
+Each drift tube is constructed from light weight aluminum and measures 4 cm wide by 2.4 m long, filled with a mixture of 85$\%$ Ar and 15$\%$ $CO_{2}$ gas.
+Cathode strips held at -1.2 kV run the length of each cell with a gold-plated steel anode wire held at 3.6 kV runs down the center (see Figure~\ref{fig:cms_dt}).
+
+As an incident muon ionizes the gas atoms, electrons are attracted to the anode wire while positively charged ions are attracted to the cathodes. 
+The ions induce a current fluctuation in the electrodes which is readout and interpreted as a hit. By knowing the drift velocities of ions in the gas and measuring
+the timing of the current pulses precisely, the position of the muon from the anode wire is inferred. By alternating the orientation of these chambers between wires parallel to the beamline
+and wires perpendicular to the beamline, the DTs can reslove muon positions to 100 $\mu$m. 
+The DTs are used in the barrel only, where there are lower particle fluxes and intensities. 
 
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ch3_figs/cms_dt.pdf}
-   \caption{A map of the electric field of the drift tubes in absence of magnetic field. In the presence of a magnetic field there is a small distortion that is accounted for.}
+   \caption[Drift tube chamber and internal E field]{A map of the electric field of the drift tubes in absence of magnetic field. In the presence of a magnetic field there is a small distortion that is accounted for.}
    \label{fig:cms_dt}
  \end{center}
 \end{figure}
 
-The CSCs are used only in the endcaps, where there is a greater particle intensity and an uneven magnetic field. 468 CSCs in 7 layers make are in the endcaps, where each chamber is trapezoidal in shape.
+The CSCs are used only in the endcaps, where there is a greater particle intensity and because the large, non-uniform magnetic field would affect the ion drift of DTs - making them unsuitable in this region.
+468 CSCs in 7 layers make are in the endcaps, where each chamber is trapezoidal in shape.
 Each chamber consists of positvely charged anode wires which cross negatively charged cathode strips that are enclosed in a chamber filled with gas. As muons enter a
 CSC, they ionize the gas causing freed electrons to travel to the positive wires and positive charges migrate towards the cathode strips. The charge pulses are detected in both the strips
 and the wires, which are perpendicular to each other, providing two coordinates for each muon hit. The CSCs provide good position information quickly, making them suitable for use in the endcaps. 
