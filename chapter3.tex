@@ -334,7 +334,7 @@ The DTs are used in the barrel only, where there are lower particle fluxes and i
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ch3_figs/cms_dt.pdf}
-   \caption[Drift tube chamber and internal E field]{A map of the electric field of the drift tubes in absence of magnetic field. In the presence of a magnetic field there is a small distortion that is accounted for.}
+   \caption[Drift tube chamber and internal E field]{A map of the electric field of the drift tubes in absence of magnetic field~\cite{cms_bluebook}.}
    \label{fig:cms_dt}
  \end{center}
 \end{figure}
@@ -348,26 +348,31 @@ and the wires, which are perpendicular to each other, providing two coordinates 
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ch3_figs/cms_csc.pdf}
-   \caption[CSC module and operation schematic]{CSC module (left) and a depiction of the CSC opteration (right). The strips provide preices position information.}
+   \caption[CSC module and operation schematic]{CSC module (left) and a depiction of the CSC opteration (right). The strips provide preices position information~\cite{cms_bluebook}.}
    \label{fig:cms_csc}
  \end{center}
 \end{figure}
 
-The third type of muon detector used is the RPC. Unlike the DTs and the CSCs, the RPCs are used in both the barrel and the endcaps. The RPCs are characterized by their fast response time, which makes thenm suitable for triggering.
-Thanks to this very fast response of < 1 ns, the RPCs can easily identify which bunch crossing a given muon is associated with, since the bunch time spacing is 25ns.  
-Each RPC consists of two oppositely-charged parallel plates within a gas volume and detecting strips of electrodes. These detecting strips quickly reconstruct muon tracks allowing for fast triggering decisions based on muon momentum.  
+The third type of muon detector used is the RPC. The RPCs are used in both the barrel and the endcaps covering out to $|\eta| < 1.6$,
+providing redundant coverage. The RPCs are characterized by their fast response time which makes them suitable for triggering, unlike the DTs and CSCs, which 
+are limited by their relatively longer drift times.
+Due to this very fast response time ($\<$ 1 ns), the RPCs easily identify which bunch crossing a detected muon is associated with, since the bunch time spacing is 25ns.  
+The RPCs are gaseous parallel plate detectors. Each RPC measures between 2.1-2.5 m in length and 1.5-2.5 m wide, with a thickness of 2mm filled with gas separating
+two resistive plastic parallel plates, an anode and cathode.
+As an incident muon ionizes the gas atoms releasing electrons, the electrons in turn ionize nearby gas atoms resulting in an avalanche of electrons which drift towards the anode
+and are picked up by metallic detecting strips. The hit pattern on the stips is used to determine the muon momentum for fast trigger decisions.
 
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ch3_figs/cms_rpc.pdf}
-   \caption[CMS RPC diagram]{A qualitative depiction of an RPC.}
+   \caption[CMS RPC diagram]{A qualitative depiction of an RPC~\cite{cms_bluebook}.}
    \label{fig:cms_rpc}
  \end{center}
 \end{figure}
  
 \subsection{Trigger and Data Acquisition}
 
-The LHC collides proton bunches at a frequency of 40 MHz, making high event rates, and efficient data collection and filtering necessary. This task is accomplished with the trigger and Data Acquisition system (DAQ). Because not all collisions can be recorded,
+The LHC collides proton bunches at a frequency of almost 35 MHz, making efficient data collection and filtering necessary. This task is accomplished with the trigger and Data Acquisition system (DAQ). Because not all collisions can be recorded,
 and most collisons don't produce events that warrant further analysis, the trigger ``fires'' on interesting events only, and sends the information readout in each subdetector to the DAQ. The CMS trigger is comprised of two parts or levels.
 The Level 1 (L1) is the frontline of the CMS trigger system, comprised of firmware and basic software that is directly connected to each subdetector's readout electronics. The second part of the trigger is called the High Level Trigger (HLT)
 and is entirely software-based, running a filter farm of high-performance CPUs. 
@@ -379,7 +384,7 @@ but not reconstructed. The software portion of the L1 consists of 128 algorithms
 to the HLT. 
 
 The HLT receives events that pass the L1, and is the final filter that determines which events are saved or discarded. This means that all events passing the HLT are saved and reconstructed for later analysis.
-The HLT reduces the L1 input rate from 100 kHz to around 1 kHz. The HLT software is the foundation on which the rest of the offline CMS analysis is built. The HLT software consists of over 400 trigger algorithms that make accept/reject decisions
+The HLT reduces the L1 input rate from 100 kHz to around 1 kHz. The HLT software is the foundation on which the rest of the offline CMS analysis software, CMSSW, is built. The HLT software consists of over 400 trigger algorithms that make accept/reject decisions
 based on quantities such as particle momenta, multiplicity, energy, position, and other more sophisticated variables that are available thanks to the advanced event reconstruction that takes place at the HLT.
 The more than 400 HLT algorithms are gouped into categories based on the specific types of objects that fire the trigger such as electron/photons, muons, Jets/MET etc. These groups are called primary datasets and only events which passed a trigger
 allocated to that primary dataset will be found in the associated dataset. Common examples of primary datasets include SingleEG, DoubleEG, SingleMu, DoubleMu, MuonEG etc. The events are then sent further downstream grouped together in these primary datasets.
@@ -395,8 +400,9 @@ designed to accept. Typical HLT trigger efficiencies are well above 90$\%$. See 
  \end{center}
 \end{figure}
 
-The CMS DAQ handles everything from the detector readout to interfacing the various parts of the L1 and HLT, as well as running the 1000+ CPU filter farm that the HLT software runs on. The DAQ also handles all data recorded by CMS, sending it from the HLT
-to the tier0 computing facility for additonal reconstruction and distribution for analysis. The DAQ compiles information from the L1 and all subdetector readouts and synchronizes and combines this information together to build a complete picture of an
+The CMS DAQ handles everything from the detector readout to interfacing the various parts of the L1 and HLT, as well as running the 1800+ CPU filter farm that the HLT software runs on. The DAQ also handles all data recorded by CMS,
+sending it from the HLT
+to an offsite computing facility for additonal reconstruction and distribution for analysis. The DAQ compiles information from the L1 and all subdetector readouts and synchronizes and combines this information together to build a complete picture of an
 event before it even reaches the HLT.    
 
 \begin{figure}[hbtp]
