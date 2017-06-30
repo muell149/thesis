@@ -339,7 +339,11 @@ P.~Nason.
 \newblock \emph{JHEP}, 11:\penalty0 040, 2004.
 \newblock \doi{10.1088/1126-6708/2004/11/040}.
 
-
+\bibitem[Bayatian et~al.(2002)]{tridas}
+S.~Cittolin, A.~Racz, P.~Sphicas.
+\newblock \emph{{CMS The TriDAS Project: Technical Design Report Volume 2: Data Acquisition
+and High-Level Trigger}}.
+\newblock Technical Design Report CMS. CERN, Geneva, 2002.
 
 
 %%%%%%%%%%%%%% Haven't needed these yet...
