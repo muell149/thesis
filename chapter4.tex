@@ -257,12 +257,20 @@ Lepton isolation is a measure of how spatially separated the lepton is from othe
 all charged and neutral hadrons as well as photons within a fixed cone size in R around the lepton. Then if there is too much energy relative to the lepton energy from the
 other objects inside the fixed cone radius, the lepton fails the isolation criteria. This analysis uses a variation of this technique that varies the cone size with the \pt of the lepton, since
 boosted (very high momentum) objects tend to be more collimated and thus should have a more collimated cone definition. This isolation technique is called mini isolation (\miniIso) and the cone
-size is varied with lepton \pt according to equation~\ref{eqn:miniIsoConeSize} below. 
+size is varied with lepton \pt according to figure~\ref{fig:miniIsoConeSize} below. 
 
-\begin{equation}
-\label{eqn:miniIsoConeSize}
- R = \frac{10}{min(max(p_{T}(l),50),200)}
-\end{equation}
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{ch4_figs/miniIso.pdf}
+   \caption[Mini isolation cone size vs \pt]{Mini isolation cone size vs lepton \pt. For \pt $<$ 20 GeV, R = 0.2, for \pt $>$ 200 GeV, R = 0.05.~\cite{miniIso}.}
+   \label{fig:miniIsoConeSize}
+ \end{center}
+\end{figure}
+
+%\begin{equation}
+%\label{eqn:miniIsoConeSize}
+% R = \frac{10}{min(max(p_{T}(l),50),200)}
+%\end{equation}
 
 \noindent The amount of activity inside this cone is adjusted to correct for pileup using the $\rho$-correction, which assumes a fixed pileup-density in different $|\eta|$ ranges in the detector. The
 pileup density $\rho$, is multiplied by effective areas as a function of $|\eta|$. The \miniIso quantity is defined in equation~\ref{eqn:miniIso} below
