@@ -58,8 +58,8 @@ corresponding tracks and energy deposits removed from further consideration for 
 
 At this point in the event/object reconstruction, the so-called ``low hanging fruit'' has been picked, and the more difficult objects are all that remain. These objects are charged
 and neutral hadrons (jets), and photons. The neutral particles are difficult to reconstruct because they don't leave hits in the tracker, so only calorimeter information is
-available. Photons are distinguished from neutral hadrons by separate ECAL and HCAL clusters. Photons interact with and are stopped by the ECAL, while the same is true for
-neutral hadrons and the HCAL. Additional in-event calibration techniques are also used to further distinguish these objects. The remainig tracks are subject to tighter
+available. Photons interact electromagnetically are stopped by the ECAL, while neutral hadrons are stopped and deposit their energy in the HCAL.
+The remaining tracks are subject to
 quality cuts aimed at reducing the fake-rate. The high-quality tracks passing these thresholds are matched to ECAL and HCAL deposits, and give rise to particle flow 
 charge hadrons. The momentum of these objects is measured from the track radius and compared to the corresponding energy deposit in the calorimeters assuming the object is
 a charged pion. If the two measurements are compatible, the momenta is refined with additonal fits to the tracks and energy deposit(s)~\cite{CMS-PFT-09-001}.
@@ -79,11 +79,12 @@ These jets are then intrepreted experimentally to be the free quark. An depictio
  \end{center}
 \end{figure}
  
-There are too many PF candidates detected and reconstructed in the calorimeters in a given event at one time to make the jet clustering process straight-forward
-and unambiguous. To address this, jet clustering algorithms are used for clustering. These algorithms exploit information from the detector with theoretical knowledge of the
+Because this hadronization processes is challenging to reconstruct, jet clustering is accomplished with specialized algorithms. 
+These algorithms exploit information from the detector with theoretical knowledge of the
 hadronization process to cluster the jets sensible and reproducible manner.
-While many clustering algorithms exist, the one used by this analysis is the anti-$k_{T}$ algorithm~\cite{antikt}. Anti-$k_{T}$ begins like other sequential clustering algorithms,
-by calculating the distance measures in equations~\ref{eqn:antikt1}. 
+While many clustering algorithms exist, CMS uses the anti-$k_{T}$ algorithm~\cite{antikt} for jet clustering.
+Like other sequential clustering algorithms, anti-$k_{T}$ begins by finding the highest \pt candidate or seed, and
+calculating the distance measures in equations~\ref{eqn:antikt1}. 
 
 \begin{equation}
 \begin{aligned}
@@ -94,11 +95,15 @@ d_{ij} &= min(k^{2p}_{Ti},k^{2p}_{Tj})\frac{\Delta_{ij}^{2}}{R^{2}} \\ d_{iB} &=
 \end{aligned} 
 \end{equation}
 
-\noindent where $\Delta_{ij}^{2} = (y_{i}-y_{j})^{2} + (\phi_{i}-\phi_{j})^{2}$ and $y_{i}$,$k_{Ti}$ are the rapidity and momenta of particle i respectively. After the
-distance measures have been calculated for each candidate in the event, the smallest $d_{ij}$ are merged into one object by summing the 4-momenta of particles i and j, the
+\noindent where $\Delta_{ij}^{2} = (y_{i}-y_{j})^{2} + (\phi_{i}-\phi_{j})^{2}$ and $y_{i}$, $k_{Ti}$ are the rapidity and transverse
+ momenta of candidate i respectively. After the distance measures have been calculated for each candidate in the event,
+the smallest $d_{ij}$ are merged into one object by summing the 4-momenta of particles i and j, the
 distance measures are updated and the algorithm moves onto the next smallest $d_{ij}$. If a particle has the smallest $d_{iB}$, it is removed and called a jet. This
-iterative process continues until all PF candidates are clustered into jets. What differentiates anti-$k_{T}$ from Cambridge-Aachen and other similar algoirthms is the choice
-of p = -1 in equation~\ref{eqn:antikt1}. This negative value explains the name of the algorithm, and the tendancy for it to produce circular\footnote{circular in the
+iterative process continues until all PF candidates are clustered into jets.
+
+Conceptually, the exponents with $p$ dictate how transverse momenta varies with distance parameter. Negative values of $p$ merge higher transverse momenta, nearby 
+candidates first. What differentiates anti-$k_{T}$ from Cambridge-Aachen and other similar algorithms is the choice
+of $p$ = -1 in equation~\ref{eqn:antikt1}. This negative value explains the name of the algorithm, and the tendency for it to produce circular\footnote{circular in the
 $\eta$-$\phi$ plane} jets, centered on the highest \pt~candidate of the jet. The effect of these parameter values with respect to other available algorithms is below in
 Figure~\ref{fig:jet_cluster}.
 
@@ -115,20 +120,20 @@ Figure~\ref{fig:jet_cluster}.
 The final parameter in equation~\ref{eqn:antikt1} is defined as $R = \sqrt{\Delta\eta^{2}+\Delta\phi^{2}}$ is the conesize of the jet being clustered.
 The cone size used for clustering in this analysis is R = 0.4. Versions of this analysis on 7, and 8 TeV datasets used a wider cone of 0.5. The move to smaller cone size
 was motivated by the fact that jets tend to be more energetic and thus narrower and more collimated as the center-of-mass collision energy increases to 13 TeV. All techniques
-mentioned above proved CMS analyzers the basic physics objects needed to perform analysis, and also standardizes the object reconstruction across the experiment. 
+mentioned above provide CMS analyzers the basic physics objects needed to perform analysis, and also standardizes the object reconstruction across the experiment. 
 
 \section{Primary Vertex Identification and Pile-up}
 Due to the way the LHC collides bunches, there are multiple pp collisions in each LHC bunch crossing at CMS. Unfortunately, many of these collisions produce
-multiple objects that are reconstructed, but only 1 of these collisions is considered a hard scatter head-on collision capable of producing a \tth event.
-These additional collisions that don't include the hard scatter event of interest, as well as their resulting reconstructed objects are referred to as pile-up, because
-they are said to pile up on top of the objects from the collision of interest.
-The collision of interest is called the primary vertex.
-In this analysis and also in many others, the primary vertex is defined as the vertex with the highest \pt~sum of all constituent tracks.  
+multiple objects that are reconstructed, but at most one of these collisions is a hard scatter head-on collision capable of producing a \tth event.
+These additional collisions that don't include the process of interest, as well as their resulting reconstructed objects are referred to as pileup, because
+they are said to \emph{pile up} on top of the objects from the collision of interest.
+The location of the collision of interest is called the primary vertex.
+In this analysis, the primary vertex is defined as the vertex with the highest \pt~sum of all constituent tracks.  
 Pileup is problematic because it can make matching objects to collisions difficult. Fortunately,
-CMS has an excellent tracker which makes the process of matching tracks to vertices (collision) fairly straightforward. Aside from the tracking, pileup is also
+CMS has an excellent tracker which makes the process of matching tracks to vertices (collisions) fairly straightforward. Aside from the tracking, pileup is also
 problematic because the energy deposits in the calorimeters from the pilup objects can distort the energy measurements and clustering of objects originating from
-the primary vertex. There are numerous techniques to account for these effects. The technique employed in this analysis is to assign an average amount of energy
-due to pileup in the detector, and subtract it off from each reconstructed jet energy measurement. This is called the rho correction.  
+the primary vertex. There are numerous techniques to account for these effects. The technique employed in this analysis is to calculate the energy
+due to pileup in the detector, rho, and subtract it off from each reconstructed jet energy measurement. This is called the rho correction.  
 An example of the reconstructed tracks and vertices in an
 LHC bunch crossing is below in Figure~\ref{fig:pileup_vertices}.
 
@@ -141,13 +146,13 @@ LHC bunch crossing is below in Figure~\ref{fig:pileup_vertices}.
  \end{center}
 \end{figure}
 
-\noindent The pileup values in the data in this analysis varies from 30 to 45, meaning there are, on average, between 30 and 45 collisions (including the primary vertex) in each
-bunch crossing recorded by CMS. 
+\noindent The peak pileup values in the data analyzed varies from 30 to 45, meaning there are, on average, between 30 and 45 collisions (including the primary vertex) in each
+bunch crossing recorded by CMS\footnote{For a given bunch crossing, the actual number of pileup collisions varies according to a Poisson distribution, where the average is taken.}. 
 
 \section{Object Selection}
 After the basic object reconstruction is performed, each event is ready for the fist steps of analysis. The analysis begins with object selection where the objects in each
-event are subjected to tighter criteria to ensure quality objects in the analysis that are consistent with signal and background predictions. This selection depends on and 
-varies with the type of object desired in the event. Because the \tth multilepton final state is so complicated, almost\footnote{all objects except the photon, which are
+event are subjected to tighter criteria to ensure quality objects in the analysis that are consistent with signal expectations and reject background. This selection is tailored
+to the type of objects in the desired signal event. Because the \tth multilepton final state is so complicated, almost\footnote{all objects except the photon, which are
 used in the \tth,$H\rightarrow\gamma\gamma$ search} all objects available from the particle flow
 reconstruction are needed to identify events that are consistent with the signal, namely jets, missing energy, charged leptons, and hadronic taus.
 
