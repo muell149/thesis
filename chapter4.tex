@@ -3,6 +3,7 @@
 %
 
 \chapter{PHYSICS OBJECTS}
+\label{chap:physics_objects}
 Each of the CMS subdetectors (neglecting the trigger system) technically only record and detect hits and energy deposits. While these hits and energy deposits are almost
 always due to passing particles, the detectors and readouts themselves only produce information about the position, multiplicity, and value of
 these hits and energy deposits respectively. Sophisticated algorithms are used to reconstruct these hits and deposits into particles. These reconstructed particles are
@@ -166,21 +167,24 @@ a $\Delta$R cone of $<$ 0.4. Finally, the jets must pass the working point of th
 characterizing the shape of the jet, the relative amounts of charged and neutral candidates within the jet, and the \pt ratio between the candidates. 
 
 \subsection{b-jet Identification}
-The properties of heavy flavor quarks, specifically the bottom quark, have unique characteristics that make their hadronizations easy to identify or tag. This identification is called
-b-tagging and used throughout this and many other analyses. These heavy flavor quarks are characterized by large\footnote{large relative to light quarks and gluons} masses,
-long lifetimes, high \pt decay products among which there is an occasional charged lepton. The long lifetime provides a key handle to identify b-decays, since the b travels farther before
-decay and producing a secondary vertex. Identifying this secondary vertex plays a central role in tagging jets from b-decays. All of properties are measured by CMS and used to discriminate b-quark jets
-from light flavor QCD jets. 
 
-Jets originating from b-quark hadronization (b-jets). Identifying b-jets is crucial to selecting \tth events since the tops
-almost always produce b-quarks. The algorithm used in this analysis is the Combined Secondary Vertex (CSVv2) tagger~\cite{csvv2}. The CSVv2 tagger is an MVA discriminator that
+Identifying jets from b-quark hadronization (b-jets) is crucial to selecting \tth events since the tops almost always produce b-quarks.
+The properties of heavy flavor quarks, specifically the bottom quark, have unique characteristics which make it possible to tag and identify their
+hadronizations in the detector. This identification is called
+b-tagging and is used throughout this and many other analyses. These heavy flavor quarks are characterized and distinguished from light flavor
+ by large\footnote{large relative to light quarks and gluons} masses,
+long lifetimes, high \pt decay products, among which there is an occasional charged lepton.
+The long lifetime provides a key handle for identifying b-decays, because the b quark is further displaced from the primary vertex before hadronizing,
+resulting in a secondary vertex. Identifying this secondary vertex plays a central role in tagging jets from b-decays.
+
+The algorithm used to identify b-jets in this analysis is the Combined Secondary Vertex (CSVv2) tagger~\cite{csvv2}. The CSVv2 tagger is an MVA discriminator that
 combines secondary vertex information with impact parameter variables that discriminate heavy flavor quarks from light flavor quarks and gluons. The tagging variable is assigned
 for each jet, and can range from -1 to +1, where the higher values correspond to higher likelihood that the jet originated from a b-quark. The jets described in the previous
-subsection are \emph{tagged} when they pass a specific working point of the tagger. The specific working point is choosen to balance keeping the fake rate low, and the efficiency
+subsection are \emph{tagged} when they pass specific working points of the tagger. The specific working point is choosen to balance keeping the fake rate low, and the efficiency
 high. The working points used in this analysis were selected after studying the tagger performance, as a function of jet \pt and $\eta$ in data samples with b-jets. Two working points
 are used for b-tagging in this analysis. The medium working point (CSVv2 $>$ 0.8484) corresponds to 70\% efficiency for tagging
-b-jets with a 1.5\% mistag rate, while the loose working point (CSVv2 $>$ 0.5426) corresponds to an 85\% efficiency and a 10\% mistag rate. The mistag rate is the rate is the efficiency
-to tag jets with only light flavor quarks or gluons. The motivation for two working points is explained in the event selection. 
+b-jets with a 1.5\% mistag rate, while the loose working point (CSVv2 $>$ 0.5426) corresponds to an 85\% efficiency and a 10\% mistag rate. The mistag rate is the probability
+to tag jets originating from light flavor quarks or gluons. The motivation for two working points is explained in Chapter~\ref{chap:event_selection}. 
 
 \subsubsection{b-jet Scale Factors}
 The shape of the CSVv2 distribution of b-jets in data differs somewhat between that of MC. Because MC is being used to predict both the signal and many of the backgrounds, we apply scale factors (SFs)
@@ -192,7 +196,9 @@ calculated according to equation~\ref{eqn:csvsf} below.
   SF(CSVv2,p_{T},\eta) = \frac{DATA-MC_{A}}{MC_{B}}
 \end{equation}
 
-\noindent where A/B = light/heavy flavor for the heavy flavor correction and A/B = heavy/light for the light flavor correction. The scale factors are derived from a tag-and-probe technique. First,
+\noindent The scale factor for heavy flavor has $MC_{A}$, $MC_{B}$ = light, heavy flavor MC respectively,
+while the scale factor applied to light flavor has $MC_{A}$, $MC_{B}$ = heavy, light flavor MC respectively.
+The scale factors are derived from a tag-and-probe technique. First,
 a control region is defined by selecting opposite sign $e-\mu$ events with exactly two jets. When this selection is applied to data, it yields events enriched with di-leptonic \ttbar decays where the
 two jets are most likely b-jets. Then one of the jets (the \emph{tag}) is required to pass the medium CSVv2 working point (CSVv2 $>$ 0.8484) to increase the \ttbar purity. In real \ttbar events, the
 remaining jet (the \emph{probe}) is very likely a b-jet. Because control region applied to data is only \emph{enriched} in \ttbar events and not pure \ttbar events, we subtract off the contribution of
@@ -202,49 +208,53 @@ definition is modified to instead select dileptonic events with two leptons that
 This control region applied on data yields events enriched in Z+jets and the tag-and-probe process is repeated. The full details of this technique are described in~\cite{CMS-AN-2013-130}~and~\cite{csvsf_twiki}.
 
 \subsection{Missing Energy}
-Missing energy, or more accuarately missing \emph{transverse} energy is calculated as the negative vector sum of \pt of all PF candidates in the event, denoted as \met. It is called missing because
+Missing energy, or more accuarately missing \emph{transverse} energy is calculated as the negative vector sum of \pt of all PF candidates in the event\footnote{The word ``Energy'' is used here in place of momentum
+for historical reasons because this quantity used to be calculated from the energy measured in the calorimeters of older experiments, and still is for neutral objects where momentum information is unavailable due to the
+lack of a curved track.}, denoted as \met. It is called missing because
 the gluons (or quarks) colliding in the hard scatter that produce events such as \tth have no initial transverse momentum. By momentum conservation, the vector sum of all particles
-produced in the collision should match the sum before the collison. Any time the \met is non-zero, it is assumed to be carried off by missing particles. In the context of this and many other analyses,
-the \met is interpreted as the presence of neutrinos. The two same-sign lepton requirement on the signal ensures that there will always be two neutrinos in the event, making it impossible to fully
-reconstruct the individual neutrino momenta. The presence of \met can also arise due to mis measurements, incorrect reconstructions or jet clusterings, or the contribution of pile up events. To discriminate
+produced in the collision should match the sum before the collison. Any time the \met is non-zero, it is assumed to be either from mismeasurments, or carried off by undetected ``missing'' particles.
+In the context of this and many other analyses, the \met is interpreted as the presence of neutrinos. The two same-sign lepton requirement on the signal ensures that there will always be two neutrinos in the event, making it impossible to fully
+reconstruct the individual neutrino momenta. The presence of \met can also occurs due to mismeasurements/incorrect object reconstructions. To discriminate
 between the different sources of \met we use another variable called \HT, which is the negative vector sum of all selected jets and leptons in the event. While \HT has lower resolution than the \met,
 it relies only on the higher \pt selected objects and not the softer objects failing the seleciton. To exploit the fact that \HT and \met are less correlated in events with incidental missing energy,
-and more correlatd in events with real missing energy, a linear discriminat of both varibles is used and defined as
+and more correlatd in events with real missing energy, a linear discriminat of both varibles is defined in equation~\ref{eqn:metld} below.
 
 \begin{equation}
 \label{eqn:metld}
- \met LD = \met\times0.00397 + \HT\times0.00265
+ \met LD = \met\times0.00397 + \HT\times0.00265.
 \end{equation}
 
-\noindent where the \met LD value is cut on which will be described in the event selection. 
+\noindent The coefficients are tuned to scale the \met term by 60\% and the \HT term by 40\%, which were empirically found to deliver the best signal efficiency and background rejection.
+The \met LD threshold is described in Chapter~\ref{chap:event_selection}.
 
 \subsection{Leptons}
-The flagship objects that characterize this analysis are leptons. The lepton selection is the foundation of this \tth search and many of the analysis treatment that follows later is due to the
-choice of lepton selection. The ultimate goal of the lepton selection is to identify and select prompt leptons and reject non-prompt, also known as fake, leptons. In this context, a prompt lepton
-is a lepton that originates directly (promptly) from a W, Z or $\tau$\footnote{prompt leptons produced in $\tau$ decays are actually coming from an offshell W produced by the decaying $\tau$} decay, while non-prompt leptons
+The flagship objects that characterize this analysis are leptons. The lepton selection is the foundation of this \tth search and drives an important component of the background estimation.
+The ultimate goal of the lepton selection is to identify and select prompt leptons and reject non-prompt, also known as fake, leptons. In this analysis, leptons are defined as being electrons or muons.
+Taus are excluded from this defnition because they are unstable and decay in the detector. In this context, a prompt lepton
+is a lepton that originates directly (promptly) from a W, Z or $\tau$\footnote{Prompt leptons produced in $\tau$ decays are actually coming from an offshell W produced by the decaying $\tau$} decay, while non-prompt leptons
 predominantly originate from b-hadron decays, but also in-flight decays of pions, and photon conversions. The term \emph{fake} is used to describe non-prompt leptons because non-prompt leptons
 that pass the criteria designed to select prompt leptons are faking prompt leptons. These fakes are one of the largest backgrounds in this analysis and the lepton selection is designed to reduce both
 the quantity of fakes entering the signal regions, and the systematic uncertainties on that quantity. 
 
 \subsubsection{Electron Identification}
-Electrons are reconstructed from tracker hits (GSF tracks) and ECAL clusters via particle flow as described previously. While many other criteria is placed on electrons later, they first must
+Electrons are reconstructed from tracker hits (GSF tracks) and ECAL clusters via particle flow as described previously. While many other requirements are placed on electrons later, they first must
 have $|\eta|<$2.5 to be guarantee they passed through the tracker, and minimum \pt $>$ 7 GeV. Electrons must pass the working point of an MVA designed to identify electrons using shower-shape variables,
-track-cluster consistency variables, and track quality variables~\cite{elemvaid}. We apply loose cuts as a function of $|\eta|$ on this MVA value. The full shape of this MVA is used as an input to
-the Lepton MVA, which will be described in the following sections. For the tightest selections, we also require the electron charge measurements in the ECAL and tracker to agree, and electrons must not have
-missing hits in the inner tracker, and an additional veto which suppresses contributions from photon conversions. 
+track-cluster consistency variables, and track quality variables~\cite{elemvaid}. We apply loose cuts as a function of $|\eta|$ on this MVA value. The value of this MVA discriminator is used as an input to
+the Lepton MVA, which will be described in the following sections. For the tightest selections, we also require the charge measurements in the pixels and strips to agree and be well-matched to ECAL clusters.
+Additionally, electrons must not have missing hits in the inner tracker, and pass additional veto which suppresses contributions from photon conversions. 
 
 
 \subsubsection{Muon Identification}
 Muons are reconstructed by combining tracks from the silicon tracker with tracks in the muon chambers and are required to be global muons. Muons are first required to have \pt $>$ 5 GeV and
-$|\eta|<$2.4. We use centralized selectrion criteria developed by the CMS
+$|\eta|<$2.4. We use the selectrion criteria developed by the CMS
 Muon Physics Object Group (POG) and require all muons to pass the Loose ID~\cite{loosemuon} and in some cases the Medium ID~\cite{mediummuon} depending on the selection. Additionally, we require
 the sign of the muon electric charge to be well measured by appling a cut related to the significance of the muon \pt measurement called \emph{tight charge} defined as: $\Delta~p_{T}/p_{T} < 0.2$,
 where $\Delta~p_{T}$ is the uncertainty on the muon pt. This cut ensures a high confidence on the charge sign of the muons. This cut is only required on the tightest selection of muons.  
 
 \subsubsection{Isolation}
-Lepton isolation is a measure of how spatially isolated the lepton is from other physics objects in the detector in an event. Prompts leptons are typically isolated from hadronic activity
-(jets) in the event, while non-prompt leptons, which are often produced in hadronic decays, are significanly less isolated and close to/overlapping with jets. The standard isolation considers
-all charged and neutral hadrons as well as photons within a fixed cone size in R around the lepton, then if there is too much energy relative to the lepton energy from the
+Lepton isolation is a measure of how spatially separated the lepton is from other physics objects in an event. Prompts leptons are typically isolated from hadronic activity
+(jets) in the event, while non-prompt leptons, which are often produced in hadronic decays, are significanly less isolated and close to or overlapping with jets. The standard isolation considers
+all charged and neutral hadrons as well as photons within a fixed cone size in R around the lepton. Then if there is too much energy relative to the lepton energy from the
 other objects inside the fixed cone radius, the lepton fails the isolation criteria. This analysis uses a variation of this technique that varies the cone size with the \pt of the lepton, since
 boosted (very high momentum) objects tend to be more collimated and thus should have a more collimated cone definition. This isolation technique is called mini isolation (\miniIso) and the cone
 size is varied with lepton \pt according to equation~\ref{eqn:miniIsoConeSize} below. 
