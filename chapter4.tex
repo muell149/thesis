@@ -272,7 +272,7 @@ size is varied with lepton \pt according to figure~\ref{fig:miniIsoConeSize} bel
 % R = \frac{10}{min(max(p_{T}(l),50),200)}
 %\end{equation}
 
-\noindent The amount of activity inside this cone is adjusted to correct for pileup using the $\rho$-correction, which assumes a fixed pileup-density in different $|\eta|$ ranges in the detector. The
+\noindent The amount of activity inside this cone is adjusted to correct for pileup using the $\rho$-correction, which uses a specific pileup-density event-by-event in different $|\eta|$ ranges in the detector. The
 pileup density $\rho$, is multiplied by effective areas as a function of $|\eta|$. The \miniIso quantity is defined in equation~\ref{eqn:miniIso} below
 
 \begin{equation}
@@ -282,14 +282,15 @@ pileup density $\rho$, is multiplied by effective areas as a function of $|\eta|
 
 \noindent where $\sum_{R}p_{T}(h^{\pm})$ is the energy of the charged hadrons inside the cone of radius R, $\sum_{R}p_{T}(h^{0})$ is the energy of the neutral hadrons inside the cone, $p_{T}(\gamma)$ is
 the energy from photons inside the cone, and $-\rho A (\frac{R}{0.3})^{2}$ is the correction for pileup. The effective areas, A, are defined separately for muons and electrons and are based off a fixed
-cone size of R = 0.3 and listed in tables~\ref{tab:ele_effArea}\ref{tab:mu_effArea}, which explains the denominator in the pileup correction term. Both muons and electrons are subject to the same isolation criteria, which requires \miniIso $<$ 0.4.
+cone size of R = 0.3 and listed in tables~\ref{tab:ele_effArea}\ref{tab:mu_effArea}, which explains the denominator in the pileup correction term. Both muons and electrons are subject to the same isolation criteria,
+which requires \miniIso $<$ 0.4.
 
 \begin{table}[hbtp]
 \centering
 \caption[Electron effective areas for the pileup correction.]{Electron effective areas for the pileup correction.}
 \begin{tabular}{lcc}
 \hline
-$|\eta|$ range & effective area \\
+$|\eta|$ range & effective area (A) \\
 \hline
 $|\eta| < 1.0$ & 0.1752 \\
 $1.0 < |\eta| < 1.479$ & 0.1862 \\
@@ -308,7 +309,7 @@ $2.4 < |\eta|$ & 0.2687 \\
 \caption[Muon effective areas for the pileup correction.]{Muon effective areas for the pileup correction.}
 \begin{tabular}{lcc}
 \hline
-$|\eta|$ range & effective area \\
+$|\eta|$ range & effective area (A) \\
 \hline
 $|\eta| < 0.8$ & 0.0735 \\
 $0.8 < |\eta| < 1.3$ & 0.0619 \\
@@ -324,10 +325,11 @@ $2.2 < |\eta|$ & 0.0577 \\
 Vertexing requirements are placed on the leptons to help to ensure they are coming from (associated with) the primary vertex and to
 remove leptons from misreconstructed tracks and hadron decays from further consideration. The requirements
 placed on the leptons include the impact parameter in both the transverse plane ($d_{xy}$), the z-direction ($d_{z}$) and the significance
-on the three-dimensional impact parameter. The impact parameter is the distance of closest approach of the lepton track to the primary vertex
-(SIP$_{3D}$). The values of thes cuts are detailed in tables~\ref{tab:muonIDs}~and~\ref{tab:eleIDs}.
-These cuts are designed to reduce the contribution of pileup and misreconstructed tracks. The full shape of these variables are
-used as inputs to the lepton MVA.
+on the three-dimensional impact parameter (SIP$_{3D}$). The impact parameter is the distance of closest approach of the lepton track to the primary vertex.
+The values of thes cuts are detailed in tables~\ref{tab:muonIDs}~and~\ref{tab:eleIDs}.
+These cuts are designed to reduce the contribution of pileup and misreconstructed tracks. All of these variables are useful in distinguishing prompt from non-prompt leptons
+and are inputs to the lepton MVA. 
+
 
 \subsubsection{Jet-related Variables}
 In order to reduce the contribution of fake leptons from hadron decays, specifically b-decays, we construct several variables that incorporate
@@ -341,11 +343,12 @@ of the lepton, the jet \pt, the jet CSVv2 value, the number of charged tracks in
  p_{T}^{rel} = \frac{(\vec{p}(jet)-\vec{p}(l))\cdot\vec{p}(l)}{||\vec{p}(jet)-\vec{p}(l)||}
 \end{equation}
 
-We apply a modified version of the jet energy corrections described previously to avoid over correcting the jets near the lepton and bias the 
-prompt lepton selection. We therefore only correct the hadronic part of the jet according to $jet = l + (jet-PU-l)\times~JEC - PU$.  
+We apply a modified version of the jet energy corrections described previously to avoid biasing the 
+prompt lepton selection by over-correcting the jets near the lepton.
+%We therefore only correct the hadronic part of the jet according to $jet = l + (jet-PU-l)\times~JEC - PU$.  
 
 \subsubsection{Lepton MVA}
-In addition to the selection cuts, we combine them into a multivariate discriminator designed to select prompt leptons and reject fakes.
+In addition to the above selection requirements, we use a multivariate discriminator designed to select prompt leptons and reject fakes.
 This MVA is called the lepton MVA and is based on a boosted decision tree classifier. We use two versions of this MVA, one specifically for
 muons and one for electrons. The lepton MVA is trained on prompt leptons in \tth
 MC as signal, and the background sample consists of fake leptons from \ttbar MC sample. The input variables are: 
@@ -366,11 +369,12 @@ MC as signal, and the background sample consists of fake leptons from \ttbar MC 
   \item electron MVA ID (electrons only)
 \end{itemize}
 
-The lepton MVA used here is the same as the one used in the 2015 \tth analysis~\cite{CMS-PAS-HIG-15-008}. Leptons passing the tight working point
+%The lepton MVA used here is the same as the one used in the 2015 \tth analysis~\cite{CMS-PAS-HIG-15-008}.
+Leptons passing the tight working point
 of the lepton MVA (MVA $>$ 0.9) is defining characteristic of the tight leptons used in the signal regions. 
 
 \subsubsection{Lepton Selection}
-The lepton selection is a comprised three increasingly selective classes: loose, fakeable, and tight. The loose is a preselection, while the
+The lepton selection consists of three increasingly selective classes: loose, fakeable, and tight. The loose is a preselection, while the
 fakeable object selection, which is a tighter subset of the loose, is used to define control regions for estimating the background due to fake leptons.
 The tight leptons, which are a subset of the fakeable, define the leptons used in the signal regions of this analysis. The details of these selections are
 described in tables~\ref{tab:muonIDs}~and~\ref{tab:eleIDs}.
@@ -448,7 +452,8 @@ lepMVA $> 0.90$ & -- & -- & \checkmark \\
 \subsubsection{Lepton Effiency Scale Factors}
 The rate at which objects pass the described lepton selections (known as efficiency) differs slightly between data and MC. Because we use MC predictions and compare directly to data,
 the lepton efficiency in MC is corrected to match the lepton efficiency in data. Because we utilize two lepton selections (loose, tight) for the MC predictions, we apply scale
-factors derived uniquely for each selection. Because the tight selection is a subset of the loose, all MC events with tight leptons have both loose and tight scale factors applied. 
+factors derived uniquely for each selection. Because the tight selection is a subset of the loose, all MC events with tight leptons have both loose and tight scale factors applied.
+This is because the tight lepton efficiency is measured relative to the loose denominator. 
 
 These corrections are applied as a function of \pt and $|\eta|$ for electrons and muons
 separately. These scale factors are applied to MC and defined in equation~\ref{eqn:lepEffSf} below:
@@ -475,15 +480,16 @@ from a control region enriched in Drell-Yan (DY)\footnote{DY events are Z/$\gamm
 
 \subsection{Taus}
 The final objects considered in this analysis are tau leptons, specifically hadronically decaying taus. Leptonic tau decays produce a charged lepton that is typically identified as prompt,
-making their presence straightforward to detect, but impossible to distinguish from a lepton produced from a W or Z. To avoid an overlap with the signal regions of the \tth,$H\rightarrow\tau\tau$
+making their presence straightforward to detect, but impossible to distinguish from a lepton produced directly from a W or Z. To avoid an overlap with the signal regions of the \tth,$H\rightarrow\tau\tau$
 analysis~\cite{CMS-PAS-HIG-17-003}, which considers \emph{only} events with hadronic taus, we use the same object definition and veto any event with a selected hadronic tau. Hadronic taus are
 reconstucted with the hadron-plus-strips algorithm~\cite{hps} in 1-prong or 3-prong decay modes. Taus must have \pt $>$ 20 GeV, $|\eta|<$2.3, $d_{xy}<$1000 cm, $d_{z}<$0.2 cm, and pass the
-``decay mode finding'' MVA. Additonally, taus are required to pass the working point of a tau MVA ``byMediumIsolationMVArun2v1DBdR03oldDMwLT'' which was trained on \tth events as signal and
-\ttbar events as background with an isolation cone of radius 0.3~\cite{CMS-AN-15-310}. 
+``decay mode finding'' MVA. Additonally, taus are required to pass the medium working point of a tau MVA\footnote{The tecnhical name for this working point is``byMediumIsolationMVArun2v1DBdR03oldDMwLT''.}
+which was trained on \tth events as signal and \ttbar events as background with an isolation cone of radius 0.3~\cite{CMS-AN-15-310}. 
 
 \section{Object Cleaning}
-Objects that pass the selections described above but are spatially near one another must be addressed since they are typically consistent with pileup effects and do not resemble the signal process.
-We address this by removing one of the overlapping objects, which is decided according to the object type in a process called object cleaning. By choosing the correct objects to remove, and to keep
-we can mitigate the effects due to pileup. The first object cleaning is applied to leptons passing the loose selection. Loose electrons are removed\footnote{Because the lepton selection is applied in
+Objects that pass the above selections but are spatially nearby must be addressed since they can be
+the decay products of the same underlying particle, but resolved by the detector as two distinct objects. This results in \emph{double-counting}.
+We address this by removing one of the overlapping objects, which is decided according to the object type in a process called object cleaning. By correctly choosing which objects to remove, and which objects to keep,
+we can mitigate the effects of double-counting. The first object cleaning is applied to leptons passing the loose selection. Loose electrons are removed\footnote{Because the lepton selection is applied in
 order, any objects removed after the loose selection are completely removed from the event and not considered for fakeable and tight.} when they overlap within a cone size of R = 0.05 of a loose muon. 
 Jets are removed when they overlap within a cone of radius R = 0.4 with fakeable lepton (muon or electron) or a tau passing the cleaning selection.
