@@ -389,8 +389,13 @@ to the HLT.
 The HLT receives events that pass the L1, and is the final filter that determines which events are saved or discarded. This means that all events passing the HLT are saved and reconstructed for later analysis.
 The HLT reduces the L1 input rate from 100 kHz to around 1 kHz. The HLT software is the foundation on which the rest of the offline CMS analysis software, CMSSW, is built. The HLT software consists of over 400 trigger algorithms that make accept/reject decisions
 based on quantities such as particle momenta, multiplicity, energy, position, and other more sophisticated variables that are available thanks to the advanced event reconstruction that takes place at the HLT.
-The more than 400 HLT algorithms are gouped into categories based on the specific types of objects that fire the trigger such as electron/photons, muons, Jets/MET etc. These groups are called primary datasets and only events which passed a trigger
+The more than 400 HLT algorithms (triggers) are gouped into categories based on the specific types of objects that fire the trigger such as electron/photons, muons, Jets/MET etc. These groups are called primary datasets and only events which passed a trigger
 allocated to that primary dataset will be found in the associated dataset. Common examples of primary datasets include SingleEG, DoubleEG, SingleMu, DoubleMu, MuonEG etc. The events are then sent further downstream grouped together in these primary datasets.
+The collection of 400 algorithms comprise the HLT menu.
+Because the HLT, DAQ and downstream hardware can only handle a maximum trigger
+rate, the trigger menu uses prescales to control the rates of triggers that would otherwise fire too often. This allows lower-priority triggers to collect data
+without consuming large rates. The prescale control how frequency a trigger fires. For example a trigger with a prescale of 2 means that
+data is recorded every other time the trigger fires.
 The HLT and L1 algorithms are thoroughly tested and highly efficient at passing the objects they are
 designed to accept. Typical HLT trigger efficiencies are well above 90$\%$. See the muon efficiency at the HLT in Figure~\ref{fig:hlt_eff_muons} below. 
 
