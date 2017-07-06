@@ -172,7 +172,10 @@ The CMS tracking system sits closest to the interaction point at the core of CMS
 The tracking system is comprised of two concentric cylindrical subdetectors, the pixel and strip detectors, which are named after the geometry of the sensors they use. 
 The pixels provide the highest granularity tracking information, essential for distinguishing between collision vertices, and sit nearest to the interaction point,
 inside of the strip detector.
-The strips proivde slightly less resolution compared with the pixels, since they sit further from the interaction point. 
+The strips proivde slightly less resolution compared with the pixels, since they sit further from the interaction point. There is approximately one
+radiation length\footnote{A radiation length is defined as the distance an energetic electron travels in material before losing all but 1/e of its
+initial energy due to bremsstrahlung emission~\cite{radiation_length}.}
+of tracker material (pixels + strips) between the interaction point and the beginning of the next subdetector, the ECAL.
 The total detector area of the tracking system (pixels+strips) sums to more than a tennis court of silicon.
 
 As a charged particle travels through a silicon sensor (pixel or strip), it ionizes a small fraction of the silicon atoms, releasing electrons from the valence band of n-type or p-type
@@ -280,7 +283,7 @@ The four sections of the HCAL are the barrel (HB), the endcaps (HE), the outter 
 sits between the outside of the ECAL barrel and the inside of the magnet coil in the transverse plane. The HB covers a psuedorapidity range of $|\eta| < 1.3$.
 The endcaps cover a psuedorapidity of $1.3 < |\eta| < 3$. The HO sits outside and around the solenoid coil covering the same psuedorapidity range
 as the HB. The HO utilizes the magnet coil as an additional absorbing layer ensuring detection of any particle exiting the HB. The HF sits outside of all other subdetectors at $\pm$11 m from the interaction point in the z-direction,
-covering a psuedorapidity range of $3.0 < |\eta| < 5.0$. The HF was specially designed to resist the intense radiation deposited in this forward region.
+covering a psuedorapidity range of $3.0 < |\eta| < 5.0$. The HF was specially designed to resist the intense radiation deposited in this forward region. In total, the endcap calorimeters cover roughly 10 radiation lengths.
 
 \subsection{Solenoid}
 Central to the design and name of CMS, the CMS magnet is one of the largest superconducting solenoids in the world.
