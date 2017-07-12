@@ -357,6 +357,10 @@ Radiation length.
 \newblock Website, Accessed: July 5th 2017.
 \newblock \url{https://en.wikipedia.org/wiki/Radiation_length}.
 
+\bibitem[{Hoecker} et~al.(2007)]{tmva}
+A.~{Hoecker} et~al.
+\newblock {TMVA - Toolkit for Multivariate Data Analysis}.
+\newblock \emph{ArXiv Physics e-prints}, March 2007.
 
 %%%%%%%%%%%%%% Haven't needed these yet...
 
@@ -499,11 +503,6 @@ Radiation length.
 %% \newblock {CMS MET Performance in Events Containing Electroweak Bosons from pp
 %%   Collisions at $\sqrt{s}=7$ TeV}.
 %% \newblock \emph{CMS PAS JME-2010-005}, 2010.
-
-%% \bibitem[{Hoecker} et~al.(2007)]{tmva}
-%% A.~{Hoecker} et~al.
-%% \newblock {TMVA - Toolkit for Multivariate Data Analysis}.
-%% \newblock \emph{ArXiv Physics e-prints}, March 2007.
 
 %% \bibitem[Peiffer.(Accessed: April 3rd 2014)]{Q2-REWEIGHT-PRESENTATION}
 %% T.~Peiffer.
