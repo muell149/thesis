@@ -362,6 +362,18 @@ A.~{Hoecker} et~al.
 \newblock {TMVA - Toolkit for Multivariate Data Analysis}.
 \newblock \emph{ArXiv Physics e-prints}, March 2007.
 
+\bibitem[Quinlan.(1993)]{C4.5}
+J.R.~{Quinlan}.
+\newblock C4.5: Programs for Machine Learning.
+\newblock Morgan Kaufmann Publishers, Inc (1993)
+\newblock \doi{10.1007/BF00993309}.
+
+\bibitem[J.~Friedman(2008)]{esii}
+J.~{Friedman} et~al.
+\newblock Elements of Statistical Learning Second Edition
+\newblock \emph{Springer}, 2008.
+
+
 %%%%%%%%%%%%%% Haven't needed these yet...
 
 
