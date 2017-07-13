@@ -54,7 +54,17 @@ The splitting criteron maximizes the impurity gain, $\DeltaI(t)$. For a given no
 select the best variable and value to split into two child nodes, $t_{L}$, with $N_{L}$ events, and $t_{R}$,with $N_{R}$ events, where $N_{0} = N_{L} + N_{R}$. Here, the
 impurity gain for a given split is $\DeltaI(t) = I(t_{0}) - I(t_{L} - I(t_{R}))$, and we choose the cut which maximizes $\DeltaI(t)$ over all possible splits for all variables.
 The functional form of $\phi(t)$ has not been given since there are a number of options. The simplest form of $\phi$ is the training error $\epsilon(t) = min(p_{s},p_{b})$.
-The training error as the basis for the FOM suffers fro. To illustrate this shortcoming, see Figure~\ref{fig:tree_split}. Both splits produce
+The training error as the basis for the FOM suffers fro. To illustrate this shortcoming, see Figure~\ref{fig:tree_split}.
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.5\textwidth]{ap2_figs/tree_split.pdf}
+   \caption[Two splits with the same error rate.]{Two different splits that result in the same mis-classification error~\cite{illya}.}
+   \label{fig:tree_split}
+ \end{center}
+\end{figure}
+
+\noindent Both splits in Figure~\ref{fig:trees_plit} produce
 the same training error (25$\%$), however the split on the right is clearly a more powerful separator. Other forms of $\phi$ that avoid this scenario by punishing
 event mis-classifications non-linearly include the Gini index $\phi = 1 - p_{s}^{2} - p_{b}^{2}$, and the cross entropy $\phi = \frac{-p_{s}log(p_{s})+p_{b}log(p_{b})}{2}$.
 The FOM used for the BDTs in this analysis is the Gini index, which punishes mis-classifications less severely for more equal distributions of signal and background, and more
@@ -109,8 +119,8 @@ from adding an additional tree is minimal.
 
 How is this related to gradient descent? In the gradient descent procedure, a function $J(\Theta)$, is minimized by moving in the opposite direction the gradient in steps
 of finite size that are proportional to the gradient. In this way, the minimum value of $J(\Theta)$ is found for a particular $\Theta$. Starting from any value $\Theta_{i}$,
-it is updated in steps according to $\Theta_{i} \rightarrow \Theta_{i} + \rho\frac{\del~J}{\del~\Theta_{i}}$. 
-Substituing a loss function $L(F(x),y)$, in place of $J(\Theta)$, the gradient becomes $\frac{\del L(F(x_{i}),y_{i})}{\del F(x_{i})}$. Letting the loss function be the popular squared error loss,
+it is updated in steps according to $\Theta_{i} \rightarrow \Theta_{i} + \rho\frac{\partial~J}{\partial~\Theta_{i}}$. 
+Substituing a loss function $L(F(x),y)$, in place of $J(\Theta)$, the gradient becomes $\frac{\partial L(F(x_{i}),y_{i})}{\partial F(x_{i})}$. Letting the loss function be the popular squared error loss,
 $L(F(x),y) = (y-F(x))^{2}/2$, the gradient is $y_{i}-F(x_{i})$, which is the residuals found previously! Thus the negative gradient can be interpreted as the residuals for this
 choice of loss function. 
 
@@ -118,7 +128,7 @@ choice of loss function.
 \begin{aligned}
 \label{eqn:residual1}
 %%\begin{split}
-F(x_{i}) \rightarrow F(x_{i}) + h(x_{i}) \\ F(x_{i}) \rightarrow F(x_{i}) + y_{i} - F(x_{i}) \\ F(x_{i}) \rightarrow F(x_{i}) + \frac{\del L(F(x_{i}),y_{i})}{\del F(x_{i})} \\ \Theta_{i} \rightarrow \Theta_{i} + \rho\frac{\del J(\Theta_{i})}{\del \Theta_{i}}
+F(x_{i}) \rightarrow F(x_{i}) + h(x_{i}) \\ F(x_{i}) \rightarrow F(x_{i}) + y_{i} - F(x_{i}) \\ F(x_{i}) \rightarrow F(x_{i}) + \frac{\partial L(F(x_{i}),y_{i})}{\partial F(x_{i})} \\ \Theta_{i} \rightarrow \Theta_{i} + \rho\frac{\partial J(\Theta_{i})}{\partial \Theta_{i}}
 %%\end{split}  
 \end{aligned} 
 \end{equation}
