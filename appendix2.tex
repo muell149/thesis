@@ -142,6 +142,6 @@ of leaf nodes in tree $T$. Beginning at $\alpha = 0$, remove nodes in all trees 
 Pruning is always allowed if the penalized risk for the leaf exceeds that of its parent. At the next step, the minimum value of $\alpha$, $\alpha^{*}$ is calculated such that
 the risk of the node is equal to the risk of the tree $r(t) + \alpha^{*} = r(T) + \alpha^{*}|L(T)|$. Solving for $\alpha^{*}$ provides the minimum value for $\alpha$
 at the next pruning step. The optimal pruning step $m$ is acheived when $\alpha_{m} \le \alpha_{m+1}$ the optimum tree $T^{*}(\alpha_{m})$ contains $T^{*}(\alpha_{m+1})$
-as a subtree. 
+as a subtree. The risk is calculated on trees of an independent training subset~\cite{illya}. 
 
 
