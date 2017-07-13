@@ -36,21 +36,129 @@ Data & 154 & 95 & 274 \\
 \end{center}
 \end{table}
 
-\section{Hadronic Top Reconstruction}
-
-\section{Higgs Jet Tagging}
+The signal extraction strategy adopted here targets the two largest backgrounds, \ttv and the non-prompt leptons, and uses BDTs to discriminate against each separately.
+The inputs to these BDTs include event kinematics, as well as outputs of other BDTs, designed to resconstruct parts of the signal events such as the Higgs jets and the
+hadronically decaying top quark. Finally, the outputs of the BDT dscriminators are binned in a uniqe approach which produces a final shape template that is used
+for the final results.
 
 \section{Two Dimensional BDTs}
+Two BDTs are used to produce the final shape template. One BDT is trained exclusively against the \ttv background, while the other targets the background due to non-prompt
+leptons. Because the non-prompt background is a data-driven estimation, all of the events making up this background cannot be used for MVA training, since the BDT must be
+trained on a completely separate set of events from the set it is evaluated on. Because a large part of the fake background is comprised of the \ttbar process, the BDT is
+trained against \ttbar MC. The outputs of the two BDTs are plotted on separate axes forming a two-dimensional shape. This two-dimensional shape is binned into rectangles
+and the contents of which form a one-dimensional histogram. 
+
+A loosened version of the $2lss$ signal region selection is applied to the training events. This loosened selection is motivated by increasing the training statistics available
+while not affecting the behavior and kinematics of the input variables with respect to the signal region. This loosened selection consists of the following criteria:
+\begin{itemize}
+\item At least two preselected same-sign leptons
+\item The lepton \pt $>$ 25,15 
+\item At least 4 preselected jets among which there must be $\geq$ 2 CSVv2 L or $\geq$ 1 CSVv2 M
+\end{itemize}
+
+The input variables are selected considering not only the best individual separation power, but also the set that offers the best discrimination power of the BDT. These two
+properties are not necessarily the same, since correlations and anti-correlations among varibles can differ substantially between signal and background, providing significant
+discrimination power. Additionally, the closure between MC and data, also known as modeling, was considered since variables that are not modeled well in MC cannot be used to
+approximate the variable's behavior in data. The input variables used for the BDT training against \ttbar include:
+\begin{itemize}
+\item the absolute value of the maximum psuedorapidity of the two leptons
+\item the multiplicity of hadronic jets
+\item the minimum angular distance between the leading lepton and the nearest jet
+\item the minimum angular distance between the trailing lepton and the nearest jet
+\item the transverse mass of the leading lepton and missing transverse energy
+%\item the hadronic top reconstruction score
+\end{itemize} 
+
+\noindent the input variables used for the BDT training against \ttv include:
+\begin{itemize}
+\item the absolute value of the maximum psuedorapidity of the two leptons
+\item the multiplicity of hadronic jets
+\item the minimum angular distance between the leading lepton and the nearest jet
+\item the minimum angular distance between the trailing lepton and the nearest jet
+\item the transverse mass of the leading lepton and missing transverse energy
+\item the leading lepton transverse momentum
+\item the trailing lepton transverse momentum
+\item the Higgs jet tagger score after hadronic top removal
+\end{itemize} 
+
+\noindent The discrimination power of these input variables against the largest backgrounds is available in Figures~\ref{fig:inputs1}~\ref{fig:inputs2}~\ref{fig:inputs3}.
+The reconstruction inputs offer improved discrimination power against both of the largest backgrounds, see Figure~\ref{fig:inputs3}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_max_Lep_eta.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_numJets.pdf}\\
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_mindr_lep1_jet.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_mindr_lep2_jet.pdf}
+\caption[Signal extraction BDT input variables]{Separtion power among various backgrounds for BDT input variables}
+\label{fig:inputs1}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_MT_met_lep1.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_LepGood0_conePt.pdf}\\
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_LepGood1_conePt.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_BDTv8_eventReco_Hj_score.pdf}
+\caption[Signal extraction BDT input variables]{Separtion power among various backgrounds for BDT input variables}
+\label{fig:inputs2}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_2lss_ttbar.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_2lss_ttV.pdf}\\
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_2lss_ttbar_withBDTv8.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_2lss_ttV_withHj.pdf}
+\caption[BDT output scores with and without reconstruction inputs]{The BDT output scores without the reconstruction inputs (top) and with (bottom).}
+\label{fig:inputs3}
+\end{figure}
+
+\subsection{Hadronic Top Reconstruction}
+
+\subsection{Higgs Jet Tagging}
+The Higgs Jet (HJ) tagger is a BDT aimed specifically at identifying hadronic jets originating from the W bosons in \tth, H$\rightarrow$WW decays consistent
+with the \tth diagram in Figure~\ref{fig:intro_feyn}. This decay topology is the most common of all \tth decays in the $2lss$ channel. This final state
+consists of 2 b-quark jets, 4 hadronic (light flavor) jets, 2 same-sign leptons, and missing energy due to neutrinos. The signal region selection described
+in Chapter~\ref{chap:event_selection} does not require all of these objects to be present, as some or many are often out of the acceptance. This means that
+the jets from the Higgs decay could be missing entirely from the event.
+
+The HJ tagger addresses both the complicated jet combinatorics associated with this final state, but also the reality that not all jets originating
+from the Higgs are selected. The HJ tagger is an object-level discriminator that exploits jet kinematics and identification variables to estimate the likelihood
+of a jet originating from the Higgs. Similar to the hadronic top reconstruction method, the HJ tagger calculates scores for every jet in each event, selecting
+the highest score as the output. To boost performance and simplify the combinatorics associated with tagging, the hadronic top tagger is first run,
+and the jets selected as being assocaited with the hadronic top are removed from further consideration by the HJ tagger.
+The HJ tagger is primarily aimed at selected jets from W decays (from the Higgs) and is used as a discriminating varible against both the \ttw and \ttz backgrounds.
+Both of these
+backgrounds are very likely to contain most or all of the hadronic top decay products, namely a b-tagged jet and two light flavor jets. The two light flavor jets from
+the W in the hadronic top decay look kinematically similar to the targeted jets from the W from the Higgs, creating a potential for Higgs jet mis-tagging. This is
+especially true when the b-jet is missing. The hadronic top tagger idenifies these jets and they are removed from consideration by the HJ tagger.
+
+The HJ tagger is trained on \tth and \ttv MC. The signal training events require the reco-level objects passing the selection to be matched to a generator-level parton
+originating from the H$\rightarrow$WW$\rightarrow l\nu~l\nu$ process. The background selection requires \ttv events in the signal region.  
+The input variables include:
+\begin{itemize}
+\item the minimum angular separation between the jet and one of the two leptons
+\item the maximum angular separation between the jet and one of the two leptons
+\item the jet transverse momenta
+\item the jet b-tag discriminator (CSVv2)
+\item the jet quark-gluon discriminator (qgid)
+\end{itemize}
+
+\noindent The qgid varible is a BDT designed to discriminate jets originating from light flavor quarks from jets originating from gluons. The performance and improvement due
+to the HJ tagger input is seen in Figure~\ref{fig:hj_tagger}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.49\textwidth]{ch9_figs/Jtagger_Ks.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/Roc_Comparison_18Feb.pdf}
+\caption[Performance improvement from the HJ tagger and hadronic top removal]{Separation power of HJ output on the training samples (right) and performance improvements with respect to the 2016 version of this analysis obtained with the HJ
+tagger input with hadronic top removal (left).}
+\label{fig:hj_tagger}
+\end{figure}
 
 \section{Binning}
 
 \section{Subcategorization}
 
 
-%% \begin{figure}[hbtp]
-%%  \begin{center}
-%%    \includegraphics[width=0.8\textwidth]{ch4_figs/cms_particleflow.pdf}
-%%    \caption{An overview of how CMS detects different types of particles. The slice of CMS in in the x-y plane.~\cite{NEED CITATION}.}
-%%    \label{fig:cms_pflow}
-%%  \end{center}
-%% \end{figure}
