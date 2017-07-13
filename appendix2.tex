@@ -68,16 +68,80 @@ severely for mis-classifications of very unequal distributions of signal and bac
  \end{center}
 \end{figure}
 
+Additionally, the traing procedure makes use of bootstrap aggregating, known as \textit{bagging}, which performs a random re-sampling of previous events for during the tree growth.
+Bagging can improve the performance in combination with the boosting procedure, which is called stochastic gradient boosting and described next.  
+
 
 \section{Boosting}
 The boosting method used in this analysis is the stochastic gradient boost, a form a gradient descent optimization for decision trees. Thus far the process begins with a single
-weak classifier (a single tree). The training set will be comprised of events with {${$x$}_1$,$y_{1}$}....{${$x$}_N$,$y_{N}$} for N events. {$x$}$_{i}$, $y_{i} \in [0,1]$
+weak classifier (a single tree). The training set will be comprised of events with {$x_{1}$,$y_{1}$}....{$x_{N}$,$y_{N}$} for N events. $x_{i}$, $y_{i} \in [0,1]$
 are the input variables and class (background, signal) for event $i$. An implicit assumption in MVA training is that there exists
 some function $F'(x)$, that maps a set of inputs to the event's class $y$, that is $F'(x) = y$. In training we are attempting to model this function empirically. 
 
 The first step in gradient boosting is to grow a single tree. This single tree is $F(x)$. Surely $F(x_{i}) \neq y_{i}$ for most events, but perhaps $F(x_{i}) \approx y_{i}$
-for some events. We now grow a second tree $h(x)$, such that $F(x) + h(x) = y$.
+for some events. Now imagine growing a second tree $h(x)$, such that $F(x) + h(x) = y$. This second tree corrects all of the mistakes of the first, and for each event:
+
+\begin{equation}
+\begin{aligned}
+\label{eqn:residual1}
+%%\begin{split}
+F(x_{1}) + h(x_{1}) = y_{1} \\ F(x_{2}) + h(x_{2}) = y_{2} \\ F(x_{3}) + h(x_{3}) = y_{3} \\ .... \\ F(x_{N}) + h(x_{N}) = y_{N}
+%%\end{split}  
+\end{aligned} 
+\end{equation}
+
+\noindent re-arranging:
+
+\begin{equation}
+\begin{aligned}
+\label{eqn:residual2}
+%%\begin{split}
+h(x_{1}) = y_{1} - F(x_{1}) \\ h(x_{2}) = y_{2} - F(x_{2}) \\ h(x_{3}) = y_{3} - F(x_{3}) \\ .... \\ h(x_{N}) = y_{N} - F(x_{N})
+%%\end{split}  
+\end{aligned} 
+\end{equation}
+
+\noindent Now the second tree is grown (trained) by re-arranging the training data from the original {${$x$}_1$,$y_{1}$}....{${$x$}_N$,$y_{N}$}, to a new form:
+{${$x$}_1$,$y_{1} - F(x_{1})$}....{${$x$}_N$,$y_{N} - F(x_{N})$}, where $y_{i} - F(x_{i})$ is known as the ``residuals''. Once the training of tree $h(x)$ is complete,
+the model function is updated $F(x) \rightarrow F(x) + h(x)$. The role of $h(x)$ is to compensate for the shortcomings of the existing model.
+This is process is repeated and trees are added to the ensemble until a specified number of trees is grown, or the improvement
+from adding an additional tree is minimal. 
+
+How is this related to gradient descent? In the gradient descent procedure, a function $J(\Theta)$, is minimized by moving in the opposite direction the gradient in steps
+of finite size that are proportional to the gradient. In this way, the minimum value of $J(\Theta)$ is found for a particular $\Theta$. Starting from any value $\Theta_{i}$,
+it is updated in steps according to $\Theta_{i} \rightarrow \Theta_{i} + \rho\frac{\del~J}{\del~\Theta_{i}}$. 
+Substituing a loss function $L(F(x),y)$, in place of $J(\Theta)$, the gradient becomes $\frac{\del L(F(x_{i}),y_{i})}{\del F(x_{i})}$. Letting the loss function be the popular squared error loss,
+$L(F(x),y) = (y-F(x))^{2}/2$, the gradient is $y_{i}-F(x_{i})$, which is the residuals found previously! Thus the negative gradient can be interpreted as the residuals for this
+choice of loss function. 
+
+\begin{equation}
+\begin{aligned}
+\label{eqn:residual1}
+%%\begin{split}
+F(x_{i}) \rightarrow F(x_{i}) + h(x_{i}) \\ F(x_{i}) \rightarrow F(x_{i}) + y_{i} - F(x_{i}) \\ F(x_{i}) \rightarrow F(x_{i}) + \frac{\del L(F(x_{i}),y_{i})}{\del F(x_{i})} \\ \Theta_{i} \rightarrow \Theta_{i} + \rho\frac{\del J(\Theta_{i})}{\del \Theta_{i}}
+%%\end{split}  
+\end{aligned} 
+\end{equation}
+
+\noindent where $\rho$ is the parameter that controls the step size or learning rate. It can be shown that the loss function full determines the boosting procedure. The boosting procedure
+used in this analysis uses the binomial log-likelihood loss: $L(F(x),y) = ln(1+e^{-2yF(x)})$. In this loss function, the residuals are not equal to the negative gradients, which
+is an advantage since the negative gradients are less sensitive to statistical outliers.
+
+The boosting procedure begins with a single weak classifier, and produces a forest or ensemble of weak classifiers resulting in a much more performant discriminator. While the stochastic
+gradient boost prodcedure is employed here, it is just one of many available boosting methods. The most popular of which includes Adaptive Boosting or AdaBoost. While AdaBoost and
+gradient boosting are very similar, they differ in one significant way. As described above, gradient boosting grows additional weak classifiers with the objective being to correct
+shortcomings of the existing ensemble. AdaBoost however applies weights to misclassified events in the current ensemble, therby encouring the next weak classifier to be more sensitive
+to the misclassifications of the previous. Gradient boost is selected over AdaBoost due to AdaBoost's sensitivity to noisy data and outliers. 
 
 \section{Pruning}
-Once the tree has been grown, it is ``pruned'' where leaf nodes are removed. This process is also referred to as tree regularization. 
+Once the ensemble of trees are completely grown after the boosting procedure, the final step known as ``pruning'' is carried out. Pruning removes leaf nodes on trees according
+to a predefined critera. This process is also referred to as tree regularization. Introducing a new quantity, called risk for a single node $t$, $r(t) = p_{s}\epsilon(t)$
+and the risk for the entire tree $T$, is the sum of risk over all its leaf nodes: $r(T) = \sum_{t \in L(T)} r(t)$. It is
+more useful to work with the penalized risk $\widetilde{r}(T) = r(T) + \alpha|L(T)|$, where $\alpha$ is the penalty coefficient and $|L(T)|$ is the total number
+of leaf nodes in tree $T$. Beginning at $\alpha = 0$, remove nodes in all trees are removed that do no lower the risk, at this first step. 
+Pruning is always allowed if the penalized risk for the leaf exceeds that of its parent. At the next step, the minimum value of $\alpha$, $\alpha^{*}$ is calculated such that
+the risk of the node is equal to the risk of the tree $r(t) + \alpha^{*} = r(T) + \alpha^{*}|L(T)|$. Solving for $\alpha^{*}$ provides the minimum value for $\alpha$
+at the next pruning step. The optimal pruning step $m$ is acheived when $\alpha_{m} \le \alpha_{m+1}$ the optimum tree $T^{*}(\alpha_{m})$ contains $T^{*}(\alpha_{m+1})$
+as a subtree. 
+
 
