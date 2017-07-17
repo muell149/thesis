@@ -227,18 +227,37 @@ tagger input with hadronic top removal (left).}
 \end{figure}
 
 \section{Binning}
-Binning the two-dimensional shape resulting from plotting each BDT on a separate axis is very non-trivial, since overlaying the shapes across signal and backgrounds is not possible. The binning method must optimally partition the space to isolate
-signal from background, while simultaneously maintaining populated bins that don't suffer from low statistics. The best approach was 
+The binning choice for the two-dimensional shape resulting from plotting each BDT on a separate axis is not straight forward, since overlaying the shapes across signal and backgrounds is not possible.
+The binning method must optimally partition the space to isolate
+signal from background, while simultaneously maintaining populated bins that don't suffer from low statistics. The output shapes formed by the two BDTs for the signal and largest backgrounds
+are in Figure~\ref{fig:2d_shapes} below. 
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=0.49\textwidth]{ch9_figs/}\\
-\includegraphics[width=0.49\textwidth]{ch9_figs/}
-\includegraphics[width=0.49\textwidth]{ch9_figs/}
-\caption[Two dimensional BDT output shapes of signal and backgrounds]{}
+\includegraphics[width=0.49\textwidth]{ch9_figs/tth_2l_2D.pdf}\\
+\includegraphics[width=0.49\textwidth]{ch9_figs/tt_2l_2D.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/ttw_2l_2D.pdf}
+\caption[Two dimensional BDT output shapes of signal and backgrounds]{The two-dimensional output shape formed by the two BDTs for \tth (top), \ttbar (left), and \ttv (right).}
 \label{fig:2d_shapes}
 \end{figure}
 
+While previous versions of this analysis used a simple rectangular binning that was performed by studying the signal and background shapes and drawing the bins by hand,
+this iteration takes a more scientific approach based on the signal-to-background likelihood ratio. The binning procedure was performed with signal and background MC that was not used
+in the main analysis. The binning process begins with the standard rectangular, 20 x 20 binning in Figure~\ref{fig:2d_shapes}. For each bin, the signal to background likelihood ratio is computed.
+Next, each background event from the \ttbar and \ttv samples is assigned the likelihood ratio corresponding to the bin it populates. The resulting likelihood distribution for background
+events is transformed into the cumulative\footnote{A cumulative distribution function of some variable $S$, evaluated at $s$, is the probability that $S$ will have a value less than or equal
+to $s$.} distribution below in Figure~\ref{fig:cum_dist} (left). The y-axis of the cumulative distribution function of background events is then binned evenly, achieving approximately equal
+amounts of background in each new bin.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.49\textwidth]{ch9_figs/cumulative_2lss.pdf}
+%\includegraphics[width=0.49\textwidth]{ch9_figs/likelihoodBased_1d_2lss.pdf}
+\caption[]{}
+\label{fig:cum_dist}
+\end{figure}
+
+The events populating these 8 bins
 
 \section{Subcategorization}
 

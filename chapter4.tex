@@ -466,8 +466,33 @@ separately. These scale factors are applied to MC and defined in equation~\ref{e
 \noindent where $\varepsilon(p_{T},\eta)$ is the efficiency measured for a single lepton to pass the selection measured in either data or MC. The total scale factor is the
 product of each individual lepton scale factor and is applied on an event-basis.
 
-The loose efficiency scale factors were derived by the SUSY lepton scale factor working group within CMS, while the loose-to-tight scale factors in Figure~\ref{fig:tightLepEff} were derived
-from a control region enriched in Drell-Yan (DY)\footnote{DY events are Z/$\gamma*\rightarrow~l^{\pm}l^{\mp}$, where $l=e,\mu$.} events using the tag-and-probe method. 
+The tight lepton efficiencies were measured in a control region enriched in Drell-Yan (DY)\footnote{DY events are Z/$\gamma*\rightarrow~l^{\pm}l^{\mp}$, where $l=e,\mu$.} events on MC using
+the tag-and-probe method\footnote{The tag-and-probe method is a technique used throughout particle physics experiments to measure efficiencies of objects in data in an unbiased way by exploiting known
+di-object resonances. The pairs from the resonances are reconstructed requiring one object to pass a ``tight'' selection (tag) and the other to pass a ``loose'' selection (probe). Because
+the efficiency must be measured in data (in addition to MC), a trigger is required to collect the data. The trigger fires on the tag leg. The selection of resulting probes are completely un
+biased by any selection present in the trigger. The efficiency is then measured by the ratio of probe objects passing some tight definition in the numerator, to the total probes in the denominator.}. 
+Loose leptons form the denominator of the tight efficiency measurements. The measured tight lepton efficiencies are in Figures~\ref{fig:ele_eff}\ref{mu_eff}.
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.49\textwidth]{ch4_figs/tnp_eff_eb_2lss_pt.pdf}
+   \includegraphics[width=0.49\textwidth]{ch4_figs/tnp_eff_ee_2lss_pt.pdf}
+   \caption[Tight electron efficiencies in barrel and endcap]{The efficiency to select tight electrons (from loose) in the barrel (left) and the endcap (right).}
+   \label{fig:ele_eff}
+   \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.49\textwidth]{ch4_figs/tnp_eff_mb_2lss_pt.pdf}
+   \includegraphics[width=0.49\textwidth]{ch4_figs/tnp_eff_me_2lss_pt.pdf}
+   \caption[Tight muon efficiencies in barrel and endcap]{The efficiency to select tight muons (from loose) in the barrel (left) and the endcap (right).}
+   \label{fig:mu_eff}
+   \end{center}
+\end{figure}
+
+The data/MC scale factors associated with the efficiency are in Figure~\ref{fig:tightLepEff} below. The loose efficiency scale factors were derived
+by the SUSY lepton scale factor working group within CMS.
 
 \begin{figure}[hbtp]
  \begin{center}
@@ -477,6 +502,7 @@ from a control region enriched in Drell-Yan (DY)\footnote{DY events are Z/$\gamm
    \label{fig:tightLepEff}
    \end{center}
 \end{figure}
+
 
 \subsection{Taus}
 The final objects considered in this analysis are tau leptons, specifically hadronically decaying taus. Leptonic tau decays produce a charged lepton that is typically identified as prompt,
