@@ -378,6 +378,10 @@ F.~{Porter} and I.~{NAarsky}.
 \newblock Statistical Analysis Techniques in Particle Physics
 \newblock \emph{Wiley-VCH}, 2013.
 
+\bibitem[{CMS Collaboration}(2017{\natexlab{e}})]{CMS-AN-17-029}
+{CMS Collaboration}.
+\newblock Search for ttH in multilepton final states with the full 2016 dataset
+\newblock CMS AN-17-029, 2017{\natexlab{e}}.
 
 %%%%%%%%%%%%%% Haven't needed these yet...
 

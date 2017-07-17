@@ -256,8 +256,10 @@ amounts of background in each bin.
 \label{fig:cum_dist}
 \end{figure}
 
-The bins from the cumulative distribution are then mapped back to the 2D shape. This mapping is used as the final 2D binning and is represented in Figure~\ref{fig:likelihood} (left).
-The corresponding 1D histogram resulting from this binning where the analysis is performed is Figure~\ref{fig:likelihood} (right). 
+\noindent The bins from the cumulative distribution are then mapped back to the 2D shape. This mapping is used as the final 2D binning and is represented in Figure~\ref{fig:likelihood} (left).
+The corresponding 1D histogram resulting from this binning where the analysis is performed is Figure~\ref{fig:likelihood} (right). These bins are filled with separate signal and background
+samples from the ones used for deriving final results. The choice of number of final bins is motived from a cross-check procedure based on the k-means algorithm, which yields similar
+results~\cite{CMS-AN-17-029}. The pre-fit 1D shapes are in Figure~\ref{fig:final_shapes_prefit}. 
 
 \begin{figure}[htp]
 \centering
@@ -267,7 +269,34 @@ The corresponding 1D histogram resulting from this binning where the analysis is
 \label{fig:likelihood}
 \end{figure}
 
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.49\textwidth]{ch9_figs/final_shape__ttH_stackPlot_SR.pdf}\\
+\includegraphics[width=0.49\textwidth]{ch9_figs/tt_BDT_ttH_stackPlot_SR.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/ttV_BDT_ttH_stackPlot_SR.pdf}
+\caption[Data to MC comparison of final shapes]{The final 1D shape used for the analysis (top), the \ttbar BDT output (left) and the \ttv BDT output (right)}.
+\label{fig:final_shapes_prefit}
+\end{figure}
+
 
 \section{Subcategorization}
+In addition to the signal region categorization by lepton flavor, further categorization is applied to exploit differences between signal and background. All categories
+split by the sum of the lepton electric charges. This splitting helps to isolate the \ttw background, which is asymmetric in lepton charge sum due to the initial state of the
+diagram involving two incoming quarks. Because the LHC collides protons whose quark content is $uud$, this favors positively charged final states, while the \tth process
+is initiated by gluon scattering, resulting in neutral final states, symmetric in lepton electric charge sum.
+The signal region categories
+are split further into two subcategories $b-tight$, which contains events with two b-jets passing the CSVv2 medium working point, and $b-loose$ which contains all other events
+(those with fewer than 2 CSVv2 M jets). This splitting helps to separate \tth from the fake lepton background which is primarily comprised of \ttbar. Due to the same-sign 
+lepton electric charge requirement, most of the \ttbar is vetoed, however there is a substantial amount of fakes originating from the b-decay. The b-jet is typically cleaned
+from the fake lepton while the fake lepton is kept. This produces events with a single b-jet, while \tth should more often have two b-jets. In total there are 10 categories
+making up the signal region, illustrated in Figure~\ref{fig:subcats} below. The $ee$ channel is not split according to b-jet content due to low statistics. 
+It is the final shapes in these subcategories that are used for the final tabulation of signal, background, and data. 
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.7\textwidth]{ch9_figs/subcats.pdf}
+\caption[Sub categories used for signal extraction]{The 10 subcategories used for signal extraction.}
+\label{fig:subcats}
+\end{figure}
 
 
