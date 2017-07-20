@@ -42,6 +42,7 @@ hadronically decaying top quark. Finally, the outputs of the BDT dscriminators a
 for the final results.
 
 \section{Two Dimensional BDTs}
+\label{sec:2D_BDT}
 Two BDTs are used to produce the final shape template. One BDT is trained exclusively against the \ttv background, while the other targets the background due to non-prompt
 leptons. Because the non-prompt background is a data-driven estimation, all of the events making up this background cannot be used for MVA training, since the BDT must be
 trained on a completely separate set of events from the set it is evaluated on. Because a large part of the fake background is comprised of the \ttbar process, the BDT is
@@ -66,7 +67,7 @@ approximate the variable's behavior in data. The input variables used for the BD
 \item the minimum angular distance between the leading lepton and the nearest jet
 \item the minimum angular distance between the trailing lepton and the nearest jet
 \item the transverse mass of the leading lepton and missing transverse energy
-%\item the hadronic top reconstruction score
+\item the hadronic top reconstruction score
 \end{itemize} 
 
 \noindent the input variables used for the BDT training against \ttv include:
@@ -86,22 +87,30 @@ The reconstruction inputs offer improved discrimination power against both of th
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_max_Lep_eta.pdf}
-\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_numJets.pdf}\\
-\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_mindr_lep1_jet.pdf}
-\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_mindr_lep2_jet.pdf}
+\includegraphics[width=0.3\textwidth]{ch9_figs/kinMVA_input_max_Lep_eta.pdf}
+\includegraphics[width=0.3\textwidth]{ch9_figs/kinMVA_input_numJets.pdf}
+\includegraphics[width=0.3\textwidth]{ch9_figs/kinMVA_input_mindr_lep1_jet.pdf}
+
 \caption[Signal extraction BDT input variables]{Separtion power among various backgrounds for BDT input variables}
 \label{fig:inputs1}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_MT_met_lep1.pdf}
-\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_LepGood0_conePt.pdf}\\
-\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_LepGood1_conePt.pdf}
-\includegraphics[width=0.49\textwidth]{ch9_figs/kinMVA_input_BDTv8_eventReco_Hj_score.pdf}
+\includegraphics[width=0.3\textwidth]{ch9_figs/kinMVA_input_mindr_lep2_jet.pdf}
+\includegraphics[width=0.3\textwidth]{ch9_figs/kinMVA_input_LepGood0_conePt.pdf}
+\includegraphics[width=0.3\textwidth]{ch9_figs/kinMVA_input_LepGood1_conePt.pdf}
 \caption[Signal extraction BDT input variables]{Separtion power among various backgrounds for BDT input variables}
 \label{fig:inputs2}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.3\textwidth]{ch9_figs/kinMVA_input_MT_met_lep1.pdf}
+\includegraphics[width=0.3\textwidth]{ch9_figs/kinMVA_input_BDTv8_eventReco_Hj_score.pdf}
+\includegraphics[width=0.3\textwidth]{ch9_figs/kinMVA_input_BDTv8_eventReco_mvaValue.pdf}
+\caption[Signal extraction BDT input variables]{Separtion power among various backgrounds for BDT input variables}
+\label{fig:inputs2.5}
 \end{figure}
 
 \begin{figure}[htp]
@@ -123,67 +132,102 @@ against events without a hadronic top.
 Event reconstruction targets the 2lss category, specifically where the Higgs decays
 to $W$ bosons. In the 2lss category, this means that one lepton originates from the
 top system, and the other from the Higgs. For the jets, one of the
-$W$ bosons from the Higgs decays hadronically, one of the top quarks decays
+$W$ bosons from the Higgs decays hadronically, and one of the top quarks decays
 hadronically, producing a total of two b-jets, and four light-flavor jets
-from the hadronic $W$ decays.   
+from the hadronic $W$ decays. This specific decay is depicted by the diagram in Figure~\ref{fig:intro_feyn}.   
 
-{\bfseries Training}
-
+\subsubsection{Training}
 The event reconstruction BDT is trained using the $t\bar{t}H$ monte-carlo powheg
-signal sample described previously. 
+signal sample used in training the final discrimination BDTs described previously.
 
-The signal is correctly matched $t\bar{t}H$ events, which pass the 2lss selection.
+The signal is gen-matched $t\bar{t}H$ events, which pass the same loosened training selection
+described in Section~\ref{sec:2D_BDT}, with one important difference. In the selection used
+here, the same-sign requirement on the leptons is dropped. This doubles the amount of events available
+for training and the gen-matching requirement ensures the signal kinematics are left unaffected. 
 Because the 2lss event selection requires at least four jets, the vast majority of signal
 events used for training are only partially reconstructed, since a full reconstruction
 necessitates six matched jets. Because so few events can be fully reconstructed, we must
 consider partial reconstructions for events that have fewer than six matched jets.
-The strategy for this is to use 'null' jets whose four-vectors are set to zero to
-substitute missing jets in the event. Finally we require the signal events to have two
-correctly matched selected leptons, and at least four correctly matched selected jets.
+The strategy for this is to use ``null'' jets whose four-vectors are set to zero to
+represent missing jets in the event. Finally we require the signal events to have two
+correctly-matched selected leptons, and at least four correctly-matched selected jets.
 
-The background consists of all jet and lepton permutations of incorrectly matched
-$t\bar{t}$ events. For the background, the null jets are added according to the
+The background consists of all jet and lepton permutations of incorrectly-matched
+$t\bar{t}$ events. This means that in each background event, there must be at least one
+object that is incorrectly matched. For example when considering the object-matching to the
+leptonically decaying top quark, a background training event where the reco-level jet assigned
+to the b-jet, is actually the b-jet at gen-level, the reco-level lepton must originate from some source
+other than the W from the leptonically decaying top. In this way, a single \ttbar MC
+background event is used multiple times, once for each distinct permutation of 6 objects, in the training.
+It was found that this technique produces far more background 
+
+
+For the background, the null jets are added according to the
 jet multiiplicity. For events with seven or fewer selected jets, three null jets are
 added, for events with eight selected jets, two null jets are added, and one null jet
-is added for events with greater than eight selected jets. To reduce the computation
-time and improve performance,
+is added for events with greater than eight selected jets. The motiviation for this recipe
+comes from a study of \tth events in the signal region comparing the number of reco jets that are
+gen-matched to the \tth process, with the jet multiplicity in the event. The results of this study are
+in Figure~\ref{fig:jet_matching}. 
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.49\textwidth]{ch9_figs/jet_matching.png}
+\caption[Comparison of gen-matched jet multiplicity to jet multiplicity in signal events]{ Normalized histogram of gen-matched jet multiplicity vs jet multiplicity in \tth MC in the signal region.}
+\label{fig:jet_matching}
+\end{figure}
+
+To reduce the computation time and improve performance,
 several cuts are applied at each permutation to remove unlikely reconstructions.
 These cuts include applying the b-tag requirement on the two jets being considered
-as b-jets (1 b-tight, 2 b-loose) described earlier, requiring that no
+as b-jets (1 b-tight OR 2 b-loose) described earlier, requiring that no
 reconstructed $W$ have a mass greater than 120 GeV, requiring the leptonic top mass
 be less than 180 GeV, and requiring 
 the hadronic top mass be less than 220 GeV. Additionally, we ignore permutations
 arising from swapping two light flavor jets from the same $W$ boson, as the reconstruction is
-identical. 
+identical. An additional measure is taken to reduce permutation iterations, in the training step only,
+which samples randomly from the available permutations in each event before the phyics-motivated cut is applied.
+For each of the 8 objects, the permutation for that object skipped randomly 3 out of 10 times. For 8 objects,
+this means that $0.7^{8} \approx 0.06$ or just 6$\%$ of the permutations for a given event are considered. After factoring
+in the permutations skipped due to physics cuts, this number is even smaller. 
 
-The BDT uses eight input variables, consisting of the CSV of the b-jets from the top
-system, the transverse
-momentum of the reconstructed hadronic top, the mass of the reconstructed hadronic top,
-the mass of the $W$ originating from the hadronic top, the transverse momentum ratio
-of lepton from the Higgs with the lepton from the top, and the solid angles between
-the lepton from the top and
-each b-jet from the top system, and between the lepton from the Higgs.
-This approach focuses on the hadronic top decay, as the other aspects of the event
+The BDT uses eight input variables, consisting of:
+\begin{itemize}
+\item The CSVv2 score of the b-jet assigned to the hadronic top
+\item The CSVv2 score of the b-jet assigned to the leptonic top
+\item The transverse momentum of the reconstructed hadronic top
+\item The mass of the reconstructed hadronic top
+\item The mass of the $W$ boson from the hadronic top
+\item The transverse momentum ratio of the lepton from the Higgs to the lepton from the leptonic top
+\item The solid angle between the lepton from the leptonic top and the b-jet from the hadronic top
+\item The solid angle between the lepton from the leptonic top and the b-jet from the leptonic top
+\item The solid angle between the lepton from the Higgs and the b-jet from the leptonic top
+\end{itemize}
+
+\noindent This approach focuses on the hadronic top decay, as the other aspects of the event
 are more difficult to reconstruct due to the missing energy from the neutrinos. 
 
-{\bfseries Evaluation}
+\subsubsection{Evaluation}
 
 The event reconstruction BDT is evaluated by iterating over all possible lepton and jet
 permutations, and selecting the highest scoring permutation as the reconstruction for
-each event. For the evaluation and usage, the null jet prescription and permutation
+each event. For this evaluation, the null jet prescription and permutation
 cuts used are identical to the background training.
-The reconstruction is designed identify events that have a hadronic top present and thus offers
-some discrimination against the semi-leptonic $t\bar{t}$ background, shown below in
-Figure~\ref{reconstruction:outputVars}.
+The reconstruction is designed identify events that have a hadronic top present and
+discriminates against the semi-leptonic $t\bar{t}$ background. The addition of the 
+reconstruction BDT output as an input to the BDT targeting the $t\bar{t}$ background,
+improves the performance by 10$\%$ by comparing ROC integrals when evaluated on $t\bar{t}$ MC and compared to the
+equivalent BDT in the 2016 \tth ICHEP analysis~\cite{CMS-AN-16-022} that did not use this
+as an input. These performance ROC curves are below in Figure~\ref{fig:hadtop_performance}.
 
-%% \begin{figure}[htb]
-%%  \centering
-%%    \includegraphics[width=0.4\textwidth]{plots_reconstruction/had_top_mass.png}
-%%    \includegraphics[width=0.4\textwidth]{plots_reconstruction/had_top_pt.png}\\
-%%    \includegraphics[width=0.4\textwidth]{plots_reconstruction/bdt_score.png}
-%%    \caption{Best BDT score and associated quantities from hadronic top reconstruction.}
-%%   \label{reconstruction:outputVars}
-%% \end{figure}
+\begin{figure}[htb]
+ \centering
+   \includegraphics[width=0.6\textwidth]{ch9_figs/improvement_roc.png}
+   \caption[ROC curves of $t\bar{t}$ BDT with and without hadronic top reconstruction input]{The ROC curves of the BDT targeting the $t\bar{t}$ background compared without 
+   hadronic top reconstruction input (pink) to the version used in this analysis (black). The other curves represent incremental improvements to the hadronic top BDT. The signal
+   and background on the x and y axes are \tth and \ttbar MC respectively. The improvement based on ROC integral by adding the hadronic top reconstruction score is 10$\%$.}
+  \label{fig:hadtop_performance}
+\end{figure}
 
 \subsection{Higgs Jet Tagging}
 The Higgs Jet (HJ) tagger is a BDT aimed specifically at identifying hadronic jets originating from the W bosons in \tth, H$\rightarrow$WW decays consistent
@@ -271,8 +315,10 @@ results~\cite{CMS-AN-17-029}. The pre-fit 1D shapes are in Figure~\ref{fig:final
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=0.49\textwidth]{ch9_figs/final_shape__ttH_stackPlot_SR.pdf}\\
-\includegraphics[width=0.49\textwidth]{ch9_figs/tt_BDT_ttH_stackPlot_SR.pdf}
+%\includegraphics[width=0.49\textwidth]{ch9_figs/final_shape__ttH_stackPlot_SR.pdf}\\
+\includegraphics[width=0.49\textwidth]{ch9_figs/final_shape_bdtv8__ttH_stackPlot_SR.pdf}\\
+%\includegraphics[width=0.49\textwidth]{ch9_figs/tt_BDT_ttH_stackPlot_SR.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/tt_BDT_BDTv8_ttH_stackPlot_SR.pdf}
 \includegraphics[width=0.49\textwidth]{ch9_figs/ttV_BDT_ttH_stackPlot_SR.pdf}
 \caption[Data to MC comparison of final shapes]{The final 1D shape used for the analysis (top), the \ttbar BDT output (left) and the \ttv BDT output (right)}.
 \label{fig:final_shapes_prefit}

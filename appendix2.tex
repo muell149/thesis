@@ -4,6 +4,10 @@
 
 \chapter{Boosted Decision Trees}
 \label{app:bdts}
+
+
+\section{Technical Description}
+
 Boosted Decision Trees are the single MVA/machine learning technique used for discriminating signal from background
 in this analysis. BDTs are used in this analysis exclusively for classification.
 BDTs are a special instance of a decision tree, which is illustrated below in Figure~\ref{fig:dec_tree}.
@@ -27,7 +31,7 @@ The conceptual description of BDT training is described in the following section
  \end{center}
 \end{figure}
 
-\section{Tree Growth}
+\subsection{Tree Growth}
 The decision tree begins at the root node with a single decision, or split. Given a set of inputs {$x$}, the input $x_{i}$, and the specific cut value $c_{1}$,
 is selected based on best separation power between signal and background. The training events are then filtered through this first split, where events
 with $x_{i} > c_{1}$ moving to the left forming a new decision node, and events with $x_{i} < c_{1}$ moving to the right, forming a new and separate 
@@ -82,7 +86,7 @@ Additionally, the traing procedure makes use of bootstrap aggregating, known as 
 Bagging can improve the performance in combination with the boosting procedure, which is called stochastic gradient boosting and described next.  
 
 
-\section{Boosting}
+\subsection{Boosting}
 The boosting method used in this analysis is the stochastic gradient boost, a form a gradient descent optimization for decision trees. Thus far the process begins with a single
 weak classifier (a single tree). The training set will be comprised of events with {$x_{1}$,$y_{1}$}....{$x_{N}$,$y_{N}$} for N events. $x_{i}$, $y_{i} \in [0,1]$
 are the input variables and class (background, signal) for event $i$. An implicit assumption in MVA training is that there exists
@@ -143,7 +147,7 @@ gradient boosting are very similar, they differ in one significant way. As descr
 shortcomings of the existing ensemble. AdaBoost however applies weights to misclassified events in the current ensemble, therby encouring the next weak classifier to be more sensitive
 to the misclassifications of the previous. Gradient boost is selected over AdaBoost due to AdaBoost's sensitivity to noisy data and outliers. 
 
-\section{Pruning}
+\subsection{Pruning}
 Once the ensemble of trees are completely grown after the boosting procedure, the final step known as ``pruning'' is carried out. Pruning removes leaf nodes on trees according
 to a predefined critera. This process is also referred to as tree regularization. Introducing a new quantity, called risk for a single node $t$, $r(t) = p_{s}\epsilon(t)$
 and the risk for the entire tree $T$, is the sum of risk over all its leaf nodes: $r(T) = \sum_{t \in L(T)} r(t)$. It is
@@ -155,3 +159,166 @@ at the next pruning step. The optimal pruning step $m$ is acheived when $\alpha_
 as a subtree. The risk is calculated on trees of an independent training subset~\cite{illya}. 
 
 
+\section{Implementation}
+
+\subsection{Hadronic Top Reconstruction BDT Training}
+The hadronic top BDT is actually two BDTs with the same input variables, but trained on b-tight and b-loose events separately. The motivation for two separate trainings based on b-jet
+content is the \ttbar final state in the signal region is determined by the b-jet content. A \ttbar event with two medium b-jets (b-tight) likely means that the fake lepton is either
+adequately separated from the b-jet it originates from, or that the fake lepton originates from a different source entirely\footnote{It has since been shown that the performance improvement
+from separate trainings is negligible compared to a single inclusive training.}. 
+
+The number of training events used for signal and background in b-loose are 19000 and 90000 respectively.
+The number of training events used for signal and background in b-loose are 13000 and 90000 respectively.
+In both cases, the following hyperparameters were used in training and found to produce the best performance:
+
+\begin{itemize}
+\item Number of trees: 1000
+\item Min node size: 4.5$\%$
+\item Boost type: Gradient Boost
+\item Shrinkage: 0.1
+\item Separtion Metric: Gini index
+\item Bagging fraction: 0.5
+\item Number of cuts: 20
+\item Maximum tree depth: 8
+\end{itemize}
+
+\noindent The number of trees is the number of weak classifiers in the ensemble or forest used in the gradient descent. The minimum node size specifies the minimum fraction of training events that must pass
+through every node in each tree. Any node with fewer events is not grown. The shrinkage parameter or learning rate specifies the step size taken between each step (tree) in the gradient descent.
+The bagged sample fraction is the fraction of sample events that are randomly re-sampled and used during tree growth. The number of cuts specifies the granularity over which an input variable is scanned
+when selecting the best cut value. The maximum tree depth is the maximum number of nodes an event can pass through starting at the root. 
+
+\subsubsection{b-loose}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_bloose/variables_id_c1.pdf}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_bloose/variables_id_c2.pdf}
+   \caption[Input variables of the b-loose hadronic top BDT]{Input variables of the b-loose hadronic top BDT in the training samples.}
+   \label{fig:recoBdt_bloose_inputs}
+ \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.49\textwidth]{ch9_figs/recoBdt_bloose/CorrelationMatrixS.pdf}
+   \includegraphics[width=0.49\textwidth]{ch9_figs/recoBdt_bloose/CorrelationMatrixB.pdf}
+   \caption[Input variable linear correlations of the b-loose hadronic top BDT]{Input variable linear correlations in signal (left) and background (right)
+     of the b-loose hadronic top BDT in the training samples.}
+   \label{fig:recoBdt_b_loose_corrMatrix}
+ \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_bloose/overtrain_BDTG.pdf}
+   \caption[Output of the b-loose hadronic top BDT]{Output of the b-loose hadronic top BDT.}
+   \label{fig:recoBdt_bloose_score}
+ \end{center}
+\end{figure}
+
+
+\subsubsection{b-tight}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_btight/variables_id_c1.pdf}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_btight/variables_id_c2.pdf}
+   \caption[Input variables of the b-tight hadronic top BDT]{Input variables of the b-tight hadronic top BDT in the training samples.}
+   \label{fig:recoBdt_btight_inputs}
+ \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.49\textwidth]{ch9_figs/recoBdt_btight/CorrelationMatrixS.pdf}
+   \includegraphics[width=0.49\textwidth]{ch9_figs/recoBdt_btight/CorrelationMatrixB.pdf}
+   \caption[Input variable linear correlations of the b-tight hadronic top BDT]{Input variable linear correlations in signal (left) and background (right)
+     of the b-tight hadronic top BDT in the training samples.}
+   \label{fig:recoBdt_b_tight_corrMatrix}
+ \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_btight/overtrain_BDTG.pdf}
+   \caption[Output of the b-tight hadronic top BDT]{Output of the b-tight hadronic top BDT.}
+   \label{fig:recoBdt_btight_score}
+ \end{center}
+\end{figure}
+
+
+\subsection{Final Discriminant BDT Training}
+
+In both cases, the following hyperparameters were used in training and found to produce the best performance:
+\begin{itemize}
+\item Number of trees: 200
+\item Minimum number of events on node: 100
+\item Maximum number of nodes: 5
+\item Boost type: Gradient Boost
+\item Shrinkage: 0.1
+\item Separtion Metric: Gini index
+\item Bagging fraction: 0.6
+\item Number of cuts: 200
+\item Maximum tree depth: 2
+\end{itemize}
+
+
+
+\subsubsection{\ttbar}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttbar_bdtv8_value/variables_id_c1.png}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttbar_bdtv8_value/variables_id_c2.png}
+   \caption[Input variables of the BDT discriminant targeting \ttbar]{Input variables of the BDT discriminant targeting \ttbar in the training samples.}
+   \label{fig:ttbarBdt_inputs}
+ \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.49\textwidth]{ch9_figs/train_2lss_ttbar_bdtv8_value/CorrelationMatrixS.png}
+   \includegraphics[width=0.49\textwidth]{ch9_figs/train_2lss_ttbar_bdtv8_value/CorrelationMatrixB.png}
+   \caption[Input variable linear correlations of the BDT discriminant targeting \ttbar]{Input variable linear correlations in signal (left) and background (right)
+     of the BDT discriminant targeting \ttbar in the training samples.}
+   \label{fig:ttbarBdt_corrMatrix}
+ \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttbar_bdtv8_value/overtrain_BDTG.png}
+   \caption[Output of the BDT discriminant targeting \ttbar]{Output of the BDT discriminant targeting \ttbar in the training and testing samples.}
+   \label{fig:ttbarBdt_score}
+ \end{center}
+\end{figure}
+
+
+\subsubsection{\ttV}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttv_hj_value/variables_id_c1.png}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttv_hj_value/variables_id_c2.png}
+   \caption[Input variables of the BDT discriminant targeting \ttv]{Input variables of the BDT discriminant targeting \ttv in the training samples.}
+   \label{fig:ttvBdt_inputs}
+ \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.49\textwidth]{ch9_figs/train_2lss_ttv_hj_value/CorrelationMatrixS.png}
+   \includegraphics[width=0.49\textwidth]{ch9_figs/train_2lss_ttv_hj_value/CorrelationMatrixB.png}
+   \caption[Input variable linear correlations of the BDT discriminant targeting \ttv]{Input variable linear correlations in signal (left) and background (right)
+     of the BDT discriminant targeting \ttv in the training samples.}
+   \label{fig:ttvBdt_corrMatrix}
+ \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+ \begin{center}
+   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttv_hj_value/overtrain_BDTG.png}
+   \caption[Output of the BDT discriminant targeting \ttv]{Output of the BDT discriminant targeting \ttv in the training and testing samples.}
+   \label{fig:ttvBdt_score}
+ \end{center}
+\end{figure}
