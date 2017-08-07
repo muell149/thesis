@@ -70,11 +70,14 @@ while not affecting the behavior and kinematics of the input variables with resp
 \item At least 4 preselected jets among which there must be $\geq$ 2 CSVv2 L or $\geq$ 1 CSVv2 M
 \end{itemize}
 
-The input variables are selected considering not only the best individual separation power, but also the set that offers the best discrimination power of the BDT. These two
-properties are not necessarily the same, since correlations and anti-correlations among varibles can differ substantially between signal and background, providing significant
-discrimination power. Additionally, the closure between MC and data, also known as modeling, was considered since variables that are not modeled well in MC cannot be used to
-approximate the variable's behavior in data. The input variables used for the BDTs are listed in Table~\ref{tab:inputs}.
-
+Many BDT input variables were tested, and the set of variables which produced the most discriminating BDT output was selected. These inputs are listed in Table~\ref{tab:inputs}.
+Selecting which variables to use as inputs requires several considerations. First, since the BDTs are trained on MC and ultimately evaluated on data, every
+input variable must be well-modeled, i.e. have a good agreement between MC and data. Second, the candidate inputs, at least some, should have signal separation power themselves,
+which allows the BDT to learn this information. The final consideration is more subtle. While the separation power of individal inputs is important, selecting each input
+based on its separation does not necessarily produce the most discriminating BDT. Correlations can exist between different variables, and if these correlations exist in
+signal and background, the BDT does not learn additional information from these correlated variables. However, if two variables are correlated differently in signal
+than in background, the BDT makes use of this in separating signal from background. All these considerations were taken into account when empirically determining the best
+set of BDT inputs.
 
 \begin{table}[htbp]
   \begin{center}
