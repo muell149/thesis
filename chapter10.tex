@@ -3,13 +3,13 @@
 %
 
 \chapter{SYSTEMATIC UNCERTAINTIES}
-Systematic uncertainties, often referred to as simply ``systematics'' arise from the uncertainty related to specific components of the signal
+Systematic uncertainties, often referred to as ``systematics'' arise from the uncertainty assigned to specific components of the signal
 and background predictions. These components are categorized as either theoretical uncertainties associated with MC event generators, scale factor uncertainties
 related to data and MC yields, data-driven background uncertainties, and finally miscellaneous shape uncertainties.  
 
 Systematic uncertainties are accounted for in the maximum likelihood fit in the form of nuisance parameters. Each nuisance represents a systematic uncertainty
-and affects either the overall normalization of the discriminant, known as a rate uncertainty, or the shape of the discriminant,
-known as a shape uncertainty\footnote{Some shape systematics also vary the overall normalization}. The rate uncertainty scales all bins of the discriminant
+and affects either the overall normalization of the discriminant, known as a rate systematic, or the shape of the discriminant,
+known as a shape systematic\footnote{Some shape systematics also vary the overall normalization}. The rate uncertainty scales all bins of the discriminant
 by a constant factor, while the shape uncertainty varies individual bins separately, thus changing the shape of the discriminant.
 The rate uncertainties use a log-normal prior, while the shape uncertainties use a gaussian prior. 
 
