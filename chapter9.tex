@@ -150,28 +150,34 @@ The distributions are normalized to equal area to visualize separation between s
 \end{figure}
 
 \subsection{Hadronic Top Reconstruction}
-The reconstruction of the hadronic top decay is performed with a BDT. The objective is to correctly match
-each selected jet and lepton to a final state particle in a $t\bar{t}H$ event, then
-use the BDT response and other variables from the reconstruction to discriminate
-against events without a hadronic top.     
+The hadronic top reconstruction input variable for the 2D BDT is the BDT output score of a special BDT, known as the hadronic top tagger,
+that aims to correctly match jets in each event with the final state particles assocaited with the hadronic top in a 
+a $t\bar{t}H$ event. The hadronic top tagger is evaluatd on every unique set of 3 jets in each event, with the highest-scoring combination
+being designed as the hadronic top part of the event. The hadronic top tagger BDT score gauges the likelihood that the best combination is
+consistent with a hadronic top in a \tth event, offering discrmination power against events without hadronically decaying top quarks, such as
+\ttbar. 
 
-Event reconstruction targets the 2lss category, specifically where the Higgs decays
+This event reconstruction targets the 2lss category, specifically where the Higgs decays
 to $W$ bosons. In the 2lss category, this means that one lepton originates from the
 top system, and the other from the Higgs. For the jets, one of the
 $W$ bosons from the Higgs decays hadronically, and one of the top quarks decays
-hadronically, producing a total of two b-jets, and four light-flavor jets
-from the hadronic $W$ decays. This specific decay is depicted by the diagram in Figure~\ref{fig:intro_feyn}.   
+hadronically. In total, there are two b-jets (one from each top) and four light-flavor jets
+from the hadronic $W$ decays originating from the Higgs and the hadronic top.
+This specific decay is depicted by the diagram in Figure~\ref{fig:intro_feyn}.   
 
 \subsubsection{Training}
-The event reconstruction BDT is trained using the $t\bar{t}H$ monte-carlo powheg
+The event reconstruction BDT is trained using the $t\bar{t}H$ MC powheg
 signal sample used in training the final discrimination BDTs described previously.
 
-The signal is gen-matched $t\bar{t}H$ events, which pass the same loosened training selection
+The signal for training is $t\bar{t}H$ MC events, where a matching was performed on the final state objects, ensuring
+they originate from the \tth part of the event, and not from ISR/FSR or spurrious detector signals in the detector simulation. This process
+is called gen-matching, because the objects are required to originate from the event generator itself, and not the detector simulation which
+follows. These events must pass the same loosened training selection
 described in Section~\ref{sec:2D_BDT}, with one important difference. In the selection used
 here, the same-sign requirement on the leptons is dropped. This doubles the amount of events available
 for training and the gen-matching requirement ensures the signal kinematics are left unaffected. 
-Because the 2lss event selection requires at least four jets, the vast majority of signal
-events used for training are only partially reconstructed, since a full reconstruction
+The 2lss event selection requires at least four jets, which means the vast majority of signal
+events used for training are only partially reconstructed since a full reconstruction
 necessitates six matched jets. Because so few events can be fully reconstructed, we must
 consider partial reconstructions for events that have fewer than six matched jets.
 The strategy for this is to use ``null'' jets whose four-vectors are set to zero to
