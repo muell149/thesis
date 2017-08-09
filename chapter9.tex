@@ -83,25 +83,26 @@ set of BDT inputs.
   \begin{center}
   \caption[Table of 2D BDT input variables]{Input variables used for the BDTs targeting \ttbar and \ttv.}
   \begin{tabular}{|p{0.47\textwidth}|p{0.47\textwidth}|} \hline
-      \ttbar & \ttv  \\ \hline 
-      \multicolumn{2}{|c|}{Maximum absolute $\eta$ of the two leptons (max lepton $|\eta|$)}  \\
-      \hline
-      \multicolumn{2}{|c|}{Number of hadronic jets (nJets)} \\
-      \hline
-      \multicolumn{2}{|c|}{Minimum $\Delta$R between the leading lepton and nearest jet}\\
-      \hline
-      \multicolumn{2}{|c|}{Minimum $\Delta$R between the trailing lepton and nearest jet}\\
-      \hline
-      \multicolumn{2}{|c|}{Transverse mass of the leading lepton and \met ($M_{T}$(\met,$lep_{1}$))} \\
-      \hline
-      The hadronic top reconstruction score & The Higgs jet tagger score after hadronic top removal \\
-      \hline
-      - & The leading lepton corrected transverse momentum  \\
-      \hline
-      - & The trailing lepton corrected transverse momentum  \\
-      \hline
-    \end{tabular}
-    \label{tab:inputs}
+    \multicolumn{1}{|c|}{\ttbar} & \multicolumn{1}{c|}{\ttv}  \\ 
+    \hline 
+    \multicolumn{2}{|c|}{Maximum absolute $\eta$ of the two leptons (max lepton $|\eta|$)}  \\
+    \hline
+    \multicolumn{2}{|c|}{Number of hadronic jets (nJets)} \\
+    \hline
+    \multicolumn{2}{|c|}{Minimum $\Delta$R between the leading lepton and nearest jet}\\
+    \hline
+    \multicolumn{2}{|c|}{Minimum $\Delta$R between the trailing lepton and nearest jet}\\
+    \hline
+    \multicolumn{2}{|c|}{Transverse mass of the leading lepton and \met ($M_{T}$(\met,$lep_{1}$))} \\
+    \hline
+    The hadronic top reconstruction score & The Higgs jet tagger score after hadronic top removal \\
+    \hline
+    - & The leading lepton corrected transverse momentum  \\
+    \hline
+    - & The trailing lepton corrected transverse momentum  \\
+    \hline
+  \end{tabular}
+  \label{tab:inputs}
   \end{center}
 \end{table}
 
@@ -150,23 +151,23 @@ The distributions are normalized to equal area to visualize separation between s
 \end{figure}
 
 \subsection{Hadronic Top Reconstruction}
-The hadronic top reconstruction input variable for the 2D BDT is the BDT output score of a special BDT, known as the hadronic top tagger,
+The hadronic top reconstruction input variable for the 2D BDT is the BDT output score of a special BDT, known as the hadronic top BDT,
 that aims to correctly match jets in each event with the final state particles assocaited with the hadronic top in a 
-a $t\bar{t}H$ event. The hadronic top tagger is evaluatd on every unique set of 3 jets in each event, with the highest-scoring combination
-being designed as the hadronic top part of the event. The hadronic top tagger BDT score gauges the likelihood that the best combination is
+a $t\bar{t}H$ event. The hadronic top BDT is evaluatd on every unique set of 3 jets in each event, with the highest-scoring combination
+being designed as the hadronic top part of the event. The hadronic top BDT score gauges the likelihood that a jet combination is
 consistent with a hadronic top in a \tth event, offering discrmination power against events without hadronically decaying top quarks, such as
-\ttbar. 
+semi-leptonic \ttbar.
 
-This event reconstruction targets the 2lss category, specifically where the Higgs decays
+This hadronic top reconstruction targets the 2lss category, specifically where the Higgs decays
 to $W$ bosons. In the 2lss category, this means that one lepton originates from the
 top system, and the other from the Higgs. For the jets, one of the
 $W$ bosons from the Higgs decays hadronically, and one of the top quarks decays
 hadronically. In total, there are two b-jets (one from each top) and four light-flavor jets
 from the hadronic $W$ decays originating from the Higgs and the hadronic top.
-This specific decay is depicted by the diagram in Figure~\ref{fig:intro_feyn}.   
+This specific decay is depicted by the diagram in Figure~\ref{fig:intro_feyn}, and is the most common \tth decay in the 2lss channel.
 
 \subsubsection{Training}
-The event reconstruction BDT is trained using the $t\bar{t}H$ MC powheg
+The hadronic top BDT is trained using the $t\bar{t}H$ MC powheg
 signal sample used in training the final discrimination BDTs described previously.
 
 The signal for training is $t\bar{t}H$ MC events, where a matching was performed on the final state objects, ensuring
@@ -191,8 +192,8 @@ leptonically decaying top quark, a background training event where the reco-leve
 to the b-jet, is actually the b-jet at gen-level, the reco-level lepton must originate from some source
 other than the W from the leptonically decaying top. In this way, a single \ttbar MC
 background event is used multiple times, once for each distinct permutation of 6 objects, in the training.
-It was found that this technique produces far more background 
-
+This technique produces more background training events than necessary given the limited (in comparison)
+signal training statistics.
 
 For the background, the null jets are added according to the
 jet multiiplicity. For events with seven or fewer selected jets, three null jets are
@@ -212,16 +213,19 @@ in Figure~\ref{fig:jet_matching}.
 To reduce the computation time and improve performance,
 several cuts are applied at each permutation to remove unlikely reconstructions.
 These cuts include applying the b-tag requirement on the two jets being considered
-as b-jets (1 b-tight OR 2 b-loose) described earlier, requiring that no
+as b-jets described earlier, requiring that no
 reconstructed $W$ have a mass greater than 120 GeV, requiring the leptonic top mass
 be less than 180 GeV, and requiring 
 the hadronic top mass be less than 220 GeV. Additionally, we ignore permutations
 arising from swapping two light flavor jets from the same $W$ boson, as the reconstruction is
-identical. An additional measure is taken to reduce permutation iterations, in the training step only,
+identical.
+An additional measure is taken to reduce iterations over each permutation, in the training step and for background only,
 which samples randomly from the available permutations in each event before the phyics-motivated cut is applied.
 For each of the 8 objects, the permutation for that object skipped randomly 3 out of 10 times. For 8 objects,
 this means that $0.7^{8} \approx 0.06$ or just 6$\%$ of the permutations for a given event are considered. After factoring
-in the permutations skipped due to physics cuts, this number is even smaller. 
+in the permutations skipped due to physics cuts, this number is even smaller. It was found that the increase in statistics
+from removing these random cuts offers negligible improvement in performance while drastically increasing the CPU time used
+during training.
 
 The BDT uses eight input variables, consisting of:
 \begin{itemize}
@@ -236,19 +240,20 @@ The BDT uses eight input variables, consisting of:
 \item The solid angle between the lepton from the Higgs and the b-jet from the leptonic top
 \end{itemize}
 
-\noindent This approach focuses on the hadronic top decay, as the other aspects of the event
-are more difficult to reconstruct due to the missing energy from the neutrinos. 
-
 \subsubsection{Evaluation}
-
-The event reconstruction BDT is evaluated by iterating over all possible lepton and jet
+The hadronic top BDT is evaluated by iterating over all possible lepton and jet
 permutations, and selecting the highest scoring permutation as the reconstruction for
 each event. For this evaluation, the null jet prescription and permutation
 cuts used are identical to the background training.
 The reconstruction is designed identify events that have a hadronic top present and
 discriminates against the semi-leptonic $t\bar{t}$ background. The addition of the 
 reconstruction BDT output as an input to the BDT targeting the $t\bar{t}$ background,
-improves the performance by 10$\%$ by comparing ROC integrals when evaluated on $t\bar{t}$ MC and compared to the
+improves the performance by 10$\%$ by comparing ROC integrals\footnote{Receiver Operator Characteristic (ROC), curves quantify the separation of two distributions, such as signal and background,
+of a variable, such as BDT output, at all values of that variable. Every point on a ROC curve corresponds to a specific value of the variable. At each value of the variable, the fraction of one
+distribution that falls above that value, and the fraction of the other distribution that falls below that value form an (x,y) point on the ROC curve. The curve is then generated by scanning over
+the range of the variable which contains both distributions, adding a point for each value of the variable and connecting the points with a curve. As the separation of the two distributions increases,
+the larger the area under the ROC curve. It is this property that makes ROC curves a useful metric for evaluating BDT output performance.}
+when evaluated on $t\bar{t}$ MC and compared to the
 equivalent BDT in the 2016 \tth ICHEP analysis~\cite{CMS-AN-16-022} that did not use this
 as an input. These performance ROC curves are below in Figure~\ref{fig:hadtop_performance}.
 
@@ -270,16 +275,16 @@ the jets from the Higgs decay could be missing entirely from the event.
 
 The HJ tagger addresses both the complicated jet combinatorics associated with this final state, but also the reality that not all jets originating
 from the Higgs are selected. The HJ tagger is an object-level discriminator that exploits jet kinematics and identification variables to estimate the likelihood
-of a jet originating from the Higgs. Similar to the hadronic top reconstruction method, the HJ tagger calculates scores for every jet in each event, selecting
+of a jet originating from the Higgs. The HJ tagger calculates scores for every jet in each event, selecting
 the highest score as the output. To boost performance and simplify the combinatorics associated with tagging, the hadronic top tagger is first run,
-and the jets selected as being assocaited with the hadronic top are removed from further consideration by the HJ tagger.
+and the jets selected as being assocaited with the hadronic top are removed from further consideration for the HJ tagger.
 The HJ tagger is primarily aimed at selected jets from W decays (from the Higgs) and is used as a discriminating varible against both the \ttw and \ttz backgrounds.
 Both of these
 backgrounds are very likely to contain most or all of the hadronic top decay products, namely a b-tagged jet and two light flavor jets. The two light flavor jets from
 the W in the hadronic top decay look kinematically similar to the targeted jets from the W from the Higgs, creating a potential for Higgs jet mis-tagging. This is
-especially true when the b-jet is missing. The hadronic top tagger idenifies these jets and they are removed from consideration by the HJ tagger.
+especially true when the b-jet is missing. The hadronic top tagger attempts to identify these jets and they are removed from consideration for the HJ tagger.
 
-The HJ tagger is trained on \tth and \ttv MC. The signal training events require the reco-level objects passing the selection to be matched to a generator-level parton
+The HJ tagger is trained on \tth and \ttv MC. The signal training events require the objects passing the selection to be matched to a generator-level parton
 originating from the H$\rightarrow$WW$\rightarrow l\nu~l\nu$ process. The background selection requires \ttv events in the signal region.  
 The input variables include:
 \begin{itemize}
@@ -290,21 +295,21 @@ The input variables include:
 \item the jet quark-gluon discriminator (qgid)
 \end{itemize}
 
-\noindent The qgid varible is a BDT designed to discriminate jets originating from light flavor quarks from jets originating from gluons. The performance and improvement due
-to the HJ tagger input is seen in Figure~\ref{fig:hj_tagger}.
+\noindent The qgid varible is a BDT designed to discriminate jets originating from light flavor quarks from jets originating from gluons. The performance improvement due
+to the HJ tagger input is seen in Figure~\ref{fig:hj_tagger}, and corresponds to approximately 4-5$\%$ increase in signal efficiency at the same background efficiency.
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=0.49\textwidth]{ch9_figs/Jtagger_Ks.pdf}
 \includegraphics[width=0.49\textwidth]{ch9_figs/Roc_Comparison_18Feb.pdf}
 \caption[Performance improvement from the HJ tagger and hadronic top removal]{Separation power of HJ output on the training samples (right) and performance improvements with respect to the 2016 version of this analysis obtained with the HJ
-tagger input with hadronic top removal (left).}
+tagger input with hadronic top removal (left). Note the difference in axes with respect to the ROC curve for the hadronic top BDT.}
 \label{fig:hj_tagger}
 \end{figure}
 
 \section{Binning}
-The binning choice for the two-dimensional shape resulting from plotting each BDT on a separate axis is not straight forward, since overlaying the shapes across signal and backgrounds is not possible.
-The binning method must optimally partition the space to isolate
+The binning choice for the two-dimensional shape resulting from plotting each BDT on a separate axis is not straight forward, due to the large number of binning techniques
+available. The binning method must optimally partition the space to isolate
 signal from background, while simultaneously maintaining populated bins that don't suffer from low statistics. The output shapes formed by the two BDTs for the signal and largest backgrounds
 are in Figure~\ref{fig:2d_shapes} below. 
 
@@ -318,7 +323,7 @@ are in Figure~\ref{fig:2d_shapes} below.
 \end{figure}
 
 While previous versions of this analysis used a simple rectangular binning that was performed by studying the signal and background shapes and drawing the bins by hand,
-this iteration takes a more scientific approach based on the signal-to-background likelihood ratio. The binning procedure was performed with signal and background MC that was not used
+this iteration takes a more algorithmic approach based on the signal-to-background likelihood ratio. The binning procedure was performed with signal and background MC that was not used
 in the main analysis. The binning process begins with the standard rectangular, 20 x 20 binning in Figure~\ref{fig:2d_shapes}. For each bin, the signal to background likelihood ratio is computed.
 Next, each background event from the \ttbar and \ttv samples is assigned the likelihood ratio corresponding to the bin it populates. The resulting likelihood distribution for background
 events is transformed into the cumulative\footnote{A cumulative distribution function of some variable $S$, evaluated at $s$, is the probability that $S$ will have a value less than or equal
@@ -341,7 +346,8 @@ results~\cite{CMS-AN-17-029}. The pre-fit 1D shapes are in Figure~\ref{fig:final
 \centering
 \includegraphics[width=0.49\textwidth]{ch9_figs/likelihoodBased_2d_2lss.png}
 \includegraphics[width=0.49\textwidth]{ch9_figs/likelihoodBased_1d_2lss.pdf}
-\caption[The 2D and 1D binning based on the cumulative likelihood distribution]{The 2D (left) and 1D (right) binning based on the cumulative likelihood distribution.}
+\caption[The 2D and 1D binning based on the cumulative likelihood distribution]{The 2D (left) and 1D (right) binning based on the cumulative likelihood distribution.
+Each color on the 2D histogram corresponds to a bin on the 1D histogram, white-bin0, black-bin1, red-bin2, green-bin3, blue-bin4, yellow-bin5,pink-bin6, and cyan-bin7.}
 \label{fig:likelihood}
 \end{figure}
 
@@ -358,15 +364,15 @@ results~\cite{CMS-AN-17-029}. The pre-fit 1D shapes are in Figure~\ref{fig:final
 
 
 \section{Subcategorization}
-In addition to the signal region categorization by lepton flavor, further categorization is applied to exploit differences between signal and background. All categories
-split by the sum of the lepton electric charges. This splitting helps to isolate the \ttw background, which is asymmetric in lepton charge sum due to the initial state of the
-diagram involving two incoming quarks. Because the LHC collides protons whose quark content is $uud$, this favors positively charged final states, while the \tth process
+In addition to the signal region categorization by lepton flavor, further categorization is applied to exploit differences between signal and background. All categories are
+split by the sum of the lepton electric charges. This splitting helps to isolate the \ttw background, which is asymmetric in lepton charge sum because the initial state of the
+diagram involves an incoming quark and antiquark. Because the LHC collides protons whose quark content is $uud$, this favors positively charged final states, while the \tth process
 is initiated by gluon scattering, resulting in neutral final states, symmetric in lepton electric charge sum.
 The signal region categories
 are split further into two subcategories $b-tight$, which contains events with two b-jets passing the CSVv2 medium working point, and $b-loose$ which contains all other events
 (those with fewer than 2 CSVv2 M jets). This splitting helps to separate \tth from the fake lepton background which is primarily comprised of \ttbar. Due to the same-sign 
-lepton electric charge requirement, most of the \ttbar is vetoed, however there is a substantial amount of fakes originating from the b-decay. The b-jet is typically cleaned
-from the fake lepton while the fake lepton is kept. This produces events with a single b-jet, while \tth should more often have two b-jets. In total there are 10 categories
+lepton electric charge requirement, most of the \ttbar is vetoed, however there is a substantial amount of fakes originating from the b-decay. The b-jet is often removed
+from the fake lepton in the jet cleaning step, described in Section~\ref{sec:cleaning}, while the fake lepton is kept. This produces events with a single b-jet, while \tth should more often have two b-jets. In total there are 10 categories
 making up the signal region, illustrated in Figure~\ref{fig:subcats} below. The $ee$ channel is not split according to b-jet content due to low statistics. 
 It is the final shapes in these subcategories that are used for the final tabulation of signal, background, and data. 
 
