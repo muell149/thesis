@@ -112,6 +112,7 @@ to the hadronically decaying top quark and the hadronically decaying daughter of
 discriminating input variables to the 2D BDT. The details of these reconstruction BDTs are described in the following subsections.  
 The 2D BDT input variable distributions of \tth, \ttbar, and \ttv are in Figures~\ref{fig:inputs1},~\ref{fig:inputs2},~\ref{fig:inputs3}.
 The distributions are normalized to equal area to visualize separation between signal and background. 
+For details on the training of all BDTs described in this section, as well as a description of the BDT technique itself, see Appendix~\ref{app:bdts}.
 
 \begin{figure}[htp]
 \centering
@@ -297,6 +298,7 @@ The input variables include:
 
 \noindent The qgid varible is a BDT designed to discriminate jets originating from light flavor quarks from jets originating from gluons. The performance improvement due
 to the HJ tagger input is seen in Figure~\ref{fig:hj_tagger}, and corresponds to approximately 4-5$\%$ increase in signal efficiency at the same background efficiency.
+The data to MC comparison of both the hadronic top BDT and higgs tagger BDT ouputs are in Figure~\ref{fig:reco_bdt_stacks} below.
 
 \begin{figure}[htp]
 \centering
@@ -306,6 +308,16 @@ to the HJ tagger input is seen in Figure~\ref{fig:hj_tagger}, and corresponds to
 tagger input with hadronic top removal (left). Note the difference in axes with respect to the ROC curve for the hadronic top BDT.}
 \label{fig:hj_tagger}
 \end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.49\textwidth]{ch9_figs/hadtop_bdt_ttH_stackPlot_SR.pdf}
+\includegraphics[width=0.49\textwidth]{ch9_figs/hj_bdt_ttH_stackPlot_SR.pdf}
+\caption[Data to MC comparison of reconstruction BDT outputs]{The hadronic top BDT (left) and higgs tagger BDT (right) outputs.}
+\label{fig:reco_bdt_stacks}
+\end{figure}
+
+
 
 \section{Binning}
 The binning choice for the two-dimensional shape resulting from plotting each BDT on a separate axis is not straight forward, due to the large number of binning techniques
