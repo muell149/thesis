@@ -395,8 +395,7 @@ Status of YR4 preparation.
 
 \bibitem[Conway(2011)]{BarlowBeeston2}
 J.~S. Conway.
-\newblock {Incorporating Nuisance Parameters in Likelihoods for Multisource
-  Spectra}.
+\newblock {Incorporating Nuisance Parameters in Likelihoods for Multisource Spectra}.
 \newblock 2011.
 
 \bibitem[L.~Lista(2016)]{lista}
@@ -412,6 +411,17 @@ G.~{Cowan}, K.~{Cranmer}, E.~{Gross}, and O.~{Vitells}.
 \newblock \emph{European Physical Journal C}, 71:\penalty0 1554, February 2011.
 \newblock \doi{10.1140/epjc/s10052-011-1554-0}.
 
+\bibitem[{CMS Collaboration}(2011{\natexlab{b}})]{CMS-AN-11-298}
+{CMS Collaboration}.
+\newblock Procedure for the {LHC} {H}iggs boson search combination in summer 2011.
+\newblock CMS Note AN-11-289, 2011{\natexlab{b}}.
+
+\bibitem[{S.S. Wilks (1938)]{wilks}
+S.S. Wilks
+\newblock {The Large-Sample Distribution of the Likelihood Ratio for Testing
+Composite Hypotheses}.
+\newblock \emph{The Annals of Mathematical Statistics}, 9:\penalty60-62, 1938.
+\newblock \doi{10.1214/aoms/1177732360}.
 
 
 %%%%%%%%%%%%%% Haven't needed these yet...
@@ -603,12 +613,6 @@ G.~{Cowan}, K.~{Cranmer}, E.~{Gross}, and O.~{Vitells}.
 %% Roger Barlow and Christine Beeston.
 %% \newblock {Fitting using finite Monte Carlo samples}.
 %% \newblock \emph{Computer Physics Communications}, 77:\penalty0 219--228, 1993.
-
-%% \bibitem[{CMS Collaboration}(2011{\natexlab{b}})]{CMS-AN-11-298}
-%% {CMS Collaboration}.
-%% \newblock Procedure for the {LHC} {H}iggs boson search combination in summer
-%%   2011.
-%% \newblock CMS Note AN-11-289, 2011{\natexlab{b}}.
 
 %% \bibitem[{CMS Collaboration}(2013{\natexlab{d}})]{CMS-PAS-HIG-13-015}
 %% {CMS Collaboration}.
