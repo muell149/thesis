@@ -393,6 +393,26 @@ Status of YR4 preparation.
 \newblock Website, Accessed: August 1st 2017.
 \newblock \url{https://indico.cern.ch/event/407347/contributions/975965/attachments/1211342/1766869/hxswg16.pdf}.
 
+\bibitem[Conway(2011)]{BarlowBeeston2}
+J.~S. Conway.
+\newblock {Incorporating Nuisance Parameters in Likelihoods for Multisource
+  Spectra}.
+\newblock 2011.
+
+\bibitem[L.~Lista(2016)]{lista}
+Luca Lista.
+\newblock Statistical Methods for Data Analysis in Particle Physics
+\newblock \emph{Springer}, 2016.
+\newblock \doi{10.1007/978-3-319-20176-4}.
+
+\bibitem[{Cowan} et~al.(2011){Cowan}, {Cranmer}, {Gross}, and
+  {Vitells}]{AsymptoticLimits}
+G.~{Cowan}, K.~{Cranmer}, E.~{Gross}, and O.~{Vitells}.
+\newblock {Asymptotic formulae for likelihood-based tests of new physics}.
+\newblock \emph{European Physical Journal C}, 71:\penalty0 1554, February 2011.
+\newblock \doi{10.1140/epjc/s10052-011-1554-0}.
+
+
 
 %%%%%%%%%%%%%% Haven't needed these yet...
 
@@ -584,24 +604,11 @@ Status of YR4 preparation.
 %% \newblock {Fitting using finite Monte Carlo samples}.
 %% \newblock \emph{Computer Physics Communications}, 77:\penalty0 219--228, 1993.
 
-%% \bibitem[Conway(2011)]{BarlowBeeston2}
-%% J.~S. Conway.
-%% \newblock {Incorporating Nuisance Parameters in Likelihoods for Multisource
-%%   Spectra}.
-%% \newblock 2011.
-
 %% \bibitem[{CMS Collaboration}(2011{\natexlab{b}})]{CMS-AN-11-298}
 %% {CMS Collaboration}.
 %% \newblock Procedure for the {LHC} {H}iggs boson search combination in summer
 %%   2011.
 %% \newblock CMS Note AN-11-289, 2011{\natexlab{b}}.
-
-%% \bibitem[{Cowan} et~al.(2011){Cowan}, {Cranmer}, {Gross}, and
-%%   {Vitells}]{AsymptoticLimits}
-%% G.~{Cowan}, K.~{Cranmer}, E.~{Gross}, and O.~{Vitells}.
-%% \newblock {Asymptotic formulae for likelihood-based tests of new physics}.
-%% \newblock \emph{European Physical Journal C}, 71:\penalty0 1554, February 2011.
-%% \newblock \doi{10.1140/epjc/s10052-011-1554-0}.
 
 %% \bibitem[{CMS Collaboration}(2013{\natexlab{d}})]{CMS-PAS-HIG-13-015}
 %% {CMS Collaboration}.
