@@ -16,8 +16,8 @@ calculating upper limits  on the signal strength parameter via the CLs method.
 
 \section{Maximum Likelihood Fit}
 \label{sec:fit}
-The likelihood function is defined as the probability density of the number of observed events, $N$, given the predicted number of signal-plus-background events, $\mus + b$,
-where $\mu$ is the signal strength parameter we wish to estimate. $\mu$ is more generally referred to as the parameter of interest, since it is free to float to the value
+The likelihood function is defined as the probability density of the number of observed events, $N$, given the predicted number of signal-plus-background events, $\mu~s + b$,
+where $\mu$ is the signal strength parameter we wish to estimate. $\mu$ is more generally referred to as the parameter of interest, and it is free to float to the value
 which best fits the observation. The signal strength parameter is assumed to be a modifier on the cross section of the \tth signal process, and does not depend on repeated
 observations or bins. The simplified likelihood, ignoring nuisance parameters for now, is written as a Poisson probability under the freqentist approach as:
 
@@ -64,7 +64,7 @@ This maximum likelihood procedure is also referred to generally as the ``fit''~\
 \section{Upper Limits: CLs Method}
 \label{sec:limit}
 When an analysis lacks the sensitivity to detect a signal from background, setting uppper limits on the possible values of $\mu$ is useful. In setting upper
-limits, $\mu$ is constrained as phase space is excluded. This strategy was used by the Higgs analyses at LEP and the Tevatron, and is the primary figure of merit
+limits, $\mu$ is constrained as phase space of $\mu$ values is reduced and more values excluded. This strategy was used by the Higgs analyses at LEP and the Tevatron, and is the primary figure of merit
 for an analysis with little sensitivity. The \tth analysis presented here does not fall into this category, although previous iterations lacked the sensitivity
 to detect \tth in data. While this analysis does have sensitivity to \tth, upper limits are still set using the CLs method, also known as the
 Modified Frequentist approach, which builds on the likelihood described in the previous section. 
@@ -78,18 +78,18 @@ defined as:
 \tilde{q}_{\mu} = -ln \frac{\mathcal{L}(data|\mu,\hat{\theta_{\mu}})}{\mathcal{L}(data|\hat{\mu},\hat{\theta})},~~~~~0 \leq \hat{\mu} \leq{\mu}
 \end{equation}
 
-\noindent Where $\hat{\theta_{\mu}}$ is the value of the nusiances corresponding to $\mu$. $\mathcal{L}(data|\mu,\hat{\theta_{\mu}})$ is the maximized where $\mu$
+\noindent Where $\hat{\theta_{\mu}}$ is the value of the nusiances corresponding to $\mu$. $\mathcal{L}(data|\mu,\hat{\theta_{\mu}})$ is the maximized likelihood where $\mu$
 is fixed to some value and $\hat{\theta_{\mu}}$ floats freely. The denominator, $\mathcal{L}(data|\hat{\mu},\hat{\theta})$, is the maximum likelihood obtained
 previously where both parameters float. The lower bound $0 \leq \hat{\mu}$ ensures the signal is positive. The upper bound $\hat{\mu} \leq \mu$ imposes a one-sided
 confidence interval, which practically means that upward fluctuations of data $\hat{\mu} > \mu$, where the hypothesis is $\mu$, cannot be considered as evidence
-against the hypothesis.  
+against the signal-plus-background hypothesis.  
 
 With the definition of the test statistic, we calculate $\tilde{q}_{\mu}^{obs}$, the observed test statistic value in data, by evaluating it for many different
 values of $\mu$. Now the values for the nuisance parameters observed in data, $\hat{\theta_{0}^{obs}}$, $\hat{\theta_{\mu}^{obs}}$ are obtained from maximizing
 the likelihoods under the background-only ($\mu=0$), and signal-plus-background hypotheses respectively. Next, two test statistic PDFs
 $f(\tilde{q}_{\mu}|\mu,\hat{\theta_{\mu}^{obs}})$, and $f(\tilde{q}_{\mu}|0,\hat{\theta_{0}^{obs}})$ are constructed from psuedo-data
 generated with MC toys, obtained from random sampling of nusiance parameter values from the fit to data at fixed $\mu$.  Next we calculate a p-value $p_{\mu}$, $p_{b}$
-for the signal plug background and background-only hypotheses. The p-value $p_{\mu}$ represents the probability that the observed data is incompatible with the
+for the signal-plus-background and background-only hypotheses. The p-value $p_{\mu}$ represents the probability that the observed data is incompatible with the
 signal-plus-background hypothesis, with signal strength $\mu$. As $p_{\mu}$ decreases, the more confident we are that the value of $\mu$ being evaluated is the
 upper limit on the signal strength. The p-value $p_{b}$ is the probability for compatibility with the background-only hypothesis. As $p_{b}$ decreases, the probability
 of a signal in the data increases. It is more convenient to work with $1-p_{b}$, since this value is the probability of incompatibility with the background-only hypothesis,
@@ -116,30 +116,30 @@ CL_{s}(\mu) = \frac{CL_{s+b}}{CL_{b}} = \frac{p_{\mu}}{1-p_{b}}
 for incompatibility with the signal-plus-background hypothesis decreases, $CL_{s}(\mu)$ will decrease, and we become more confident that the observed data is more consistent with
 the signal-plus-background hypothesis than the background-only hypothesis. The observed 95$\%$ CL upper limit on $\mu$ is obtained by testing different values of decreasing $\mu$ and
 calculating $CL_{s}(\mu)$, the upper limit is the value of $\mu$ for which $CL_{s}(\mu) = 0.05$. In general we say that for some $\mu$ corresponding to $CL_{s}(\mu) \leq \alpha$
-the signal is excluded at the $1-\alpha$ CL. 
+greater values of $\mu$ are excluded at the $1-\alpha$ CL. 
 
 The expected upper limit is calculated by generating the background-only distribution from MC toys as described previously, for many psuedo experiments, calculating $CL_{s}$, $\mu^{95\% CL}$
-for each distribution (psuedo experiment). Then a cumulative distribution of $\mu^{95\% CL}$ is constructed and the median expected value on the upper limit of $\mu$ is reported as the value
-of $\mu^{95\% CL}$ for which the cross the 50$\%$ quantile\footnote{Technically, generating N toys for M psuedo experiments yields N$\cdot$M likelihood evaluations. Since the test-statistic
-distributions for a given $\mu$ don't depend on the psuedo data, they are instead computed only once per $\mu$ value, and the total number of likelihood evaluations is proportional to N+M instead.}
+for each distribution (psuedo experiment). Then a cumulative distribution of $\mu^{95\% CL}$ is constructed and the median expected value on the upper limit of $\mu$ is reported - which is the value
+of $\mu^{95\% CL}$ for which the cumulative distribution crosses the 50$\%$ quantile\footnote{Technically, generating N toys for M psuedo experiments yields N$\cdot$M likelihood evaluations. Since the test-statistic
+distributions for a given $\mu$ don't depend on the psuedo data, they are instead computed only once per $\mu$ value, and the total number of likelihood evaluations is proportional to N+M instead.}.
 
-Generating large statistics of toy MC to produce the test statistic distributions need for the method above is both time consuming and CPU intensive. This analysis uses an alternate method to
+Generating large statistics of toy MC to produce the test statistic distributions needed for the method above is both time consuming and CPU intensive. This analysis uses an alternate method to
 construct the test statistic distributions analytically, without the need for psuedo data, called the asymptotic approximation of the profile likelihood~\cite{AsymptoticLimits}.  
 This procedure begins by removing the requirement that the signal be positive $\hat{\mu} > 0$ from the test statistic in Equation~\ref{eqn:test_stat}. From Wilks theorem
 in the asymptotic regime, the test statistic will have half a $\chi^{2}$ distribution for one degree of freedom in the signal-plus-background hypothesis~\cite{wilks}. The value of $\mu$ for which
 $\frac{1}{2}q_{\mu} = 1.92$ has the convenient property of corresponding to $CL_{s} = 0.05$. By imposing $\hat{\mu} > 0$, the asymptotic behavior of the test statistic PDF under the signal plus
-background hypothesis does follow a well-defined distribution:
+background hypothesis no longer is half a $\chi^{2}$, but does follow a well-defined distribution:
 
 \begin{equation}
 \label{eqn:asymptote}
 f(\tilde{q}_{\mu}|\mu) = \frac{1}{2}\delta(\tilde{q}_{\mu}) + \begin{cases}
-  \frac{e^{-\tilde{q}_{\mu}/2}}{\sqrt{8\pi~\tilde{q}_{\mu}}} & 0 < \tilde{q}_{\mu} \leq \mu^{2}/\sigma^{2} \\
-  \frac{e^{\frac{\tilde{q}_{\mu}+\mu^{2}/\sigma^{2}}{8\mu^{2}/\sigma^{2}}}}{\sqrt{8\pi\mu^{2}/\sigma^{2}}} & \tilde{q}_{\mu} > \mu^{2}/\sigma^{2}
+  \frac{e^{-\tilde{q}_{\mu}/2}}{\sqrt{8\pi~\tilde{q}_{\mu}}} & ~~~~ 0 < \tilde{q}_{\mu} \leq \mu^{2}/\sigma^{2} \\
+  \frac{e^{\frac{\tilde{q}_{\mu}+(\mu^{2}/\sigma^{2})}{8\mu^{2}/\sigma^{2}}}}{\sqrt{8\pi\mu^{2}/\sigma^{2}}} & ~~~~ \tilde{q}_{\mu} > \mu^{2}/\sigma^{2}
   \end{cases}
 \end{equation}
 
 \noindent where $\sigma^{2} = \mu^{2}/q_{\mu,A}$, and $q_{\mu,A}$ is known as the Asimov dataset\footnote{The Asimov dataset is named after the 1955 short story ``Franchise'' by Issac Asimov, where the 2008
-U.S. election determined by a single vote of one person, who is said to represent the entire population.} with all nuisances set to their initial values. The test statistic distributions for
+U.S. election is determined by a single vote of one person, who is said to represent the entire population.} with all nuisances set to their initial values. The test statistic distributions for
 signal-plus-background and background-only hypotheses are constructed from Equation~\ref{eqn:asymptote} instead of from toy MC~\cite{CMS-AN-11-298}. 
 
 \section{Significance}
