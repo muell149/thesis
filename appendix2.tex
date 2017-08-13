@@ -2,26 +2,18 @@
 % Appendix 2
 %
 
-\chapter{Boosted Decision Trees}
+\chapter{BOOSTED DECISION TREES}
 \label{app:bdts}
 
+%What is a BDT?
+A BDT is a machine learning ensemble algorithm, based on a collection (ensemble) of individual decision trees. Boosting denotes the ensemble technique
+which improves performance by creating a strong classifier algorithm (BDT) from an ensemble of individual weak classifiers (decision trees). A decision tree
+is an algorithm that uses a tree-like flowchart or graph to classify events by splitting them on a series of individual decisions or cuts. An example of a decision tree
+is shown in Figure~\ref{fig:dec_tree}. The BDTs used in this analysis and described here are used for binary classification, classifying the degree to which an
+individual event is more signal-like or more backgroundn like, with their output.
+An example of a BDT output is in Figure~\ref{fig:ttvBdt_score}, where the output values ranges from -1 to 1, where an event with a score near -1 corresponds
+to a background-like event, and an event with a score closer to 1 corresponds to a signal-like event.
 
-\section{Technical Description}
-
-Boosted Decision Trees are the single MVA/machine learning technique used for discriminating signal from background
-in this analysis. BDTs are used in this analysis exclusively for classification.
-BDTs are a special instance of a decision tree, which is illustrated below in Figure~\ref{fig:dec_tree}.
-This analysis uses the BDT implementation in the Toolkit for Multivariate Analysis (TMVA) software~\cite{tmva}, based on the
-C4.5 algorithm~\cite{C4.5}.
-The choice of BDTs over other MVA methods such as artificial neural networks (aNNs) or support vector machines (SVMs) is motivated
-by several factors. While the cut-based classification technique the BDT relies on is a theoretically less powerful classifier compared
-to other more sophisticated MVAs such as aNNs, it typically offers the best ``out-of-the-box'' performance, requiring the least amount
-of optimization to acheive near-maximum performance. This simiplicity also translates to faster training and evaluation times.
-Additionally, BDTs are often more robust against over-training\footnote{Over-training, or ``over-fitting'' describes the loss of generalization (as well as performance)
-between the training and testing/evaluation samples. Over-training occurs when the MVA learns statistical features of the training sets that are not present in
-the testing/evaluation set.}. This practically translates to using more input variables, and/or smaller training samples than more sophisticated MVAs.
-The conceptual description of BDT training is described in the following sections. 
- 
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.8\textwidth]{ap2_figs/decision_tree.pdf}
@@ -31,11 +23,32 @@ The conceptual description of BDT training is described in the following section
  \end{center}
 \end{figure}
 
+%Why use a BDT/usage in this analysis?
+The utilization of MVAs as the final discriminants is motivated from combining several discriminating variables into a single discriminating variable more powerful
+than any individual varible.
+The choice of BDTs over other MVA methods such as artificial neural networks (ANNs) or support vector machines (SVMs) for use as a final discriminant 
+is motivated by several factors. While the cut-based classification technique the BDT relies on is a theoretically less powerful classifier compared
+to other more sophisticated MVAs such as aNNs, it typically offers the best ``out-of-the-box'' performance, requiring the least amount
+of optimization to acheive near-maximum performance.
+For these reasons, BDTs are the primary MVA/machine learning technique used for discriminating signal from background
+in this analysis.
+
+\section{Technical Description}
+The BDT algorithm begins with a single decision tree, which is grown according to the rules described below. Then the boosting procedure is carried out, which
+grows many additional trees. Each additional tree is grown based on the performance of the existing ensemble. These steps are
+referred to collectively as ``training''. As will be shown, the training is performed using a set of events designated specifically for this purpose.
+The training set is comprised of signal and background events with corresponding labels, so the BDT can learn the differences between each.
+After training is complete, the BDT is evaluated on an independent set of signal and background events, without labels so the BDT is ``blind'' to which events are
+signal and which are background, and the classification performance is evaluated in a processes called ``testing'' or evaluation. Finally after adequate performance
+is obtained, the BDT is used in physics analysis.
+
 \subsection{Tree Growth}
-The decision tree begins at the root node with a single decision, or split. Given a set of inputs {$x$}, the input $x_{i}$, and the specific cut value $c_{1}$,
-is selected based on best separation power between signal and background. The training events are then filtered through this first split, where events
+The BDT method begins with a single decision tree. The decision tree begins at the root node with a single decision, or split.
+Given a set of input variables $\{x\}$, starting at the root node, all training events are split by cutting at some specific value $c_{1}$
+of one of the input varibles $x_{i}$, as shown in Figure~\ref{fig:dec_tree}.
+The training events are then filtered through this first split, where events
 with $x_{i} > c_{1}$ moving to the left forming a new decision node, and events with $x_{i} < c_{1}$ moving to the right, forming a new and separate 
-decision node, as seen in Figure~\ref{dec_tree}. This processes is then repeated on the subsets of events in each of the two new nodes, and continued until
+decision node, as seen in Figure~\ref{fig:dec_tree}. This processes is then repeated on the subsets of events in each of the two new nodes, and continued until
 a specified stopping criteria is satisfied. This stopping criteria is often defined to be when a given split produces a node with purely signal or purely
 background events, as illustrated in Figure~\ref{fig:dec_tree}. The stopping criteria consists of:
 \begin{itemize}
@@ -45,20 +58,24 @@ background events, as illustrated in Figure~\ref{fig:dec_tree}. The stopping cri
 \item Reaching a specified maximum tree depth
 \end{itemize}
 
-One important detail not mentioned thus far is the metric used to determine ``best'' separation power when determining which variable and corresponding value to split on.
-The first variable to consider for splitting criteria is purity of each node, defined as $p_{s}=\frac{s}{s+b}$, where $s$ and $b$ correspond to the number of signal and background
-events in the node respectively. $p_{s}$ is 1 for a node with pure signal, and zero for a node with pure background. A $p{s}$ of 0.5 corresponds to equal amounts of signal and background
-in the node. With a definition of purity, we define a figure of merit (FOM) called \textit{impurity}. The impurity of a given node $t$, is based on the purity and is denoted as
-$\phi(t)$.
-The impurity of a given node is maximized when the two classes (signal, background) are mixed in equal proportion $\phi(t) = 1/2$. The impurity is minimized when the node is pure
-signal or pure background where $\phi(t) = 0$.
+The choice of which variable $x_{i}$ to cut on, and at what cut value $c_{1}$ for each node
+in the tree is made considering all inputs and all available cut values which best separate the signal events from the background events in that node, However, 
+several splitting criterion metrics exist for determining the ``best'' separation. 
+Some terms must first be defined before a description of the various splitting criteria.
+We first introduce the purity of each node, defined as $p_{s}=\frac{s}{s+b}$, where $s$ and $b$ correspond to the number of signal and background
+events in the node respectively. $p_{s}$ is 1 for a node with pure signal, and zero for a node with pure background. A $p_{s}$ of 0.5 corresponds to equal amounts
+of signal and background in the node.
+With a definition of purity, we define a figure of merit (FOM) called \textit{impurity}. The impurity of a given node $t$, is denoted as $\phi(t)$.
+The impurity of a given node is maximized when the two classes (signal, background) are mixed in equal proportion, that is $\phi(t) = 1/2$.
+The impurity is minimized when the node contains only signal or only background, that is $\phi(t) = 0$.
 It makes more sense to work with the weighted impurities however, where a given node impurity is weighted by the number of events in that node. This quantity
 will be referred to as weighted impurity $I(t) = \phi(t)N_{t}$, where $N_{t}$ is the number of events in the node. 
-The splitting criteron maximizes the impurity gain, $\DeltaI(t)$. For a given node $t_{0}$ with $N_{0}$ events, we want to
+The impurity gain, denoted $\Delta~I(t)$, should be maximized when selecting which variables and values to cut on. For a given node $t_{0}$ with $N_{0}$ events, we want to
 select the best variable and value to split into two child nodes, $t_{L}$, with $N_{L}$ events, and $t_{R}$,with $N_{R}$ events, where $N_{0} = N_{L} + N_{R}$. Here, the
-impurity gain for a given split is $\DeltaI(t) = I(t_{0}) - I(t_{L} - I(t_{R}))$, and we choose the cut which maximizes $\DeltaI(t)$ over all possible splits for all variables.
-The functional form of $\phi(t)$ has not been given since there are a number of options. The simplest form of $\phi$ is the training error $\epsilon(t) = min(p_{s},p_{b})$.
-The training error as the basis for the FOM suffers fro. To illustrate this shortcoming, see Figure~\ref{fig:tree_split}.
+impurity gain for a given split is $\Delta~I(t) = I(t_{0}) - I(t_{L} - I(t_{R}))$, and we choose the cut which maximizes $\Delta~I(t)$ over all possible splits for all variables.
+The functional form of $\phi(t)$ determines the splitting critera, and there are several options available.
+The simplest form of $\phi$ is called the training error $\epsilon(t) = min(p_{s},p_{b})$.
+One drawback to using the training error for $\phi$ is that it treats event mis-classifications linearly. This shortcoming is illustrated in Figure~\ref{fig:tree_split}.
 
 \begin{figure}[hbtp]
  \begin{center}
@@ -68,7 +85,7 @@ The training error as the basis for the FOM suffers fro. To illustrate this shor
  \end{center}
 \end{figure}
 
-\noindent Both splits in Figure~\ref{fig:trees_plit} produce
+\noindent Both splits in Figure~\ref{fig:tree_split} produce
 the same training error (25$\%$), however the split on the right is clearly a more powerful separator. Other forms of $\phi$ that avoid this scenario by punishing
 event mis-classifications non-linearly include the Gini index $\phi = 1 - p_{s}^{2} - p_{b}^{2}$, and the cross entropy $\phi = \frac{-p_{s}log(p_{s})+p_{b}log(p_{b})}{2}$.
 The FOM used for the BDTs in this analysis is the Gini index, which punishes mis-classifications less severely for more equal distributions of signal and background, and more
@@ -82,13 +99,13 @@ severely for mis-classifications of very unequal distributions of signal and bac
  \end{center}
 \end{figure}
 
-Additionally, the traing procedure makes use of bootstrap aggregating, known as \textit{bagging}, which performs a random re-sampling of previous events for during the tree growth.
-Bagging can improve the performance in combination with the boosting procedure, which is called stochastic gradient boosting and described next.  
-
+Additionally, the training procedure makes use of bootstrap aggregating, known as \textit{bagging}, which performs a random re-sampling of previously-used events
+during tree growth. Bagging can improve the classification performance by reducing variance when used in combination with the boosting procedure described next.  
 
 \subsection{Boosting}
-The boosting method used in this analysis is the stochastic gradient boost, a form a gradient descent optimization for decision trees. Thus far the process begins with a single
-weak classifier (a single tree). The training set will be comprised of events with {$x_{1}$,$y_{1}$}....{$x_{N}$,$y_{N}$} for N events. $x_{i}$, $y_{i} \in [0,1]$
+The boosting method used in this analysis is the stochastic gradient boost, a form a gradient descent optimization for decision trees.
+Thus far the process describes a single weak classifier (a single tree), but through the boosting process many additional trees are grown.
+The training set is comprised of events with {$x_{1}$,$y_{1}$}....{$x_{N}$,$y_{N}$} for N events. $x_{i}$, $y_{i} \in [0,1]$
 are the input variables and class (background, signal) for event $i$. An implicit assumption in MVA training is that there exists
 some function $F'(x)$, that maps a set of inputs to the event's class $y$, that is $F'(x) = y$. In training we are attempting to model this function empirically. 
 
@@ -137,39 +154,50 @@ F(x_{i}) \rightarrow F(x_{i}) + h(x_{i}) \\ F(x_{i}) \rightarrow F(x_{i}) + y_{i
 \end{aligned} 
 \end{equation}
 
-\noindent where $\rho$ is the parameter that controls the step size or learning rate. It can be shown that the loss function full determines the boosting procedure. The boosting procedure
-used in this analysis uses the binomial log-likelihood loss: $L(F(x),y) = ln(1+e^{-2yF(x)})$. In this loss function, the residuals are not equal to the negative gradients, which
-is an advantage since the negative gradients are less sensitive to statistical outliers.
+\noindent where $\rho$ is the parameter that controls the step size or learning rate. It can be shown that the loss function fully determines the boosting procedure~\cite{tmva}.
+The boosting procedure used in this analysis uses the binomial log-likelihood loss: $L(F(x),y) = ln(1+e^{-2yF(x)})$, and the trees are updated by the negative gradient,
+not the residuals, which are not equivalent for this choice of loss function. The advantage being that the negative gradients are less sensitive to statistical outliers. 
 
-The boosting procedure begins with a single weak classifier, and produces a forest or ensemble of weak classifiers resulting in a much more performant discriminator. While the stochastic
-gradient boost prodcedure is employed here, it is just one of many available boosting methods. The most popular of which includes Adaptive Boosting or AdaBoost. While AdaBoost and
+The boosting procedure begins with a single weak classifier, and produces a forest or ensemble of weak classifiers resulting in a much more performant discriminator.
+While the stochastic gradient boost prodcedure is employed here, it is just one of many available boosting methods\footnote{Another popular choice of boosting algorithms
+is Adaptive Boosting or AdaBoost. While AdaBoost and
 gradient boosting are very similar, they differ in one significant way. As described above, gradient boosting grows additional weak classifiers with the objective being to correct
 shortcomings of the existing ensemble. AdaBoost however applies weights to misclassified events in the current ensemble, therby encouring the next weak classifier to be more sensitive
-to the misclassifications of the previous. Gradient boost is selected over AdaBoost due to AdaBoost's sensitivity to noisy data and outliers. 
+to the misclassifications of the previous. Gradient boost is selected over AdaBoost due to AdaBoost's sensitivity to noisy data and outliers.}.
 
-\subsection{Pruning}
-Once the ensemble of trees are completely grown after the boosting procedure, the final step known as ``pruning'' is carried out. Pruning removes leaf nodes on trees according
-to a predefined critera. This process is also referred to as tree regularization. Introducing a new quantity, called risk for a single node $t$, $r(t) = p_{s}\epsilon(t)$
-and the risk for the entire tree $T$, is the sum of risk over all its leaf nodes: $r(T) = \sum_{t \in L(T)} r(t)$. It is
-more useful to work with the penalized risk $\widetilde{r}(T) = r(T) + \alpha|L(T)|$, where $\alpha$ is the penalty coefficient and $|L(T)|$ is the total number
-of leaf nodes in tree $T$. Beginning at $\alpha = 0$, remove nodes in all trees are removed that do no lower the risk, at this first step. 
-Pruning is always allowed if the penalized risk for the leaf exceeds that of its parent. At the next step, the minimum value of $\alpha$, $\alpha^{*}$ is calculated such that
-the risk of the node is equal to the risk of the tree $r(t) + \alpha^{*} = r(T) + \alpha^{*}|L(T)|$. Solving for $\alpha^{*}$ provides the minimum value for $\alpha$
-at the next pruning step. The optimal pruning step $m$ is acheived when $\alpha_{m} \le \alpha_{m+1}$ the optimum tree $T^{*}(\alpha_{m})$ contains $T^{*}(\alpha_{m+1})$
-as a subtree. The risk is calculated on trees of an independent training subset~\cite{illya}. 
+%% \subsection{Pruning}
+%% Once the ensemble of trees are completely grown after the boosting procedure, the final step known as ``pruning'' is carried out. Pruning removes leaf nodes on trees according
+%% to a predefined critera. This process is also referred to as tree regularization. Introducing a new quantity, called risk for a single node $t$, $r(t) = p_{s}\epsilon(t)$
+%% and the risk for the entire tree $T$, is the sum of risk over all its leaf nodes: $r(T) = \sum_{t \in L(T)} r(t)$. It is
+%% more useful to work with the penalized risk $\widetilde{r}(T) = r(T) + \alpha|L(T)|$, where $\alpha$ is the penalty coefficient and $|L(T)|$ is the total number
+%% of leaf nodes in tree $T$. Beginning at $\alpha = 0$, remove nodes in all trees are removed that do no lower the risk, at this first step. 
+%% Pruning is always allowed if the penalized risk for the leaf exceeds that of its parent. At the next step, the minimum value of $\alpha$, $\alpha^{*}$ is calculated such that
+%% the risk of the node is equal to the risk of the tree $r(t) + \alpha^{*} = r(T) + \alpha^{*}|L(T)|$. Solving for $\alpha^{*}$ provides the minimum value for $\alpha$
+%% at the next pruning step. The optimal pruning step $m$ is acheived when $\alpha_{m} \le \alpha_{m+1}$ the optimum tree $T^{*}(\alpha_{m})$ contains $T^{*}(\alpha_{m+1})$
+%% as a subtree. The risk is calculated on trees of an independent training subset~\cite{illya}. 
+
 
 
 \section{Implementation}
+BDTs are used in this analysis exclusively for classification.
+This analysis uses the BDT implementation in the Toolkit for Multivariate Analysis (TMVA) software~\cite{tmva}, based on the
+C4.5 algorithm~\cite{C4.5}. Other MVAs described above were tested in addition to BDTs, however as noted the BDTs routinely offered the
+best performance with the least optimization and are simpler algorithms than other MVAs tested.
+This simiplicity translates to faster training and evaluation times.
+Additionally, BDTs are often more robust against over-training\footnote{Over-training, or ``over-fitting'' describes the loss of generalization (as well as performance)
+between the training and testing/evaluation samples. Over-training occurs when the MVA learns statistical features of the training sets that are not present in
+the testing/evaluation set.}. This practically translates to using more input variables, and/or smaller training samples than more sophisticated MVAs.
 
 \subsection{Hadronic Top Reconstruction BDT Training}
 The hadronic top BDT is actually two BDTs with the same input variables, but trained on b-tight and b-loose events separately. The motivation for two separate trainings based on b-jet
 content is the \ttbar final state in the signal region is determined by the b-jet content. A \ttbar event with two medium b-jets (b-tight) likely means that the fake lepton is either
-adequately separated from the b-jet it originates from, or that the fake lepton originates from a different source entirely\footnote{It has since been shown that the performance improvement
-from separate trainings is negligible compared to a single inclusive training.}. 
+adequately separated from the b-jet it originates from, or that the fake lepton originates from a different source entirely.
+%\footnote{It has since been shown that the performance improvement from separate trainings is negligible compared to a single inclusive training.}. 
 
 The number of training events used for signal and background in b-loose are 19000 and 90000 respectively.
-The number of training events used for signal and background in b-loose are 13000 and 90000 respectively.
-In both cases, the following hyperparameters were used in training and found to produce the best performance:
+The number of training events used for signal and background in b-tight are 13000 and 90000 respectively.
+In both cases, the following hyperparameters\footnote{Hyperparameters are defined as parameters which are set initially and remain constant during the training process.}
+were used in training and found to produce the best performance:
 
 \begin{itemize}
 \item Number of trees: 1000
@@ -187,7 +215,7 @@ through every node in each tree. Any node with fewer events is not grown. The sh
 The bagged sample fraction is the fraction of sample events that are randomly re-sampled and used during tree growth. The number of cuts specifies the granularity over which an input variable is scanned
 when selecting the best cut value. The maximum tree depth is the maximum number of nodes an event can pass through starting at the root. 
 
-\subsubsection{b-loose}
+%\subsubsection{b-loose}
 
 \begin{figure}[hbtp]
  \begin{center}
@@ -217,7 +245,7 @@ when selecting the best cut value. The maximum tree depth is the maximum number 
 \end{figure}
 
 
-\subsubsection{b-tight}
+%\subsubsection{b-tight}
 
 \begin{figure}[hbtp]
  \begin{center}
@@ -248,7 +276,9 @@ when selecting the best cut value. The maximum tree depth is the maximum number 
 
 
 \subsection{Final Discriminant BDT Training}
-
+The number of training events used for the BDT targeting the \ttv background is 99925, while the number of training
+events used for the BDT targeting \ttbar is 53149. Approximately (effectively) equal numbers of signal and background events were
+used in each training. 
 In both cases, the following hyperparameters were used in training and found to produce the best performance:
 \begin{itemize}
 \item Number of trees: 200
@@ -263,8 +293,7 @@ In both cases, the following hyperparameters were used in training and found to 
 \end{itemize}
 
 
-
-\subsubsection{\ttbar}
+%\subsubsection{\ttbar}
 
 \begin{figure}[hbtp]
  \begin{center}
@@ -294,7 +323,7 @@ In both cases, the following hyperparameters were used in training and found to 
 \end{figure}
 
 
-\subsubsection{\ttV}
+%\subsubsection{\ttV}
 
 \begin{figure}[hbtp]
  \begin{center}
