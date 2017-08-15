@@ -3,65 +3,72 @@
 %
 
 \chapter{SYSTEMATIC UNCERTAINTIES}
-Systematic uncertainties, often referred to as ``systematics'' arise from the uncertainty assigned to specific components of the signal
-and background predictions. These components are categorized as either theoretical uncertainties associated with MC event generators, scale factor uncertainties
-related to data and MC yields, data-driven background uncertainties, and finally miscellaneous shape uncertainties.  
+Systematic uncertainties, often referred to as ``systematics'', are the uncertainties which are introduced as a result of inaccurate and imprecise measurements
+inherent to the system. Systematics are distinct from the uncertainties driven by randomness, which are referred to as statistical uncertainties.
+The systematics in this analysis can be classified as being purely theoretical, purely experimental, or a mixture of both, and include
+the uncertainties on the theoretical understanding of rates and discriminant shapes for the MC-based signal and background predictions,
+the uncertainties from control regions and extrapolations used in the data-driven background predictions
+and finally the uncertainties resulting from data-to-MC agreement in scale factors, and jet energy corrections, respectively.
 
-Systematic uncertainties are accounted for in the maximum likelihood fit in the form of nuisance parameters. Each nuisance represents a systematic uncertainty
-and affects either the overall normalization of the discriminant, known as a rate systematic, or the shape of the discriminant,
-known as a shape systematic\footnote{Some shape systematics also vary the overall normalization}. The rate uncertainty scales all bins of the discriminant
-by a constant factor, while the shape uncertainty varies individual bins separately, thus changing the shape of the discriminant.
-The rate uncertainties use a log-normal prior, while the shape uncertainties use a gaussian prior. 
+Systematic uncertainties are accounted for in the maximum likelihood fit through nuisance parameters, where each nuisance parameter represents a systematic uncertainty.
+Uncertainties on the overall normalization of the discriminant are called rate systematics, while uncertainties on
+the shape of the discriminant are called shape systematics\footnote{Some shape systematics also vary the overall normalization.}.
+The rate uncertainty scales all bins of the discriminant by the same factor, while the shape uncertainty varies individual bins separately,
+thus changing the shape of the discriminant.
 
-The correlations, or lack thereof, of each of the 274 nuisances in this analysis are accounted for in the likelihood fit. 
-Rate uncertainties arising from the same source, are treated as fully correlated across event categories. Shape uncertainties are fully correlated between
-bins of the discrmininant in each category. The bin-by-bin shape uncertainties, which account for limitied statistics, are treated as uncorrelated. 
+The correlations, or lack thereof, of each of the 274 systematic uncertainties in this analysis are accounted for in the likelihood fit with the nuisance parameters. 
+Rate uncertainties arising from the same source, are treated as fully correlated across event categories, and are represented by the same nuisance parameter.
+Shape uncertainties are treated as fully correlated between bins of the discrmininant within each category and are represented by nuisance parameters corresponding to
+each category. The bin-by-bin shape uncertainties, which account for large statistical uncertainty from limited event yields in a bin of the discriminant, are treated as uncorrelated
+and each uncertainty is represented by a unique nuisance parameter.  
 
 
 \section{Theoretical Uncertainties}
-The theoretical uncertainties in this analysis arise from the NLO calculation of the cross section for the signal and background processes.
-All theoretical uncertainties propagated as into the fit as rate uncertainties. For \tth signal,
-these uncertainties amount to +5.8$\%$ -9.2$\%$ from unknown higher order terms in the perturbative expansion and an additional 3.6$\%$ uncertainty for the
+The theoretical uncertainties in this analysis arise from the NLO calculation of the cross section for the signal and MC-based background predictions.
+For \tth signal, these uncertainties amount to +5.8$\%$ -9.2$\%$ from unknown higher order terms in the perturbative expansion and an additional 3.6$\%$ uncertainty for the
 PDFs and the scale ($\alpha_{s}$). For the leading MC background of \ttw and \ttz, the cross section uncertainties are 12$\%$ and 10$\%$ respectively, with
-scale uncertainties of 2$\%$ and 3$\%$ respectively~\cite{xsec_uncert}. A conservative 50$\%$ uncertainty is assigned to all other background MC processes. 
+scale uncertainties of 2$\%$ and 3$\%$ respectively~\cite{xsec_uncert}.
+
+The multiboson processes that form a significant fraction of the remaining MC backgrounds are predicted at NLO accuracy and have theoretical uncertainties
+similar to the signal and leading background samples. Many of these processes, such as $WZ$ and $ZZ$ do not contain b-jets at leading order, and the flavor
+composition of their additional jets in part affects their yields in this signal region, which requires at least one b-tagged jet. 
+The fraction of predicted WZ events in the signal region that contain b-jets is 18$\%$, 37$\%$ in the b-loose and b-tight categories respectively, with the
+remaining fraction events due to mis-tagged gluon, light flavor, and charm jets. 
+The leading theoretical uncertainties for multiboson backgrounds therefore arise from the modeling of the heavy flavor content of the jets,
+in addition to the scale and PDF uncertainties (approximately $20\%$). Additionally we factor in the experimental uncertainty on the b-tagging efficiency
+which ranges from $10\%-40\%$. We conservatively combine both of these into a single uncertainty of 100$\%$ on the $WZ$ background. The largest remaining SM
+backgrounds contain two b-jets, while the others contain one or fewer b-jets and have very small contributions to signal region. We therefore
+assign a 50$\%$ uncertainty to all other background MC predictions. 
 
 \section{Scale Factor Uncertainties}
-Scale factor systematics represent the uncertainty associated with the agreement between data and MC in a given observable. In this analysis,
+Scale factor systematics represent the uncertainty associated with the agreement between data and MC. In this analysis,
 scale factor uncertainties enter the fit in the form of both rate and shape systematics. Scale factor uncertainties are assesed for trigger efficiency,
-lepton selection efficieny, b-tagging efficiency. The trigger efficiency scale factors show nearly perfect agreement, and have uncertainties of approximately
-2$\%$ - which is propagated as a rate uncertainty. The uncertainties on the scale factors for b-tagging are assessed for both heavy flavor and light flavor separately,
-and the b-tag weights are adjusted by $\pm$1 $\sigma$ depending on the specific b-tagging uncertainty and propagated to the fit as shape uncertainties.
-These uncertainties amount to around 3$\%$ for b-tagging, and 10$\%$ for mistag rates.
+lepton selection efficieny, b-tagging efficiency. The trigger efficiencies between data and MC show nearly perfect agreement, and the uncertainties on the corresponding
+scale factors amount to 2$\%$ - which is propagated as a rate uncertainty.
+
+The uncertainties on the b-tagging scale factors are assessed for heavy flavor, charm flavor and light flavor separately.
+These uncertainties include the jet energy scale (JES), where the scale factors are re-derived with JES shifted up and down,
+the purity, where the light (heavy) flavor contamination for heavy (light) flavor scale factors is shifted up and down by 20$\%$,
+and finally from linear and quadratic statistical fluctuations in both data and MC. 
+These uncertainties are propagated to the fit as shape uncertainties and vary between 10$\%$-40$\%$.
+
+The uncertainties on the jet energy corrections (JEC) are calculated by shifting the weight of each jet up and down
+by $\pm$1$\sigma$ and re-calculating the signal region yields. The uncertainties from the JEC amount to approximately 4$\%$. 
 
 \section{Data-driven Background Uncertainties}
-The uncertainties associated with the data-driven background control regions are the dominant systematics in this analysis. 
-Several checks on the data/MC agreement are performed in the control regions to confirm that the data-driven methods are accurate for the reducible MC-estimated
-backgrounds. These checks are performed for the backgrounds arising from fake leptons and charge flips separately.
+The systematics associated with the data-driven background control regions are the largest uncertainties in this analysis. 
+Several checks are performed to estimate the uncertainties related to the data/MC agreement in the control regions used for
+the data-driven background estimations.
+Additional systematics are introduced to account for uncertainties on lepton kinematic variables and their effects on the resulting fake rate. 
 
-For the background due to fake leptons, an alternative fake rare is extracted from non-prompt leptons in QCD MC, and applied to 2lss semi-leptonic \ttbar MC events in the application region.
-Additionally, a second MC fake rate from non-prompt leptons in $\ttbar$ MC,  is applied to the same 2lss sample.
-The test described above is performed in each of the signal regions described above. 
-The difference in normalization between the two fake rate predictions, as well as the difference in discriminant against the $\ttbar$ and ttV backgrounds,
-are propagated as a shape uncertainty to the fit. Examples of these shape variations are in Figures~\ref{fig:closure}.
-The rate uncertainties from the data/MC agreement of the electron (muon) fake rates range from 10\% to 30\% (from 20\% to 40\%) depending on the analysis category,
-and are larger in the b-tight categories. Separate nuisance parameters account for the normalization in the b-loose and b-tight categories, and for different lepton flavors.
-Shape uncertainties are propaged at fixed normalization, and accounted for in the fit with linear distortions acting simultaneously on the two axes of the 2D BDT plane.
-The slope of the distortion typically ranges from 0.1 to 0.4, with separate nuisances for b-loose and b-tight categories, and for different lepton flavors.
-
-\begin{figure}[htb]
-        \centering 
-        \includegraphics[width=0.32\textwidth]{ch10_figs/2lep_catIndex_nosign.pdf}
-        \includegraphics[width=0.32\textwidth]{ch10_figs/kinMVA_2lss_ttbar_withBDTv8.pdf}
-        \includegraphics[width=0.32\textwidth]{ch10_figs/kinMVA_2lss_ttV_withHj.pdf}
-        \caption[MC validation plots of FR method]{Distributions of semi-leptonic $\ttbar$ MC in the signal region, compared with background predictions obtained
-          in MC using fake rates extracted in QCD and $\ttbar$ MC events.}
-        \label{fig:closure}
-\end{figure}
-
-\noindent The uncertainty on the fake rate measurement is propagated to the fit with several nuisances that vary both
-the background normalization with a rate systematic, and the background shape by introducing trends
-in the fake rate bins as a function of the lepton $\pt$ and $|\eta|$  at fixed normalization.
-This is done separately for electrons and muons. These variations are below in Figure~\ref{fig:FRvars_shape}.
+For the background due to non prompt leptons, rate uncertainties are assessed for the data/MC agreement of the measured fake rate
+and are evaluated separately for electrons and muons in the b-tight and b-loose signal regions.
+The fake rates measured in data are compared with those measured in MC in Figure~\ref{fig:fakerate}.
+The uncertainties for the electron (muon) fake rates range from 10\% to 30\% (from 20\% to 40\%) depending on the analysis category, and are larger in the b-tight categories.
+Shape uncertainties on the fake rate measurement are assessed separately for muons and electrons by varying the fake rates themselves,
+and separately varying the lepton kinematic variables which affect the fake rate, specifically lepton \pt and $|\eta|$. All of these quantities are varied up and down
+within their uncertainties ($\pm$1$\sigma$), and the discriminant shape is reproduced for each variation at fixed normalization with respect to the nominal shape.
+These variations are shown in Figure~\ref{fig:FRvars_shape}.
 
 \begin{figure}[htb]
         \centering 
@@ -71,32 +78,31 @@ This is done separately for electrons and muons. These variations are below in F
         \includegraphics[width=0.32\textwidth]{ch10_figs/2lep_e_catIndex.pdf}
         \includegraphics[width=0.32\textwidth]{ch10_figs/kinMVA_2lss_e_ttbar_withBDTv8.pdf}
         \includegraphics[width=0.32\textwidth]{ch10_figs/kinMVA_2lss_e_ttV_withHj.pdf}
-        \caption[Variations in discrminant shape due to fake rate systematics]{Background shape variations from shifts and distortions of the measured data fake rate bins within uncertainties. 
-          Rate normalization shifts are in red. barrel, endcap region shifts are in blue, green respectively. Variations as a function
+        \caption[Variations in discrminant shape due to fake rate systematics]{Background shape variations from shifts and distortions of the measured data fake rate bins
+          within uncertainties ($\pm$1$\sigma$). 
+          The shapes resulting from varying the fake rate up and down are in red. barrel, endcap region shifts are in blue, green respectively. Variations as a function
           of lepton \pt are in yellow. The top,bottom row is for variations to the muon,electron fake rates respectively.}
         \label{fig:FRvars_shape}
 \end{figure}
 
 For the background due to charge mis-assignments, the estimation method is validated in two separate control regions.
-The first is the control region used for measuring the chare flip rates, and the second is enriched in \ttbar events, with the same b-jet
-requirement as the signal region, and 2 or 3 preselected jets. Based on the statistical uncertainty of measured probabilities
-and the closure with data in the validation control regions, a 30$\%$ uncertainty is assigned to this background. 
+The first is the control region is enriched in DY events, and is the same region used for measuring the charge flip rates, and the second control region 
+is enriched in \ttbar events, with the same b-jet requirement as the signal region, and exactly 2 or 3 preselected jets.
+The data/MC agreement in the DY enriched, and in the \ttbar enriched control regions
+for relevant variables is shown in Figure~\ref{fig:chargeFlip_cr} in the top and bottom rows respectively.
+Based on the data/MC agreement in the control regions, and the statistical uncertainty of measured probabilities,
+a 30$\%$ rate uncertainty is assigned to the charge flip background.
 
 
-
-\section{Misc. Shape Uncertainties}
-Miscellaneous shape uncertainties not falling into the above categories include some of the most important systematics in the analysis.
-These systematics include the uncertainty on the jet energy corrections, which  shift the weight of each jet up and down
-by $\pm$1$\sigma$ and re-calculating the signal region yields. To account for statistical fluctuations in individual bins, shape systematics
-are assigned that vary each individual bin in each category for each process. 
-
-
-
-
-%% \begin{figure}[hbtp]
-%%  \begin{center}
-%%    \includegraphics[width=0.8\textwidth]{ch4_figs/cms_particleflow.pdf}
-%%    \caption{An overview of how CMS detects different types of particles. The slice of CMS in in the x-y plane.~\cite{NEED CITATION}.}
-%%    \label{fig:cms_pflow}
-%%  \end{center}
-%% \end{figure}
+\begin{figure}[htb]
+        \centering 
+        \includegraphics[width=0.32\textwidth]{ch10_figs/chargeFlip_closureDy/minMllAFAS.pdf}
+        \includegraphics[width=0.32\textwidth]{ch10_figs/chargeFlip_closureDy/nJet25.pdf}
+        \includegraphics[width=0.32\textwidth]{ch10_figs/chargeFlip_closureDy/met.pdf}\\
+        \includegraphics[width=0.32\textwidth]{ch10_figs/chargeFlip_closureTt/minMllAFAS.pdf}
+        \includegraphics[width=0.32\textwidth]{ch10_figs/chargeFlip_closureTt/nJet25.pdf}
+        \includegraphics[width=0.32\textwidth]{ch10_figs/chargeFlip_closureTt/met.pdf}
+        \caption[Data/MC agreement in charge flip control regions]{Data/MC agreement in Dilepton invariant mass (left), jet multiplicity (middle), and \met (right) variables
+        in the DY enriched control region (top row) and \ttbar-enriched control region (bottom).}
+        \label{fig:chargeFlip_cr}
+\end{figure}
