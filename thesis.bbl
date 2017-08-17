@@ -341,8 +341,7 @@ P.~Nason.
 
 \bibitem[Bayatian et~al.(2002)]{tridas}
 S.~Cittolin, A.~Racz, P.~Sphicas.
-\newblock \emph{{CMS The TriDAS Project: Technical Design Report Volume 2: Data Acquisition
-and High-Level Trigger}}.
+\newblock \emph{{CMS The TriDAS Project: Technical Design Report Volume 2: Data Acquisition and High-Level Trigger}}.
 \newblock Technical Design Report CMS. CERN, Geneva, 2002.
 
 \bibitem[Keith Ulmer.(Accessed: July 3rd 2017)]{miniIso}
@@ -422,6 +421,12 @@ S.S. Wilks
 Composite Hypotheses}.
 \newblock \emph{The Annals of Mathematical Statistics}, 9:\penalty60-62, 1938.
 \newblock \doi{10.1214/aoms/1177732360}.
+
+\bibitem[Eilam Gross.(Accessed: August 17th 2017)]{lhc4peds}
+Eilam Gross
+\newblock {LHC Statistics for Pedestrians}.
+\newblock Website, Accessed: August 17th 2017.
+\newblock \url{https://cds.cern.ch/record/1099994/files/p205.pdf}.
 
 
 %%%%%%%%%%%%%% Haven't needed these yet...

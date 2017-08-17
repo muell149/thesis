@@ -2,33 +2,39 @@
 % Chapter 11
 %
 
-\chapter{STATISTICAL METHODS}
+\chapter{STATISTICAL METHODS & RESULTS}
 \label{chap:stats}
-The \tth signal process, as well as the background, is inherently subject to statistical fluctuations due to quantum mechanics.
-Additional randomness is introduced in the measurement process. This inherent randomness means that simply counting the number of predicted
+The \tth signal process, as well as the backgrounds, are inherently subject to randomness due to quantum mechanics.
+Additional statistical fluctuations are introduced in the measurement process. This inherent randomness means that simply counting the number of predicted
 signal and background events, and counting the number of events observed from data and comparing the two numbers is not necessarily enough to infer the presence or
 lack thereof of the \tth signal process. Instead, the degree to which the
 number of events in the signal and background predictions agree, given their uncertainties, with the number of events observed in data, must be quantified.
-Furthermore we must quantify the probability that the numbers we observe are representative of nature at large, and not a statistical fluctuation driven by randomness. 
-We use the likelihood function as the basis for estimating the signal strength parameter via the maximum likelihood technique, and also for composing our test statistic when
-calculating upper limits  on the signal strength parameter via the CLs method. 
+Furthermore we must quantify the probability that, and the extent to which, the numbers we observe are not due to statistical fluctuations driven by randomness. 
+To quantitatively estimate how well the prediction, the existence of the SM \tth signal and corresponding backgrounds, agree with the observation in data,
+we use techniques based on the likelihood function.
+%We use the likelihood function as the basis for estimating the signal strength parameter via the maximum likelihood technique, and also for composing our test statistic when
+%calculating upper limits  on the signal strength parameter via the CLs method. 
 
-
-\section{Maximum Likelihood Fit}
+\section{Maximum Likelihood Fit, Signal Strength}
 \label{sec:fit}
-The likelihood function is defined as the probability density of the number of observed events, $N$, given the predicted number of signal-plus-background events, $\mu~s + b$,
-where $\mu$ is the signal strength parameter we wish to estimate. $\mu$ is more generally referred to as the parameter of interest, and it is free to float to the value
-which best fits the observation. The signal strength parameter is assumed to be a modifier on the cross section of the \tth signal process, and does not depend on repeated
-observations or bins. The simplified likelihood, ignoring nuisance parameters for now, is written as a Poisson probability under the freqentist approach as:
+The primary purpose of this analysis is to determine the extent to which there exists a SM \tth signal in the observed data. This is quantified with the signal strength
+parameter $\mu$, which is determined from the Maximum Likelihood Estimator (MLE) method. 
+The likelihood function is defined as the probability density of the number of observed events, $N$, given the predicted number of signal-plus-background events, $\mu$s$ + b$,
+where $\mu$ is the signal strength parameter we wish to estimate.
+The signal strength parameter is a modifier (multiplier) on the SM cross section of the \tth signal process, defined as $\mu = \sigma(\tth)/\sigma_{SM}(\tth)$.
+The signal strength parameter $\mu$ is more generally referred to as the parameter of interest, and it is free to float to the value which best fits the observation.
+The simplified likelihood, ignoring nuisance parameters for now, is written as a Poisson probability as:
 
 \begin{equation}
 \label{eqn:likelihood1}
 \mathcal{L}(data|\mu) = P(N|\mu s+b) = \frac{(\mu s+b)^{N}e^{-(\mu s+b)}}{N!}
 \end{equation}
 
-\noindent The above expression holds for a single bin of events, however this analysis is performed in each subcategory of the signal
-region for each bin of the final BDT discriminant. The likelihood for this analysis must be calcualted separately for each bin of each signal region category $i$, and
-the corresponding number of observed events in data $n_{i}$, and predictions of signal and background, $s_{i}, b_{i}$ respectively:
+\noindent The above expression holds for a single bin of events; however, this analysis is performed in each subcategory of the signal
+region for each bin of the final BDT discriminant.
+As each bin in each subcategory is statistically independent, the overall likelihood for this analysis is then the product of the
+separate likelihoods for each bin in each subcategory, $i$,
+calculated given the cooresponding predictions of signal and background yields $s_{i}, b_{i}$ and number of events observed in data $n_{i}$ as:
 
 \begin{equation}
 \label{eqn:likelihood2}
@@ -36,19 +42,23 @@ the corresponding number of observed events in data $n_{i}$, and predictions of 
 \end{equation}
 
 \noindent Now the uncertainties associated with the signal and background predictions must be accounted for in the form of nuisance parameters. The expected signal
-and background yields are re-written $s \rightarrow s(\theta)$ and $b \rightarrow b(\theta)$ to depend on the set of nuisances $\theta$. The expected value of the nuisances
-is $\tilde{\theta}$. The nuisances are parametrized as a PDF $P(\theta|\tilde{\theta})$. With Bayes' theorem, this PDF becomes:
+and background yields are re-written $s \rightarrow s(\theta)$ and $b \rightarrow b(\theta)$ to depend on the set of nuisance parameters $\theta$. The expected value of the nuisance
+parameters is $\tilde{\theta}$. The nuisance parameters are initially parametrized as Bayesian posterior PDF: $P(\theta|\tilde{\theta})$.
+In this context, $P(\theta|\tilde{\theta})$ is the posterior probability, or the degree to which we believe the true value of $\theta$ given our initial estimate $\tilde{\theta}$.
+To incorporate the nuisance parameters into the frequentist likelihood above, the Bayesian posterior PDFs must be re-interpreted as freqentist SOMETHINGS.
+This is done using Bayes' theorem to express the Bayeisan posterior PDFs as the result of some fictional (or real) measurements $\tilde{\theta}$ with PDF $P(\tilde{\theta}|\theta)$, where we assume nothing
+a priori about $\theta$:
 
 \begin{equation}
 \label{eqn:nuisance}
-P(\theta|\tilde{\theta}) ~ P(\tilde{\theta}|\theta) \cdot \pi(\theta)
+P(\theta|\tilde{\theta}) \approx P(\tilde{\theta}|\theta) \cdot \pi(\theta)
 \end{equation}
 
-In this context, $P(\theta|\tilde{\theta})$ is the posterior probability, or the degree to which we believe the true value of $\theta$ given our estimate $\tilde{\theta}$.
-$P(\tilde{\theta}|\theta)$ is interpreted as the probability of obtaining the value $\tilde{\theta}$ when the true value is $\theta$. $\pi(\theta)$ is the prior.
-In this analysis, the prior is a gaussian distribution for shape systematics, and a log-normal distribution for rate systematics. For gaussian and log-normal distributions,
-the prior $\pi(\theta)$ does not vary significantly with $\theta$. We can solve Equation~\ref{eqn:nuisance} for $P(\tilde{\theta}|\theta)$, which constrains the nuisances
-and the likelihood can be modified properly:
+\noindent where $\pi(\theta)$ is the flat prior representing our (lack of) knowledge on $\theta$.
+$P(\tilde{\theta}|\theta)$ is the frequentist PDF for the nuisance parameters and interpreted as the probability of measuring the value $\tilde{\theta}$ when the true value is $\theta$.
+In this analysis, a gaussian distribution is used for shape systematics, and a log-normal distribution for rate systematics. For gaussian and log-normal distributions,
+the prior $\pi(\theta)$ is kept flat and does not vary significantly with $\theta$. We can solve Equation~\ref{eqn:nuisance} for $P(\tilde{\theta}|\theta)$, which constrains the nuisances
+and the likelihood can be modified to incorporate the systematic uncertainties via nuisance parameters:
 
 \begin{equation}
 \label{eqn:likelihood3}
@@ -56,53 +66,55 @@ and the likelihood can be modified properly:
 \end{equation}
 
 \noindent The estimated value for $\mu$ is obtained from finding the values of $\mu$ and $\theta$ which maximize the likelihood, denoted as $\hat{\mu}$ and $\hat{\theta}$.
-This technique is called the maximum likelihood estimation (MLE)~\cite{lista}.
+This frequentist technique is called the maximum likelihood estimation (MLE)~\cite{lista} and the general technique of measuring nuisance parameter values based on a fit
+to data is called ``profiling''.
 In practice, we first take the negative log of the likelihood (NLL), and then find the minimum, since it simplifies
 the procedure by turning the product in Equation~\ref{eqn:likelihood3} into a sum. $\hat{\mu}$ is referred to as the ``best-fit'' $\mu$, because it is the value which best fits the data.
 This maximum likelihood procedure is also referred to generally as the ``fit''~\cite{CMS-AN-11-298}. 
 
 \section{Upper Limits: CLs Method}
 \label{sec:limit}
-When an analysis lacks the sensitivity to detect a signal from background, setting uppper limits on the possible values of $\mu$ is useful. In setting upper
+When an analysis lacks the sensitivity to discriminate signal from background, setting uppper limits on the possible values of $\mu$ is paramount. In setting upper
 limits, $\mu$ is constrained as phase space of $\mu$ values is reduced and more values excluded. This strategy was used by the Higgs analyses at LEP and the Tevatron, and is the primary figure of merit
-for an analysis with little sensitivity. The \tth analysis presented here does not fall into this category, although previous iterations lacked the sensitivity
-to detect \tth in data. While this analysis does have sensitivity to \tth, upper limits are still set using the CLs method, also known as the
+for an analysis with little sensitivity.
+The \tth analysis presented here does not fall exclusively into this category as it has some sensitivity to \tth, although previous iterations lacked the sensitivity
+to detect \tth in data. Upper limits are set using the CLs method, also known as the
 Modified Frequentist approach, which builds on the likelihood described in the previous section. 
 
-Starting from the likelihood in Equation~\ref{eqn:likelihood3}, we construct a test statistic, $q_{\mu}$, based on the profile likelihood ratio\footnote{The ``profile'' in profile
-likelihood ratio is due to the fact that the nusiance parameter values are constrained from a fit to data.}~\cite{AsymptoticLimits},
+Starting from the likelihood in Equation~\ref{eqn:likelihood3}, we construct a test statistic, $q_{\mu}$, based on the profile likelihood ratio~\cite{AsymptoticLimits},
 defined as:
 
 \begin{equation}
 \label{eqn:test_stat}
-\tilde{q}_{\mu} = -ln \frac{\mathcal{L}(data|\mu,\hat{\theta_{\mu}})}{\mathcal{L}(data|\hat{\mu},\hat{\theta})},~~~~~0 \leq \hat{\mu} \leq{\mu}
+\tilde{q}_{\mu} = -ln \frac{\mathcal{L}(data|\mu,\hat{\theta}_{\mu})}{\mathcal{L}(data|\hat{\mu},\hat{\theta})},~~~~~~~~~0 \leq \hat{\mu} \leq{\mu}
 \end{equation}
 
-\noindent Where $\hat{\theta_{\mu}}$ is the value of the nusiances corresponding to $\mu$. $\mathcal{L}(data|\mu,\hat{\theta_{\mu}})$ is the maximized likelihood where $\mu$
-is fixed to some value and $\hat{\theta_{\mu}}$ floats freely. The denominator, $\mathcal{L}(data|\hat{\mu},\hat{\theta})$, is the maximum likelihood obtained
-previously where both parameters float. The lower bound $0 \leq \hat{\mu}$ ensures the signal is positive. The upper bound $\hat{\mu} \leq \mu$ imposes a one-sided
-confidence interval, which practically means that upward fluctuations of data $\hat{\mu} > \mu$, where the hypothesis is $\mu$, cannot be considered as evidence
-against the signal-plus-background hypothesis.  
+\noindent where $\hat{\theta}_{\mu}$ is the best-fit value of the nusiance parameters resulting from maximizing $\mathcal{L}(data|\mu,\hat{\theta}_{\mu})$ at a fixed $\mu$. 
+The denominator, $\mathcal{L}(data|\hat{\mu},\hat{\theta})$, is the maximum likelihood obtained
+previously where both parameters float. The lower bound $0 \leq \hat{\mu}$ ensures the signal is positive.
+The upper bound $\hat{\mu} \leq \mu$ is imposed to produce a one-sided confidence interval. This also prevents upward fluctuations of data $\hat{\mu} > \mu$, 
+from being considered as evidence against the signal hypothesis (a signal strength of $\mu$).
 
-With the definition of the test statistic, we calculate $\tilde{q}_{\mu}^{obs}$, the observed test statistic value in data, by evaluating it for many different
-values of $\mu$. Now the values for the nuisance parameters observed in data, $\hat{\theta_{0}^{obs}}$, $\hat{\theta_{\mu}^{obs}}$ are obtained from maximizing
-the likelihoods under the background-only ($\mu=0$), and signal-plus-background hypotheses respectively. Next, two test statistic PDFs
-$f(\tilde{q}_{\mu}|\mu,\hat{\theta_{\mu}^{obs}})$, and $f(\tilde{q}_{\mu}|0,\hat{\theta_{0}^{obs}})$ are constructed from psuedo-data
+With the definition of the test statistic, we calculate $\tilde{q}_{\mu}^{obs}$, the observed test statistic value in data,
+for many values of $\mu$, obtaining the values for the nuisance parameters observed in data, $\hat{\theta}_{0}^{obs}$, $\hat{\theta}_{\mu}^{obs}$
+from maximizing the likelihoods under the background-only ($\mu=0$), and signal-plus-background hypotheses respectively.
+Next, two test statistic PDFs
+$f(\tilde{q}_{\mu}|\mu,\hat{\theta}_{\mu}^{obs})$, and $f(\tilde{q}_{\mu}|0,\hat{\theta}_{0}^{obs})$ are constructed from psuedo-data
 generated with MC toys, obtained from random sampling of nusiance parameter values from the fit to data at fixed $\mu$.  Next we calculate a p-value $p_{\mu}$, $p_{b}$
 for the signal-plus-background and background-only hypotheses. The p-value $p_{\mu}$ represents the probability that the observed data is incompatible with the
-signal-plus-background hypothesis, with signal strength $\mu$. As $p_{\mu}$ decreases, the more confident we are that the value of $\mu$ being evaluated is the
-upper limit on the signal strength. The p-value $p_{b}$ is the probability for compatibility with the background-only hypothesis. As $p_{b}$ decreases, the probability
-of a signal in the data increases. It is more convenient to work with $1-p_{b}$, since this value is the probability of incompatibility with the background-only hypothesis,
-just as $p_{s}$ is a probability of incompatibility with the signal-plus-background hypothesis:
+signal-plus-background hypothesis, with signal strength $\mu$.
+The p-value $p_{b}$ is the probability for compatibility with the background-only hypothesis.
+It is more convenient to work with $1-p_{b}$, since this value is the probability of incompatibility with the background-only hypothesis,
+just as $p_{\mu}$ is a probability of incompatibility with the signal-plus-background hypothesis:
 
 \begin{equation}
 \label{eqn:pvalues1}
-p_{\mu} = P(\tilde{q}_{\mu} \geq \tilde{q}_{\mu}^{obs}|signal+background) = \int_{\tilde{q}_{\mu}^{obs}}^{\infty} f(\tilde{q}_{\mu}|\mu,\hat{\theta_{\mu}^{obs}}) d\tilde{q}_{\mu}
+p_{\mu} = P(\tilde{q}_{\mu} \geq \tilde{q}_{\mu}^{obs}|signal+background) = \int_{\tilde{q}_{\mu}^{obs}}^{\infty} f(\tilde{q}_{\mu}|\mu,\hat{\theta}_{\mu}^{obs}) d\tilde{q}_{\mu}
 \end{equation}
 
 \begin{equation}
 \label{eqn:pvalues2}
-1- p_{b} = P(\tilde{q}_{\mu} \geq \tilde{q}_{\mu}^{obs}|background-only) = \int_{\tilde{q}_{0}^{obs}}^{\infty} f(\tilde{q}_{\mu}|0,\hat{\theta_{0}^{obs}}) d\tilde{q}_{\mu}
+1- p_{b} = P(\tilde{q}_{\mu} \geq \tilde{q}_{\mu}^{obs}|background-only) = \int_{\tilde{q}_{0}^{obs}}^{\infty} f(\tilde{q}_{\mu}|0,\hat{\theta}_{0}^{obs}) d\tilde{q}_{\mu}
 \end{equation}
 
 \noindent We define confidence levels (CL) for each hypothesis, with $CL_{s+b} = p_{\mu}$, and $CL_{b} = 1-p_{b}$, with $CL_{s}$ being the ratio of the two:
@@ -116,7 +128,16 @@ CL_{s}(\mu) = \frac{CL_{s+b}}{CL_{b}} = \frac{p_{\mu}}{1-p_{b}}
 for incompatibility with the signal-plus-background hypothesis decreases, $CL_{s}(\mu)$ will decrease, and we become more confident that the observed data is more consistent with
 the signal-plus-background hypothesis than the background-only hypothesis. The observed 95$\%$ CL upper limit on $\mu$ is obtained by testing different values of decreasing $\mu$ and
 calculating $CL_{s}(\mu)$, the upper limit is the value of $\mu$ for which $CL_{s}(\mu) = 0.05$. In general we say that for some $\mu$ corresponding to $CL_{s}(\mu) \leq \alpha$
-greater values of $\mu$ are excluded at the $1-\alpha$ CL. 
+greater values of $\mu$ are excluded at the $1-\alpha$ CL level. 
+
+\begin{figure}[htb]
+        \centering 
+        \includegraphics[width=0.80\textwidth]{ch11_figs/cls.pdf}
+        \caption[Test statistic PDFs for s+b and b-only hypotheses]{An example of the signal-plus-background (red, $H_{1}$) and background-only (blue, $H_{0}$) PDFs for a
+          test statistic (labeled 'likelihood' on the x-axis). The $(1-\alpha)\%$ CL upper limit is the value of $\mu$ which corresponds to x-axis value
+          when $\frac{CL_{s+b}}{CL_{b}} \leq \alpha$~\cite{lhc4peds}.}
+        \label{fig:cls}
+\end{figure}
 
 The expected upper limit is calculated by generating the background-only distribution from MC toys as described previously, for many psuedo experiments, calculating $CL_{s}$, $\mu^{95\% CL}$
 for each distribution (psuedo experiment). Then a cumulative distribution of $\mu^{95\% CL}$ is constructed and the median expected value on the upper limit of $\mu$ is reported - which is the value
@@ -143,7 +164,7 @@ U.S. election is determined by a single vote of one person, who is said to repre
 signal-plus-background and background-only hypotheses are constructed from Equation~\ref{eqn:asymptote} instead of from toy MC~\cite{CMS-AN-11-298}. 
 
 \section{Significance}
-To determine the significance of a result, we use the asymptotic approximation of the profile likelihood described above. We calculate the probability of an observation that is as or less compatible with the
+To determine the significance of a result, we use the asymptotic approximation of the profile likelihood described above. We calculate the probability of an observation that is compatible with the
 data in the background-only hypothesis. This is the probability that the background randomly fluctuated to produce the observation in data. The lower this probability, the greater the significance.
 This is expressed as a p-value, $p_{0}$:
 
