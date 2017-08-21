@@ -7,11 +7,11 @@
 Each of the CMS subdetectors (neglecting the trigger system) technically only record and detect hits and energy deposits. While these hits and energy deposits are almost
 always due to passing particles, the detectors and readouts themselves only produce information about the position, multiplicity, and value of
 these hits and energy deposits respectively. Sophisticated algorithms are used to reconstruct these hits and deposits into particles. These reconstructed particles are
-referred to as physics \emph{objects}. The reconstruction techniques vary greatly with different objects and suits the subdetectors used to detect and record their
+referred to as physics \emph{objects}. The reconstruction techniques vary greatly with different objects and suit the subdetectors used to detect and record their
 hits and energy deposits. 
 
 \section{Object Reconstruction and Particle Flow}
-The particle flow algorithm is used by CMS to reconstruct physics objects from hits and energy deposits. Particle Flow and CMS are unique in the sense
+The particle flow algorithm is used by CMS to reconstruct physics objects from hits and energy deposits. Particle flow and CMS are unique in the sense
 that nearly all physics analyses performed on data collected by CMS use objects reconstructed with this approach.
 Particle flow coordinates the many reconstruction algorithms across all CMS subdetectors into a single global picture of each event. The primary advantage of this strategy is
 uniform and consistent object definitions across nearly all papers published on behalf of CMS. The purpose of particle flow is to
@@ -59,18 +59,18 @@ corresponding tracks and energy deposits removed from further consideration for 
 
 At this point in the event/object reconstruction, the so-called ``low hanging fruit'' has been picked, and the more difficult objects are all that remain. These objects are charged
 and neutral hadrons (jets), and photons. The neutral particles are difficult to reconstruct because they don't leave hits in the tracker, so only calorimeter information is
-available. Photons interact electromagnetically are stopped by the ECAL, while neutral hadrons are stopped and deposit their energy in the HCAL.
+available. Photons interact electromagnetically and are stopped by the ECAL, while neutral hadrons are stopped and deposit their energy in the HCAL.
 The remaining tracks are subject to
 quality cuts aimed at reducing the fake-rate. The high-quality tracks passing these thresholds are matched to ECAL and HCAL deposits, and give rise to particle flow 
 charge hadrons. The momentum of these objects is measured from the track radius and compared to the corresponding energy deposit in the calorimeters assuming the object is
-a charged pion. If the two measurements are compatible, the momenta is refined with additonal fits to the tracks and energy deposit(s)~\cite{CMS-PFT-09-001}.
+a charged pion. If the two measurements are compatible, the momenta is refined with additional fits to the tracks and energy deposit(s)~\cite{CMS-PFT-09-001}.
 
 The charged and neutral hadron objects with tracks and matched energy deposits are only considered particle flow candidates at this stage.
 An additional clustering step is necessary to reconstruct jet objects. As mentioned previously, when free quarks produced in the pp collision decay in the
 fragmentation/hadronization process, they produce energetic and collimated sprays of charged
 and neutral hadrons, called jets. To accurately determine the direction and momentum of the initial quark, as many of the corresponding charged and neutral hadrons as possible must not only be
 reconstructed correctly and identified, but also clustered together (matched) correctly.
-These jets are then intrepreted experimentally to be the free quark. An depiction of the hadronization and jet detection process is below in Figure~\ref{fig:frag}.
+These jets are then interpreted experimentally to be the free quark. A depiction of the hadronization and jet detection process is below in Figure~\ref{fig:frag}.
 
 \begin{figure}[hbtp]
  \begin{center}
@@ -80,9 +80,9 @@ These jets are then intrepreted experimentally to be the free quark. An depictio
  \end{center}
 \end{figure}
  
-Because this hadronization processes is challenging to reconstruct, jet clustering is accomplished with specialized algorithms. 
+Because the hadronization process is challenging to reconstruct, jet clustering is accomplished with specialized algorithms. 
 These algorithms exploit information from the detector with theoretical knowledge of the
-hadronization process to cluster the jets sensible and reproducible manner.
+hadronization process to cluster the jets in a sensible and reproducible manner.
 While many clustering algorithms exist, CMS uses the anti-$k_{T}$ algorithm~\cite{antikt} for jet clustering.
 Like other sequential clustering algorithms, anti-$k_{T}$ begins by finding the highest \pt candidate or seed, and
 calculating the distance measures in equations~\ref{eqn:antikt1}. 
@@ -118,8 +118,8 @@ Figure~\ref{fig:jet_cluster}.
     \label{fig:jet_cluster}}
 \end{figure}
 
-The final parameter in equation~\ref{eqn:antikt1} is defined as $R = \sqrt{\Delta\eta^{2}+\Delta\phi^{2}}$ is the conesize of the jet being clustered.
-The cone size used for clustering in this analysis is R = 0.4. Versions of this analysis on 7, and 8 TeV datasets used a wider cone of 0.5. The move to smaller cone size
+The final parameter in equation~\ref{eqn:antikt1} is defined as $R = \sqrt{\Delta\eta^{2}+\Delta\phi^{2}}$ and is the conesize of the jet being clustered.
+The cone size used for clustering in this analysis is R = 0.4. Versions of this analysis on 7 TeV, and 8 TeV datasets used a wider cone of 0.5. The move to smaller cone size
 was motivated by the fact that jets tend to be more energetic and thus narrower and more collimated as the center-of-mass collision energy increases to 13 TeV. All techniques
 mentioned above provide CMS analyzers the basic physics objects needed to perform analysis, and also standardizes the object reconstruction across the experiment. 
 
@@ -142,16 +142,16 @@ LHC bunch crossing is below in Figure~\ref{fig:pileup_vertices}.
  \begin{center}
    \includegraphics[width=0.8\textwidth]{ch4_figs/cms_pileup.pdf}
    \caption[Pileup vertices in the CMS tracker]{A side view of the CMS tracker's reconstructed vertices in a special high pileup LHC run. The pileup here is 78, meaning there are
-78 collisons in a single bunch crossing~\cite{pileup_image}.}
+     78 collisions in a single bunch crossing~\cite{pileup_image}.}
    \label{fig:pileup_vertices}
  \end{center}
 \end{figure}
 
-\noindent The peak pileup values in the data analyzed varies from 30 to 45, meaning there are, on average, between 30 and 45 collisions (including the primary vertex) in each
+\noindent The peak pileup values in the data analyzed vary from 30 to 45, meaning there are, on average, between 30 and 45 collisions (including the primary vertex) in each
 bunch crossing recorded by CMS\footnote{For a given bunch crossing, the actual number of pileup collisions varies according to a Poisson distribution, where the average is taken.}. 
 
 \section{Object Selection}
-After the basic object reconstruction is performed, each event is ready for the fist steps of analysis. The analysis begins with object selection where the objects in each
+After the basic object reconstruction is performed, each event is ready for the first steps of analysis. The analysis begins with object selection where the objects in each
 event are subjected to tighter criteria to ensure quality objects in the analysis that are consistent with signal expectations and reject background. This selection is tailored
 to the type of objects in the desired signal event. Because the \tth multilepton final state is so complicated, almost\footnote{all objects except the photon, which are
 used in the \tth,$H\rightarrow\gamma\gamma$ search} all objects available from the particle flow
@@ -163,7 +163,7 @@ Charged hadrons not originating from the primary vertex are subtracted from the 
 must be updated to correct for performance degradation in the calorimeters. The jets are corrected in bins of jet $E_{T}$ (transverse energy) and $\eta$~\cite{jec}.
 
 The jet selection for this analysis requires jets to have a \pt $>$ 25 GeV and $|\eta|$ $<$ 2.4. Jets are removed when they overlap with a fakeable lepton (described later) within
-a $\Delta$R cone of $<$ 0.4. Finally, the jets must pass the working point of the an MVA used to discriminate against jets from pileup vertices. This discriminator uses inputs
+a $\Delta$R cone of $<$ 0.4. Finally, the jets must pass the working point of an MVA used to discriminate against jets from pileup vertices. This discriminator uses inputs
 characterizing the shape of the jet, the relative amounts of charged and neutral candidates within the jet, and the \pt ratio between the candidates. 
 
 \subsection{b-jet Identification}
@@ -208,16 +208,16 @@ definition is modified to instead select dileptonic events with two leptons that
 This control region applied on data yields events enriched in Z+jets and the tag-and-probe process is repeated. The full details of this technique are described in~\cite{CMS-AN-2013-130}~and~\cite{csvsf_twiki}.
 
 \subsection{Missing Energy}
-Missing energy, or more accuarately missing \emph{transverse} energy is calculated as the negative vector sum of \pt of all PF candidates in the event\footnote{The word ``Energy'' is used here in place of momentum
-for historical reasons because this quantity used to be calculated from the energy measured in the calorimeters of older experiments, and still is for neutral objects where momentum information is unavailable due to the
+Missing energy, or more accurately missing \emph{transverse} energy is calculated as the negative vector sum of \pt of all PF candidates in the event\footnote{The word ``Energy'' is used here in place of momentum
+for historical reasons. This quantity used to be calculated from the energy measured in the calorimeters of older experiments, and still is for neutral objects where momentum information is unavailable due to the
 lack of a curved track.}, denoted as \met. It is called missing because
 the gluons (or quarks) colliding in the hard scatter that produce events such as \tth have no initial transverse momentum. By momentum conservation, the vector sum of all particles
-produced in the collision should match the sum before the collison. Any time the \met is non-zero, it is assumed to be either from mismeasurments, or carried off by undetected ``missing'' particles.
+produced in the collision should match the sum before the collision. Any time the \met is non-zero, it is assumed to be either from mismeasurements, or carried off by undetected ``missing'' particles.
 In the context of this and many other analyses, the \met is interpreted as the presence of neutrinos. The two same-sign lepton requirement on the signal ensures that there will always be two neutrinos in the event, making it impossible to fully
-reconstruct the individual neutrino momenta. The presence of \met can also occurs due to mismeasurements/incorrect object reconstructions. To discriminate
+reconstruct the individual neutrino momenta. The presence of \met can also occur due to mismeasurements/incorrect object reconstructions. To discriminate
 between the different sources of \met we use another variable called \HT, which is the negative vector sum of all selected jets and leptons in the event. While \HT has lower resolution than the \met,
-it relies only on the higher \pt selected objects and not the softer objects failing the seleciton. To exploit the fact that \HT and \met are less correlated in events with incidental missing energy,
-and more correlatd in events with real missing energy, a linear discriminat of both varibles is defined in equation~\ref{eqn:metld} below.
+it relies only on the higher \pt selected objects and not the softer objects failing the selection. To exploit the fact that \HT and \met are less correlated in events with incidental missing energy,
+and more correlated in events with real missing energy, a linear discriminant of both varibles is defined in equation~\ref{eqn:metld} below.
 
 \begin{equation}
 \label{eqn:metld}
@@ -229,16 +229,17 @@ The \met LD threshold is described in Chapter~\ref{chap:event_selection}.
 
 \subsection{Leptons}
 The flagship objects that characterize this analysis are leptons. The lepton selection is the foundation of this \tth search and drives an important component of the background estimation.
-The ultimate goal of the lepton selection is to identify and select prompt leptons and reject non-prompt, also known as fake, leptons. In this analysis, leptons are defined as being electrons or muons.
+The ultimate goal of the lepton selection is to identify and select prompt leptons and reject non-prompt leptons, also known as fake leptons. In this analysis, leptons are defined as being electrons or muons.
 Taus are excluded from this defnition because they are unstable and decay in the detector. In this context, a prompt lepton
-is a lepton that originates directly (promptly) from a W, Z or $\tau$\footnote{Prompt leptons produced in $\tau$ decays are actually coming from an offshell W produced by the decaying $\tau$} decay, while non-prompt leptons
-predominantly originate from b-hadron decays, but also in-flight decays of pions, and photon conversions. The term \emph{fake} is used to describe non-prompt leptons because non-prompt leptons
+is a lepton that originates directly (promptly) from a W, Z or $\tau$ decay, while non-prompt leptons
+predominantly originate from b-hadron decays, but also in-flight decays of pions, and photon conversions\footnote{Prompt leptons produced in $\tau$ decays are actually coming from an offshell W produced by the decaying $\tau$} .
+The term \emph{fake} is used to describe non-prompt leptons because non-prompt leptons
 that pass the criteria designed to select prompt leptons are faking prompt leptons. These fakes are one of the largest backgrounds in this analysis and the lepton selection is designed to reduce both
 the quantity of fakes entering the signal regions, and the systematic uncertainties on that quantity. 
 
 \subsubsection{Electron Identification}
 Electrons are reconstructed from tracker hits (GSF tracks) and ECAL clusters via particle flow as described previously. While many other requirements are placed on electrons later, they first must
-have $|\eta|<$2.5 to be guarantee they passed through the tracker, and minimum \pt $>$ 7 GeV. Electrons must pass the working point of an MVA designed to identify electrons using shower-shape variables,
+have $|\eta|<$2.5 to guarantee they passed through the tracker, and minimum \pt $>$ 7 GeV. Electrons must pass the working point of an MVA designed to identify electrons using shower-shape variables,
 track-cluster consistency variables, and track quality variables~\cite{elemvaid}. We apply loose cuts as a function of $|\eta|$ on this MVA value. The value of this MVA discriminator is used as an input to
 the Lepton MVA, which will be described in the following sections. For the tightest selections, we also require the charge measurements in the pixels and strips to agree and be well-matched to ECAL clusters.
 Additionally, electrons must not have missing hits in the inner tracker, and pass additional veto which suppresses contributions from photon conversions. 
@@ -249,11 +250,11 @@ Muons are reconstructed by combining tracks from the silicon tracker with tracks
 $|\eta|<$2.4. We use the selectrion criteria developed by the CMS
 Muon Physics Object Group (POG) and require all muons to pass the Loose ID~\cite{loosemuon} and in some cases the Medium ID~\cite{mediummuon} depending on the selection. Additionally, we require
 the sign of the muon electric charge to be well measured by appling a cut related to the significance of the muon \pt measurement called \emph{tight charge} defined as: $\Delta~p_{T}/p_{T} < 0.2$,
-where $\Delta~p_{T}$ is the uncertainty on the muon pt. This cut ensures a high confidence on the charge sign of the muons. This cut is only required on the tightest selection of muons.  
+where $\Delta~p_{T}$ is the uncertainty on the muon \pt. This cut ensures a high confidence on the charge sign of the muons. This cut is only required on the tightest selection of muons.  
 
 \subsubsection{Isolation}
-Lepton isolation is a measure of how spatially separated the lepton is from other physics objects in an event. Prompts leptons are typically isolated from hadronic activity
-(jets) in the event, while non-prompt leptons, which are often produced in hadronic decays, are significanly less isolated and close to or overlapping with jets. The standard isolation considers
+Lepton isolation is a measure of how spatially separated the lepton is from other physics objects in an event. Prompt leptons are typically isolated from hadronic activity
+(jets) in the event, while non-prompt leptons, which are often produced in hadronic decays, are significantly less isolated and close to or overlapping with jets. The standard isolation considers
 all charged and neutral hadrons as well as photons within a fixed cone size in R around the lepton. Then if there is too much energy relative to the lepton energy from the
 other objects inside the fixed cone radius, the lepton fails the isolation criteria. This analysis uses a variation of this technique that varies the cone size with the \pt of the lepton, since
 boosted (very high momentum) objects tend to be more collimated and thus should have a more collimated cone definition. This isolation technique is called mini isolation (\miniIso) and the cone
@@ -281,7 +282,7 @@ pileup density $\rho$, is multiplied by effective areas as a function of $|\eta|
 \end{equation}
 
 \noindent where $\sum_{R}p_{T}(h^{\pm})$ is the energy of the charged hadrons inside the cone of radius R, $\sum_{R}p_{T}(h^{0})$ is the energy of the neutral hadrons inside the cone, $p_{T}(\gamma)$ is
-the energy from photons inside the cone, and $-\rho A (\frac{R}{0.3})^{2}$ is the correction for pileup. The effective areas, A, are defined separately for muons and electrons and are based off a fixed
+the energy from photons inside the cone, and $-\rho A (\frac{R}{0.3})^{2}$ is the correction for pileup. The effective areas, A, are defined separately for muons and electrons and are based on a fixed
 cone size of R = 0.3 and listed in tables~\ref{tab:ele_effArea}\ref{tab:mu_effArea}, which explains the denominator in the pileup correction term. Both muons and electrons are subject to the same isolation criteria,
 which requires \miniIso $<$ 0.4.
 
@@ -370,8 +371,7 @@ MC as signal, and the background sample consists of fake leptons from \ttbar MC 
 \end{itemize}
 
 %The lepton MVA used here is the same as the one used in the 2015 \tth analysis~\cite{CMS-PAS-HIG-15-008}.
-Leptons passing the tight working point
-of the lepton MVA (MVA $>$ 0.9) is defining characteristic of the tight leptons used in the signal regions. 
+Passing the tight working point of the lepton MVA (MVA $>$ 0.9) is the defining characteristic of the tight leptons used in the signal regions. 
 
 \subsubsection{Lepton Selection}
 The lepton selection consists of three increasingly selective classes: loose, fakeable, and tight. The loose is a preselection, while the
@@ -469,9 +469,9 @@ product of each individual lepton scale factor and is applied on an event-basis.
 The tight lepton efficiencies were measured in a control region enriched in Drell-Yan (DY)\footnote{DY events are Z/$\gamma*\rightarrow~l^{\pm}l^{\mp}$, where $l=e,\mu$.} events on MC using
 the tag-and-probe method\footnote{The tag-and-probe method is a technique used throughout particle physics experiments to measure efficiencies of objects in data in an unbiased way by exploiting known
 di-object resonances. The pairs from the resonances are reconstructed requiring one object to pass a ``tight'' selection (tag) and the other to pass a ``loose'' selection (probe). Because
-the efficiency must be measured in data (in addition to MC), a trigger is required to collect the data. The trigger fires on the tag leg. The selection of resulting probes are completely un
-biased by any selection present in the trigger. The efficiency is then measured by the ratio of probe objects passing some tight definition in the numerator, to the total probes in the denominator.}. 
-Loose leptons form the denominator of the tight efficiency measurements. The measured tight lepton efficiencies are in Figures~\ref{fig:ele_eff}\ref{mu_eff}.
+the efficiency must be measured in data (in addition to MC), a trigger is required to collect the data. The trigger fires on the tag leg. The selection of resulting probes are completely unbiased
+by any selection present in the trigger. The efficiency is then measured by the ratio of probe objects passing some tight definition in the numerator, to the total probes in the denominator.}. 
+Loose leptons form the denominator of the tight efficiency measurements. The measured tight lepton efficiencies are in Figures~\ref{fig:ele_eff} and~\ref{fig:mu_eff}.
 
 \begin{figure}[hbtp]
  \begin{center}
@@ -508,8 +508,8 @@ by the SUSY lepton scale factor working group within CMS.
 The final objects considered in this analysis are tau leptons, specifically hadronically decaying taus. Leptonic tau decays produce a charged lepton that is typically identified as prompt,
 making their presence straightforward to detect, but impossible to distinguish from a lepton produced directly from a W or Z. To avoid an overlap with the signal regions of the \tth,$H\rightarrow\tau\tau$
 analysis~\cite{CMS-PAS-HIG-17-003}, which considers \emph{only} events with hadronic taus, we use the same object definition and veto any event with a selected hadronic tau. Hadronic taus are
-reconstucted with the hadron-plus-strips algorithm~\cite{hps} in 1-prong or 3-prong decay modes. Taus must have \pt $>$ 20 GeV, $|\eta|<$2.3, $d_{xy}<$1000 cm, $d_{z}<$0.2 cm, and pass the
-``decay mode finding'' MVA. Additonally, taus are required to pass the medium working point of a tau MVA\footnote{The tecnhical name for this working point is``byMediumIsolationMVArun2v1DBdR03oldDMwLT''.}
+reconstructed with the hadron-plus-strips algorithm~\cite{hps} in 1-prong or 3-prong decay modes. Taus must have \pt $>$ 20 GeV, $|\eta|<$2.3, $d_{xy}<$1000 cm, $d_{z}<$0.2 cm, and pass the
+``decay mode finding'' MVA. Additonally, taus are required to pass the medium working point of a tau MVA\footnote{The technical name for this working point is``byMediumIsolationMVArun2v1DBdR03oldDMwLT''.}
 which was trained on \tth events as signal and \ttbar events as background with an isolation cone of radius 0.3~\cite{CMS-AN-15-310}. 
 
 \section{Object Cleaning}

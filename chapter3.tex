@@ -20,20 +20,20 @@ Originally conceived in the early 1980s and approved in 1994, the LHC was design
 Large Electron Positron Collider (LEP), re-using the same underground tunnel. Located just outside Geneva, Switzerland, at the Center for European Nuclear Research (CERN),
 the LHC stretches across the border into France. There are four detectors positioned around the LHC: ALICE, ATLAS, CMS, and LHCb. The two general purpose,
 functionally-equivalent detectors are ATLAS and CMS, while ALICE studies heavy ion collisions, and LHCb focuses on flavor physics. 
-The motivation for having two equivalent detectors is to provide cross checks on results, as each result is produced with separate analysis teams, studying separate collsions
+The motivation for having two equivalent detectors is to provide cross checks on results, as each result is produced with separate analysis teams, studying separate collisions
 recorded with a separate detector. Each detector is centered on an interaction point, where the beams are steered into each other to produce collisions. 
 The LHC itself is technically the final element in a series of accelerators
-that bring particle beams from rest to succesively higher energies. This system of
+that bring particle beams from rest to successively higher energies. This system of
 of accelerators, referred to as the LHC Accelerator Complex is depicted below in
 Figure~\ref{fig:lhc_complex}.
 
 The acceleration is accomplished with radio frequency (RF) cavities. RF cavities are a linear series of cylindrical conductors,
 which sustain a resonant electromagnetic field produced by a generator. As 
 charged particles pass through the cavities, they experience a force
-(acceleration) from the resonant alternating field in each cavity. This acceleration process begins with Hydrogen gas in the linear accelerator
-(LINAC 2). The Hydrogen atoms in the gas are stripped of electrons
+(acceleration) from the resonant alternating field in each cavity. This acceleration process begins with hydrogen gas in the linear accelerator
+(LINAC 2). The hydrogen atoms in the gas are stripped of electrons
 in an applied electric field, leaving only protons, which are then accelerated
-along the linear beam pipe with RF cavities to an energy of 50 MeV. After the LINAC, the beams of protons enter the Proton Synchrontron Booster rings where
+along the linear beam pipe with RF cavities to an energy of 50 MeV. After the LINAC, the beams of protons enter the Proton Synchrotron Booster rings where
 they are accelerated to 1.4 GeV, before reaching the Proton
 Synchrotron (PS). The circular PS, measuring more than 600 m
 in circumference, accelerates the beams to 25 GeV before injection into the
@@ -46,7 +46,7 @@ to avoid detrimental beam interactions before the collisions. Since the beams ar
 they can be focused and steered around the LHC with 392 quadrupole and 1232 dipole superconducting magnets.
 To accomplish this, the magnets produce a field of over 8 Tesla. This is possible thanks to the
 superconducting niobium-titanium (NbTi) coils which are cooled with superfluid helium-4. These
-magnets operate at 1.9 K allowing them to carry a current of over 11000 amperes. In addition to
+magnets operate at 1.9 K allowing them to carry a current of over 11,000 amperes. In addition to
 the LHC, similar superconducting magnets are used throughout the accelerator complex~\cite{lhc_bluebook}.
 
 Inside the LHC, the beams travel in opposite directions in separate but adjacent pipes inside of the superconducting magnets.
@@ -54,7 +54,7 @@ As a result of the RF cavity acceleration, the beams are comprised of individual
 There are over 2800 bunches in each beam, with each bunch spaced 25 ns apart. This spacing is choosen to
 produce as many bunch crossings as possible, without overloading
 the detector instrumentation and data acquisition. Extra space is placed at certain intervals of bunches
-both for injection purposes and to allow for additional time to activate special kicker magnets that dump t/e beams. The extra space, up to 3 $\mu$~s, is 
+both for injection purposes and to allow for additional time to activate special kicker magnets that dump t/e beams. The extra space, up to 3 $\mu$s, is 
 called the abort gap. Of the over 2800 bunches in each beam, there are approximately $10^{11}$ protons in each bunch, but due to the small cross section of the protons,
 only approximately 20 collisions occur in each bunch crossing. The beams travel around the LHC over 11,246 times per second, over 99.99$\%$ the speed of light. 
 This translates to around 600 million collisions per second ~\cite{lhc_bluebook}.
@@ -67,14 +67,14 @@ technically within reach of the LHC. While this is technically the upper bound, 
 since the proton collisions are actually collisions of the individual partons\footnote{Partons refer here to any quark or gluon. The phrase was originally
 coined by Richard Feynman, as an individual parton makes up `part' of a meson or baryon.} inside the protons, and the partons carry fractions of the total proton
 momentum\footnote{The LHC is, on occasion, referred to as a gluon collider. This is due to gluons being the most likely parton to carry a non-negligible fraction of the proton momentum, thus
-being the mostly likely parton to participate in a hard-scatter collision. This is why many physics processes studied at the LHC, including \tth, have incoming gluons in the initial state.}.
-The momentum fractions carried by each of the partons, known as Parton Distribution Functions (PDFs) are determined based on inelastic scattering experiments, and theoretical calcualtions, since they
-vary with momentum transer. Examples of the PDFs used in this analysis are in Figure~\ref{fig:nnpdf}. 
+being the most likely parton to participate in a hard-scatter collision. This is why many physics processes studied at the LHC, including \tth, have incoming gluons in the initial state.}.
+The momentum fractions carried by each of the partons, known as Parton Distribution Functions (PDFs) are determined based on inelastic scattering experiments, and theoretical calculations, since they
+vary with momentum transfer. Examples of the PDFs used in this analysis are in Figure~\ref{fig:nnpdf}. 
 
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ch3_figs/nnpdf3p1_nlo_q100.pdf}
-   \caption[NLO parton distribution function for the proton at Q = 100 GeV]{NLO parton distribution function for the proton at momentum transer of 100 GeV.
+   \caption[NLO parton distribution function for the proton at Q = 100 GeV]{NLO parton distribution function for the proton at momentum transfer of 100 GeV.
      The x-axis represents the fraction of the total proton momentum carried by a given parton type while the y-axis corresponds to relative
      frequency\cite{nnpdf3}.}
    \label{fig:nnpdf}
@@ -82,7 +82,7 @@ vary with momentum transer. Examples of the PDFs used in this analysis are in Fi
 \end{figure}
 
 \noindent Because many interesting physics processes are exceedingly rare (small cross section), many collisions
-are needed. The quantity used to describe the rate of collisions is called Luminosity.
+are needed. The quantity used to describe the rate of collisions is luminosity.
 Described in equation~\ref{eqn:lumi_inst} below, instantaneous luminosity represents the number of collisions (events) occuring per unit time~\cite{lhc_bluebook}.
 
 \begin{equation}
@@ -114,7 +114,7 @@ N_{pp} = \int \sigma_{pp}\mathcal{L}_{inst}dt
 
 \section{The Compact Muon Solenoid (CMS) Detector}
 \label{sec:cms}
-100 m beneath the town of Cessy, France, sits the Compact Muon Solenoid (CMS) detector, a multi purpose particle detector designed
+100 m beneath the town of Cessy, France, sits the Compact Muon Solenoid (CMS) detector, a multi-purpose particle detector designed
 to record and identify particles from collisions produced by the LHC.
 CMS is comprised of layers of subdetectors which are connected to readout electronics and the trigger and data acquisition systems.
 The various subdetectors record information about the collision, while the trigger and
@@ -161,8 +161,8 @@ detail below.
 Due to the geometry and symmetry of the collisions produced inside CMS, a special coordinate system is used for simplicity. With the origin at the interaction point,
 the y-axis in the vertical direction, the z-axis parallel to/along the beam direction, and the x-axis in the horizontal direction perpendicular to both the y
 and z axes. In the transverse x-y plane, the azimuthal angle formed with respect to the x-axis is $\phi$. In the y-z plane, the angle formed with respect to the z-axis
-is $\theta$. The number of particles traveling through a given area, known as flux, increases towards the beam line, due to many more glancing collisons ocurring
-than head-on collisions. The particles from the collisions are moving relativistically. Because of this, a special coordinate $\eta = -\ln\tan(\theta/2)$ 
+is $\theta$. The number of particles traveling through a given area, known as flux, increases towards the beam line, due to many more glancing collisons occurring
+than head-on collisions. The particles from the collisions are moving relativistically. Because of this, a special coordinate $\eta = -\ln\tan(\theta/2)$, 
 is used to describe the angle with respect to the z-axis, known as $pseudorapidity$. 
 Finally, the transverse plane is of special importance for momentum and energy measurements due to energy/momentum conservation, since the head-on inelastic
 pp collisions have only momentum in the z-direction.
@@ -172,7 +172,7 @@ The CMS tracking system sits closest to the interaction point at the core of CMS
 The tracking system is comprised of two concentric cylindrical subdetectors, the pixel and strip detectors, which are named after the geometry of the sensors they use. 
 The pixels provide the highest granularity tracking information, essential for distinguishing between collision vertices, and sit nearest to the interaction point,
 inside of the strip detector.
-The strips proivde slightly less resolution compared with the pixels, since they sit further from the interaction point. There is approximately one
+The strips provide slightly less resolution compared with the pixels, since they sit further from the interaction point. There is approximately one
 radiation length\footnote{A radiation length is defined as the distance an energetic electron travels in material before losing all but 1/e of its
 initial energy due to bremsstrahlung emission~\cite{radiation_length}.}
 of tracker material (pixels + strips) between the interaction point and the beginning of the next subdetector, the ECAL.
@@ -206,7 +206,7 @@ exactly where an interesting collision took place.
 Silicon is used in the tracker over other materials, as it strikes the best balance between performance, radiation resistance, and affordability. 
 Radiation resistance, also known as radiation hardness, is very important for the tracker as it sits only a few centimeters from the interaction point
 receiving around 10 million particles per square centimeter per second.
-Each silicon pixel measurses 100 $\mu$m by 150 $\mu$m and is readout by an electronic chip bump-bonded to the back of each pixel. The layout of a pixel sensor is depicted in
+Each silicon pixel measures 100 $\mu$m by 150 $\mu$m and is readout by an electronic chip bump-bonded to the back of each pixel. The layout of a pixel sensor is depicted in
 Figure~\ref{fig:cms_pixel}.  
 
 \subsubsection{Strip Detector}
@@ -225,7 +225,7 @@ Precise tracking information is essential to measuring particle momenta and iden
  \begin{center}
    \includegraphics[width=0.6\textwidth]{ch3_figs/tracker_yz.pdf}
    \includegraphics[width=0.25\textwidth]{ch3_figs/tracker_transverse_layers.pdf}
-   \caption[The CMS silicon tracking system]{The CMS silicon tracking system including both the pixel and strip detectors in y-z plane (left), and tranverse x-y plane (right)~\cite{cms_bluebook}.}
+   \caption[The CMS silicon tracking system]{The CMS silicon tracking system including both the pixel and strip detectors in y-z plane (left), and transverse x-y plane (right)~\cite{cms_bluebook}.}
    \label{fig:cms_tracker}
  \end{center}
 \end{figure}
@@ -233,10 +233,10 @@ Precise tracking information is essential to measuring particle momenta and iden
 \subsection{ECAL}
 The Electromagnetic Calorimeter (ECAL) measures the energy of charged particles\footnote{The ECAL gets its name because it detects charged particles, which interact via the
 electromagnetic force}. The ECAL is situated immediately outside the tracker
-and is made of up of over 75,000 of lead tungstate ($PbWO_{4}$) crystals in three distinct sections. The ECAL provides good energy resolution, fast readouts, and radiation hardness
+and is made up of over 75,000 of lead tungstate ($PbWO_{4}$) crystals in three distinct sections. The ECAL provides good energy resolution, fast readouts, and radiation hardness
 which make it ideal for recording the frequent collisions produced by the LHC. 
 
-After particles pass through the silicon tracking system, they enter ECAL. The ECAL measures the energy of electromagnetically-interacting particles from collisions, namely electrons and photons.
+After particles pass through the silicon tracking system, they enter the ECAL. The ECAL measures the energy of electromagnetically-interacting particles from collisions, namely electrons and photons.
 The choice of the lead tungstate material is motivated by needing to stop the particles, and also scintillate light effectively to allow an accurate energy measurement.
 The stopping action is accomplished with the lead atoms in the crystal, while the scintillation is accomplished with
 the crystalline oxygen. These combined properties produce photons (light) in proportion to the amount of energy deposited by the stopped particles.
@@ -248,8 +248,8 @@ the interaction point. There 14648 identical crystals in the endcaps, each measu
 with the smaller face pointing towards the interaction point, mimicking the conical shapes of electromagnetic particle showers in the $PbWO_{4}$ material.
 The preshower disc sits on the ends of the barrel and in front of the endcaps. The preshower measures 2.5 m in circumference and is 20 cm thick. The ECAL preshower consists of two layers
 of lead, followed by silicon sensors measuring 2mm x 2mm. The preshower allows the ECAL to resolve nearby photon pairs, and discriminates against those coming from in-flight decays
-of neutral pions. The scintillation light from each crystal is detected by Avalanche Photo Diodes (APDs) in the barrel, and a Vaccuum Photo Triodes (VPTs) in the endcaps.
-These readouts convert the scintillation light to a voltage pulse that is passed futher downstream to the trigger and DAQ. 
+of neutral pions. The scintillation light from each crystal is detected by Avalanche Photo Diodes (APDs) in the barrel, and Vacuum Photo Triodes (VPTs) in the endcaps.
+These readouts convert the scintillation light to a voltage pulse that is passed further downstream to the trigger and DAQ. 
 
 \begin{figure}[hbtp]
  \begin{center}
@@ -260,10 +260,10 @@ These readouts convert the scintillation light to a voltage pulse that is passed
 \end{figure}
 
 \subsection{HCAL}
-The CMS Hadronic Calorimeter measures the energy of hadrons via their strong force interaction with the detector material. The HCAL is situated outside the ECAL.
-The HCAL is sampling calorimeter made up of alternating layers of brass absorber and plastic scintillator material in four separate sections. The HCAL provides energy resolution that helps reconstruct and tag hadronic
+The CMS Hadronic Calorimeter (HCAL) measures the energy of hadrons via their strong force interaction with the detector material. The HCAL is situated outside the ECAL.
+The HCAL is a sampling calorimeter made up of alternating layers of brass absorber and plastic scintillator material in four separate sections. The HCAL provides energy resolution that helps reconstruct and tag hadronic
 particle decays, as well as reconstructing the $missing$ $transverse$ $energy$ or \met, which can be interpreted as the presence of neutrinos\footnote{The \met reconstruction actually occurs later, but the HCAL information
-provides some the necessary quantities}. Within each plastic scintillator tile are optical wavelength-shifting fibers.
+provides some of the necessary quantities}. Within each plastic scintillator tile are optical wavelength-shifting fibers.
 Measuring less than 1 mm in diameter, these fibers connect to other optical fibers which send the light signals to Hybrid Photodiodes (HPDs) for readout. The fast and radiation-resistant HPDs amplify the light and convert it
 into an electronic signal via the photoelectric effect.
 
@@ -276,21 +276,21 @@ into an electronic signal via the photoelectric effect.
 \end{figure}
 
 As strongly-interacting particles travel through the HCAL, they interact with the dense brass absorber material decaying and producing showers of secondary particles which further cascade and travel through the scintillator and absorber material.
-As the shower particles pass through the scintillator material, they emit a blue-violet light. This blue-violet light is then converted to green light via the wavelength shifting fibers and send to the HPDs for readout. Like the ECAL,
+As the shower particles pass through the scintillator material, they emit a blue-violet light. This blue-violet light is then converted to green light via the wavelength shifting fibers and sent to the HPDs for readout. Like the ECAL,
 the amount of light emitted corresponds to the amount of energy deposited. 
 
-The four sections of the HCAL are the barrel (HB), the endcaps (HE), the outter barrel (HO) and the forward HCAL (HF) in Figure~\ref{fig:cms_hcal}. The barrel extends from 1.77 m to 2.95 m from the interaction point and
-sits between the outside of the ECAL barrel and the inside of the magnet coil in the transverse plane. The HB covers a psuedorapidity range of $|\eta| < 1.3$.
-The endcaps cover a psuedorapidity of $1.3 < |\eta| < 3$. The HO sits outside and around the solenoid coil covering the same psuedorapidity range
+The four sections of the HCAL are the barrel (HB), the endcaps (HE), the outer barrel (HO) and the forward HCAL (HF) in Figure~\ref{fig:cms_hcal}. The barrel extends from 1.77 m to 2.95 m from the interaction point and
+sits between the outside of the ECAL barrel and the inside of the magnet coil in the transverse plane. The HB covers a pseudorapidity range of $|\eta| < 1.3$.
+The endcaps cover a pseudorapidity of $1.3 < |\eta| < 3$. The HO sits outside and around the solenoid coil covering the same pseudorapidity range
 as the HB. The HO utilizes the magnet coil as an additional absorbing layer ensuring detection of any particle exiting the HB. The HF sits outside of all other subdetectors at $\pm$11 m from the interaction point in the z-direction,
-covering a psuedorapidity range of $3.0 < |\eta| < 5.0$. The HF was specially designed to resist the intense radiation deposited in this forward region. In total, the endcap calorimeters cover roughly 10 radiation lengths.
+covering a pseudorapidity range of $3.0 < |\eta| < 5.0$. The HF was specially designed to resist the intense radiation deposited in this forward region. In total, the endcap calorimeters cover roughly 10 radiation lengths.
 
 \subsection{Solenoid}
 Central to the design and name of CMS, the CMS magnet is one of the largest superconducting solenoids in the world.
 At 12 m in length, it produces a field of nearly 3.8 T inside the 6 m diameter free bore, with the flux returned through a 10000 ton iron yoke.
 The magnetic field outside the free bore in the muon chambers is approximately 2 T.  
 Similar to the LHC magnets, the solenoid uses NbTi coils cooled to 1.8 K but carries a current of over 19000 amps. When fully energized, the magnet
-stores 2.6 GJ of energy, enough to power 24 American homes for 1 day\cite{magnet_energy}. The central barrel of the solenoid sits between the HCAL and the muon chambers, with the return yoke iterwoven with the muon chambers.
+stores 2.6 GJ of energy, enough to power 24 American homes for 1 day\cite{magnet_energy}. The central barrel of the solenoid sits between the HCAL and the muon chambers, with the return yoke interwoven with the muon chambers.
 
 A strong magnetic field is essential for measuring the momentum of charged particles. Charged particles moving relativistically in a magnetic field are subject to the Lorentz force, described in
 equation~\ref{eqn:lorentz_force} 
@@ -302,7 +302,7 @@ equation~\ref{eqn:lorentz_force}
 
 The solenoid produces a magnetic field along the z-direction and by the right-hand-rule from the cross product in equation~\ref{eqn:lorentz_force}, this means the particles experience a centripetal force, which
 curves or deflects their trajectories. By setting the Lorentz force equal to the relativistic centripetal force in equation~\ref{eqn:lorentz_qvb}, the momentum and charge of the particle can be found by measuring the radius of the track. 
-Thus the field produced by the CMS solenoid together with accuarate track reconstruction, allows for precise momentum measurements of the particles.
+Thus the field produced by the CMS solenoid together with accurate track reconstruction, allows for precise momentum measurements of the particles.
 
 \begin{equation}
 \label{eqn:lorentz_qvb}
@@ -331,7 +331,7 @@ Cathode strips held at -1.2 kV run the length of each cell with a gold-plated st
 As an incident muon ionizes the gas atoms, electrons are attracted to the anode wire while positively charged ions are attracted to the cathodes. 
 The ions induce a current fluctuation in the electrodes which is readout and interpreted as a hit. By knowing the drift velocities of ions in the gas and measuring
 the timing of the current pulses precisely, the position of the muon from the anode wire is inferred. By alternating the orientation of these chambers between wires parallel to the beamline
-and wires perpendicular to the beamline, the DTs can reslove muon positions to 100 $\mu$m. 
+and wires perpendicular to the beamline, the DTs can resolve muon positions to 100 $\mu$m. 
 The DTs are used in the barrel only, where there are lower particle fluxes and intensities. 
 
 \begin{figure}[hbtp]
@@ -343,15 +343,15 @@ The DTs are used in the barrel only, where there are lower particle fluxes and i
 \end{figure}
 
 The CSCs are used only in the endcaps, where there is a greater particle intensity and because the large, non-uniform magnetic field would affect the ion drift of DTs - making them unsuitable in this region.
-468 CSCs in 7 layers make are in the endcaps, where each chamber is trapezoidal in shape.
-Each chamber consists of positvely charged anode wires which cross negatively charged cathode strips that are enclosed in a chamber filled with gas. As muons enter a
+468 CSCs in 7 layers are in the endcaps, where each chamber is trapezoidal in shape.
+Each chamber consists of positively charged anode wires which cross negatively charged cathode strips that are enclosed in a chamber filled with gas. As muons enter a
 CSC, they ionize the gas causing freed electrons to travel to the positive wires and positive charges migrate towards the cathode strips. The charge pulses are detected in both the strips
 and the wires, which are perpendicular to each other, providing two coordinates for each muon hit. The CSCs provide good position information quickly, making them suitable for use in the endcaps. 
 
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ch3_figs/cms_csc.pdf}
-   \caption[CSC module and operation schematic]{CSC module (left) and a depiction of the CSC opteration (right). The strips provide preices position information~\cite{cms_bluebook}.}
+   \caption[CSC module and operation schematic]{CSC module (left) and a depiction of the CSC operation (right). The strips provide precise position information~\cite{cms_bluebook}.}
    \label{fig:cms_csc}
  \end{center}
 \end{figure}
@@ -363,7 +363,7 @@ Due to this very fast response time ($\<$ 1 ns), the RPCs easily identify which 
 The RPCs are gaseous parallel plate detectors. Each RPC measures between 2.1-2.5 m in length and 1.5-2.5 m wide, with a thickness of 2mm filled with gas separating
 two resistive plastic parallel plates, an anode and cathode.
 As an incident muon ionizes the gas atoms releasing electrons, the electrons in turn ionize nearby gas atoms resulting in an avalanche of electrons which drift towards the anode
-and are picked up by metallic detecting strips. The hit pattern on the stips is used to determine the muon momentum for fast trigger decisions.
+and are picked up by metallic detecting strips. The hit pattern on the strips is used to determine the muon momentum for fast trigger decisions.
 
 \begin{figure}[hbtp]
  \begin{center}
@@ -394,7 +394,7 @@ allocated to that primary dataset will be found in the associated dataset. Commo
 The collection of 400 algorithms comprise the HLT menu.
 Because the HLT, DAQ and downstream hardware can only handle a maximum trigger
 rate, the trigger menu uses prescales to control the rates of triggers that would otherwise fire too often. This allows lower-priority triggers to collect data
-without consuming large rates. The prescale control how frequency a trigger fires. For example a trigger with a prescale of 2 means that
+without consuming large rates. The prescale controls the frequency of trigger accepts. For example a trigger with a prescale of 2 means that
 data is recorded every other time the trigger fires.
 The HLT and L1 algorithms are thoroughly tested and highly efficient at passing the objects they are
 designed to accept. Typical HLT trigger efficiencies are well above 90$\%$. See the muon efficiency at the HLT in Figure~\ref{fig:hlt_eff_muons} below. 

@@ -9,7 +9,7 @@ The hypothesis in this case is that the \tth process and all relevant\footnote{H
 the Standard Model, and this hypothesis is represented by the MC. 
 
 \section{Data samples}
-The data in this analysis was collected from CMS throughout 2016 and only when the magnet was on\footnote{The CMS solenoid was notoriously problematic for datataking during 2015,
+The data in this analysis was collected from CMS throughout 2016 and only when the magnet was on\footnote{The CMS solenoid was notoriously problematic for data taking during 2015,
 suffering from cryogenics issues related to the coldbox and rendering much of the data collected during that time useless from the perspective of most (but not all) physics analyses,
 rendering the magnet status an important detail.} and all subdetectors were fully operational.
 The full 2016 dataset analyzed here corresponds to a total integrated luminosity of 35.9 fb$^{-1}$ and uses the single and double lepton datasets listed in table~\ref{tab:datasets}
@@ -106,14 +106,14 @@ final state particles which are either radiated from the incoming hard-scatter p
 the outgoing hard-scatter partons, known as final state radiation (FSR). ISR/FSR contributions to MC help more accurately model the data.
 At this point, the shower simulation begins by taking the final state particles from the matrix element and ISR/FSR and simulating their decay/hadronization. This step
 cannot be calculated with perturbative QCD. It is instead handled by fragmentation functions which attempt to mimic a real
-hadronization as accuartely as possible. At this stage, the event generation portion of the MC production (called the ``GEN'' step)
-is complete and the interaction with the dector must be simulated. This simulation is carried out with the GEANT4 software package,
+hadronization as accurately as possible. At this stage, the event generation portion of the MC production (called the ``GEN'' step)
+is complete and the interaction with the detector must be simulated. This simulation is carried out with the GEANT4 software package,
 which models the CMS detector, as well as the GEN particles hits, tracks, energy deposits and other interactions that occur
 between the particles produced from the GEN step and the CMS detector simulation (called the ``SIM'' step). Next, the simulated
 hits are converted into a digitized detector response, which is designed to recreate the response of the actual detector as
 closely as possible. This stage, called the ``DIGI'' step, also includes the emulated trigger accept/reject decisions and is the
 first place where MC is directly comparable to data. The final step\footnote{Technically there is an additional step where RECO data
-is converted into Analysis Object Data (AOD). This includes a slimming of attributes wrt RECO, and reconstructing high-level objects
+is converted into Analysis Object Data (AOD). This includes a slimming of attributes w.r.t. RECO, and reconstructing high-level objects
 used in the analysis.} called ``RECO'', is the reconstruction of high-level objects such as jets, tracks, and MET from hits and
 energy deposits. This RECO step is functionally identical between the real data collected by CMS and the MC simulation, allowing
 for a direct comparison between MC and real data at the RECO tier, and where the physics analysis begins. An overview of the entire
@@ -136,7 +136,7 @@ This is useful because no resources are wasted filtering and storing events that
 \subsection{Backgrounds}
 The majority\footnote{The backgrounds estimated via data-driven methods are described in detail later.} of the background predictions in this analysis are MC-based estimations. 
 The leading MC background estimations are generated with \textsc{MadGraph5$\_$aMC$\@$NLO} with shower simulated by \textsc{PYTHIA}~\cite{aMCatNLO,nlo_showerMC,pythia}. The remaining 
-backgrounds generated and showered with one of the generators and shower MC already mentioned.   
+backgrounds are generated and showered with one of the generators and shower MC already mentioned.   
 
 \begin{landscape}
 %%\setlength\LTcapwidth{6.5in}
@@ -263,14 +263,14 @@ HLT$\_$Ele27$\_$eta2p1$\_$WPLoose$\_$Gsf$\_$v* \\
 
 %%%discuss used triggers
 The trigger efficiency is measured separately in data and MC. Measuring the trigger efficiency accurately and precisely is critically
-important in a sensitive physics analysis. This is because the trigger effiency directly scales the luminosity, and thus the number
+important in a sensitive physics analysis. This is because the trigger efficiency directly scales the luminosity, and thus the number
 of events in the counting experiment.
 Because this efficiency differs slightly between data and MC, we correct the MC efficiency with scale factors to match the
 efficiency in data. The trigger efficiency measured in data is performed by selecting data that was recorded on triggers completely
 uncorrelated with the lepton triggers used in this analysis. The data used for the efficiency measurement is recorded by triggers in
 the MET dataset so there is no implicit bias in the sample, because the triggers that collected the data are different from the triggers
 for which we are measuring the efficiency. With the MET dataset, we select events with two and three loose leptons separately, we then measure
-the efficiency for the candidate events to pass the `OR' of all triggers in the respective category. This effiency can then be compared
+the efficiency for the candidate events to pass the `OR' of all triggers in the respective category. This efficiency can then be compared
 to that measured in the MC, and we obtain the scale factors listed in Table~\ref{tab:trigger_sf}. We observe an excellent agreement between
 the efficiencies measured in data to that in MC. 
 
@@ -293,8 +293,8 @@ $2lss (\mu\mu)$ & 1.00$\pm$0.01 \\
 
 The triggers are the first place where the object selection is introduced into the analysis, and while the efficiency is high
 and a good agreement between data and MC is observed,
-the object selection defined in the analysis must be strictly tighter than the object selection definied in any of the triggers. This ensures
-the efficiency is well-measured and does not vary significantly with lepton \pt or $|\eta|$. That is, the effiency is measured past the ``turn-on'',
+the object selection defined in the analysis must be strictly tighter than the object selection defined in any of the triggers. This ensures
+the efficiency is well-measured and does not vary significantly with lepton \pt or $|\eta|$. That is, the efficiency is measured past the ``turn-on'',
 and in the ``plateau'' of efficiency\footnote{Note the cuts on \pt at 20,10 for leading and subleading leptons, and $|\eta|$ < 2.5 remove most
 of the turn-on in Figures~\ref{fig:trigeffsmumu}\ref{fig:trigeffsemu}\ref{fig:trigeffsee}.}
 as seen in Figures~\ref{fig:trigeffsmumu}\ref{fig:trigeffsemu}\ref{fig:trigeffsee}. 

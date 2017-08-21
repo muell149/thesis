@@ -22,8 +22,8 @@ fakes typically originate from leptonic decays of certain hadrons, such as the B
 process, where the b-jet from the leptonic top quark produces a fake lepton that passes the tight lepton selection criteria, but also includes other processes where a lepton
 is produced inside a jet. The background from these events is estimated via a loose-to-tight extrapolation. This begins with measuring the rate at which the leptons passing
 the fakeable selection also pass the tight selection, known as the fake rate. The measurement is performed in a control region of the data, known as the measurement region (see below).
-The measurement is then used to extrapolate from a sideband with fakeable leptons to the signal region with
-tight leptons to estimate the signal region contribution from to events with fake leptons. 
+The measurement is then used to extrapolate from a sideband with fakeable leptons to estimate the contribution in the signal region 
+from events with fake leptons. 
 
 The measurement region is heavily enriched in QCD multijet events, which provide a
 source of mostly fake leptons. The fake rate is defined as the probability of a non-prompt lepton which passes the fakeable selection to also pass the tight selection.
@@ -52,14 +52,14 @@ the fake rate excluding electrons from conversions from QCD MC.
 \includegraphics[width=0.39\textwidth]{ch8_figs/fr_el_barrel.pdf}\\
 \includegraphics[width=0.39\textwidth]{ch8_figs/fr_mu_endcap.pdf}
 \includegraphics[width=0.39\textwidth]{ch8_figs/fr_el_endcap.pdf}
-\caption[Fake rate measurements in data and MC.]{The lepton fake rates as measured in data and QCD as well as \ttbar MC. Fake rates for muons are on the left while fake rates for electrons on the right. The fake rates
+\caption[Fake rate measurements in data and MC.]{The lepton fake rates as measured in data and QCD as well as \ttbar MC. Fake rates for muons are on the left while fake rates for electrons are on the right. The fake rates
 measured in the barrel are on the top while the fake rates measured in the endcaps are on the bottom.}
 \label{fig:fakerate}
 \end{figure}
 
 Once the fake rate is obtained from the measurement region, it is applied in a second control region, also enriched in fakes, denoted as the application region. The weighted yields in this region constitute the background due to
 fake leptons in the signal region. As such, the application region is identical to the signal region, except that the requirement of the two same-sign leptons passing the tight selection is relaxed to passing the fakeable selection,
-and at that at least one of these leptons fail the tight selection. The fake rate weights are expressed
+and that at least one of these leptons fails the tight selection. The fake rate weights are expressed
 in terms of event yields as a function of the number of leptons failing the tight selection in a given event. The contribution of fakes in the signal region is estimated using equation~\ref{eqn:fake_rate} below:
 
 \begin{equation}
@@ -110,7 +110,7 @@ this background is also estimated from data with two control regions: the first 
 the signal region. Unlike the fake background however, the charge mismeasurement background is only comprised of events with electrons, as the probability for mismeasuring the electric charge of a muon is negligible.
 
 The control region used for measuring charge flip probabilities is defined by selecting Z$\rightarrow$ee events in data. Here it is assumed that same-sign electron pairs within 10 GeV of the Z peak are due to a charge mismeasurement of one of
-the electrons. Charge flip probability measurements are performed by measuring same-sign yields to opposite sign yields in the Z peak and are parameterized as a function of electon \pt and $\eta$.
+the electrons. Charge flip probability measurements are performed by measuring same-sign yields to opposite sign yields in the Z peak and are parameterized as a function of electron \pt and $\eta$.
 The yields are determined from a fit to the Z invariant mass shape, which is modeled with the convolution of a crystal ball and Breit-Wigner function for the signal and an exponentially falling function for the background. 
 The measurement is performed in 3 bins of \pt (10-25 GeV, 25-50 GeV, and $\geq$50 GeV), and two bins of $\eta$ ($\leq$ 1.479, and $>$ 1.479) for a total of 21 categories of electron pairs. Each category corresponds to the \pt-$\eta$ bin
 of the leading lepton, and the \pt-$\eta$ bin of the subleading electron.  
@@ -131,13 +131,13 @@ The charge misassignment probability $P(\pt,\eta)$ is applied per lepton. The to
 
 \section{Irreducible backgrounds}
 Irreducible backgrounds are estimated exclusively from MC. Irreducible backgrounds earn their name from the fact that even if the signal region selection and CMS event/object reconstruction
-worked with perfect efficiency and purity, these backgrounds still produce the necessary objects to consistently pass the signal region selection and are thus irreducible with resepect to the signal
+worked with perfect efficiency and purity, these backgrounds still produce the necessary objects to consistently pass the signal region selection and are thus irreducible with respect to the signal
 region definition. The dominant irreducible background processes include \ttw and \ttz. Other irreducible background processes include diboson pairs produced in association with jets,
 while smaller contributions include processes with a single W or Z boson, a single top quark, tribosons, as well as other rare\footnote{Rare means a very small cross section, and very
-small yield in the signal region.} SM backrounds. The modelling of these background processes has been checked to ensure a good agreement among the variables used to event selection and
+small yield in the signal region.} SM backgrounds. The modelling of these background processes has been checked to ensure a good agreement among the variables used to event selection and
 signal extraction.  
 
-While the signal region selection vetos events with low mass dilepton pairs, the $t\bar{t}\gamma^{*}$ process with $\gamma^{*}\rightarrow l^{+}l^{-}$ still contributes as a background when one of the leptons fails
+While the signal region selection vetoes events with low mass dilepton pairs, the $t\bar{t}\gamma^{*}$ process with $\gamma^{*}\rightarrow l^{+}l^{-}$ still contributes as a background when one of the leptons fails
 selection cuts or is out of the acceptance. The nominal \ttz sample is generated with $m_{l^{+}l^{-}} >$ 10 GeV, and we therefore use a $t\bar{t}Z/\gamma^{*}$ sample generated at 1 $< m_{l^{+}l^{-}} <$ 10 GeV
 and an additional \ttbar sample which covers the $ m_{l^{+}l^{-}} <$ 1 GeV phase space. The \ttbar sample is generated with MadGraph and showered with Pythia, which can decay a low-virtuality $\gamma^{*}$.
 
