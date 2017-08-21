@@ -2,7 +2,7 @@
 % Chapter 11
 %
 
-\chapter{STATISTICAL METHODS & RESULTS}
+\chapter{STATISTICAL METHODS AND RESULTS}
 \label{chap:stats}
 The \tth signal process, as well as the backgrounds, are inherently subject to randomness due to quantum mechanics.
 Additional statistical fluctuations are introduced in the measurement process. This inherent randomness means that simply counting the number of predicted
@@ -22,7 +22,7 @@ parameter $\mu$, which is determined from the Maximum Likelihood Estimator (MLE)
 The likelihood function is defined as the probability density of the number of observed events, $N$, given the predicted number of signal-plus-background events, $\mu$s$ + b$,
 where $\mu$ is the signal strength parameter we wish to estimate.
 The signal strength parameter is a modifier (multiplier) on the SM cross section of the \tth signal process, defined as $\mu = \sigma(\tth)/\sigma_{SM}(\tth)$.
-The signal strength parameter $\mu$ is more generally referred to as the parameter of interest, and it is free to float to the value which best fits the observation.
+The signal strength parameter $\mu$ is more generally referred to as the parameter of interest (POI), and it is free to float to the value which best fits the observation.
 The simplified likelihood, ignoring nuisance parameters for now, is written as a Poisson probability as:
 
 \begin{equation}
@@ -71,6 +71,72 @@ to data is called ``profiling''.
 In practice, we first take the negative log of the likelihood (NLL), and then find the minimum, since it simplifies
 the procedure by turning the product in Equation~\ref{eqn:likelihood3} into a sum. $\hat{\mu}$ is referred to as the ``best-fit'' $\mu$, because it is the value which best fits the data.
 This maximum likelihood procedure is also referred to generally as the ``fit''~\cite{CMS-AN-11-298}. 
+
+This signal strength $\mu$ is the factor by which the expected \tth yields are multiplied, without altering the branching fractions, to best-fit the observation in data
+while the backgrounds are constrained to SM predictions within their systematic uncertainties. %We also report 95$\%$ CL upper limits on $\mu$ for the SM \tth process.
+The signal strength parameter best fit $\mu$ was obtained with the Maximum Likelihood Estimator method described above.
+The observed (expected) best fit signal strength for the SM \tth hypothesis is 1.7$^{+0.6}_{-0.5}$ (1.0$^{+0.5}_{-0.5}$) times the SM expectation,
+corresponding to an observed (expected) significance of 3.3$\sigma$ (2.1$\sigma$), as shown in Table~\ref{tab:mu}.
+The post-fit yields for the expected signal and background processes are listed by lepton flavor in Table~\ref{tab:postfit_yields}.
+The impacts of the statistical, theoretical, and experimental sources of uncertainty, as well as the post-fit values of the nuisances and their correlation with
+the fitted signal strength is shown in Figure~\ref{fig:impacts}. The impact of a nuisance parameter on the POI, $\mu$, is defined as the shift
+from varying $\theta$ to its $+1\sigma$ or $-1\sigma$ post-fit values ($\pm\Delta\theta$) with all other nusiances fixed to their post-fit values:
+$\pm\Delta\mu = \hat{\mu}(\hat{\theta}\pm\Delta\theta) -\hat{\mu}(\hat{\theta})$. The impacts help illustrate which nuisance parameters have the largest effect on
+the POI uncertainty. 
+
+
+\begin{table}[htbp]
+\begin{center}
+  \caption[Table of best-fit signal strength]{}
+    \begin{tabular}{c c c} \hline
+      Observed $\mu$ fit $\pm$1$\sigma$ & Expected $\mu$ fit $\pm$1$\sigma$ & Observed(expected) significance & \\ \hline 
+      1.7$^{+0.6}_{-0.5}$ & 1.0$^{+0.5}_{-0.5}$ & 3.3$\sigma$ (2.1$\sigma$)  \\
+      \hline
+    \end{tabular}
+    \label{tab:mu}
+\end{center}
+\end{table}
+
+
+\begin{table}[htbp]
+  \begin{center}
+    \caption[Signal region post-fit event yields by lepton flavor]{Expected post-fit yields 
+      for signal and background predictions, and observed yields in data. Yields
+      are shown after a fit to data with all predictions constrained to SM expectation.
+      The (post-fit) uncertainties shown are from profiling the nuisance parameters to best-fit the data.}
+    \begin{tabular}{l c c c} \hline
+      & $\mu\mu$ & $ee$ & $e\mu$  \\ \hline 
+      $t\bar{t}W$ & 51.2 $\pm$ 2.6 & 20.4 $\pm$ 1.0 & 72.9 $\pm$ 3.4 \\
+      $t\bar{t}Z/\gamma^{*}$ & 17.9 $\pm$ 0.9 & 16.0 $\pm$ 1.0 & 44.9 $\pm$ 2.0 \\
+      \hline
+      WZ & 6.8 $\pm$ 2.6 & 2.0 $\pm$ 0.8 & 10.0 $\pm$ 3.5 \\
+      Rare SM. bkg & 7.2 $\pm$ 0.8 & 4.0 $\pm$ 0.4 & 12.5 $\pm$ 1.1 \\
+      WWss & 3.6 $\pm$ 0.7 & 1.8 $\pm$ 0.3 & 5.5 $\pm$ 1.0 \\
+      \hline
+      Conversions & 0.0 $\pm$ 0.0 & 10.7 $\pm$ 6.3 & 7.4 $\pm$ 1.2 \\
+      Charge flip & 0.0 $\pm$ 0.0 & 9.2 $\pm$ 0.8 & 14.2 $\pm$ 1.2 \\
+      Non-prompt leptons & 31.9 $\pm$ 5.8 & 18.4 $\pm$ 2.4 & 56.7 $\pm$ 7.3 \\
+      \hline
+      Total bkg & 118.6 $\pm$ 7.0 & 82.6 $\pm$ 7.0 & 224.1 $\pm$ 9.3 \\
+      \hline
+      $t\bar{t}H$ & 19.5 $\pm$ 1.4 & 7.9 $\pm$ 0.6 & 27.6 $\pm$ 1.9 \\
+      \hline
+      Data & 154 & 95 & 274 \\
+      \hline
+    \end{tabular}
+    \label{tab:postfit_yields}
+  \end{center}
+\end{table}
+
+
+\begin{figure}[htb]
+        \centering 
+        \includegraphics[width=0.95\textwidth]{ch11_figs/impacts_ttH_13TeV_top30.pdf}
+        \caption[Nuisance parameter impacts]{The top nuisance parameters ranked by their impact on the fit. The relative pull of each nuisance (left) is the amount by which the fit moves each nuisance
+          parameter from its initial value, divided by the post-fit uncertainty. The impact of each nuisance (right) is the change in best-fit $\mu$ divided by the unceertainty in $\mu$, obtained by
+          moving each nuisance up (red) or down (blue) by 1$\sigma$ from the post-fit value. Note the change in notation for the POI: here $r$ is used to represent signal strength, normally represented with $\mu$.}
+        \label{fig:impacts}
+\end{figure}
 
 \section{Upper Limits: CLs Method}
 \label{sec:limit}
@@ -163,8 +229,25 @@ f(\tilde{q}_{\mu}|\mu) = \frac{1}{2}\delta(\tilde{q}_{\mu}) + \begin{cases}
 U.S. election is determined by a single vote of one person, who is said to represent the entire population.} with all nuisances set to their initial values. The test statistic distributions for
 signal-plus-background and background-only hypotheses are constructed from Equation~\ref{eqn:asymptote} instead of from toy MC~\cite{CMS-AN-11-298}. 
 
+The 95$\%$ upper limits on $\mu$ are obtained with the $CL_{s}$ method using the asymptotic approximation of the profile likelihood, described in Section~\ref{sec:limit}.
+The observed (median expected under background-only hypothesis) upper limit on $\mu$ is 2.9 (1.0$^{+0.5}_{-0.3}$), as shown in Table~\ref{tab:limits}.
+
+\begin{table}[htbp]
+\begin{center}
+  \caption[Table of Final Limits]{95$\%$ CL upper limits on $\mu$ under the background-only hypothesis.}
+    \begin{tabular}{c c} \hline
+      Observed Limit & Expected Limit $\pm$1$\sigma$  \\ \hline 
+      2.9 & 1.0$^{+0.5}_{-0.3}$  \\
+      \hline
+    \end{tabular}
+    \label{tab:limits}
+\end{center}
+\end{table}
+
+
+
 \section{Significance}
-To determine the significance of a result, we use the asymptotic approximation of the profile likelihood described above. We calculate the probability of an observation that is compatible with the
+To determine the significance of the result, we use the asymptotic approximation of the profile likelihood described above. We calculate the probability of an observation that is compatible with the
 data in the background-only hypothesis. This is the probability that the background randomly fluctuated to produce the observation in data. The lower this probability, the greater the significance.
 This is expressed as a p-value, $p_{0}$:
 
