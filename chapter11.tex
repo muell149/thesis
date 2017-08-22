@@ -42,27 +42,15 @@ calculated given the cooresponding predictions of signal and background yields $
 \end{equation}
 
 \noindent Now the uncertainties associated with the signal and background predictions must be accounted for in the form of nuisance parameters. The expected signal
-and background yields are re-written $s \rightarrow s(\theta)$ and $b \rightarrow b(\theta)$ to depend on the set of nuisance parameters $\theta$. The expected value of the nuisance
-parameters is $\tilde{\theta}$. The nuisance parameters are initially parametrized as Bayesian posterior PDF: $P(\theta|\tilde{\theta})$.
-In this context, $P(\theta|\tilde{\theta})$ is the posterior probability, or the degree to which we believe the true value of $\theta$ given our initial estimate $\tilde{\theta}$.
-To incorporate the nuisance parameters into the frequentist likelihood above, the Bayesian posterior PDFs must be re-interpreted as freqentist SOMETHINGS.
-This is done using Bayes' theorem to express the Bayeisan posterior PDFs as the result of some fictional (or real) measurements $\tilde{\theta}$ with PDF $P(\tilde{\theta}|\theta)$, where we assume nothing
-a priori about $\theta$:
-
-\begin{equation}
-\label{eqn:nuisance}
-P(\theta|\tilde{\theta}) \approx P(\tilde{\theta}|\theta) \cdot \pi(\theta)
-\end{equation}
-
-\noindent where $\pi(\theta)$ is the flat prior representing our (lack of) knowledge on $\theta$.
-$P(\tilde{\theta}|\theta)$ is the frequentist PDF for the nuisance parameters and interpreted as the probability of measuring the value $\tilde{\theta}$ when the true value is $\theta$.
-In this analysis, a gaussian distribution is used for shape systematics, and a log-normal distribution for rate systematics. For gaussian and log-normal distributions,
-the prior $\pi(\theta)$ is kept flat and does not vary significantly with $\theta$. We can solve Equation~\ref{eqn:nuisance} for $P(\tilde{\theta}|\theta)$, which constrains the nuisances
-and the likelihood can be modified to incorporate the systematic uncertainties via nuisance parameters:
+and background yields are re-written $s \rightarrow s(\theta)$ and $b \rightarrow b(\theta)$ to depend on the set of nuisance parameters $\theta$.
+The expected value of the nuisance parameters is $\tilde{\theta}$.
+We now calculate the probability that we would have previously measured the nuisance parameters and obtained the expected value $\tilde{\theta}$, given that the
+true value is $\theta$: $\rho(\tilde{\theta}|\theta)$. In this analysis, $\rho$ is a gaussian distribution for shape systematics,
+and a log-normal distribution for rate systematics.
 
 \begin{equation}
 \label{eqn:likelihood3}
-\mathcal{L}(data|\mu,\theta) = \prod_{i=1} \frac{(\mu s_{i}(\theta)+b_{i}(\theta))^{n_{i}}e^{-(\mu s_{i}(\theta)+b_{i}(\theta))}}{n_{i}!} \cdot P(\tilde{\theta}|\theta)
+\mathcal{L}(data|\mu,\theta) = \prod_{i=1} \frac{(\mu s_{i}(\theta)+b_{i}(\theta))^{n_{i}}e^{-(\mu s_{i}(\theta)+b_{i}(\theta))}}{n_{i}!} \cdot \rho(\tilde{\theta}|\theta)
 \end{equation}
 
 \noindent The estimated value for $\mu$ is obtained from finding the values of $\mu$ and $\theta$ which maximize the likelihood, denoted as $\hat{\mu}$ and $\hat{\theta}$.
@@ -80,7 +68,7 @@ corresponding to an observed (expected) significance of 3.3$\sigma$ (2.1$\sigma$
 The post-fit yields for the expected signal and background processes are listed by lepton flavor in Table~\ref{tab:postfit_yields}.
 The impacts of the statistical, theoretical, and experimental sources of uncertainty, as well as the post-fit values of the nuisances and their correlation with
 the fitted signal strength is shown in Figure~\ref{fig:impacts}. The impact of a nuisance parameter on the POI, $\mu$, is defined as the shift
-from varying $\theta$ to its $+1\sigma$ or $-1\sigma$ post-fit values ($\pm\Delta\theta$) with all other nusiances fixed to their post-fit values:
+from varying $\theta$ to its $+1\sigma$ or $-1\sigma$ post-fit values ($\pm\Delta\theta$) with all other nuisances fixed to their post-fit values:
 $\pm\Delta\mu = \hat{\mu}(\hat{\theta}\pm\Delta\theta) -\hat{\mu}(\hat{\theta})$. The impacts help illustrate which nuisance parameters have the largest effect on
 the POI uncertainty. 
 
@@ -128,12 +116,11 @@ the POI uncertainty.
   \end{center}
 \end{table}
 
-
 \begin{figure}[htb]
         \centering 
         \includegraphics[width=0.95\textwidth]{ch11_figs/impacts_ttH_13TeV_top30.pdf}
         \caption[Nuisance parameter impacts]{The top nuisance parameters ranked by their impact on the fit. The relative pull of each nuisance (left) is the amount by which the fit moves each nuisance
-          parameter from its initial value, divided by the post-fit uncertainty. The impact of each nuisance (right) is the change in best-fit $\mu$ divided by the unceertainty in $\mu$, obtained by
+          parameter from its initial value, divided by the post-fit uncertainty. The impact of each nuisance (right) is the change in best-fit $\mu$ divided by the uncertainty in $\mu$, obtained by
           moving each nuisance up (red) or down (blue) by 1$\sigma$ from the post-fit value. Note the change in notation for the POI: here $r$ is used to represent signal strength, normally represented with $\mu$.}
         \label{fig:impacts}
 \end{figure}
@@ -155,7 +142,7 @@ defined as:
 \tilde{q}_{\mu} = -ln \frac{\mathcal{L}(data|\mu,\hat{\theta}_{\mu})}{\mathcal{L}(data|\hat{\mu},\hat{\theta})},~~~~~~~~~0 \leq \hat{\mu} \leq{\mu}
 \end{equation}
 
-\noindent where $\hat{\theta}_{\mu}$ is the best-fit value of the nusiance parameters resulting from maximizing $\mathcal{L}(data|\mu,\hat{\theta}_{\mu})$ at a fixed $\mu$. 
+\noindent where $\hat{\theta}_{\mu}$ is the best-fit value of the nuisance parameters resulting from maximizing $\mathcal{L}(data|\mu,\hat{\theta}_{\mu})$ at a fixed $\mu$. 
 The denominator, $\mathcal{L}(data|\hat{\mu},\hat{\theta})$, is the maximum likelihood obtained
 previously where both parameters float. The lower bound $0 \leq \hat{\mu}$ ensures the signal is positive.
 The upper bound $\hat{\mu} \leq \mu$ is imposed to produce a one-sided confidence interval. This also prevents upward fluctuations of data $\hat{\mu} > \mu$, 
@@ -166,7 +153,7 @@ for many values of $\mu$, obtaining the values for the nuisance parameters obser
 from maximizing the likelihoods under the background-only ($\mu=0$), and signal-plus-background hypotheses respectively.
 Next, two test statistic PDFs
 $f(\tilde{q}_{\mu}|\mu,\hat{\theta}_{\mu}^{obs})$, and $f(\tilde{q}_{\mu}|0,\hat{\theta}_{0}^{obs})$ are constructed from psuedo-data
-generated with MC toys, obtained from random sampling of nusiance parameter values from the fit to data at fixed $\mu$.  Next we calculate a p-value $p_{\mu}$, $p_{b}$
+generated with MC toys, obtained from random sampling of nuisance parameter values from the fit to data at fixed $\mu$.  Next we calculate a p-value $p_{\mu}$, $p_{b}$
 for the signal-plus-background and background-only hypotheses. The p-value $p_{\mu}$ represents the probability that the observed data is incompatible with the
 signal-plus-background hypothesis, with signal strength $\mu$.
 The p-value $p_{b}$ is the probability for compatibility with the background-only hypothesis.
@@ -205,13 +192,13 @@ greater values of $\mu$ are excluded at the $1-\alpha$ CL level.
         \label{fig:cls}
 \end{figure}
 
-The expected upper limit is calculated by generating the background-only distribution from MC toys as described previously, for many psuedo experiments, calculating $CL_{s}$, $\mu^{95\% CL}$
-for each distribution (psuedo experiment). Then a cumulative distribution of $\mu^{95\% CL}$ is constructed and the median expected value on the upper limit of $\mu$ is reported - which is the value
-of $\mu^{95\% CL}$ for which the cumulative distribution crosses the 50$\%$ quantile\footnote{Technically, generating N toys for M psuedo experiments yields N$\cdot$M likelihood evaluations. Since the test-statistic
-distributions for a given $\mu$ don't depend on the psuedo data, they are instead computed only once per $\mu$ value, and the total number of likelihood evaluations is proportional to N+M instead.}.
+The expected upper limit is calculated by generating the background-only distribution from MC toys as described previously, for many pseudo experiments, calculating $CL_{s}$, $\mu^{95\% CL}$
+for each distribution (pseudo experiment). Then a cumulative distribution of $\mu^{95\% CL}$ is constructed and the median expected value on the upper limit of $\mu$ is reported - which is the value
+of $\mu^{95\% CL}$ for which the cumulative distribution crosses the 50$\%$ quantile\footnote{Technically, generating N toys for M pseudo experiments yields N$\cdot$M likelihood evaluations. Since the test-statistic
+distributions for a given $\mu$ don't depend on the pseudo data, they are instead computed only once per $\mu$ value, and the total number of likelihood evaluations is proportional to N+M instead.}.
 
 Generating large statistics of toy MC to produce the test statistic distributions needed for the method above is both time consuming and CPU intensive. This analysis uses an alternate method to
-construct the test statistic distributions analytically, without the need for psuedo data, called the asymptotic approximation of the profile likelihood~\cite{AsymptoticLimits}.  
+construct the test statistic distributions analytically, without the need for pseudo data, called the asymptotic approximation of the profile likelihood~\cite{AsymptoticLimits}.  
 This procedure begins by removing the requirement that the signal be positive $\hat{\mu} > 0$ from the test statistic in Equation~\ref{eqn:test_stat}. From Wilks theorem
 in the asymptotic regime, the test statistic will have half a $\chi^{2}$ distribution for one degree of freedom in the signal-plus-background hypothesis~\cite{wilks}. The value of $\mu$ for which
 $\frac{1}{2}q_{\mu} = 1.92$ has the convenient property of corresponding to $CL_{s} = 0.05$. By imposing $\hat{\mu} > 0$, the asymptotic behavior of the test statistic PDF under the signal plus
@@ -264,7 +251,7 @@ p_{0} = \int_{Z}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-x^{2}/2} dx
 \end{equation}
 
 \noindent The value of $Z$ represents the number of standard deviations the background, assuming no signal, would have to fluctuate by to be consistent with the observation. 
-The significance can also be approximated under the asymptotic profile likelihood with the test statistic defined in Eauation~\ref{eqn:test_stat} under the background-only hypothesis:
+The significance can also be approximated under the asymptotic profile likelihood with the test statistic defined in Equation~\ref{eqn:test_stat} under the background-only hypothesis:
 
 \begin{equation}
 \label{eqn:signif3}

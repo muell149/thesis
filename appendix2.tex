@@ -10,8 +10,8 @@ A BDT is a machine learning ensemble algorithm, based on a collection (ensemble)
 which improves performance by creating a strong classifier algorithm (BDT) from an ensemble of individual weak classifiers (decision trees). A decision tree
 is an algorithm that uses a tree-like flowchart or graph to classify events by splitting them on a series of individual decisions or cuts. An example of a decision tree
 is shown in Figure~\ref{fig:dec_tree}. The BDTs used in this analysis and described here are used for binary classification, classifying the degree to which an
-individual event is more signal-like or more backgroundn like, with their output.
-An example of a BDT output is in Figure~\ref{fig:ttvBdt_score}, where the output values ranges from -1 to 1, where an event with a score near -1 corresponds
+individual event is more signal-like or more background like, with their output.
+An example of a BDT output is in Figure~\ref{fig:ttvBdt_score}, where the output values range from -1 to 1, where an event with a score near -1 corresponds
 to a background-like event, and an event with a score closer to 1 corresponds to a signal-like event.
 
 \begin{figure}[hbtp]
@@ -25,11 +25,11 @@ to a background-like event, and an event with a score closer to 1 corresponds to
 
 %Why use a BDT/usage in this analysis?
 The utilization of MVAs as the final discriminants is motivated from combining several discriminating variables into a single discriminating variable more powerful
-than any individual varible.
+than any individual variable.
 The choice of BDTs over other MVA methods such as artificial neural networks (ANNs) or support vector machines (SVMs) for use as a final discriminant 
 is motivated by several factors. While the cut-based classification technique the BDT relies on is a theoretically less powerful classifier compared
 to other more sophisticated MVAs such as aNNs, it typically offers the best ``out-of-the-box'' performance, requiring the least amount
-of optimization to acheive near-maximum performance.
+of optimization to achieve near-maximum performance.
 For these reasons, BDTs are the primary MVA/machine learning technique used for discriminating signal from background
 in this analysis.
 
@@ -48,18 +48,18 @@ Given a set of input variables $\{x\}$, starting at the root node, all training 
 of one of the input varibles $x_{i}$, as shown in Figure~\ref{fig:dec_tree}.
 The training events are then filtered through this first split, where events
 with $x_{i} > c_{1}$ moving to the left forming a new decision node, and events with $x_{i} < c_{1}$ moving to the right, forming a new and separate 
-decision node, as seen in Figure~\ref{fig:dec_tree}. This processes is then repeated on the subsets of events in each of the two new nodes, and continued until
+decision node, as seen in Figure~\ref{fig:dec_tree}. This process is then repeated on the subsets of events in each of the two new nodes, and continued until
 a specified stopping criteria is satisfied. This stopping criteria is often defined to be when a given split produces a node with purely signal or purely
 background events, as illustrated in Figure~\ref{fig:dec_tree}. The stopping criteria consists of:
 \begin{itemize}
-\item Perfect classication
+\item Perfect classification
 \item Not satisfying a specified minimum number of events (or fraction) of the training sample in the leaf
 \item Insufficient improvement for available splittings
 \item Reaching a specified maximum tree depth
 \end{itemize}
 
 The choice of which variable $x_{i}$ to cut on, and at what cut value $c_{1}$ for each node
-in the tree is made considering all inputs and all available cut values which best separate the signal events from the background events in that node, However, 
+in the tree is made considering all inputs and all available cut values which best separate the signal events from the background events in that node, however, 
 several splitting criterion metrics exist for determining the ``best'' separation. 
 Some terms must first be defined before a description of the various splitting criteria.
 We first introduce the purity of each node, defined as $p_{s}=\frac{s}{s+b}$, where $s$ and $b$ correspond to the number of signal and background
@@ -141,7 +141,7 @@ from adding an additional tree is minimal.
 How is this related to gradient descent? In the gradient descent procedure, a function $J(\Theta)$, is minimized by moving in the opposite direction the gradient in steps
 of finite size that are proportional to the gradient. In this way, the minimum value of $J(\Theta)$ is found for a particular $\Theta$. Starting from any value $\Theta_{i}$,
 it is updated in steps according to $\Theta_{i} \rightarrow \Theta_{i} + \rho\frac{\partial~J}{\partial~\Theta_{i}}$. 
-Substituing a loss function $L(F(x),y)$, in place of $J(\Theta)$, the gradient becomes $\frac{\partial L(F(x_{i}),y_{i})}{\partial F(x_{i})}$. Letting the loss function be the popular squared error loss,
+Substituting a loss function $L(F(x),y)$, in place of $J(\Theta)$, the gradient becomes $\frac{\partial L(F(x_{i}),y_{i})}{\partial F(x_{i})}$. Letting the loss function be the popular squared error loss,
 $L(F(x),y) = (y-F(x))^{2}/2$, the gradient is $y_{i}-F(x_{i})$, which is the residuals found previously! Thus the negative gradient can be interpreted as the residuals for this
 choice of loss function. 
 
@@ -159,10 +159,10 @@ The boosting procedure used in this analysis uses the binomial log-likelihood lo
 not the residuals, which are not equivalent for this choice of loss function. The advantage being that the negative gradients are less sensitive to statistical outliers. 
 
 The boosting procedure begins with a single weak classifier, and produces a forest or ensemble of weak classifiers resulting in a much more performant discriminator.
-While the stochastic gradient boost prodcedure is employed here, it is just one of many available boosting methods\footnote{Another popular choice of boosting algorithms
+While the stochastic gradient boost procedure is employed here, it is just one of many available boosting methods\footnote{Another popular choice of boosting algorithms
 is Adaptive Boosting or AdaBoost. While AdaBoost and
 gradient boosting are very similar, they differ in one significant way. As described above, gradient boosting grows additional weak classifiers with the objective being to correct
-shortcomings of the existing ensemble. AdaBoost however applies weights to misclassified events in the current ensemble, therby encouring the next weak classifier to be more sensitive
+shortcomings of the existing ensemble. AdaBoost however applies weights to misclassified events in the current ensemble, thereby encouraging the next weak classifier to be more sensitive
 to the misclassifications of the previous. Gradient boost is selected over AdaBoost due to AdaBoost's sensitivity to noisy data and outliers.}.
 
 %% \subsection{Pruning}
@@ -183,14 +183,14 @@ BDTs are used in this analysis exclusively for classification.
 This analysis uses the BDT implementation in the Toolkit for Multivariate Analysis (TMVA) software~\cite{tmva}, based on the
 C4.5 algorithm~\cite{C4.5}. Other MVAs described above were tested in addition to BDTs, however as noted the BDTs routinely offered the
 best performance with the least optimization and are simpler algorithms than other MVAs tested.
-This simiplicity translates to faster training and evaluation times.
+This simplicity translates to faster training and evaluation times.
 Additionally, BDTs are often more robust against over-training\footnote{Over-training, or ``over-fitting'' describes the loss of generalization (as well as performance)
 between the training and testing/evaluation samples. Over-training occurs when the MVA learns statistical features of the training sets that are not present in
 the testing/evaluation set.}. This practically translates to using more input variables, and/or smaller training samples than more sophisticated MVAs.
 
 \subsection{Hadronic Top Reconstruction BDT Training}
 The hadronic top BDT is actually two BDTs with the same input variables, but trained on b-tight and b-loose events separately. The motivation for two separate trainings based on b-jet
-content is the \ttbar final state in the signal region is determined by the b-jet content. A \ttbar event with two medium b-jets (b-tight) likely means that the fake lepton is either
+content is the fact that the \ttbar final state in the signal region is determined by the b-jet content. A \ttbar event with two medium b-jets (b-tight) likely means that the fake lepton is either
 adequately separated from the b-jet it originates from, or that the fake lepton originates from a different source entirely.
 %\footnote{It has since been shown that the performance improvement from separate trainings is negligible compared to a single inclusive training.}. 
 
@@ -204,7 +204,7 @@ were used in training and found to produce the best performance:
 \item Min node size: 4.5$\%$
 \item Boost type: Gradient Boost
 \item Shrinkage: 0.1
-\item Separtion Metric: Gini index
+\item Separation Metric: Gini index
 \item Bagging fraction: 0.5
 \item Number of cuts: 20
 \item Maximum tree depth: 8
@@ -286,7 +286,7 @@ In both cases, the following hyperparameters were used in training and found to 
 \item Maximum number of nodes: 5
 \item Boost type: Gradient Boost
 \item Shrinkage: 0.1
-\item Separtion Metric: Gini index
+\item Separation Metric: Gini index
 \item Bagging fraction: 0.6
 \item Number of cuts: 200
 \item Maximum tree depth: 2
