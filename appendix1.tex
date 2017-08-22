@@ -1,5 +1,5 @@
 %
-% Appendix 2
+% Appendix 1
 %
 
 \chapter{BOOSTED DECISION TREES}
@@ -16,7 +16,7 @@ to a background-like event, and an event with a score closer to 1 corresponds to
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.8\textwidth]{ap2_figs/decision_tree.pdf}
+   \includegraphics[width=0.8\textwidth]{ap1_figs/decision_tree.pdf}
    \caption[A decision tree diagram.]{An overview diagram of a single decision tree. The decision nodes are a mixture of red and blue,
      while the terminal nodes or leaves, are ideally depicted colored red or blue and labeled S or B for signal or background respectively~\cite{tmva}.}
    \label{fig:dec_tree}
@@ -79,7 +79,7 @@ One drawback to using the training error for $\phi$ is that it treats event mis-
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.5\textwidth]{ap2_figs/tree_split.pdf}
+   \includegraphics[width=0.5\textwidth]{ap1_figs/tree_split.pdf}
    \caption[Two splits with the same error rate.]{Two different splits that result in the same mis-classification error~\cite{illya}.}
    \label{fig:tree_split}
  \end{center}
@@ -93,7 +93,7 @@ severely for mis-classifications of very unequal distributions of signal and bac
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.8\textwidth]{ap2_figs/misclass_plot.pdf}
+   \includegraphics[width=0.8\textwidth]{ap1_figs/misclass_plot.pdf}
    \caption[Plot of misclassification impurity functions.]{The impurity functions vs the signal purity~\cite{esii}.}
    \label{fig:misclass_plot}
  \end{center}
@@ -219,8 +219,8 @@ when selecting the best cut value. The maximum tree depth is the maximum number 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_bloose/variables_id_c1.pdf}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_bloose/variables_id_c2.pdf}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/recoBdt_bloose/variables_id_c1.pdf}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/recoBdt_bloose/variables_id_c2.pdf}
    \caption[Input variables of the b-loose hadronic top BDT]{Input variables of the b-loose hadronic top BDT in the training samples.}
    \label{fig:recoBdt_bloose_inputs}
  \end{center}
@@ -228,8 +228,8 @@ when selecting the best cut value. The maximum tree depth is the maximum number 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.49\textwidth]{ch9_figs/recoBdt_bloose/CorrelationMatrixS.pdf}
-   \includegraphics[width=0.49\textwidth]{ch9_figs/recoBdt_bloose/CorrelationMatrixB.pdf}
+   \includegraphics[width=0.49\textwidth]{ch8_figs/recoBdt_bloose/CorrelationMatrixS.pdf}
+   \includegraphics[width=0.49\textwidth]{ch8_figs/recoBdt_bloose/CorrelationMatrixB.pdf}
    \caption[Input variable linear correlations of the b-loose hadronic top BDT]{Input variable linear correlations in signal (left) and background (right)
      of the b-loose hadronic top BDT in the training samples.}
    \label{fig:recoBdt_b_loose_corrMatrix}
@@ -238,7 +238,7 @@ when selecting the best cut value. The maximum tree depth is the maximum number 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_bloose/overtrain_BDTG.pdf}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/recoBdt_bloose/overtrain_BDTG.pdf}
    \caption[Output of the b-loose hadronic top BDT]{Output of the b-loose hadronic top BDT.}
    \label{fig:recoBdt_bloose_score}
  \end{center}
@@ -249,8 +249,8 @@ when selecting the best cut value. The maximum tree depth is the maximum number 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_btight/variables_id_c1.pdf}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_btight/variables_id_c2.pdf}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/recoBdt_btight/variables_id_c1.pdf}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/recoBdt_btight/variables_id_c2.pdf}
    \caption[Input variables of the b-tight hadronic top BDT]{Input variables of the b-tight hadronic top BDT in the training samples.}
    \label{fig:recoBdt_btight_inputs}
  \end{center}
@@ -258,8 +258,8 @@ when selecting the best cut value. The maximum tree depth is the maximum number 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.49\textwidth]{ch9_figs/recoBdt_btight/CorrelationMatrixS.pdf}
-   \includegraphics[width=0.49\textwidth]{ch9_figs/recoBdt_btight/CorrelationMatrixB.pdf}
+   \includegraphics[width=0.49\textwidth]{ch8_figs/recoBdt_btight/CorrelationMatrixS.pdf}
+   \includegraphics[width=0.49\textwidth]{ch8_figs/recoBdt_btight/CorrelationMatrixB.pdf}
    \caption[Input variable linear correlations of the b-tight hadronic top BDT]{Input variable linear correlations in signal (left) and background (right)
      of the b-tight hadronic top BDT in the training samples.}
    \label{fig:recoBdt_b_tight_corrMatrix}
@@ -268,7 +268,7 @@ when selecting the best cut value. The maximum tree depth is the maximum number 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/recoBdt_btight/overtrain_BDTG.pdf}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/recoBdt_btight/overtrain_BDTG.pdf}
    \caption[Output of the b-tight hadronic top BDT]{Output of the b-tight hadronic top BDT.}
    \label{fig:recoBdt_btight_score}
  \end{center}
@@ -297,8 +297,8 @@ In both cases, the following hyperparameters were used in training and found to 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttbar_bdtv8_value/variables_id_c1.png}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttbar_bdtv8_value/variables_id_c2.png}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/train_2lss_ttbar_bdtv8_value/variables_id_c1.png}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/train_2lss_ttbar_bdtv8_value/variables_id_c2.png}
    \caption[Input variables of the BDT discriminant targeting \ttbar]{Input variables of the BDT discriminant targeting \ttbar in the training samples.}
    \label{fig:ttbarBdt_inputs}
  \end{center}
@@ -306,8 +306,8 @@ In both cases, the following hyperparameters were used in training and found to 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.49\textwidth]{ch9_figs/train_2lss_ttbar_bdtv8_value/CorrelationMatrixS.png}
-   \includegraphics[width=0.49\textwidth]{ch9_figs/train_2lss_ttbar_bdtv8_value/CorrelationMatrixB.png}
+   \includegraphics[width=0.49\textwidth]{ch8_figs/train_2lss_ttbar_bdtv8_value/CorrelationMatrixS.png}
+   \includegraphics[width=0.49\textwidth]{ch8_figs/train_2lss_ttbar_bdtv8_value/CorrelationMatrixB.png}
    \caption[Input variable linear correlations of the BDT discriminant targeting \ttbar]{Input variable linear correlations in signal (left) and background (right)
      of the BDT discriminant targeting \ttbar in the training samples.}
    \label{fig:ttbarBdt_corrMatrix}
@@ -316,7 +316,7 @@ In both cases, the following hyperparameters were used in training and found to 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttbar_bdtv8_value/overtrain_BDTG.png}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/train_2lss_ttbar_bdtv8_value/overtrain_BDTG.png}
    \caption[Output of the BDT discriminant targeting \ttbar]{Output of the BDT discriminant targeting \ttbar in the training and testing samples.}
    \label{fig:ttbarBdt_score}
  \end{center}
@@ -327,8 +327,8 @@ In both cases, the following hyperparameters were used in training and found to 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttv_hj_value/variables_id_c1.png}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttv_hj_value/variables_id_c2.png}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/train_2lss_ttv_hj_value/variables_id_c1.png}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/train_2lss_ttv_hj_value/variables_id_c2.png}
    \caption[Input variables of the BDT discriminant targeting \ttv]{Input variables of the BDT discriminant targeting \ttv in the training samples.}
    \label{fig:ttvBdt_inputs}
  \end{center}
@@ -336,8 +336,8 @@ In both cases, the following hyperparameters were used in training and found to 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.49\textwidth]{ch9_figs/train_2lss_ttv_hj_value/CorrelationMatrixS.png}
-   \includegraphics[width=0.49\textwidth]{ch9_figs/train_2lss_ttv_hj_value/CorrelationMatrixB.png}
+   \includegraphics[width=0.49\textwidth]{ch8_figs/train_2lss_ttv_hj_value/CorrelationMatrixS.png}
+   \includegraphics[width=0.49\textwidth]{ch8_figs/train_2lss_ttv_hj_value/CorrelationMatrixB.png}
    \caption[Input variable linear correlations of the BDT discriminant targeting \ttv]{Input variable linear correlations in signal (left) and background (right)
      of the BDT discriminant targeting \ttv in the training samples.}
    \label{fig:ttvBdt_corrMatrix}
@@ -346,7 +346,7 @@ In both cases, the following hyperparameters were used in training and found to 
 
 \begin{figure}[hbtp]
  \begin{center}
-   \includegraphics[width=0.8\textwidth]{ch9_figs/train_2lss_ttv_hj_value/overtrain_BDTG.png}
+   \includegraphics[width=0.8\textwidth]{ch8_figs/train_2lss_ttv_hj_value/overtrain_BDTG.png}
    \caption[Output of the BDT discriminant targeting \ttv]{Output of the BDT discriminant targeting \ttv in the training and testing samples.}
    \label{fig:ttvBdt_score}
  \end{center}

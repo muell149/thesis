@@ -9,4 +9,6 @@ rm -fr *.lof
 rm -fr *.lot
 rm -fr *.out
 rm -fr *.toc
+rm -rf *.log
+rm -rf *.tex~
 
