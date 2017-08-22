@@ -61,10 +61,13 @@ the procedure by turning the product in Equation~\ref{eqn:likelihood3} into a su
 This maximum likelihood procedure is also referred to generally as the ``fit''~\cite{CMS-AN-11-298}. 
 
 This signal strength $\mu$ is the factor by which the expected \tth yields are multiplied, without altering the branching fractions, to best-fit the observation in data
-while the backgrounds are constrained to SM predictions within their systematic uncertainties. %We also report 95$\%$ CL upper limits on $\mu$ for the SM \tth process.
-The signal strength parameter best fit $\mu$ was obtained with the Maximum Likelihood Estimator method described above.
-The observed (expected) best fit signal strength for the SM \tth hypothesis is 1.7$^{+0.6}_{-0.5}$ (1.0$^{+0.5}_{-0.5}$) times the SM expectation,
-corresponding to an observed (expected) significance of 3.3$\sigma$ (2.1$\sigma$), as shown in Table~\ref{tab:mu}.
+while the backgrounds are constrained to SM predictions within their systematic uncertainties.
+The observed  best fit signal strength for the SM \tth hypothesis is 1.7$^{+0.6}_{-0.5}$ times the SM expectation,
+corresponding to an observed significance of 3.3$\sigma$, as shown in Table~\ref{tab:mu}.
+This observation should be compared to the expected best fit signal strength for the SM \tth hypothesis is 1.0$^{+0.5}_{-0.5}$ times the SM expectation,
+corresponding to an expected significance of 2.1$\sigma$, as shown in Table~\ref{tab:mu}.
+The observed signal strength and significance result from comparing the observed data to the signal and background predictions from the SM with the MLE,
+while the expected signal strength and significance are obtained the same way, but replacing the observed data with the SM predictions for signal and background.
 The post-fit yields for the expected signal and background processes are listed by lepton flavor in Table~\ref{tab:postfit_yields}.
 The impacts of the statistical, theoretical, and experimental sources of uncertainty, as well as the post-fit values of the nuisances and their correlation with
 the fitted signal strength is shown in Figure~\ref{fig:impacts}. The impact of a nuisance parameter on the POI, $\mu$, is defined as the shift
@@ -152,8 +155,9 @@ With the definition of the test statistic, we calculate $\tilde{q}_{\mu}^{obs}$,
 for many values of $\mu$, obtaining the values for the nuisance parameters observed in data, $\hat{\theta}_{0}^{obs}$, $\hat{\theta}_{\mu}^{obs}$
 from maximizing the likelihoods under the background-only ($\mu=0$), and signal-plus-background hypotheses respectively.
 Next, two test statistic PDFs
-$f(\tilde{q}_{\mu}|\mu,\hat{\theta}_{\mu}^{obs})$, and $f(\tilde{q}_{\mu}|0,\hat{\theta}_{0}^{obs})$ are constructed from psuedo-data
-generated with MC toys, obtained from random sampling of nuisance parameter values from the fit to data at fixed $\mu$.  Next we calculate a p-value $p_{\mu}$, $p_{b}$
+$f(\tilde{q}_{\mu}|\mu,\hat{\theta}_{\mu}^{obs})$, and $f(\tilde{q}_{\mu}|0,\hat{\theta}_{0}^{obs})$ are typically constructed from psuedo-data
+generated with MC toys, obtained from random sampling of nuisance parameter values from the fit to data at fixed $\mu$, however this analysis uses an alternative
+asymptotic approximation to generate these PDFs. Next we calculate a p-value $p_{\mu}$, $p_{b}$
 for the signal-plus-background and background-only hypotheses. The p-value $p_{\mu}$ represents the probability that the observed data is incompatible with the
 signal-plus-background hypothesis, with signal strength $\mu$.
 The p-value $p_{b}$ is the probability for compatibility with the background-only hypothesis.
@@ -257,3 +261,7 @@ The significance can also be approximated under the asymptotic profile likelihoo
 \label{eqn:signif3}
 Z = \sqrt{q_{0}}
 \end{equation}
+
+In high energy physics searches, a result with a significance of 3$\sigma$ or greater is considered  ``evidence'', while a result with 5$\sigma$ or greater significance
+is considered an ``observation'' or ``discovery''. A significance of 3$\sigma$ corresponds to a p-value of 0.135$\%$, while a significance of 5$\sigma$ corresponds to a p-value
+of 0.000029$\%$. The p-values represent the probability, under the background-only hypothesis, that the backgrounds randomly fluctuated to produce the observation.
