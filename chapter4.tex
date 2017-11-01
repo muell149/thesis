@@ -215,16 +215,16 @@ the gluons (or quarks) colliding in the hard scatter that produce events such as
 produced in the collision should match the sum before the collision. Any time the \met is non-zero, it is assumed to be either from mismeasurements, or carried off by undetected ``missing'' particles.
 In the context of this and many other analyses, the \met is interpreted as the presence of neutrinos. The two same-sign lepton requirement on the signal ensures that there will always be two neutrinos in the event, making it impossible to fully
 reconstruct the individual neutrino momenta. The presence of \met can also occur due to mismeasurements/incorrect object reconstructions. To discriminate
-between the different sources of \met we use another variable called \HT, which is the negative vector sum of all selected jets and leptons in the event. While \HT has lower resolution than the \met,
-it relies only on the higher \pt selected objects and not the softer objects failing the selection. To exploit the fact that \HT and \met are less correlated in events with incidental missing energy,
+between the different sources of \met we use another variable called \htt, which is the negative vector sum of all selected jets and leptons in the event. While \htt has lower resolution than the \met,
+it relies only on the higher \pt selected objects and not the softer objects failing the selection. To exploit the fact that \htt and \met are less correlated in events with incidental missing energy,
 and more correlated in events with real missing energy, a linear discriminant of both varibles is defined in equation~\ref{eqn:metld} below.
 
 \begin{equation}
 \label{eqn:metld}
- \met LD = \met\times0.00397 + \HT\times0.00265.
+ \met LD = \met\times0.00397 + \htt\times0.00265.
 \end{equation}
 
-\noindent The coefficients are tuned to scale the \met term by 60\% and the \HT term by 40\%, which were empirically found to deliver the best signal efficiency and background rejection.
+\noindent The coefficients are tuned to scale the \met term by 60\% and the \htt term by 40\%, which were empirically found to deliver the best signal efficiency and background rejection.
 The \met LD threshold is described in Chapter~\ref{chap:event_selection}.
 
 \subsection{Leptons}
