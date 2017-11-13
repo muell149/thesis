@@ -7,7 +7,7 @@
 
 %What is a BDT?
 A BDT is a machine learning ensemble algorithm, based on a collection (ensemble) of individual decision trees. Boosting denotes the ensemble technique
-which improves performance by creating a strong classifier algorithm (BDT) from an ensemble of individual weak classifiers (decision trees). A decision tree
+which improves performance by creating a strong classifier from an ensemble of individual weak classifiers (decision trees). A decision tree
 is an algorithm that uses a tree-like flowchart or graph to classify events by splitting them on a series of individual decisions or cuts. An example of a decision tree
 is shown in Figure~\ref{fig:dec_tree}. The BDTs used in this analysis and described here are used for binary classification, classifying the degree to which an
 individual event is more signal-like or more background like, with their output.
@@ -72,7 +72,7 @@ It makes more sense to work with the weighted impurities however, where a given 
 will be referred to as weighted impurity $I(t) = \phi(t)N_{t}$, where $N_{t}$ is the number of events in the node. 
 The impurity gain, denoted $\Delta~I(t)$, should be maximized when selecting which variables and values to cut on. For a given node $t_{0}$ with $N_{0}$ events, we want to
 select the best variable and value to split into two child nodes, $t_{L}$, with $N_{L}$ events, and $t_{R}$,with $N_{R}$ events, where $N_{0} = N_{L} + N_{R}$. Here, the
-impurity gain for a given split is $\Delta~I(t) = I(t_{0}) - I(t_{L} - I(t_{R}))$, and we choose the cut which maximizes $\Delta~I(t)$ over all possible splits for all variables.
+impurity gain for a given split is $\Delta~I(t) = I(t_{0}) - I(t_{L}) - I(t_{R})$, and we choose the cut which maximizes $\Delta~I(t)$ over all possible splits for all variables.
 The functional form of $\phi(t)$ determines the splitting critera, and there are several options available.
 The simplest form of $\phi$ is called the training error $\epsilon(t) = min(p_{s},p_{b})$.
 One drawback to using the training error for $\phi$ is that it treats event mis-classifications linearly. This shortcoming is illustrated in Figure~\ref{fig:tree_split}.
