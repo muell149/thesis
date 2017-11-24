@@ -34,10 +34,10 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{nddiss2e}
-    [2013/04/16 v3.2013^^J%
-     Notre Dame Dissertation document class by Sameer Vijay and updated by Megan Patnott^^J]
-\providecommand{\dissfileversion}{3.2013}
-\providecommand{\dissfiledate}{2013/04/16}
+    [2016/10/16 v3.2016%
+     Notre Dame Dissertation document class]
+\providecommand{\dissfileversion}{3.2017.2}
+\providecommand{\dissfiledate}{2017/05/09}
 \newif\ifdiss@draft             \diss@drafttrue
 \newif\ifdiss@review            \diss@reviewfalse
 \newif\ifdiss@final             \diss@finalfalse
@@ -45,7 +45,9 @@
 \newif\ifadvisors@two           \advisors@twofalse
 \newif\ifdiss@dedication        \diss@dedicationfalse
 \newif\ifnum@refs               \num@refstrue
+\newif\ifnatbib@refs            \natbib@refstrue
 \newif\ifcentered@chaptitle     \centered@chaptitletrue
+\newif\if@ltfirstcaption
 \DeclareOption{draft}{
     \setlength\overfullrule{5pt}
     \typeout{DRAFT MODE}\typeout{}\info@pagefalse%
@@ -64,18 +66,20 @@
   \typeout{NUMBERED REFERENCES}\num@refstrue}
 \DeclareOption{textrefs}{
   \typeout{TEXTUAL REFERENCES}\num@refsfalse}
+\DeclareOption{nonatbib}{
+  \typeout{NO NATBIB}\natbib@refsfalse}
 \DeclareOption{nocenter}{\centered@chaptitlefalse}
 \DeclareOption{openbib}{%
    \PassOptionsToPackage{openbib}{natbib}
 }
 \DeclareOption{sort}{%
-\PassOptionsToPackage{sort}{natbib}
+    \PassOptionsToPackage{sort}{natbib}
 }
 \DeclareOption{compress}{%
-\PassOptionsToPackage{compress}{natbib}
+    \PassOptionsToPackage{compress}{natbib}
 }
 \DeclareOption{sort&compress}{%
-\PassOptionsToPackage{sort&compress}{natbib}
+    \PassOptionsToPackage{sort&compress}{natbib}
 }
 \DeclareOption{twoadvisors}{\typeout{TWO ADVISORS}\typeout{}%
     \advisors@twotrue}
@@ -107,66 +111,90 @@
     {UnknownOption `\CurrentOption'} }%
 \ProcessOptions\relax
 \LoadClass{book}
-\RequirePackage{ifthen,exscale}
-\RequirePackage{ifpdf}
+\RequirePackage{ifthen,exscale,etoolbox}
+\RequirePackage{ifpdf,ifluatex,ifxetex}
+\ifboolexpr{bool{pdf} or bool{xetex} or bool{luatex}}{}{%
+  \ClassError{nddiss2e}{%
+      PDF Output is required to support the PDF/A format.
+  }{DVI output is not supported. Use pdflatex to generate the dissertation.}
+}
+\RequirePackage[hyphens]{url}
+\RequirePackage[a-2b]{pdfx}
 \RequirePackage{longtable}
+\RequirePackage{threeparttable}
+\RequirePackage[flushleft]{threeparttablex}
 \RequirePackage{xspace}
 \RequirePackage{indentfirst}
 \RequirePackage{tabularx}
 \RequirePackage{enumerate}
 \RequirePackage{latexsym}
-\ifdiss@final\relax\else\RequirePackage{showkeys}\fi
-\ifpdf
-  \RequirePackage[pdftex]{epsfig}
-  \RequirePackage[pdftex]{color}
-  \RequirePackage[pdftex]{graphicx}
+\RequirePackage{textcase}
+\ifboolexpr{bool{pdf} or bool{xetex} or bool{luatex}}{%
+  \RequirePackage{epsfig}
+  \RequirePackage{color}
+  \RequirePackage{graphicx}
   \AtBeginDocument{
   \pdfadjustspacing=1
   }
-\else
+}{%
   \RequirePackage[dvips]{epsfig}
   \RequirePackage[dvips]{color}
   \RequirePackage[dvips]{graphicx}
-\fi
-\ifnum@refs
-  \RequirePackage[numbers]{natbib}
-\else
-  \RequirePackage[authoryear]{natbib}
+}
+\ifnatbib@refs
+  \ifnum@refs
+    \RequirePackage[numbers]{natbib}
+  \else
+    \RequirePackage[authoryear]{natbib}
+  \fi
 \fi
 \AtBeginDocument{
-\RequirePackage{amsmath,amssymb}
+\RequirePackage{amsmath}
 \RequirePackage{float}
-\RequirePackage{lscape}
 \RequirePackage{booktabs}
 \RequirePackage{rotating}
 \RequirePackage{url}
 \RequirePackage[doublespacing]{setspace}[2000/12/01]
-\ifpdf
-\RequirePackage{pdflscape}
-  \RequirePackage[pdftex,
-   plainpages=false,
-   pdfpagelabels,
+\ifboolexpr{bool{pdf} or bool{xetex} or bool{luatex}}{%
+  \ifluatex
+    \RequirePackage[luatex]{pdflscape}
+  \else
+    \ifxetex
+      \RequirePackage[xetex]{pdflscape}
+    \else
+      \ifpdf
+        \RequirePackage{pdflscape}
+      \fi
+    \fi
+  \fi
+  % cannot use RequirePackage since pdfx also includes hyperref
+  \hypersetup{
+            plainpages=false,
+            pdfpagelabels,
             bookmarks=true,%
             bookmarksnumbered=true,%
             linktocpage=true,%
             breaklinks=true,%
             bookmarkstype=toc,%
             colorlinks=false,%
-            pdfpagemode=UseOutlines]{hyperref}
-\fi
+            pdfpagemode=UseOutlines}
+}{}
 }
+\RequirePackage{metalogo}
 \AtBeginDocument{
 \pagestyle{plain}
 \normalspacing
 \typeout{Pagestyle and spacing normal}
 }
 \newcommand{\normalspacing}{\doublespacing}
-\newcommand\single@baselinestretch{1.0}
-\newcommand\double@baselinestretch{1.66}
+\newcommand\single@baselinestretch{0.979}
+\newcommand\double@baselinestretch{1.625}
+\newlength{\usedtextsize}
+\setlength{\usedtextsize}{\f@size pt}
 \newlength{\single@skip}
-\setlength{\single@skip}{\single@baselinestretch em}
+\setlength{\single@skip}{\single@baselinestretch \usedtextsize}
 \newlength{\double@skip}
-\setlength{\double@skip}{\double@baselinestretch em}
+\setlength{\double@skip}{\double@baselinestretch \usedtextsize}
 \setlength{\footnotesep}{\double@skip}
 \setlength{\hoffset}{0pt}
 \setlength{\voffset}{0pt}
@@ -210,7 +238,7 @@
   \thispagestyle{empty}
   \null\vspace*{\single@skip}
   \begin{center}
-     This \@work\space \\ entitled \\ \@title \\
+    This \@work\space \\ entitled \\ \MakeTextUppercase{\@title} \\
         typeset with \nddiss\ v%
       \dissfileversion\ (\dissfiledate) %
       on \today\space for\\
@@ -235,10 +263,6 @@
    \end{minipage}
    \end{center}
 
-   \noindent It is YOUR responsibility to ensure that the Chapter titles
-   and Table caption titles are put in CAPS LETTERS. This classfile does
-   {\em NOT\space} do that! \\
-
   \noindent\itshape This page can be disabled by
   specifying the ``{\upshape\ttfamily noinfo}'' option to the class invocation.
   \upshape
@@ -247,14 +271,14 @@
   \begin{center}
     {\bfseries\large\singlespacing This page is \slshape NOT
     \upshape part of the dissertation/thesis. It should be disabled before
-    making final, formal submission, but should be included in the version
-    submitted for format check.}
+   making final, formal submission, but should be included in the version
+   submitted for format check.}
   \end{center}
     \normalsize\normalfont
     \nddiss\ documentation can be found at these locations:
   \begin{center}
-    \url{http://www.gsu.nd.edu}\\
-    \url{http://graduateschool.nd.edu}
+    \url{http://graduateschool.nd.edu} \\
+    \url{https://ctan.org/pkg/nddiss}
   \end{center}
 
 \vfill
@@ -292,54 +316,54 @@
 \skip3=2.7\double@skip
 \skip4=36pt
  \ifadvisors@two
-  \skip1=1.6\double@skip
+   \skip1=1.6\double@skip
  \else\relax
  \fi
- \setbox0=\vbox{\@title}
+ \setbox0=\vbox{\MakeTextUppercase{\@title}}
  \ifdim \ht0 > 3\double@skip
-  \advance \skip1 -.75\double@skip
+   \advance \skip1 -.75\double@skip
  \else
- \ifdim \ht0 > 2\double@skip
-  \advance\skip1 -.5\double@skip
- \else
-  \ifdim \ht0 > \double@skip
-    \advance\skip1 -.25\double@skip
+   \ifdim \ht0 > 2\double@skip
+     \advance\skip1 -.5\double@skip
+   \else
+     \ifdim \ht0 > \double@skip
+       \advance\skip1 -.25\double@skip
+     \fi
    \fi
- \fi
  \fi
  \setbox1=\vbox{\@degaward}
  \ifdim \ht1 > 2\double@skip
-\advance\skip1 -.5\double@skip
+   \advance\skip1 -.5\double@skip
  \else
    \ifdim \ht1 > \double@skip
-    \advance \skip1 -.25\double@skip
+     \advance \skip1 -.25\double@skip
    \else
-    \relax
+     \relax
    \fi
  \fi
-\ifadvisors@two
-\ifdim \ht0 > 3\double@skip
-\ifdim \ht1 > \double@skip
-\advance \skip4 -.675\double@skip
-\advance \skip2 -.4\double@skip
-\advance \skip1 .25\double@skip
-\else \relax
-\fi
-\else
-\ifdim \ht0 > 2\double@skip
-\ifdim \ht1 > 2\double@skip
-\advance \skip2 -.4\double@skip
-\advance \skip1 .1\double@skip
-\else \relax
-\fi
-\else \relax
-\fi
-\fi
-\else \relax
-\fi
+  \ifadvisors@two
+    \ifdim \ht0 > 3\double@skip
+      \ifdim \ht1 > \double@skip
+        \advance \skip4 -.675\double@skip
+        \advance \skip2 -.4\double@skip
+        \advance \skip1 .25\double@skip
+      \else \relax
+      \fi
+    \else
+      \ifdim \ht0 > 2\double@skip
+        \ifdim \ht1 > 2\double@skip
+          \advance \skip2 -.4\double@skip
+          \advance \skip1 .1\double@skip
+        \else \relax
+        \fi
+      \else \relax
+      \fi
+    \fi
+  \else \relax
+  \fi
   \null\vspace*{\skip4}
   \begin{center}%
-    \@title \par%
+    \MakeTextUppercase{\@title} \par%
     \vskip\skip1%
     A \@work \par%
     \vskip\skip1%
@@ -380,10 +404,12 @@
   \null\vfil
   \begin{center}\normalspacing}%
 { \end{center}\vfil\null \clearpage }
-\newcommand{\@copyrightyear}{\year}
+\newcommand{\@copyrightyear}{\the\year}
 \newcommand{\@copyrightholder}{\@author}
+\newcommand{\@copyrightlicense}{All Rights Reserved}
 \newcommand{\copyrightyear}[1]{\renewcommand{\@copyrightyear}{#1}}
 \newcommand{\copyrightholder}[1]{\renewcommand{\@copyrightholder}{#1}}
+\newcommand{\copyrightlicense}[1]{\renewcommand{\@copyrightlicense}{#1}}
 \newcommand{\makecopyright}{%
   \ifdiss@final
     \begin{copyrightpage}
@@ -391,7 +417,7 @@
     \copyright\space Copyright by \\
     \@copyrightholder \\
     \@copyrightyear\\
-    All Rights Reserved \\[10mm]
+    \@copyrightlicense \\[10mm]
     \end{copyrightpage}
   \fi
 }%
@@ -404,23 +430,23 @@
 }%
 \providecommand{\abstractname}{Abstract}
 \providecommand{\dedicationname}{\mbox{}}
-\providecommand{\prefacename}{PREFACE}
-\providecommand{\acknowledgename}{ACKNOWLEDGMENTS}
-\providecommand{\symbolsname}{SYMBOLS}
-\renewcommand{\tablename}{TABLE}
+\providecommand{\prefacename}{Preface}
+\providecommand{\acknowledgename}{Acknowledgments}
+\providecommand{\symbolsname}{Symbols}
+\renewcommand{\tablename}{Table}
 \renewcommand{\figurename}{Figure}
-\renewcommand{\partname}{PART}
-\renewcommand{\chaptername}{CHAPTER}
-\renewcommand{\appendixname}{APPENDIX}
-\renewcommand{\contentsname}{CONTENTS}
-\renewcommand{\listfigurename}{FIGURES}
-\renewcommand{\listtablename}{TABLES}
-\renewcommand{\bibname}{BIBLIOGRAPHY}
-\renewcommand{\indexname}{INDEX}
+\renewcommand{\partname}{Part}
+\renewcommand{\chaptername}{Chapter}
+\renewcommand{\appendixname}{Appendix}
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\listfigurename}{Figures}
+\renewcommand{\listtablename}{Tables}
+\renewcommand{\bibname}{Bibliography}
+\renewcommand{\indexname}{Index}
 \newenvironment{abstract}{%
-  \ifpdf
+  \ifboolexpr{bool{pdf} or bool{xetex} or bool{luatex}}{%
      \pdfbookmark[0]{\abstractname}{abstract}%abstract.0
-  \fi
+  }{}
   \typeout{Abstract page(s)}
   \renewcommand{\@oddfoot}{\@empty}
   \renewcommand{\@evenfoot}{\@empty}
@@ -431,7 +457,7 @@
   \begin{center}
   \vspace*{36pt}
   {\normalsize\mdseries \normalspacing
-     \@title \\[3.5ex]
+     \MakeTextUppercase{\@title} \\[3.5ex]
      \normalsize\abstractname \\ by \\ \@author\space}%
    \@endparpenalty \@M
    \end{center}\par}%
@@ -447,9 +473,9 @@
 \renewcommand\tableofcontents{%
   \ifdiss@dedication\relax\else\setcounter{page}{2}\fi
   \chapter*{\contentsname}%
-  \ifpdf
+  \ifboolexpr{bool{pdf} or bool{xetex} or bool{luatex}}{%
       \pdfbookmark[0]{\contentsname}{contents}%contents.0
-  \fi
+  }{}
   \singlespacing
   \@starttoc{toc}%
   \normalspacing
@@ -496,7 +522,7 @@
   \ifnum \c@secnumdepth >\m@ne
   \if@mainmatter
     \refstepcounter{chapter}%
-    \typeout{\@chapapp\space\thechapter.}%
+    \typeout{\MakeTextUppercase{\@chapapp\space\thechapter.}}%
     \addcontentsline{toc}{chapter}%
       {{\@chapapp\ \thechapter: #1}}%
     \else
@@ -508,26 +534,26 @@
   \chaptermark{#1}%
   \addtocontents{lof}{\protect\addvspace{10\p@}}%
   \addtocontents{lot}{\protect\addvspace{10\p@}}%
-  \@makechapterhead{#2}%
+  \@makechapterhead{\MakeTextUppercase{#2}}%
   \@afterheading }%
 \def\@part[#1]#2{%
-\ifnum \c@secnumdepth >-2\relax
-\refstepcounter{part}%
-\addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
-\else
-\addcontentsline{toc}{part}{#1}%
-\fi
-\markboth{}{}%
-{\centering
- \interlinepenalty \@M
- \normalfont
- \ifnum \c@secnumdepth >-2\relax
- \normalsize\mdseries \partname\nobreakspace\thepart
- \par
- \vskip 20\p@
- \fi
- \normalsize\mdseries #2\par}%
-\@endpart}
+  \ifnum \c@secnumdepth >-2\relax
+    \refstepcounter{part}%
+    \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+  \else
+    \addcontentsline{toc}{part}{#1}%
+  \fi
+  \markboth{}{}%
+  {\centering
+   \interlinepenalty \@M
+   \normalfont
+   \ifnum \c@secnumdepth >-2\relax
+     \normalsize\mdseries \partname\nobreakspace\thepart
+     \par
+     \vskip 20\p@
+   \fi
+  \normalsize\mdseries \MakeTextUppercase{#2}\par}%
+  \@endpart}
 \def\@spart#1{%
     {\centering
      \interlinepenalty \@M
@@ -541,7 +567,7 @@
       \normalfont\normalsize%
       \if@mainmatter
         \ifcentered@chaptitle\center\else\relax\fi%
-        \@chapapp{} \thechapter\par\nobreak
+        \MakeTextUppercase{\@chapapp{} \thechapter}\par\nobreak
       \fi
     \fi
     \interlinepenalty\@M
@@ -555,7 +581,7 @@
      \normalfont\normalsize%
      \interlinepenalty\@M
      \ifcentered@chaptitle\center\else\relax\fi
-     \mdseries{#1}\par\nobreak
+     \mdseries{\MakeTextUppercase{#1}}\par\nobreak
      \vskip 30\p@
   }}
 \renewcommand\section{\suppressfloats[t]%
@@ -589,7 +615,7 @@
     \setlength\@tempdima{1.5em}%
     \begingroup
       {\leavevmode
- \@dottedtocline{1}{0pt}{\@tempdima}{#1}{#2}
+       \@dottedtocline{1}{0pt}{\@tempdima}{#1}{#2}
       }\par
        \nobreak
          \global\@nobreaktrue
@@ -617,24 +643,24 @@
 \let\realitemize\itemize
 \let\endrealitemize\enditemize
 \renewenvironment{itemize}
-{\realitemize
-\singlespacing}
-{\endrealitemize
-\doublespacing}
+          {\realitemize
+            \singlespacing}
+          {\endrealitemize
+            \doublespacing}
 \let\realenumerate\enumerate
 \let\endrealenumerate\endenumerate
 \renewenvironment{enumerate}[1][1.]
-{\realenumerate[#1]
-\singlespacing}
-{\endrealenumerate
-\doublespacing}
+          {\realenumerate[#1]
+            \singlespacing}
+          {\endrealenumerate
+            \doublespacing}
 \let\realdescription\description
 \let\endrealdescription\enddescription
 \renewenvironment{description}
-{\realdescription
-\singlespacing}
-{\endrealdescription
-\doublespacing}
+          {\realdescription
+            \singlespacing}
+          {\endrealdescription
+            \doublespacing}
 \setlength\abovecaptionskip{20\p@}
 \newlength\capwidth
 \setlength{\capwidth}{0.90\textwidth}
@@ -664,13 +690,23 @@
   \vskip\belowcaptionskip\normalspacing }%
   \end{center}
 }%
-\renewenvironment{table}{%
+\renewenvironment{table}[1][tbp]{%
    \setlength{\abovecaptionskip}{\abovetableskip}
    \setlength{\belowcaptionskip}{\belowtableskip}
-   \singlespacing
    \renewcommand{\arraystretch}{\double@baselinestretch}
+   \let\scaption\caption%
+   \renewcommand*{\caption}[2][]{%
+     \ifthenelse{\equal{##1}{}}{%
+       \def\shortcaption{##2}%
+     }{%
+       \def\shortcaption{##1}%
+     }%
+     \scaption[\shortcaption]{\MakeTextUppercase{##2}}%
+   }%
    \let\@makecaption\@maketablecaption
-   \@float{table}}%
+   \@float{table}[#1]%
+   \singlespacing%
+   }%
    {%
    \addtocontents{lot}{ {\vskip 0.4em} }%
    \end@float%
@@ -678,17 +714,20 @@
 \long\def\@maketablecaption#1#2{
   \vskip\abovecaptionskip
   \begin{center}
-    \parbox{\capwidth}{
-    \centering\normalspacing
-    {#1}\\[\single@skip]
-    {#2}%\par
-  \vskip\belowcaptionskip }%
+    \makebox[\linewidth]{
+      \parbox{\capwidth}{
+      \centering\normalspacing
+      \MakeTextUppercase{#1}\\[\single@skip]
+      {#2}%\par
+    \vskip\belowcaptionskip }%
+    }%
   \end{center}
 }
 \renewcommand\longtable{%
    \singlespacing
    \renewcommand{\arraystretch}{\double@baselinestretch}
    \begingroup
+   \@ltfirstcaptiontrue
    \@ifnextchar[\LT@array{\LT@array[x]}}
 \renewcommand\endlongtable{%
   \crcr
@@ -724,8 +763,13 @@
   \LT@mcol\LT@cols c{\hbox to\z@{\hss\parbox[t]\LTcapwidth{%
   \vskip\abovetableskip%
     \centering\normalspacing
-    #1{#2 }\\[\single@skip]
-    {#3}\par
+    \if@ltfirstcaption
+    #1{\MakeTextUppercase{#2} }\\[\single@skip]
+    \MakeTextUppercase{#3}\par
+    \else%
+    #1{\MakeTextUppercase{#2 (continued)} }\par
+    \fi
+  \global\@ltfirstcaptionfalse
   \endgraf\vskip\belowtableskip}%
   \hss}}}
 \newcommand\timenow{%
@@ -758,13 +802,17 @@
         \let\@evenfoot\@oddfoot
     }%
 \fi
-\renewcommand{\bibsection}{
-  \chapter*{\bibname}%
-  \addcontentsline{toc}{chapter}{\bibname}%
-}%
-\renewcommand{\bibfont}{\singlespacing}
-\ifnum@refs
-  \renewcommand{\@biblabel}[1]{\hfill#1.\hfill}
+\ifnatbib@refs
+  \renewcommand{\bibsection}{
+    \chapter*{\bibname}%
+    \addcontentsline{toc}{chapter}{\bibname}%
+  }%
+\fi
+\ifnatbib@refs
+  \renewcommand{\bibfont}{\singlespacing}
+  \ifnum@refs
+    \renewcommand{\@biblabel}[1]{\hfill#1.\hfill}
+  \fi
 \fi
 \ifdiss@final
 \AtEndDocument{
@@ -773,10 +821,19 @@
     \framebox[0.85\textwidth]{
     \begin{minipage}{0.80\textwidth}\footnotesize%
     \centering \itshape This document was prepared \& typeset with
-    \upshape\ifpdf pdf\LaTeX\else\LaTeXe\fi\itshape , and
+    \upshape
+    \ifluatex
+      \LuaLaTeX
+    \else\ifxetex
+      \XeLaTeX
+    \else\ifpdf
+      pdf\LaTeX
+    \else
+      \LaTeXe
+    \fi\fi\fi
+    \itshape , and
     formatted with \upshape\nddiss\xspace\itshape classfile
-    (v\dissfileversion [\dissfiledate]) provided by Sameer Vijay and
-    updated by Megan Patnott.
+    (v\dissfileversion [\dissfiledate])
     \end{minipage} }
     \clearpage}
 \else\relax\fi

@@ -85,7 +85,7 @@ One drawback to using the training error for $\phi$ is that it treats event mis-
  \end{center}
 \end{figure}
 
-\noindent Both splits in Figure~\ref{fig:tree_split} produce
+Both splits in Figure~\ref{fig:tree_split} produce
 the same training error (25$\%$), however the split on the right is clearly a more powerful separator. Other forms of $\phi$ that avoid this scenario by punishing
 event mis-classifications non-linearly include the Gini index $\phi = 1 - p_{s}^{2} - p_{b}^{2}$, and the cross entropy $\phi = \frac{-p_{s}log(p_{s})+p_{b}log(p_{b})}{2}$.
 The FOM used for the BDTs in this analysis is the Gini index, which punishes mis-classifications less severely for more equal distributions of signal and background, and more
@@ -132,8 +132,10 @@ h(x_{1}) = y_{1} - F(x_{1}) \\ h(x_{2}) = y_{2} - F(x_{2}) \\ h(x_{3}) = y_{3} -
 \end{aligned} 
 \end{equation}
 
-\noindent Now the second tree is grown (trained) by re-arranging the training data from the original {${$x$}_1$,$y_{1}$}....{${$x$}_N$,$y_{N}$}, to a new form:
-{${$x$}_1$,$y_{1} - F(x_{1})$}....{${$x$}_N$,$y_{N} - F(x_{N})$}, where $y_{i} - F(x_{i})$ is known as the ``residuals''. Once the training of tree $h(x)$ is complete,
+%\noindent Now the second tree is grown (trained) by re-arranging the training data from the original {${$x$}_1$,$y_{1}$}....{${$x$}_N$,$y_{N}$}, to a new form:
+%{${$x$}_1$,$y_{1} - F(x_{1})$}....{${$x$}_N$,$y_{N} - F(x_{N})$}, where $y_{i} - F(x_{i})$ is known as the ``residuals''. Once the training of tree $h(x)$ is complete,
+\noindent Now the second tree is grown (trained) by re-arranging the training data from the original $\{x_1,y_{1}\}....\{x_N,y_{N}\}$, to a new form:
+$\{x_1,y_{1} - F(x_{1})\}....\{x_N,y_{N} - F(x_{N})\}$, where $y_{i} - F(x_{i})$ is known as the ``residuals''. Once the training of tree $h(x)$ is complete,
 the model function is updated $F(x) \rightarrow F(x) + h(x)$. The role of $h(x)$ is to compensate for the shortcomings of the existing model.
 This is process is repeated and trees are added to the ensemble until a specified number of trees is grown, or the improvement
 from adding an additional tree is minimal. 
@@ -210,6 +212,7 @@ were used in training and found to produce the best performance:
 \item Maximum tree depth: 8
 \end{itemize}
 
+
 \noindent The number of trees is the number of weak classifiers in the ensemble or forest used in the gradient descent. The minimum node size specifies the minimum fraction of training events that must pass
 through every node in each tree. Any node with fewer events is not grown. The shrinkage parameter or learning rate specifies the step size taken between each step (tree) in the gradient descent.
 The bagged sample fraction is the fraction of sample events that are randomly re-sampled and used during tree growth. The number of cuts specifies the granularity over which an input variable is scanned
@@ -280,6 +283,7 @@ The number of training events used for the BDT targeting the \ttv background is 
 events used for the BDT targeting \ttbar is 53149. Approximately (effectively) equal numbers of signal and background events were
 used in each training. 
 In both cases, the following hyperparameters were used in training and found to produce the best performance:
+
 \begin{itemize}
 \item Number of trees: 200
 \item Minimum number of events on node: 100

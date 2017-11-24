@@ -23,7 +23,7 @@ specific datasets\footnote{These alignment and calibration settings are controll
 %\setlength\LTcapwidth{5.5in}
 %\begin{longtable}{lcp{4.5in}}
 \begin{longtable}{p{4.5in}cr}
-  \caption[Data samples]{Datasets \label{tab:datasets} }\\
+  \caption[DATA SAMPLES]{DATASETS \label{tab:datasets} }\\
   \toprule
  Dataset & Run Range & Luminosity $\mathrm{fb}^{-1}$ \\
 
@@ -122,7 +122,7 @@ data chain from initial interaction to analysis objects is in Figure~\ref{fig:da
 \begin{figure}[hbtp]
  \begin{center}
    \includegraphics[width=0.9\textwidth]{ch6_figs/data_mc_diagram.pdf}
-   \caption[Diagram comparing data taking and MC generation stages]{An overview and comparison of the data taking and MC generation stages.~\cite{cms_pflow_img}.}
+   \caption[Diagram comparing data taking and MC generation stages]{An overview and comparison of the data taking and MC generation stages~\cite{cms_pflow_img}.}
    \label{fig:data_mc_chain}
  \end{center}
 \end{figure}
@@ -135,7 +135,7 @@ This is useful because no resources are wasted filtering and storing events that
 
 \subsection{Backgrounds}
 The majority\footnote{The backgrounds estimated via data-driven methods are described in detail later.} of the background predictions in this analysis are MC-based estimations. 
-The leading MC background estimations are generated with \textsc{MadGraph5$\_$aMC$\@$NLO} with shower simulated by \textsc{PYTHIA}~\cite{aMCatNLO,nlo_showerMC,pythia}. The remaining 
+The leading MC background estimations are generated with \textsc{MadGraph5$\_$aMCatNLO} with shower simulated by \textsc{PYTHIA}~\cite{aMCatNLO,nlo_showerMC,pythia}. The remaining 
 backgrounds are generated and showered with one of the generators and shower MC already mentioned.   
 
 \begin{landscape}
@@ -144,12 +144,9 @@ backgrounds are generated and showered with one of the generators and shower MC 
 %\begin{longtable}{p{4.5in}cr}
 %\begin{longtable}{lp{4.5in}c}
 \begin{longtable}{lp{6.0in}r}
-  \caption[MC Samples]{Monte-Carlo samples used in this analysis. The first section is the sample used for signal prediction, the second section contains the largest backgrounds
-that are predicted by MC, the third section contains the samples for other, non-dominant SM backgrounds, the fourth section lists the rare SM backgrounds, and the final section
-contains the samples used in control regions, that don't directly enter the final yields or discriminant shapes.\label{tab:mc} }\\
+  \caption[MC SAMPLES]{MC SAMPLES\label{tab:mc}}\\
   \toprule
  Process & MC sample & Cross-section [pb] \\
-
   \midrule
 \endfirsthead
   \caption[]{{\em Continued}} \\  % Just like in Chp. 2
@@ -198,6 +195,9 @@ $\bar{t}W$ & \texttt{/ST\_tW\_antitop\_5f\_inclusiveDecays\_13TeV-powheg-pythia8
 
 \end{longtable}
 {\footnotesize
+NOTE: The first table section is the sample used for signal prediction, the second section contains the largest backgrounds
+that are predicted by MC, the third section contains the samples for other, non-dominant SM backgrounds, the fourth section lists the rare SM backgrounds, and the final section
+contains the samples used in control regions, that don't directly enter the final yields or discriminant shapes.\\
 $^{1}$ \texttt{RunIISummer16MiniAODv2-PUMoriond17\_80X\_mcRun2\_asymptotic\_2016\_TrancheIV\_v6-v1/MINIAODSIM} \\
 $^{2}$ \texttt{RunIISummer16MiniAODv2-PUMoriond17\_80X\_mcRun2\_asymptotic\_2016\_TrancheIV\_v6\_ext2-v1/MINIAODSIM} \\
 $^{3}$ \texttt{RunIISummer16MiniAODv2-PUMoriond17\_80X\_mcRun2\_asymptotic\_2016\_TrancheIV\_v6\_ext1-v1/MINIAODSIM} \\
@@ -220,7 +220,8 @@ in the CMS HLT menu, we use \emph{only} the lowest-threshold, unprescaled trigge
 calculation and trigger efficiency measurements straightforward. 
 
 \begin{longtable}{l}
-\caption[Trigger list]{Triggers used in this analysis.\label{tab:triggers}}\\
+\small
+\caption[TRIGGER LIST]{Triggers used in this analysis\label{tab:triggers}}\\
 \hline
 $2lss~(\mu\mu)$ \\
 \hline
@@ -278,7 +279,7 @@ the efficiencies measured in data to that in MC.
 
 \begin{table}[hbtp]
 \centering
-\caption{Trigger efficiency scale factors and uncertainties.}
+\caption[TRIGGER EFFICIENCY SCALE FACTORS]{TRIGGER EFFICIENCY SCALE FACTORS}
 \begin{tabular}{l|l}
 \hline
 Category & Scale Factor \\

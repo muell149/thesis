@@ -108,13 +108,14 @@ of $p$ = -1 in equation~\ref{eqn:antikt1}. This negative value explains the name
 $\eta$-$\phi$ plane} jets, centered on the highest \pt~candidate of the jet. The effect of these parameter values with respect to other available algorithms is below in
 Figure~\ref{fig:jet_cluster}.
 
-\begin{figure}[htbp] 
+\begin{figure}[ht] 
   {\centering
-    \subfigure[$k_{T}$]{\includegraphics[width=0.4\textwidth]{ch4_figs/kt.pdf}}
-    \subfigure[Cambridge-Aachen]{\includegraphics[width=0.4\textwidth]{ch4_figs/ca.pdf}}
-    \subfigure[SIScone]{\includegraphics[width=0.4\textwidth]{ch4_figs/sis.pdf}}
-    \subfigure[anti-$k_{T}$]{\includegraphics[width=0.4\textwidth]{ch4_figs/akt.pdf}}
-    \caption[A comparison of jet clustering algorithms]{Jets in a sample MC event clustered with various algorithms.
+    \subfigure{\includegraphics[width=0.4\textwidth]{ch4_figs/kt.pdf}}
+    \subfigure{\includegraphics[width=0.4\textwidth]{ch4_figs/ca.pdf}}\\
+    \subfigure{\includegraphics[width=0.4\textwidth]{ch4_figs/sis.pdf}}
+    \subfigure{\includegraphics[width=0.4\textwidth]{ch4_figs/akt.pdf}}\\
+    \caption[A comparison of jet clustering algorithms]{Jets clustered with various algorithms: $k_{T}$ (upper left), Cambridge-Aachen (upper right), SIScone (lower left),
+      and anti-$k_{T}$ (lower right).}
     \label{fig:jet_cluster}}
 \end{figure}
 
@@ -288,7 +289,7 @@ which requires \miniIso $<$ 0.4.
 
 \begin{table}[hbtp]
 \centering
-\caption[Electron effective areas for the pileup correction.]{Electron effective areas for the pileup correction.}
+\caption[ELECTRON EFFECTIVE AREAS FOR PILEUP CORRECTION]{Electron effective areas for the pileup correction}
 \begin{tabular}{lcc}
 \hline
 $|\eta|$ range & effective area (A) \\
@@ -307,7 +308,7 @@ $2.4 < |\eta|$ & 0.2687 \\
 
 \begin{table}[hbtp]
 \centering
-\caption[Muon effective areas for the pileup correction.]{Muon effective areas for the pileup correction.}
+\caption[MUON EFFECTIVE AREAS FOR PILEUP CORRECTION]{Muon effective areas for the pileup correction}
 \begin{tabular}{lcc}
 \hline
 $|\eta|$ range & effective area (A) \\
@@ -379,14 +380,10 @@ fakeable object selection, which is a tighter subset of the loose, is used to de
 The tight leptons, which are a subset of the fakeable, define the leptons used in the signal regions of this analysis. The details of these selections are
 described in tables~\ref{tab:muonIDs}~and~\ref{tab:eleIDs}.
 
-%%\begin{table}[h!]
 \begin{table}[htbp]
 \centering
 \small
-\topcaption{
-\label{tab:muonIDs}
-Requirements on each of the three muon selections. A few extra requirements are applied for fakeable objects that fail the lepton MVA requirement,
-to better control the extrapolation in fragmentation and flavor composition and are marked with a $\dagger$.}
+\caption[MUON SELECTION REQUIREMENTS]{MUON SELECTION REQUIREMENTS}
 \begin{tabular}{c|c|c|c}
 \hline
 \bf{Cut} & \bf{Loose} & \bf{Fakeable} & \bf{Tight} \\
@@ -407,18 +404,19 @@ tight-charge & -- & -- & \checkmark \\
 lepMVA $> 0.90$ & -- & -- & \checkmark \\
 \hline
 \end{tabular}
+\label{tab:muonIDs}
+    \begin{tablenotes}
+      \small
+    \item NOTE: Extra requirements are applied for fakeable objects that fail the lepton MVA requirement,
+      to better control the extrapolation in fragmentation and flavor composition and are marked with a $\dagger$.
+    \end{tablenotes}
 \end{table}
 
 
 \begin{table}[htbp]
 \centering
 \small
-\topcaption{
-\label{tab:eleIDs}
-Requirements on each of the three electron selections. In some cases, the cut values change for different $\eta$ ranges.
-These ranges are $0 < |\eta| < 0.8$, $0.8 < |\eta| < 1.479$, and $1.479 < |\eta| < 2.5$ and the respective cut values are given in the form
-(value$_1$, value$_2$, value$_3$). Cuts marked with $\dagger$ are applied only to objects failing the tight selection.
-}
+\caption[ELECTRON SELECTION REQUIREMENTS]{ELECTRON SELECTION REQUIREMENTS}
 \resizebox{1.0\linewidth}{!}{
 \begin{tabular}{c|c|c|c}
 \hline
@@ -444,6 +442,13 @@ Number of missing hits & $<2$ & $== 0$ & $== 0$ \\
 lepMVA $> 0.90$ & -- & -- & \checkmark \\
 \hline
 \end{tabular}}
+\label{tab:eleIDs}
+    \begin{tablenotes}
+      \small
+      \item NOTE: Requirements on each of the three electron selections. In some cases, the cut values change for different $\eta$ ranges.
+        These ranges are $0 < |\eta| < 0.8$, $0.8 < |\eta| < 1.479$, and $1.479 < |\eta| < 2.5$ and the respective cut values are given in the form
+        (value$_1$, value$_2$, value$_3$). Cuts marked with $\dagger$ are applied only to objects failing the tight selection.
+    \end{tablenotes}
 \end{table}
 
 %% \subsubsection{Lepton Variable Validation}
